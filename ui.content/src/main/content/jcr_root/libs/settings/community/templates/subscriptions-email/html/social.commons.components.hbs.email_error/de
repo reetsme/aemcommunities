@@ -1,0 +1,18 @@
+﻿subject=[Bereitstellung der E-Mail fehlgeschlagen] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Bereitstellung der E-Mail fehlgeschlagen</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+Hallo {{{email-author}}}! Folgendes konnte am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} nicht erfolgreich hinzugefügt werden.\n \
+<hr>\n \
+Versuchen Sie es erneut oder wenden Sie sich an Ihren Systemadministrator, um weitere Unterstützung zu erhalten.\n \
+</div>\n \
+</body>\n \
+</html>\n \

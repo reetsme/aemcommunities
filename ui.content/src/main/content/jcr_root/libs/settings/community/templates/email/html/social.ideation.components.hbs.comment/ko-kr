@@ -1,0 +1,26 @@
+subject={{#if this.target.properties.[jcr:title]}}[Blog Comment] {{{target.displayName}}}{{else}}[블로그 댓글]{{/if}} \
+
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "add"}}\
+    {{#if this.target.properties.[jcr:title]}}항목 "{{{target.displayName}}}"에 대한 새 블로그 댓글을 {{/if}}{{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 추가했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{#if this.target.properties.[jcr:title]}}항목 "{{{target.displayName}}}"에 대한 블로그 댓글을 {{/if}}{{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 업데이트했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{#if this.target.properties.[jcr:title]}}항목 "{{{target.displayName}}}"에 대한 블로그 댓글을 {{/if}}{{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 삭제했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{#if this.target.properties.[jcr:title]}}항목 "{{{target.displayName}}}"에 대한 블로그 댓글을 {{/if}}{{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 승인했습니다.\n \
+{{/equals}}\
+<br>이 항목에 대한 모든 블로그 댓글을 보거나 알림 환경 설정을 수정하려면 <a href="{{objectUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

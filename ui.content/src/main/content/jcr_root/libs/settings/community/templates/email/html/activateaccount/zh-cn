@@ -1,0 +1,4 @@
+subject=感謝您向我們註冊新帳戶。
+
+message=\n \
+<a href="{{actionURL}}">請按一下此連結以啟動您的帳戶</a>\n \

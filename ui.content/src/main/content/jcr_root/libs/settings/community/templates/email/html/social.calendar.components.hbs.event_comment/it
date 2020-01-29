@@ -1,0 +1,29 @@
+﻿subject=[Risposta a evento calendario] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    Una nuova risposta è stata pubblicata nell'evento calendario "{{{target.displayName}}}" da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    Una nuova risposta è stata aggiunta all'evento calendario "{{{target.displayName}}}" da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    Una risposta è stata aggiornata nell'evento calendario "{{{target.displayName}}}" da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Una risposta all'evento calendario "{{{target.displayName}}}" è stata eliminata da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    Una risposta all'evento calendario "{{{target.displayName}}}" è stata approvata da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Fai clic su questo collegamento</a> per visualizzare tutte le risposte a questo evento calendario o modificare le preferenze di notifica.\n \
+</div>\n \
+</body>\n \
+</html>\n \

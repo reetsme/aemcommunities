@@ -1,0 +1,143 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.coral-DecoratedTextfield {
+    width: 100%;
+}
+
+.social-console-settings-tab {
+    min-height: 500px;
+}
+
+.social-console-settings-tab .coral-TabPanel--large {
+    text-align: center;
+}
+
+.social-console-settings-tab .coral-TabPanel--large .coral-TabPanel-navigation {
+    display: inline-block;
+    border-bottom: 0.0625rem solid #e9e9e9;
+}
+
+.social-console-settings-tab .coral-TabPanel--large .coral-TabPanel-content {
+    border-top: 0 none;
+    text-align: center;
+}
+
+.social-console-settings-tab .coral-TabPanel--large .coral-TabPanel-content .coral-TabPanel-pane {
+    width: 44rem;
+    margin: auto;
+}
+
+
+/* need to overwrite text-align:center in child elements */
+
+.social-console-settings-tab .grid article {
+    text-align: left;
+}
+
+.social-console-user-management {
+    height: 125px;
+}
+
+.social-console-user-setting-column {
+    width: 45%;
+}
+
+.coral-Card-content span.scf-coral-card-content-title {
+    font-family: adobe-clean, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: .8125rem;
+    color: #323232;
+    text-decoration: none;
+    display: block;
+}
+
+.coral-Card-content span.scf-coral-card-content-description {
+    color: #afafaf;
+    display: block;
+    margin-top: .2rem;
+}
+
+.coral-Card-asset>div {
+    text-align: center;
+    margin-top: 1.7em;
+}
+
+.scf-js-cq-social-blueprints-select {
+    width: 100%;
+}
+
+.scf-js-cq-social-blueprints-select .coral3-Select-openIcon {
+    top: 2px;
+    left: 92%;
+    position: absolute;
+    font-size: .8125rem;
+}
+
+.scf-js-console-sitetemplates-groupTemplates > .scf-js-cq-social-blueprints-select .coral3-Select-openIcon {
+    left: 80%;
+}
+
+.scf-js-cq-social-blueprints-select .coral-Tag-removeButton {
+    line-height: 13px;
+    border: 0;
+    height: auto;
+    background-color: transparent;
+}
+
+.scf-js-cq-social-blueprints-select .coral-Button:not(:disabled):not(.is-disabled).coral-Tag-removeButton:hover {
+    background-color: transparent;
+}
+
+.js-scf-communities-components-form .js-coral-Wizard-nav {
+    display: none;
+}
+
+.js-scf-communities-components-form .js-scf-communities-components-column {
+    width: 44rem;
+}
+
+.js-scf-communities-components-form .js-scf-communities-components-column .grid-container {
+    padding: 0;
+    text-align: left;
+}
+
+.js-scf-communities-components-form .scf-sitetemplate-tabs {
+    display: inline-block;
+}
+
+.js-scf-communities-components-form .coral-TabPanel {
+    text-align: center;
+}
+
+.scf-js-social-console-imageupload table {
+    margin: auto;
+}
+
+.scf-js-social-console-imageupload table .coral-Table-cell {
+    background-color: #fff;
+    border: 1px solid #e9e9e9;
+    border-top: none;
+}
+
+.scf-js-social-console-imageupload table .coral-Table-headerCell {
+    background-color: #f0f0f0;
+    border: 1px solid #d2d2d2;
+    border-bottom: none;
+}

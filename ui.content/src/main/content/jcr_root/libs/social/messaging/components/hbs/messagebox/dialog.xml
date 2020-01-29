@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <common
+                    jcr:primaryType="cq:Widget"
+                    title="Basic"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <serviceSelector
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="false"
+                            defaultValue=""
+                            fieldDescription="Identifier to be used to select an instance of messaging operation service."
+                            fieldLabel="Service selector"
+                            name="./serviceSelector"
+                            xtype="textfield"/>
+                        <replyurl
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldDescription="This should point to page which has compose message form."
+                            fieldLabel="Compose Page"
+                            name="./replyURL"
+                            xtype="pathfield"/>
+                        <replyURLType
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="If checked, Reply URL and View URL will be built upon resource. Otherwise data will be sent as Query String."
+                            fieldLabel="Reply/View as Resource"
+                            name="./replyType"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <profilePath
+                            jcr:primaryType="cq:Widget"
+                            defaultValue=""
+                            fieldLabel="Profile Display Form"
+                            name="./profileFormPath"
+                            xtype="textfield"/>
+                        <foldertype
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Is this a trash folder?"
+                            fieldLabel="Trash Folder"
+                            name="./isTrash"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <folderpaths
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="These paths are relative to user's home directory."
+                            fieldLabel="Folder Paths"
+                            name="./folderPaths"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="cq:Widget"
+                                xtype="textfield"/>
+                        </folderpaths>
+                    </items>
+                </common>
+                <buttons
+                    jcr:primaryType="cq:Widget"
+                    title="Display"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <markread
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}true"
+                            defaultValue="{Boolean}true"
+                            fieldLabel="Mark Read Button"
+                            name="./showMarkRead"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <markunread
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}true"
+                            defaultValue="{Boolean}true"
+                            fieldLabel="Mark Unread Button"
+                            name="./showMarkUnread"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <delete
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}true"
+                            defaultValue="{Boolean}true"
+                            fieldLabel="Delete Button"
+                            name="./showDelete"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <messageoptions
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}true"
+                            defaultValue="{Boolean}false"
+                            fieldLabel="Message Options"
+                            name="./showMessageOptions"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <pagesize
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="10"
+                            fieldDescription="Number of messages to be shown per page"
+                            fieldLabel="Messages Per Page"
+                            minValue="1"
+                            name="./pageSize"
+                            xtype="numberfield"/>
+                        <dateformatpatterns
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="[en=MMM-DD-YYYY HH:mm:ss,de=DD-MMM-YYYY HH:mm:ss,fr=DD-MMM-YYYY HH:mm:ss,it=DD-MMM-YYYY HH:mm:ss,es=DD-MMM-YYYY HH:mm:ss,ja=YYYY-MMM-DD HH:mm:ss,zh_CN=YYYY-MMM-DD HH:mm:ss,ko_KR=YYYY-MMM-DD HH:mm:ss]"
+                            fieldDescription="Specify date format to be displayed on messages in the format locale=timestamp Eg. en=MM-DD-YYYY HH:mm:ss"
+                            fieldLabel="Timestamp patterns"
+                            name="./dateFormatPatterns"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="cq:Widget"
+                                xtype="textfield"/>
+                        </dateformatpatterns>
+                        <displayUserType
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Sender"
+                            fieldDescription="Whether to show Sender or Recipients in Message-List"
+                            fieldLabel="Display User"
+                            name="./displayUserType"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <sender
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Sender"
+                                    value="Sender"/>
+                                <recipients
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Recipients"
+                                    value="Recipients"/>
+                            </options>
+                        </displayUserType>
+                    </items>
+                </buttons>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

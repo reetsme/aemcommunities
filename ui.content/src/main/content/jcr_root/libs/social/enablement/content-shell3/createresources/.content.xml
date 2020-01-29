@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Create a New Resource"
+        sling:resourceType="granite/ui/components/foundation/page"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/resource-create">
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/admin/page/viewport"/>
+            <meta
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/meta"
+                content="chrome=1"
+                name="X-UA-Compatible"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[granite.shared,coralui3,granite.ui.coral.foundation.admin,cq.social.console.hbs.createresourceswizard,cq.social.enablement.hbs.createresources,cq.social.console.hbs.userlist,cq.social.console.hbs.imageupload,social-enablement-core,cq.social.enablement.hbs.selectedsite,cq.social.enablement.hbs.resourcetags,cq.social.enablement.hbs.userselector]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/layouts/fit"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/content"/>
+                <current
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Preview"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <createresource
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/enablement/components/hbs/admin/createresources"
+                            foundation-mode-group="cq-social-console-preview"
+                            foundation-validation-ui="none"
+                            rel="cq-live-copy-from"
+                            selectionMode="single"/>
+                    </items>
+                </current>
+            </content>
+        </body>
+    </jcr:content>
+</jcr:root>

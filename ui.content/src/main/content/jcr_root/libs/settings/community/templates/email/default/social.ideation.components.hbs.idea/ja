@@ -1,0 +1,28 @@
+﻿subject=[アイディエーションイベント] {{{object.displayName}}}
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   {{{user.name}}}さんが新しいアイディエーションイベントを投稿しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   {{{user.name}}}さんが新しいアイディエーションイベントを追加しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}}さんがアイディエーションイベントを更新しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}}さんがアイディエーションイベントを削除しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{{user.name}}}さんがアイディエーションイベントを承認しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+    {{{user.name}}}さんがアイディエーションイベントを閉じました。\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+    {{{user.name}}}さんがアイディエーションイベントを再度開きました。\n\n \
+{{/equals}}\
+すべてのアイディエーションイベントを表示したり、通知の基本設定を変更したりするには、このリンクをクリックしてください。\n \
+{{targetUrl}}\n \

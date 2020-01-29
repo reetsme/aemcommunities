@@ -1,0 +1,276 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("/etc.clientlibs/fd/af/runtime/clientlibs/third-party/resources/fonts/glyphicons-halflings-regular.eot");
+    src: url("/etc.clientlibs/fd/af/runtime/clientlibs/third-party/resources/fonts/glyphicons-halflings-regular.eot?#iefix") format('embedded-opentype'), url('/etc.clientlibs/fd/af/runtime/clientlibs/third-party/resources/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/etc.clientlibs/fd/af/runtime/clientlibs/third-party/resources/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/etc.clientlibs/fd/af/runtime/clientlibs/third-party/resources/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.scf-event-empty-cover-image {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 14px;
+}
+
+.scf-calendar-autocomplete-menu .ui-menu-item {
+    font-size: 13px;
+}
+
+.scf-calendar .scf-is-collapsed {
+    display: none;
+}
+
+.scf-calendar .scf-composer .scf-form_datepicker_left,
+.scf-event .scf-composer .scf-form_datepicker_left {
+    float: left;
+}
+
+.scf-calendar .scf-composer .scf-form_datepicker_middle,
+.scf-event .scf-composer .scf-form_datepicker_middle {
+    float: left;
+    width: 23px;
+    height: 66px;
+}
+
+.scf-calendar .scf-composer .scf-form_datepicker_right,
+.scf-event .scf-composer .scf-form_datepicker_right {
+    float: left;
+    min-width: 505px;
+}
+
+.scf-calendar .scf-form-padding,
+.scf-event .scf-form-padding {
+    margin-top: 10px;
+}
+
+.scf-calendar .scf-composer-msg::-webkit-input-placeholder:before,
+.scf-event .scf-composer-msg::-webkit-input-placeholder:before {
+    content: "";
+}
+
+.scf-calendar .scf-composer-msg:-moz-placeholder:before,
+.scf-event .scf-composer-msg:-moz-placeholder:before {
+    content: "";
+}
+
+.scf-calendar .scf-composer-msg::-moz-placeholder:before,
+.scf-event .scf-composer-msg::-moz-placeholder:before {
+    content: "";
+}
+
+.scf-calendar .scf-composer-msg:-ms-input-placeholder:before,
+.scf-event .scf-composer-msg:-ms-input-placeholder:before {
+    content: "";
+}
+
+.scf-calendar .scf-composer .scf-label,
+.scf-event .scf-composer .scf-label {
+    font-weight: normal;
+}
+
+.scf-event-cover-image {
+    display: block;
+    min-width: 120px;
+    min-height: 80px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.scf-event-list {
+    list-style-type: none;
+}
+
+li.scf-event-listitem {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+li.scf-event-listitem:last-child {
+    border-bottom: 0;
+}
+
+.scf-event-cover {
+    border: 1px solid #C1BFBF;
+    float: left;
+    width: 122px;
+    display: block;
+    height: 82px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scf-event-col1 {
+    position: relative;
+    margin-left: 130px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+}
+
+.scf-event-listitem .scf-selected-tag {
+    padding: 3px;
+    margin-right: 3px;
+    font-size: 10px;
+}
+
+.scf-event-listitem-start-date,
+.scf-event-listitem-start-time,
+.scf-event-listitem-location,
+.scf-event-listitem-full-day {
+    font-weight: bold;
+}
+
+.scf-calendar .scf-horizontal-tag-list,
+.scf-event .scf-horizontal-tag-list {
+    overflow: auto;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.scf-calendar .scf-horizontal-tag-list li,
+.scf-event .scf-horizontal-tag-list li {
+    border-radius: 6px;
+}
+
+.scf-icon-calendar:before {
+    content: "\f137";
+    font-family: SCFIcons;
+}
+
+.scf-calendar-smart-tags input,
+.ui-widget.scf-calendar-smart-tags input {
+    font-size: 14px;
+    margin-left: 6px;
+}
+
+.scf-calendar-smart-tags.ui-widget-content {
+    overflow: auto;
+}
+
+ul.tagit.scf-calendar-smart-tags.ui-widget-content li.tagit-choice {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+ul.tagit.scf-calendar-smart-tags.ui-widget-content li.tagit-new {
+    padding-top: 0.1em;
+}
+
+.scf-calendar-toolbar ul.tagit.scf-calendar-smart-tags.ui-widget-content li.tagit-new {
+    width: 80px;
+}
+
+.scf-calendar .ui-widget-content {
+    border: 1px solid #ccc;
+}
+
+.scf-event .scf-comment-action {
+    display: inline-block;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.ui-widget-content .scf-calendar-datepicker-buttons a {
+    color: #227ECB;
+}
+
+.ui-widget-content .scf-calendar-datepicker-buttons {
+    font-size: 12px;
+    padding: 6px;
+}
+
+.scf-event-basics-start-time,
+.scf-event-basics-end-time,
+.scf-event-listitem-start-time,
+.scf-event-listitem-end-time {
+    text-transform: uppercase;
+}
+
+.scf-calendar input[type="file"],
+.scf-event input[type="file"] {
+    display: none;
+}
+
+.scf-composer-attach-cover {
+    float: left;
+    margin-left: 4px;
+}
+
+.scf-calendar .scf-js-error-message,
+.scf-event .scf-js-error-message {
+    background: #d9534f;
+    border-radius: 0;
+}
+
+.scf-event-timepicker {
+    max-width: 75px;
+    float: left;
+    margin-right: 4px;
+}
+
+.scf-event-timepicker-ampm.form-control {
+    width: initial;
+    max-width: initial;
+}
+
+.scf-event-timepicker-timezone {
+    max-width: 255px;
+}
+
+.scf-calendar-toolbar > form > div.row > div {
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+.scf-calendar-toolbar > form > div.row > div:first-child {
+    padding-left: 15px;
+}
+
+.scf-calendar-toolbar > form > div.row > div:last-child {
+    padding-right: 15px;
+}
+
+.scf-event .scf-post {
+    margin-bottom: 20px;
+}
+
+.ui-datepicker .ui-state-hover,
+.ui-datepicker.ui-widget-content .ui-state-hover {
+    margin: inherit;
+    font-weight: normal;
+}
+
+
+/* increase z-index set by bootstrap */
+
+.scf-calendar-toolbar .input-group .form-control {
+    z-index: 99;
+}
+
+.scf-calendar .scf-badge-image {
+    float: none;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.scf-event .scf-badge-image {
+    float: none;
+}

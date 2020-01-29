@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Social Tag Cloud"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <display
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Social Tags to Display"
+            name="./display"
+            type="select"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <pagetree
+                    jcr:primaryType="cq:Widget"
+                    text="From page and child pages"
+                    value="pagetree"/>
+                <all
+                    jcr:primaryType="cq:Widget"
+                    text="All tags"
+                    value="all"/>
+            </options>
+        </display>
+        <displaypath
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Leave empty for current page. Ignored when 'All tags' is selected above."
+            fieldLabel="Page"
+            name="./path"
+            predicate="system"
+            xtype="pathfield"/>
+        <noLinks
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Disables any link template design value."
+            fieldLabel="No links on tags"
+            name="./noLinks"
+            type="checkbox"
+            xtype="selection"/>
+        <searchPaths
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Search Result Path"
+            fieldLabel="Search Result Path"
+            name="./searchResultPath"
+            xtype="pathfield"/>
+    </items>
+</jcr:root>

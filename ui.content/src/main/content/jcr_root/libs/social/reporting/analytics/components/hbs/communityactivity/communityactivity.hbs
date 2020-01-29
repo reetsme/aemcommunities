@@ -1,0 +1,72 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-communityactivity" data-component-id="{{id}}" data-scf-component="social/reporting/analytics/components/hbs/communityactivity">
+    <li>
+        {{#equals activityType "members"}}
+            <a href="{{this.member.profileUrl}}"><img class="scf-follow-avatar" src="{{this.member.largeAvatarUrl}}" /></a>
+            <a class="scf-link" href="{{this.member.profileUrl}}">{{this.member.name}}</a>
+            {{else}}
+                <a class="scf-analytics-activity-content-link" href="{{this.path}}">
+            {{#equals ugcType "social/forum/components/hbs/forum"}}
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/forum/components/hbs/topic"}}
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/journal/components/hbs/journal"}}
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/journal/components/hbs/entry_topic"}}
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/qna/components/hbs/qnaforum"}}
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/qna/components/hbs/topic"}}
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/calendar/components/hbs/calendar"}}
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/calendar/components/hbs/event"}}
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/filelibrary/components/hbs/filelibrary"}}
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/filelibrary/components/hbs/document"}}
+                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/filelibrary/components/hbs/folder"}}
+                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/ideation/components/hbs/ideation"}}
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            {{/equals}}
+            {{#equals ugcType "social/ideation/components/hbs/idea"}}
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            {{/equals}}
+            </a>
+                <div class="scf-analytics-activity-content">
+                    <a class="scf-link" href="{{this.path}}">{{this.title}}</a>
+                    <p class="scf-activity-time">{{i18n "Posted"}} {{pretty-time created}}</p>
+                </div>
+        {{/equals}}
+    </li>
+</div>

@@ -1,0 +1,32 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="wizard-step">
+    <div id="collectionsettings" class="coral-FixedColumn-column">
+        <h1 class="content-create-heading">{{i18n "Add Assignees"}}</h1>
+        <div id="scf-js-social-enablement-assignments" class="scf-js-social-enablement-assignments coral-Form-fieldwrapper" data-add-learners="{{listOfEnrolledAuthorizableIds}}">
+            {{include this resourceType="social/enablement/components/hbs/admin/userselector"}}
+        </div>
+
+        <div>
+            <coral-checkbox name="send-enrollment-email" value="true" {{#if sendEnrollmentEmail}} checked {{/if}}>
+                {{i18n "Send assignment notification to selected user(s)"}}
+            </coral-checkbox>
+        </div>
+    </div>
+</div>

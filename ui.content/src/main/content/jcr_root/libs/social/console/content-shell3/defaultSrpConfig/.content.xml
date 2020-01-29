@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Communities Default Social Storage Configuration"
+        sling:resourceType="granite/ui/components/shell/page"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/admin/defaultsrp">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[cq.common.wcm,cq.social.console.hbs.defaultsrp]"/>
+        </head>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <defaultsrp
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/console/components/hbs/defaultsrp"/>
+            </items>
+        </content>
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/text"
+            text="AEM Communities Default Social Storage Configuration"/>
+    </jcr:content>
+</jcr:root>

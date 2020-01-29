@@ -1,0 +1,139 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+
+<div class="coral-TabPanel-pane is-active" id="coral-3" role="tabpanel" aria-hidden="true">
+
+    <div class="info-page-section">
+        <h4 class="info-page-section-heading">{{i18n "Assignees"}}</h4>
+        <div class="se-resource-enrolles">
+
+            {{#unless assignees.empty}}
+                {{#each assignees.authorizables}}
+                    <div class="enrolle-row">
+                        <div class="enrolle-thumb"><img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/avatar.png"></div>
+                        <div class="enrolle-name">{{authName}}</div>
+                        <div class="enrolle-email">{{authId}}</div>
+                    </div>
+                {{/each}}
+            {{/unless}}
+
+        </div>
+    </div>
+
+
+    <div class="info-page-section">
+        <h4 class="info-page-section-heading">{{i18n "Resource Management"}}</h4>
+        <span class="coral-Form-fieldlabel">{{i18n "Status"}}</span>
+        {{#if isPublished}}
+            <div class="se-resource-publish-status">{{i18n "Published"}}</div>
+        {{else}}
+            <div class="se-resource-publish-status">{{i18n "Not Published"}}</div>
+        {{/if}}
+    </div>
+
+    <div class="info-page-section">
+        <h4 class="info-page-section-heading">{{i18n "Social Settings"}}</h4>
+        <span class="coral-Form-fieldlabel">{{i18n "Ratings"}}</span>
+
+        {{#if allowRatings}}
+            <div class="se-resource-ratings-status">{{i18n "Enabled"}}</div>
+        {{else}}
+            <div class="se-resource-ratings-status">{{i18n "Disabled"}}</div>
+        {{/if}}
+
+        <span class="coral-Form-fieldlabel">{{i18n "Comments"}}</span>
+        {{#if allowComments}}
+            <div class="se-resource-comments-status">{{i18n "Enabled"}}</div>
+        {{else}}
+            <div class="se-resource-comments-status">{{i18n "Disabled"}}</div>
+        {{/if}}
+
+    </div>
+
+    <div class="info-page-section">
+        <h4 class="info-page-section-heading">{{i18n "Visibility Settings"}}</h4>
+        <span class="coral-Form-fieldlabel">{{i18n "Show in catalog"}}</span>
+
+        {{#if allowCatalogVisibility}}
+            <div class="se-resource-catalog-visibility-status">{{i18n "Yes"}}</div>
+        {{else}}
+            <div class="se-resource-catalog-visibility-status">{{i18n "No"}}</div>
+        {{/if}}
+
+        <span class="coral-Form-fieldlabel">{{i18n "Anonymous Access"}}</span>
+        {{#if allowAnonymous}}
+            <div class="se-resource-anonymous-access-status">{{i18n "Yes"}}</div>
+        {{else}}
+            <div class="se-resource-anonymous-access-status">{{i18n "No"}}</div>
+        {{/if}}
+
+    </div>
+
+
+    <div class="info-page-section">
+
+        <h4 class="info-page-section-heading">{{i18n "Resource Authors"}}</h4>
+        <div class="se-resource-enrolles">
+
+            {{#unless authors.empty}}
+                {{#each authors.authorizables}}
+                    <div class="enrolle-row">
+                        <div class="enrolle-thumb"><img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/avatar.png"></div>
+                        <div class="enrolle-name">{{authName}}</div>
+                        <div class="enrolle-email">{{authId}}</div>
+                    </div>
+                {{/each}}
+            {{/unless}}
+
+        </div>
+
+        <h4 class="info-page-section-heading">{{i18n "Resource Contacts"}}</h4>
+        <div class="se-resource-enrolles">
+
+            {{#unless contacts.empty}}
+                {{#each contacts.authorizables}}
+                    <div class="enrolle-row">
+                        <div class="enrolle-thumb"><img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/avatar.png"></div>
+                        <div class="enrolle-name">{{authName}}</div>
+                        <div class="enrolle-email">{{authId}}</div>
+                    </div>
+                {{/each}}
+            {{/unless}}
+
+        </div>
+
+        <h4 class="info-page-section-heading">{{i18n "Resource Experts"}}</h4>
+        <div class="se-resource-enrolles">
+
+            {{#unless experts.empty}}
+                {{#each experts.authorizables}}
+                    <div class="enrolle-row">
+                        <div class="enrolle-thumb"><img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/avatar.png"></div>
+                        <div class="enrolle-name">{{authName}}</div>
+                        <div class="enrolle-email">{{authId}}</div>
+                    </div>
+                {{/each}}
+            {{/unless}}
+
+        </div>
+
+    </div>
+</div>

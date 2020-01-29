@@ -1,0 +1,36 @@
+subject=[构思事件回复] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 发布了针对构思事件“{{{target.displayName}}}”的此回复。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 添加了针对构思事件“{{{target.displayName}}}”的此回复。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新了针对构思事件“{{{target.displayName}}}”的此回复。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 删除了针对构思事件“{{{target.displayName}}}”的此回复。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 从构思事件“{{{target.displayName}}}”中删除了此回复。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 批准了针对构思事件“{{{target.displayName}}}”的此回复。\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}<br>构思事件的状态已更改为：“{{{this.object.properties.toState}}}”。{{/if}} \n \
+<hr>\n \
+请<a href="{{objectReferrer}}">单击此链接</a>查看针对此构思事件的所有回复或修改您的订阅。\n \
+</div>\n \
+</body>\n \
+</html>\n \

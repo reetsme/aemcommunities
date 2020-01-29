@@ -1,0 +1,8 @@
+subject=[私人留言] {{object.component.subject}}
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}\n\n \
+{{user.name}} 发送了新消息。\n \
+-------------------------------------------------------------------------------------\n\n \
+请单击此链接查看所有消息或修改您的通知首选项。\n \
+{{targetUrl}}\n \

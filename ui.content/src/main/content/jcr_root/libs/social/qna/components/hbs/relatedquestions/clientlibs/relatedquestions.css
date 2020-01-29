@@ -1,0 +1,210 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+div.communities {
+    margin: 30px 0 0 0 !important;
+}
+
+ul.communities {
+    margin: 0 !important;
+}
+
+ul.communities span.bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: #000 solid 1px;
+    margin-right: 10px;
+    margin-top: 15px;
+    float: left;
+    line-height: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul.communities li {
+    display: block;
+    min-height: 50px !important;
+    height: auto !important;
+}
+
+ul.communities ul.child {
+    margin-left: 20px !important;
+    padding: 0 0 0 20px;
+    display: none;
+    clear: both;
+}
+
+ul.communities ul.child li {
+    border: 0 !important;
+    min-height: 40px !important;
+}
+
+ul.communities ul.child img.thumbnail {
+    width: 40px;
+    height: 40px;
+}
+
+ul.communities ul.child a {
+    font-size: 15px !important;
+    line-height: 40px !important;
+}
+
+a.addCommunity,
+ul.communities span.actions a.addCommunity {
+    font-size: 11px !important;
+}
+
+div.communities {
+    margin-top: 100px;
+}
+
+div.communities.subcommunities {
+    margin: 0;
+}
+
+div.communities h1 {
+    font-family: "Tahoma";
+    font-size: 30px;
+    width: 604px;
+    margin: 0 auto;
+    color: #252525;
+    padding-bottom: 20px;
+}
+
+div.gallery-overlay {
+    padding-top: 20px;
+    position: relative;
+    height: 180px;
+}
+
+div.gallery {
+    position: absolute;
+    width: 604px;
+    right: 0;
+    display: block !important;
+}
+
+div.gallery a.nav-left,
+div.gallery a.nav-right {
+    display: block;
+    width: 30px;
+    height: 180px;
+    background: #000;
+    opacity: 0.7;
+    color: #fff;
+    float: left;
+    font-size: 16px;
+    line-height: 180px;
+    text-align: center;
+    font-family: Tahoma;
+    cursor: pointer;
+}
+
+div.gallery a.nav-right {
+    float: right;
+}
+
+div.gallery a.inactive {
+    opacity: 0.2;
+    cursor: default;
+}
+
+div.gallery div.photos-container {
+    position: relative;
+    overflow: hidden;
+    width: 544px;
+    height: 180px;
+    float: left;
+    z-index: 1;
+}
+
+div.gallery ul.photos {
+    width: 2000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+div.gallery ul.photos li {
+    float: left;
+    position: relative;
+    height: 180px;
+    z-index: 3;
+}
+
+div.gallery ul.photos li img {
+    height: 180px;
+}
+
+div.gallery ul.photos div.description {
+    font-family: Arial;
+    display: none;
+}
+
+div.gallery ul.photos li:hover div.description {
+    display: block;
+}
+
+div.gallery ul.photos li div.text-bkg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #000;
+    opacity: 0.7;
+    z-index: 4;
+}
+
+div.gallery ul.photos li div.text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    height: 50px;
+    color: #fff;
+    z-index: 5;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+div.text-only {
+    background: #f5f5f9 !important;
+    padding: 20px !important;
+}
+
+div.text-only ul {
+    margin: 0 !important;
+}
+
+div.text-only div.breadcrumbs {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 0 0 6px 0;
+    margin: 0 0 5px 0;
+    border-bottom: #252525 solid 1px;
+}
+
+div.text-only ul ul {
+    padding-left: 10px !important;
+}

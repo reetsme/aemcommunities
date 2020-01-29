@@ -1,0 +1,44 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-forum .scf-is-collapsed {
+    display: none;
+}
+
+.scf-qna-glyphicon {
+    font-size: 1.4em;
+    color: #18bc9c;
+}
+
+.scf-qna-answered {
+    color: #18bc9c;
+    padding-right: 5px;
+}
+
+.scf-qna-selected {
+    float: right;
+}
+
+.scf-qna-comment-body {
+    padding: 10px;
+    margin: 10px;
+}
+
+.scf-qna-comment-votes {
+    margin-top: 10px;
+}

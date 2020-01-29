@@ -1,0 +1,32 @@
+﻿subject=[Publicación del foro] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+   Esta publicación del foro la ha realizado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   Esta publicación del foro la ha añadido {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   Esta publicación del foro la ha actualizado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   Esta publicación del foro la ha eliminado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   Esta publicación del foro la ha aprobado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">Haga clic en este vínculo</a> para ver todas las publicaciones realizadas en este tema del foro o modificar su suscripción.\n \
+</div>\n \
+</body>\n \
+</html>\n \

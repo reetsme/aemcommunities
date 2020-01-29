@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Authorized User ACL Check of /var"
+    diagnosticsType="UserAccessConfigurationStep"
+    docsSectionName="Create Authorized User"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable2_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}true"
+    haltOnError="{Boolean}false"
+    jsObjectName="step3Publish"
+    principal="@@queryInfo.predicates.syncUser[0]"
+    repositoryPath="/var"
+    runGroups="[all,initial]"
+    runModes="[publish]">
+    <check-user-exists
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(stepdata.step3Publish.principalExists)"
+        description="@@&quot;Principal &quot; + stepdata.step3Publish.principal + &quot; must exist on Publisher&quot;"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-group-administrators
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(stepdata.step3Publish.groups.administrators!==undefined)"
+        description="@@&quot;Principal &quot; + stepdata.step3Publish.principal + &quot; must belong to the Administrators group on the Publisher&quot;"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-jcr-rep-write
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(stepdata.step3Publish.acls[&quot;rep:write&quot;]!==undefined)"
+        description="@@&quot;Principal &quot; + stepdata.step3Publish.principal + &quot; must have rep:write privileges to /var on Publisher&quot;"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-jcr-read
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(stepdata.step3Publish.acls[&quot;jcr:read&quot;]!==undefined)"
+        description="@@&quot;Principal &quot; + stepdata.step3Publish.principal + &quot; must have jcr:read privileges to /var on Publisher&quot;"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+</jcr:root>

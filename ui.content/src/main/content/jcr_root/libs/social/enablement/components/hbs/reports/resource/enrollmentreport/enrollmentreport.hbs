@@ -1,0 +1,153 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-enrollment-table" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/resource/enrollmentreport">
+    {{#if queryRequest}}
+        <table class="scf-table coral-Table" id="enrollment-table" width="100%">
+            <thead>
+                <tr class="coral-Table-row">
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Email"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "First Name"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Last Name"}}</th>
+                    {{#if scormResource}}
+                        {{include this resourceType="social/enablement/components/hbs/reports/enrollmentreport" template="enrollmentreportscoredhead"}}
+                    {{else}}
+                        {{#equals resourcePrimaryAssetType "location"}}
+                            {{include this resourceType="social/enablement/components/hbs/reports/enrollmentreport" template="enrollmentreportscoredhead"}}
+                    {{else}}
+                        <th class="coral-Table-headerCell">{{i18n "Status"}}</th>
+                        {{/equals}}
+                    {{/if}}
+                    <th class="coral-Table-headerCell">{{i18n "Assigned"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Comments"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Rating"}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                    <tr class="coral-Table-row" data-scf-userId="{{userId}}">
+                        <td class="coral-Table-cell">{{userId}}</td>
+                        <td class="coral-Table-cell">{{firstName}}</td>
+                        <td class="coral-Table-cell">{{lastName}}</td>
+                        {{#if scormResource}}
+                            <td class="coral-Table-cell">{{score}}</td>
+                            <td class="coral-Table-cell">{{i18n completionStatus}}</td>
+                            <td class="coral-Table-cell">{{i18n successStatus}}</td>
+                        {{else}}
+                            {{#equals ../../resourcePrimaryAssetType "location"}}
+                                <td class="coral-Table-cell">{{score}}</td>
+                                <td class="coral-Table-cell">{{i18n completionStatus}}</td>
+                                <td class="coral-Table-cell">{{i18n successStatus}}</td>
+                        {{else}}
+                            <td class="coral-Table-cell">
+                                {{#if percentageStatus}}
+                                    <div class="coral-Progress">
+                                        <div class="coral-Progress-bar" title="{{i18n completionStatus}}">
+                                            <div class="coral-Progress-status" style="width: {{completionStatus}};"></div>
+                                        </div>
+                                        <label class="coral-Progress-label">
+                                            {{i18n completionStatus}}
+                                        </label>
+                                    </div>
+                                {{else}}
+                                    {{i18n completionStatus}}
+                                {{/if}}
+                            </td>
+                            {{/equals}}
+                        {{/if}}
+                        {{#if assigned}}
+                            <td class="coral-Table-cell">{{i18n "Yes"}}</td>
+                        {{else}}
+                            <td class="coral-Table-cell">{{i18n "No"}}</td>
+                        {{/if}}
+                        <td class="coral-Table-cell">{{commentCount}}</td>
+                        <td class="coral-Table-cell" data-order="{{rating}}">
+                            <div class="emptyStar" title="{{rating}}">
+                                <div class="ratingStar" style="width: {{ratingWidth}}%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <coral-wait centered size="L"></coral-wait>
+    {{/if}}
+</div>
+
+<coral-dialog id="myModal" variant="default" backdrop="static" closable="on">
+    <coral-dialog-header>{{i18n "Edit Report"}}</coral-dialog-header>
+    <coral-dialog-content>
+        <form id="scf-external-resource-report-edit-form">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "First Name"}}</label>
+                <input is="coral-textfield" value="" disabled>
+            </div>
+            <br/>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Last Name"}}</label>
+                <input is="coral-textfield" value="" disabled>
+            </div>
+            <br/>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Completion Status"}}</label>
+                <coral-select id="scf-external-resource-completion-status" class="coral-Form-field" placeholder="{{i18n "Completion Status"}}">
+                    <coral-select-item value="In Progress">{{i18n "In Progress"}}</coral-select-item>
+                    <coral-select-item value="Completed">{{i18n "Completed"}}</coral-select-item>
+                </coral-select>
+            </div>
+            <br/>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Score"}}</label>
+                <coral-numberinput id="scf-external-resource-score" max="100" min="0" name="field" value="0" required></coral-numberinput>
+            </div>
+            <br/>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Success Status"}}</label>
+                <coral-select id="scf-external-resource-success-status" class="coral-Form-field" placeholder="{{i18n "Success Status"}}">
+                    <coral-select-item value="Passed">{{i18n "Passed"}}</coral-select-item>
+                    <coral-select-item value="Failed">{{i18n "Failed"}}</coral-select-item>
+                </coral-select>
+            </div>
+        </form>
+    </coral-dialog-content>
+    <coral-dialog-footer>
+        <button is="coral-button" variant="default" coral-close>{{i18n "Close"}}</button>
+        <button is="coral-button" variant="primary" class="scf-edit-report-save" coral-close>{{i18n "Save"}}</button>
+    </coral-dialog-footer>
+</coral-dialog>
+
+
+<coral-dialog id="scf-select-row-modal" variant="error" backdrop="static" closable="on">
+    <coral-dialog-header>{{i18n "Error"}}</coral-dialog-header>
+    <coral-dialog-content>
+        {{i18n "Please select a table row to edit."}}
+    </coral-dialog-content>
+    <coral-dialog-footer>
+        <button is="coral-button" variant="default" coral-close>{{i18n "Close"}}</button>
+    </coral-dialog-footer>
+</coral-dialog>
+
+<script type="text/template" id="edit-button-template">
+    <div class="ColVis">
+        <button id="editReport" class="ColVis_Button ColVis_MasterButton">
+            <span>{{i18n "Edit"}}</span>
+        </button>
+    </div>
+</script>
+{{includeClientLib categories="cq.social.author.enablement.hbs.reports.resource.enrollments" }}

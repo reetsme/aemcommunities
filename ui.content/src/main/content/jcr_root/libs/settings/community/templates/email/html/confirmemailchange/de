@@ -1,0 +1,18 @@
+﻿subject=E-Mail-Aktualisierungsanfrage
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>E-Mail-Aktualisierungsanfrage</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hallo {{{givenName}}},</p>\n \
+<p>wir haben eine Anfrage zum Ändern der E-Mail-Adresse erhalten, die mit Ihrem Konto verknüpft ist.</p>\n \
+<p>Eine E-Mail wurde an die E-Mail-Adresse {{{newEmail}}} gesendet. Sobald diese Adresse bestätigt wurde (indem Sie auf den Link in der E-Mail klicken), ist diese neue E-Mail-Adresse mit Ihrem Konto verknüpft.</p>\n \
+<p>Wenn Sie den Link nicht bis {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} anklicken, wird er ungültig, und Ihre aktuelle E-Mail-Adresse wird weiterhin für die gesamte Korrespondenz verwendet.</p>\n \
+<p>Wenn Sie diese Anfrage nicht gesendet haben, wurde Ihr Konto wahrscheinlich von einer anderen Person übernommen.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

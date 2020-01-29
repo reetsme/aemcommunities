@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Edit"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Configuration">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <initialNumVisible
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        emptyText="50"
+                        fieldDescription="Set the default number of comments visible upon load.  This may be an integer from 1 to 50. "
+                        fieldLabel="Initial Items"
+                        maxValue="50"
+                        minValue="1"
+                        name="./initialNumVisible"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <readOnly
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="Disables all interactivity. Users will be unable to log into the stream, and unable to Post, Edit, Reply to, or Like content."
+                        fieldLabel="Read Only"
+                        name="./readOnly"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <disableAvatars
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="Prevents avatars from being rendered"
+                        fieldLabel="Hide Avatars"
+                        name="./disableAvatars"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <datetimeFormat
+                        jcr:primaryType="cq:Widget"
+                        emptyText="MM dd yyyy"
+                        fieldDescription="Specifies the format for rendering dates and times. For more information, see &lt;a href='http://answers.livefyre.com/developers/reference/customization/date-time-stamp/' target='_blank'>Customizing Date and Time Stamps.&lt;/a>"
+                        fieldLabel="Date Format"
+                        name="./datetimeFormat"
+                        xtype="textfield"/>
+                    <collectionLink
+                        jcr:primaryType="cq:Widget"
+                        html="&lt;a href=&quot;#&quot; class=&quot;scf-js-lf-collectionLink&quot; target=&quot;_blank&quot;>&lt;/a>"
+                        xtype="static"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeshow="function(dialog){ window.LivefyreAuthoringComponents.determineCollectionUrl(dialog); }"/>
+</jcr:root>

@@ -1,0 +1,15 @@
+subject=사용자 이름 요청
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>사용자 이름 요청</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}님 안녕하세요!</p>\n \
+<p>{{{social}}}을(를) 통해 계정을 설정하셨습니다. 사이트에 접속하려면 로그인 시 {{{social}}} 로그인을 사용하십시오.</p>
+</div>\n \
+</body>\n \
+</html>\n \

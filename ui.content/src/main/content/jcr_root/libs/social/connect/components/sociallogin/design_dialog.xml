@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Social Login (Design)"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <dialogWidth
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Width of the dialog."
+            fieldLabel="Login Dialog Width"
+            name="./dialogWidth"
+            xtype="textfield"/>
+        <dialogHeight
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Height of the dialog."
+            fieldLabel="Login Dialog Height"
+            name="./dialogHeight"
+            xtype="textfield"/>
+    </items>
+</jcr:root>

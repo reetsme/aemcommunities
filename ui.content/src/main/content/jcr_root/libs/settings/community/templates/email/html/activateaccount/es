@@ -1,0 +1,4 @@
+﻿subject=Gracias por registrar una nueva cuenta con nosotros.
+
+message=\n \
+<a href="{{actionURL}}">Haga clic en este vínculo para activar su cuenta.</a>\n \

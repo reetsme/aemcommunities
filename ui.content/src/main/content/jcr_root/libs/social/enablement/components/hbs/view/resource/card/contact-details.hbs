@@ -1,0 +1,33 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="contact-info">
+    {{#if contacts }}
+        {{#unless contacts.empty }}
+            <div class="avatar-image-container inlineBlock">
+                {{#if contacts.authorizables.[0].authAvatarUrl }}
+                    <div class="avatar-image" style="background-image: url('{{getContextPath ''}}{{ contacts.authorizables.[0].authAvatarUrl }}' );"></div>
+                {{else}}
+                    <div class="avatar-image" style="background-image: url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/UserProfile_Default_card.png' );">
+                    </div>
+                {{/if}}
+            </div>
+            <div class="contact-name inlineBlock">{{contacts.authorizables.[0].authName }}</div>
+        {{/unless}}
+    {{/if}}
+</div>

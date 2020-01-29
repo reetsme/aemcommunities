@@ -1,0 +1,20 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}{{i18n "Resource Alias"}},{{i18n "Resource Name"}},{{i18n "Site"}},{{i18n "Status"}},{{i18n "Enrollments"}},{{i18n "Plays"}},{{i18n "Views"}},{{i18n "Average Rating"}},{{i18n "Number of Ratings"}},{{i18n "Comments"}},{{i18n "Format"}},{{i18n "Publish Date"}},{{i18n "Enablement Manager"}},{{i18n "Size"}},{{i18n "Asset"}}
+{{#each items}}"{{this.resourceAlias}}","{{this.title}}","{{this.siteId}}","{{this.publishStatus}}","{{this.enrollmentCount}}","{{this.playCount}}","{{this.viewCount}}","{{this.averageRating}}","{{this.ratingCount}}","{{this.commentCount}}","{{this.resourceAssetType}}","{{this.publishDate}}","{{this.publisherName}}","{{this.resourceAssetSize}}","{{this.assetId}}"
+{{/each}}

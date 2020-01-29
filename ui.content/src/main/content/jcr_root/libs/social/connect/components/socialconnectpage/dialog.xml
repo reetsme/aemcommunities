@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    jcr:title="Social Connect Configuration"
+    height="{Long}425"
+    warnIfModified="{Boolean}false"
+    width="{Long}455"
+    xtype="dialog">
+    <items jcr:primaryType="cq:TabPanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="nt:unstructured"
+                title="Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <oauthprovider
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        defaultValue="soco-facebook"
+                        fieldLabel="Provider"
+                        name="./oauth.config.provider.id"
+                        type="select"
+                        xtype="hidden"/>
+                    <appid
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="App ID/API Key"
+                        name="./oauth.client.id"
+                        xtype="textfield"/>
+                    <appsecret
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="App Secret"
+                        name="./oauth.client.secret"
+                        xtype="textfield"/>
+                    <callbackurl
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="/libs/social/content/oauth.callback.html"
+                        fieldLabel="Callback URL"
+                        name="./oauth.callBackUrl"
+                        xtype="hidden"/>
+                    <createusers
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="{Boolean}true"
+                        fieldLabel="Create Users"
+                        name="./oauth.create.users"
+                        xtype="checkbox"/>
+                    <encodeuserids
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Mask User Ids"
+                        name="./oauth.encode.userids"
+                        xtype="checkbox"/>
+                    <createusersgroups
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Add User Group"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Add to User Groups"
+                        name="./oauth.create.users.groups"
+                        orderable="{Boolean}false"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="false"
+                            fieldDescription="Examples: contributors, moderators"
+                            name="./name"
+                            optionsProvider="function(path,record){ return $CQ.SocialAuth.userGroupOptions(); } "
+                            type="select"
+                            xtype="selection"/>
+                    </createusersgroups>
+                </items>
+            </general>
+        </items>
+    </items>
+</jcr:root>

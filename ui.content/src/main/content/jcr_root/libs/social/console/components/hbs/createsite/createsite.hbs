@@ -1,0 +1,94 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/createsite">
+    <form id="createCommunitySiteWizard" action="/content.social.json" method="post" class="coral-Wizard coral-Form coral-Form--vertical" enctype="multipart/form-data">
+        <input type="hidden" name=":operation" value="social:createSite">
+        <input type="hidden" name="_charset_" value="utf-8">
+        <coral-wizardview>
+            <div class="scf-wizardview-header">
+                <div class="scf-wizard-title coral-Heading coral-Heading--2">
+                    {{i18n "Create Site"}}
+                </div>
+                <coral-steplist class="scf-wizard-steplist" coral-wizardview-steplist="">
+                    <coral-step selected>
+                        <coral-step-label class="coral-Step-label">{{i18n "Site Template"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Design"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Settings"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Preview" comment="noun, heading"}}</coral-step-label>
+                    </coral-step>
+                </coral-steplist>
+                <coral-panelstack coral-wizardview-panelstack="" class="scf-wizard-controls">
+                    <coral-panel selected="" role="tabpanel">
+                        <coral-panel-content>
+                            <a is="coral-anchorbutton" href="/communities/sites.html">{{i18n "Cancel"}}</a>
+                            <button coral-wizardview-next="" is="coral-button" type="button" disabled="disabled" class="scj-js-basictab-next">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" coral-wizardview-next="" type="button">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" coral-wizardview-next="" type="button">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" variant="primary" id="cq-social-create-site-submit">{{i18n "Create"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                </coral-panelstack>
+            </div>
+
+            <coral-panelstack coral-wizardview-panelstack="" class="coral-PanelStack" role="presentation">
+                <coral-panel class="coral-Well coral-Panel is-selected" selected="" role="tabpanel" aria-selected="true" aria-hidden="false">
+                    <coral-panel-content>
+                        {{include this resourceType="social/console/components/hbs/createsite" template="basictab" authoringDisabled='true'}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/console/components/hbs/createsite" template="designtab" authoringDisabled='true'}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/console/components/hbs/createsite" template="settingstab" authoringDisabled='true'}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" id="scf-site-wizard-last-tab" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/console/components/hbs/createsite" template="previewtab" authoringDisabled='true'}}
+                    </coral-panel-content>
+                </coral-panel>
+            </coral-panelstack>
+        </coral-wizardview>
+    </form>
+</div>

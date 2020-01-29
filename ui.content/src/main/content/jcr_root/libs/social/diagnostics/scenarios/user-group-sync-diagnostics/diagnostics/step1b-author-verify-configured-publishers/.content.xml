@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Verify Apache Sling Sync Agents Configuration Check on Author"
+    diagnosticsType="OSGIConfigurationStep"
+    docsSectionName="Apache Sling Distribution Agent - Sync Agents Factory"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable1_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}false"
+    haltOnError="{Boolean}false"
+    jsObjectName="step1"
+    osgiQuery="(&amp;(service.pid=org.apache.sling.distribution.agent.impl.SyncDistributionAgentFactory.*)(name=socialpubsync)(enabled=true))"
+    runGroups="[all,initial]"
+    runModes="[author]">
+    <too-many-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step1.configurations.length > 1))"
+        description="Multiple Sync Agents Configurations exist -- please remove or disable duplicates"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <no-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step1.configurations.length &lt; 1))"
+        description="No Sling Sync Agents are configured -- please follow the link (below) to the documentation"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+</jcr:root>

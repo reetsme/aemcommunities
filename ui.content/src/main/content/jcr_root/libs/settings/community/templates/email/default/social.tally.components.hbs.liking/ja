@@ -1,0 +1,8 @@
+﻿subject=[いいね!]
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}\n \
+URL：{{targetUrl}}\n\n \
+{{{user.name}}}さんが「{{target.properties.eventTopic}}」に新しい「いいね!」を適用しました。\n\n \
+この質問に対するすべての回答を表示したり、通知の基本設定を変更したりするには、このリンクをクリックしてください。\n \
+{{targetUrl}}\n \

@@ -1,0 +1,27 @@
+subject=[行事曆事件] {{{object.displayName}}}
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 已張貼新的行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已更新行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已刪除行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已核准行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 已關閉行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 已重新開啟行事曆事件「{{{object.displayName}}}」。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+請透過此連結檢視所有行事曆事件，或修改您的訂閱。\n \
+{{targetUrl}}\n \

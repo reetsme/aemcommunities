@@ -1,0 +1,76 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div id="livefyre-map-{{id}}"
+     data-component-id="{{id}}"
+     data-scf-component="livefyre-map"
+     style="height: {{#if properties.height}}{{properties.height}}{{else}}400{{/if}}px; width: 100%;"></div>
+<script>
+(function () {
+useOrFetchLivefyre(function (Livefyre) {
+    Livefyre.require(['livefyre-map#2'], function (Map) {
+      try {
+        new Map({
+          el: document.getElementById('livefyre-map-{{id}}'),
+          "collection": {
+            "network": "{{networkname}}",
+            "siteId": "{{siteid}}",
+            "articleId": "{{articleId}}"
+            {{#if collectionMeta}}
+              ,signed: true
+              ,collectionMeta: '{{collectionMeta}}'
+              ,checksum: '{{checksum}}'
+            {{/if}}
+          }
+          {{#with properties}}
+              ,"mapConfig": {
+                "lat": {{#if latitude}}{{latitude}}{{else}}37.78265050594034{{/if}},
+                "lng": {{#if longitude}}{{longitude}}{{else}}-122.3980325460434{{/if}},
+                "zoom": {{#if zoom}}{{zoom}}{{else}}10{{/if}},
+              }
+              {{#if hideZoomControl}},"zoomControl": false{{/if}}
+              {{#if disablePanning}},"allowPanning": false{{/if}}
+              {{#if disableModal}},"openModalOnClick": false{{/if}}
+              {{#if disableClustering}},"allowClustering": false{{/if}}
+          {{/with}}
+          {{#if-wcm-mode mode="EDIT"}}
+          , __aem: {
+            wcmmode: 'EDIT'
+          }
+          {{/if-wcm-mode}}
+        });
+      } catch (e) {
+        console.error("Error constructing livefyre-map. Catching to prevent other errors", e);
+      }
+    });
+})
+
+function useOrFetchLivefyre(withLivefyre) {
+    if (typeof Livefyre !== 'undefined') {
+        return withLivefyre(Livefyre);
+    }
+    var livefyreJsScript = document.createElement('script');
+    livefyreJsScript.setAttribute(
+        'src', 'https://cdn.livefyre.com/Livefyre.js');
+    livefyreJsScript.onload = function () {
+        withLivefyre(Livefyre);
+    };
+    document.head.appendChild(livefyreJsScript);
+}
+}());
+</script>

@@ -1,0 +1,56 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<tr class="scf-js-notification-table-row {{#equals status "UNREAD"}}active{{/equals}}" object-id="{{object.id}}" data-component-id="{{id}}" data-scf-component='social/notifications/components/hbs/notifications/notification'>
+    <td class="scf-js-notifications-table-cell-td-post">
+        <img class="scf-activity-avatar img-circle" alt="{{this.user.name}}" title="{{this.user.name}}" src= {{this.user.avatarUrl}} />
+    </td>
+    <td evt="click=handleTableRowClick">
+        {{#if object.properties.isDisplayActionContent}}
+        {{else}}
+            <span class="scf-js-notification-user" style="font-weight:bold;">{{user.name}}</span>
+
+            {{#if object.properties.isVirtual}}
+                {{include this resourceType="social/notifications/components/hbs/notifications/notification" template="activity-title" authoringDisabled="true" bind=false}}
+            {{else}}
+                {{include this resourceType=object.properties.subType template="activity-title" authoringDisabled="true" bind=false}}
+            {{/if}}
+        {{/if}}
+        {{#if object.content}}
+            <div class="scf-activity-content scf-js-expand">
+                <p class="scf-js-notification-content-item">
+                    {{{object.content}}}
+                </p>
+            </div>
+        {{/if}}
+        <a class="scf-js-expandText scf-js-expandText" href="#">{{i18n "Show more"}}</a>
+        <div class="scf-activity-time">
+            {{#if object.properties.isVirtual}}
+                {{include this resourceType="social/notifications/components/hbs/notifications/notification" template="activity-icon" authoringDisabled="true" bind=false}}
+            {{else}}
+                <span class="glyphicon scf-icon-{{dom-id object.properties.subType}}" aria-hidden="true"></span>
+            {{/if}}
+            {{pretty-time published}}
+        </div>
+    </td>
+    <td class="scf-js-notifications-table-cell-controls scf-notifications-mark-read-column">
+        {{#equals status "UNREAD"}}
+            <span class="scf-icon glyphicon glyphicon-ok-circle" evt="click=markAsRead"></span>
+        {{/equals}}
+    </td>
+</tr>

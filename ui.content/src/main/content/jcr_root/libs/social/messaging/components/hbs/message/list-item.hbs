@@ -1,0 +1,62 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component='social/messaging/components/hbs/message'>
+    <div class='subMessageColumn {{#if read}}{{else}} unreadmessage {{/if}}'>
+        <div class='subMessagesDiv'>
+            <div class='subMessages'>
+                <input type='hidden' name='senderAvatarPathValue' value='{{sender.avatarUrl}}' />
+                {{#each recipients}}
+                    <input type='hidden' name='receiverAvatarPathValue' value='{{avatarUrl}}' />
+                {{/each}}
+                <div class='row avatar-and-message'>
+                    <div class="col-md-12 messageDetailRow">
+                        <div class="row">
+                            <div class="subMessagesSender col-md-2">
+                                <input type="hidden" name="sender" value='{{sender.name}}' />
+                                {{#each recipients}}
+                                    <input type="hidden" name="recipient" value='{{name}}' />
+                                {{/each}}
+                            </div>
+                            <div class='subMessagesSubject col-md-8'>
+                                <a href='#' name='showcontent' class='showdetailview'>
+                                    <span class="subjectString">
+                                        <input type="hidden"
+                                               value='{{#if subject}}{{subject}}{{else}}{{i18n "No subject"}}{{/if}}'
+                                               name="hiddenFullSubject">
+                                    </span>
+                                    <span class="contentString">
+                                        <input type="hidden"
+                                               value='{{#if message}}{{{message}}}{{else}}{{i18n "No content"}}{{/if}}'
+                                               name="hiddenFullContent">
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="timestampAndUnreadCircle col-md-2">
+                                <span class="timestamp">
+                                     <input type='hidden' name='hidden-timestamp' value='{{timestamp}}' />
+                                 </span>
+                                <span class="unreadCircle"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

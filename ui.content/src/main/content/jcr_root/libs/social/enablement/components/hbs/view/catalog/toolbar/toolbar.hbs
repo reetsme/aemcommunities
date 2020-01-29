@@ -1,0 +1,92 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="well well-sm scf-catalog-toolbar" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/catalog/toolbar">
+
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar">
+
+
+        <div class="input-group">
+            <input type="text" data-attrib="search-inp" class="form-control scf-catalog-search" placeholder="{{i18n 'Search'}}...">
+        </div>
+
+        <div class="btn-group scf-query-selector" role="group" data-property="se_resource-tags" data-type="filter">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{i18n 'Tags'}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu scf-catalog-tag">
+            </ul>
+        </div>
+
+        <div class="btn-group scf-query-selector" role="group" data-property="se_enablement-type" data-type="filter">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{i18n 'Type'}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><input class="scf-selectable-filter" type="checkbox" data-value="resource">&nbsp&nbsp {{i18n 'Resource'}} </input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-filter" type="checkbox" data-value="learningpath">&nbsp&nbsp {{i18n 'Learning Path'}} </input>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-group scf-query-selector" role="group" data-property="sortBy" data-type="sortby">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{i18n 'Sort By'}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_resource-name:asc}" type="checkbox">&nbsp&nbsp {{i18n 'Title Ascending'}}</input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_resource-name:desc}" type="checkbox">&nbsp&nbsp {{i18n 'Title Descending'}}</input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_date-published:asc}" type="checkbox">&nbsp&nbsp {{i18n 'Published Ascending'}}</input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_date-published:desc}" type="checkbox">&nbsp&nbsp {{i18n 'Published Descending'}}</input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_due-date:asc}" type="checkbox">&nbsp&nbsp {{i18n 'Due Date Ascending'}}</input>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><input class="scf-selectable-sortby" data-value="{se_due-date:desc}" type="checkbox">&nbsp&nbsp {{i18n 'Due Date Descending'}}</input>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <label type="button" class="btn btn-default scf-query-clear"> {{i18n 'Clear All'}} </label>
+
+    </div>
+
+</div>

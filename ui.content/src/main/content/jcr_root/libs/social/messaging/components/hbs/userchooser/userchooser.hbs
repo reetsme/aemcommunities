@@ -1,0 +1,33 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component='social/messaging/components/hbs/userchooser'>
+    <div id="{{properties.userchooserName}}Div" data-required="true" class="filters {{properties.userchooserName}}-userchooser" data-userchooser-path="{{id}}.social.json">
+        <input type="hidden" id="{{properties.userchooserName}}Name" name="{{properties.userchooserName}}" />
+        <div class="newMessageUserChooser">
+            <label class="mailform {{#if properties.readonly}}makeReadOnly{{/if}}">
+                {{i18n properties.userchooserLabel default="To"}}
+            </label>
+            <div class="userchooserContainer">
+                <div id="{{properties.userchooserName}}Value" class="selectedUserContainer"></div>
+                <input type="text" name="{{properties.userchooserName}}Id" id="{{properties.userchooserName}}Id" "{{#if properties.readonly}}readOnly{{/if}}" class="userchooser {{#if properties.readonly}}
+                makeReadOnly{{/if}}" autocomplete="off" />
+            </div>
+        </div>
+    </div>
+</div>

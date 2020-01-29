@@ -1,0 +1,4 @@
+subject=感谢您在我们这里注册新帐户。
+
+message=\n \
+<a href="{{actionURL}}">请单击此链接以激活您的帐户</a>\n \

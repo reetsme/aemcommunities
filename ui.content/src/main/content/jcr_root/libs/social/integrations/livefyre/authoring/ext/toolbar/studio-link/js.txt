@@ -1,0 +1,2 @@
+#base=js
+studio-link.toolbar.js

@@ -1,0 +1,35 @@
+﻿subject=[Evento de calendario] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    {{{user.name}}} ha publicado el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    {{{user.name}}} ha añadido el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{{user.name}}} ha actualizado el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}} ha eliminado el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{{user.name}}} ha aprobado el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+    {{{user.name}}} ha cerrado el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+    {{{user.name}}} ha reabierto el nuevo evento de calendario "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Haga clic en este vínculo</a> para ver todos los eventos de calendario o modificar las preferencias de notificación.\n \
+</div>\n \
+</body>\n \
+</html>\n \

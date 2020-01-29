@@ -1,0 +1,21 @@
+﻿subject=[コメント] {{{target.displayName}}}
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{targetUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}}さんが「{{{target.displayName}}}」に対する新しいコメントを投稿しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}}さんが「{{{target.displayName}}}」に対する新しいコメントを追加しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}}さんが「{{{target.displayName}}}」に対するコメントを更新しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}}さんが「{{{target.displayName}}}」に対するコメントを削除しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}}さんが「{{{target.displayName}}}」に対するコメントを承認しました。\n\n \
+{{/equals}}\
+すべてのコメントを表示したり、通知の基本設定を変更したりするには、このリンクをクリックしてください。\n \
+{{objectUrl}}\n \

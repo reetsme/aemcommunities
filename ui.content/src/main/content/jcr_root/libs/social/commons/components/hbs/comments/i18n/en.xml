@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:language="en"
+    jcr:mixinTypes="[mix:language]"
+    jcr:primaryType="sling:Folder">
+    <add
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="add"
+        sling:message="Replied"/>
+    <delete
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="delete"
+        sling:message="Deleted"/>
+    <post
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="post"
+        sling:message="Posted"/>
+    <update
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="update"
+        sling:message="Updated"/>
+</jcr:root>

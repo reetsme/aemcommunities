@@ -1,0 +1,75 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/editcommunityfunction">
+    <form method="post" class="coral-Wizard coral-Form coral-Form--vertical js-scf-communities-components-form" data-init="flexwizard" enctype="multipart/form-data">
+        <coral-wizardview>
+            <div class="scf-wizardview-header">
+                <div class="scf-wizard-title coral-Heading coral-Heading--2">
+                    {{i18n "Community Functions"}}
+                </div>
+                <coral-steplist class="scf-wizard-steplist" coral-wizardview-steplist="">
+                    <coral-step selected>
+                    </coral-step>
+                </coral-steplist>
+                <coral-panelstack coral-wizardview-panelstack="" class="scf-wizard-controls">
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <a is="coral-anchorbutton" href="/communities/communityfunctions">{{i18n "Cancel"}}</a>
+                            <button id="cq-social-edit-function-submit" class="coral-Button" is="coral-button" variant="primary" type="submit">{{i18n "Save"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                </coral-panelstack>
+            </div>
+        </coral-wizardview>
+        <div class="coral-FixedColumn foundation-layout-util-vmargin">
+            <div class="coral-FixedColumn-column js-scf-communities-components-column">
+                <div data-init="tabs" class="coral-TabPanel coral-TabPanel--large">
+                    <input type="hidden" name=":operation" value="social:editCommunityFunction">
+                    <input type="hidden" name="_charset_" value="utf-8">
+                    <nav class="coral-TabPanel-navigation  scf-sitetemplate-tabs">
+                        <a class="coral-TabPanel-tab is-active" data-toggle="tab">{{i18n "Community Function Name"}}</a>
+                        <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "AEM Blueprint"}}</a>
+                        <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Thumbnail"}}</a>
+                    </nav>
+                    <div class="coral-TabPanel-content">
+                        <section class="coral-TabPanel-pane is-active">
+                            {{include this resourceType="social/console/components/hbs/editcommunityfunction" template="basictab" authoringDisabled="true"}}
+                        </section>
+                        <section class="coral-TabPanel-pane">
+                            <div class="coral-FixedColumn foundation-layout-util-vmargin">
+                                <div class="coral-FixedColumn-column">
+                                    {{include this.id resourceType="social/console/components/hbs/blueprints" path="blueprints"}}
+                                </div>
+                            </div>
+                        </section>
+                        <section class="coral-TabPanel-pane">
+                            {{#if this.image}}
+                                {{modifycontext this.image key="inputname" value="thumbnail"}} {{include this.image resourceType='social/console/components/hbs/imageupload' authoringDisabled="true"}}
+                            {{else}}
+                                {{#include this.id path="image" resourceType='social/console/components/hbs/imageupload' authoringDisabled="true" }}
+                                    { "inputname" : "thumbnail" }
+                                {{/include}}
+                            {{/if}}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

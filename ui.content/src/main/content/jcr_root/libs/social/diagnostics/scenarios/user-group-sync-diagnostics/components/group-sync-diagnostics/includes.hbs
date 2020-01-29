@@ -1,0 +1,29 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+{{includeClientLib categories="social.diagnostics.ui,clientlibs.social-sync.diagnostics" }}
+    {{! step1a is important here as it is what collects the endpoints.  If it succeeded, load the info template }}
+    {{#if this.results.diagnostics.stepdata.step1a.log.succeeded}}
+        {{! step3 is equally important here as it is what collects user that communicates with the publish instances. }}
+        {{#if this.results.diagnostics.stepdata.step3Author.log.succeeded}}
+            {{include this template="info-template"}}
+        {{/if}}
+    {{/if}}
+
+    <div class="scf-diagnostics" data-component-id="{{id}}" data-scf-component="social/diagnostics/scenarios/user-group-sync-diagnostics/components/group-sync-diagnostics" />

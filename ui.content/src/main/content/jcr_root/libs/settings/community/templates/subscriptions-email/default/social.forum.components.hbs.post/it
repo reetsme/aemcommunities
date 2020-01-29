@@ -1,0 +1,30 @@
+﻿subject=[Post forum] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Un nuovo argomento forum "{{{object.displayName}}}" è stato pubblicato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Un nuovo post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato aggiunto da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato aggiornato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato eliminato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato approvato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato chiuso da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato riaperto da {{{user.name}}}.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Segui questo collegamento per visualizzare tutti i post di questo argomento forum o per modificare la sottoscrizione.\n \
+{{objectReferrer}}\n \

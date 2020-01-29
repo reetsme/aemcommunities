@@ -1,0 +1,37 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="coral-Form-fieldwrapper scf-userselector-container">
+    <div id="scf-js-userselector" class="coral-Autocomplete scf-userselector-container coral-Form-field scf-js-userselector" data-init="autocomplete" data-multiple="true" data-forceselection="true" data-mode="contains">
+        <div class="coral-InputGroup coral-InputGroup--block js-coral-Autocomplete-field">
+            <label class="coral-DecoratedTextfield coral-InputGroup-input">
+                <span class="u-coral-screenReaderOnly">{{i18n "Enter Name"}}</span>
+                <span class="coral-DecoratedTextfield-icon coral-Icon coral-Icon--sizeXS coral-Icon--search" aria-hidden="true"></span>
+                <input is="coral-textfield" class="coral-DecoratedTextfield-input js-coral-Autocomplete-textfield" placeholder="{{i18n "Enter Name"}}" type="text" autocomplete="off" multiple="true">
+            </label>
+            <span class="coral-InputGroup-button">
+                <button class="coral-Button coral-Button--secondary coral-Button--square js-coral-Autocomplete-toggleButton" type="button" autocomplete="off">
+                    <i class="coral-Icon coral-Icon--sizeXS coral-Icon--triangleDown"></i>
+                </button>
+            </span>
+        </div>
+
+        <ul class="coral-SelectList js-coral-Autocomplete-selectList" data-type=""></ul>
+    </div>
+</div>

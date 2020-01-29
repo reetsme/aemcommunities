@@ -1,0 +1,4 @@
+﻿subject=Nous vous remercions d’avoir créé un compte.
+
+message=\n \
+<a href="{{actionURL}}">Cliquez sur ce lien pour activer votre compte</a>\n \

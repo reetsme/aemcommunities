@@ -1,0 +1,18 @@
+subject=电子邮件更改请求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>电子邮件更改请求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好！</p>\n \
+<p>您已请求更改与您的帐户关联的电子邮件地址。</p>\n \
+<p>要验证此电子邮件地址，请单击此链接：<a href="{{{actionURL}}}"">{{{actionURL}}}</a>，或者将此链接粘贴到您的浏览器中。</p>\n \
+<p>请务必在 {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} 之前单击此链接，否则它将会过期。</p>\n \
+<p>如果您不希望使用此电子邮件地址，则无需执行任何操作。您将继续使用当前的电子邮件地址。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

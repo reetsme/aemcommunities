@@ -1,0 +1,25 @@
+﻿subject=[フォーラムの投稿]
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   {{{user.name}}}さんが新しいフォーラムの投稿を投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   {{{user.name}}}さんが新しいフォーラムの投稿を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}}さんが新しいフォーラムの投稿を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{{user.name}}}さんが新しいフォーラムの投稿を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{{user.name}}}さんが新しいフォーラムの投稿を承認しました。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+このフォーラムトピックに対するすべての投稿を表示したり、購読を変更したりするには、このリンクをクリックしてください。\n \
+{{objectReferrer}}\n \

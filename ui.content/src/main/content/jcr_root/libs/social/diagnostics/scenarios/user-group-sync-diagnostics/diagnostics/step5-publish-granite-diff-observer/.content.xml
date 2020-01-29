@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Verify Adobe Granite Distribution - Diff Observer Factory on Publisher"
+    diagnosticsType="OSGIConfigurationStep"
+    docsSectionName="Adobe Granite Distribution - Diff Observer Factory"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable5_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}true"
+    haltOnError="{Boolean}false"
+    jsObjectName="step5"
+    osgiQuery="(&amp;(service.pid=com.adobe.granite.distribution.core.impl.diff.DiffChangesObserver.*)(agentName=socialpubsync-reverse)(enabled=true)(serviceName=socialpubsync-distributionService))"
+    runGroups="[all,initial]"
+    runModes="[publish]">
+    <too-many-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step5.configurations.length > 1))"
+        description="Multiple Adobe Granite Distribution - Diff Observer Factory configurations exist -- please remove or disable duplicates"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <no-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step5.configurations.length &lt; 1))"
+        description="No Adobe Granite Distribution - Diff Observer Factory configurations exist -- please follow the link (below) to the documentation"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+</jcr:root>

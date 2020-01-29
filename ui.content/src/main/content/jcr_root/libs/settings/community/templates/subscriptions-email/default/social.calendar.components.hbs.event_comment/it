@@ -1,0 +1,23 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Risposta a evento calendario] {{{target.displayName}}} \
+{{else}}[Risposta a evento calendario]{{/if}} \
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+Una nuova risposta {{#if this.target.properties.[jcr:title]}}all'evento calendario "{{{target.displayName}}}" {{/if}}è stata aggiunta da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}all'evento calendario "{{{target.displayName}}}" {{/if}}è stata aggiornata da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}all'evento calendario "{{{target.displayName}}}" {{/if}}è stata eliminata da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}all'evento calendario "{{{target.displayName}}}" {{/if}}è stata approvata da {{{user.name}}}.\n\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Segui questo collegamento per visualizzare tutte le risposte a questo evento calendario o modificare la sottoscrizione.\n \
+{{objectReferrer}}\n \

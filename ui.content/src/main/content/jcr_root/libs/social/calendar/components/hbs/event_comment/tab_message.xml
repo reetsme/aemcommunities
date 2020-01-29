@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Panel"
+    title="Message">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <subject
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Subject"
+            name="./jcr:title"
+            xtype="textarea"/>
+        <message
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Message"
+            name="./jcr:description"
+            xtype="textarea"/>
+        <approved
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Approved by moderator"
+            name="./approved"
+            type="checkbox"
+            xtype="selection"/>
+        <isSpam
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Mark as spam"
+            name="./isSpam"
+            type="checkbox"
+            xtype="selection"/>
+        <tags
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Tags"
+            name="./cq:tags"
+            xtype="tags">
+            <namespaces jcr:primaryType="cq:WidgetCollection">
+                <calendar
+                    jcr:primaryType="cq:Widget"
+                    name="calendar"/>
+            </namespaces>
+        </tags>
+    </items>
+</jcr:root>

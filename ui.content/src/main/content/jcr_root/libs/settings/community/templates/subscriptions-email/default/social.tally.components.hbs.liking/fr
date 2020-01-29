@@ -1,0 +1,11 @@
+﻿subject=[Aimer]
+
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL : {{targetUrl}}\n\n \
+{{{user.name}}} a aimé « {{{target.properties.eventTopic}}} ».\n \
+-------------------------------------------------------------------------------------\n \
+{{{target.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Suivez ce lien pour afficher toutes les réponses à cette question ou modifier votre abonnement.\n \
+{{targetUrl}}\n \

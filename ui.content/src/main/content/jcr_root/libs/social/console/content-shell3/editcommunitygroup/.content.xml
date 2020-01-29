@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Community Groups"
+        sling:resourceType="granite/ui/components/shell/page"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/editcommunitygroup">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[granite.shared,coralui3,granite.ui.coral.foundation,granite.ui.coral.foundation.admin,social.console.blueprintpicker,cq.social.console.hbs.themes,cq.social.console.hbs.imageupload,cq.social.console.hbs.sitetags,cq.social.console.hbs.cssupload,cq.social.console.hbs.userlist,cq.social.console.hbs.draggablecommunityfunctionsui3,cq.social.console.hbs.extensiontabs,cq.social.group.hbs.editcommunitygroup]"/>
+        </head>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <editsite
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/group/components/hbs/editcommunitygroup"
+                    foundation-mode-group="cq-social-console-preview"
+                    foundation-validation-ui="none"
+                    rel="cq-live-copy-from"
+                    selectionMode="single"/>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

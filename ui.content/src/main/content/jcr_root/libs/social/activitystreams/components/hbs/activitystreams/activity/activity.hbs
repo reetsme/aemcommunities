@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<tr class="social-activity" data-component-id="{{id}}" data-scf-component='social/activitystreams/components/hbs/activitystreams/activity'>
+
+    <td class="scf-activity-member scf-activity-row" align="center">
+        <img class="scf-activity-avatar img-responsive img-circle" alt="{{this.user.name}}" title="{{this.user.name}}" src= {{this.user.avatarUrl}}></img>
+        <a class="scf-activity-user" href= {{this.user.friendlyUrl}}>{{this.user.name}}</a>
+    </td>
+
+    <td class="scf-activity-info scf-activity-row">
+        {{#if this.object.properties.isVirtual}}
+            {{include this resourceType="social/activitystreams/components/hbs/activitystreams/activity" template="activity-title" authoringDisabled="true" bind=false}}
+        {{else}}
+            {{include this resourceType=this.object.properties.subType template="activity-title" authoringDisabled="true" bind=false}}
+        {{/if}}
+        {{#if this.object.component}}
+            {{#if this.object.component.message}}
+                <div class="scf-activity-content scf-is-expand">
+                    {{{this.object.component.message}}}
+                </div>
+            {{/if}}
+        {{else}}
+            {{#if this.object.content}}
+                <div class="scf-activity-content scf-is-expand">
+                    {{{this.object.content}}}
+                </div>
+            {{/if}}
+        {{/if}}
+        <a class="scf-is-expandText scf-is-expandText" href="#">{{i18n "Show more"}}</a>
+    </td>
+    <td class="scf-activity-time scf-activity-row">
+        <p class="scf-activity-time">{{pretty-time this.published}}</p>
+    </td>
+
+</tr>

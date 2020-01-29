@@ -1,0 +1,7 @@
+﻿subject=[Échec de distribution de la publication] {{{email-subject}}}
+
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+Bonjour {{{email-author}}}. L’élément suivant n’a pas pu être publié :\n \
+{{{email-message}}}\n\n \
+Réessayez ou contactez votre administrateur système pour obtenir de l’aide.\n \

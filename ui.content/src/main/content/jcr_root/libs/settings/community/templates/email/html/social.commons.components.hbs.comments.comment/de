@@ -1,0 +1,29 @@
+﻿subject=[Kommentar] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Kommentar</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+Ein neuer Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gepostet.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Ein neuer Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Kommentare oder zum Ändern Ihrer Voreinstellungen für Benachrichtigungen.\n \
+</div>\n \
+</body>\n \
+</html>\n \

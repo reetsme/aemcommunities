@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Panel"
+    title="Settings">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <title
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Ideation Title."
+            fieldLabel="Ideation Title"
+            name="./title"
+            xtype="textfield"/>
+        <description
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Ideation Description."
+            fieldLabel="Ideation Description"
+            name="./description"
+            xtype="textarea"/>
+        <maxPerPage
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Defines the number of topics/posts shown per page. Default is 10."
+            fieldLabel="Topics Per Page"
+            name="./maxPerPage"
+            regex="/^[0-9]*$/"
+            regexText="Please enter a positive integer number."
+            xtype="textfield"/>
+        <moderated
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Moderated"
+            fieldLabel_commentI18n="Moderate ideation"
+            name="./moderateComments"
+            type="checkbox"
+            xtype="selection"/>
+        <closed
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Closed"
+            fieldLabel_commentI18n="No more posts accepted"
+            name="./closed"
+            type="checkbox"
+            xtype="selection"/>
+        <richTextEditor
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Rich Text Editor"
+            name="./rteEnabled"
+            type="checkbox"
+            xtype="selection"/>
+        <allowTagging
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow Tagging"
+            name="./allowTagging"
+            type="checkbox"
+            xtype="selection"/>
+        <allowFileUploads
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow File Uploads"
+            name="./allowFileUploads"
+            type="checkbox"
+            xtype="selection"/>
+        <maxFileSize
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Long}104857600"
+            fieldDescription="Maximum number of bytes a file may have. Default: 104857600 (10 Mb)."
+            fieldLabel="Max File Size"
+            name="./maxFileSize"
+            xtype="numberfield"/>
+        <acceptFileTypes
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Comma seperated file extensions with dots, ex .jpg, .jpeg, .png, .doc, .docx, .ppt, .zip, .rar&#xa;Default: allow all file types."
+            fieldLabel="Allowed File Types"
+            name="./acceptFileTypes"
+            xtype="textfield"/>
+        <maxImageFileSize
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Long}2097152"
+            fieldDescription="Maximum number of bytes a attach image file may have. Default: 2097152 (2 Mb)."
+            fieldLabel="Max Attach Image File Size"
+            name="./maxImageFileSize"
+            xtype="numberfield"/>
+        <allowThreadedReplies
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow Replies"
+            name="./allowRepliesToComments"
+            type="checkbox"
+            xtype="selection"/>
+        <allowVoting
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldDescription="Allow voting on a reply."
+            fieldLabel="Allow Voting"
+            name="./allowVoting"
+            type="checkbox"
+            xtype="selection"/>
+        <allowDeleteComments
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow Users to Delete Comments and Topics"
+            name="./allowDeleteComments"
+            type="checkbox"
+            xtype="selection"/>
+        <allowFollowing
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldDescription="Allow following on a topic."
+            fieldLabel="Allow Following"
+            name="./allowFollowing"
+            type="checkbox"
+            xtype="selection"/>
+        <allowSubscriptions
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow Email Subscriptions"
+            name="./allowSubscriptions"
+            type="checkbox"
+            xtype="selection">
+            <listeners
+                jcr:primaryType="nt:unstructured"
+                selectionchanged="function(field,value){var panel = field.findParentByType('dialog');var following = panel.find('name','./allowFollowing')[0];if (field.getValue() == &quot;true&quot; &amp;&amp; following){ following.setValue(true);}}"/>
+        </allowSubscriptions>
+        <allowBadges
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Display Badges"
+            name="./allowBadges"
+            type="checkbox"
+            xtype="selection"/>
+        <allowBadgesHint
+            jcr:primaryType="cq:Widget"
+            ignoreData="true"
+            name="./allowBadges@TypeHint"
+            value="Boolean"
+            xtype="hidden"/>
+        <allowFeaturedContent
+            jcr:primaryType="cq:Widget"
+            defaultValue="{Boolean}false"
+            fieldLabel="Allow Featured Content"
+            name="./allowFeaturedContent"
+            type="checkbox"
+            xtype="selection"/>
+    </items>
+</jcr:root>

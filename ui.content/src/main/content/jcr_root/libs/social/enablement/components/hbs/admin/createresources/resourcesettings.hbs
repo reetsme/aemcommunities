@@ -1,0 +1,60 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="wizard-step">
+    <div id="collectionsettings" class="coral-FixedColumn-column">
+        <h1 class="content-create-heading">{{i18n "Social Settings"}}</h1>
+        <div class="socialmod-wrapper">
+            <div class="sub coral-Form-fieldwrapper">
+                <div class="scf-js-comments">
+                    <coral-checkbox class="coral-Form-field allow-comments" data-name="allow-comments" value="true" labelledby="allow-comments" {{#if allowComments}} checked='' {{else}} {{/if}}>{{i18n "Allow Commenting"}}</coral-checkbox>
+                    <input name="allow-comments" type="hidden" value="{{#if allowComments}}true{{else}}false{{/if}}">
+                </div>
+                <div class="scf-js-ratings">
+                    <coral-checkbox class="coral-Form-field allow-ratings" data-name="allow-ratings" value="true" labelledby="allow-ratings" {{#if allowRatings}} checked='' {{else}} {{/if}}>{{i18n "Allow Ratings"}}</coral-checkbox>
+                    <input name="allow-ratings" type="hidden" value="{{#if allowRatings}}true{{else}}false{{/if}}">
+                </div>
+                <div class="scf-js-anonymous-access">
+                    <coral-checkbox class="coral-Form-field allow-anonymous-access" data-name="anonymous-access" value="true" labelledby="allow-anonymous-access" {{#if public}} checked='' {{else}} {{/if}}>{{i18n "Allow Anonymous Access"}}</coral-checkbox>
+                    <input name="anonymous-access" type="hidden" value="{{#if public}}true{{else}}false{{/if}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="coral-Form-fieldwrapper">
+            <h1 class="content-create-heading">{{i18n "Due Date"}}</h1>
+            <coral-datepicker id="scf-js-social-enablement-dueDatepicker" placeholder="{{i18n "Choose a date"}}" type="datetime" name="due-date" value="{{dueDateAsString}}" valueformat="YYYY-MM-DD[T]HH:mmZ" displayformat="YYYY-MM-DD HH:mm" headerformat="{{i18n 'MMMM YYYY'}}">
+            </coral-datepicker>
+        </div>
+
+        <h1 class="content-create-heading">{{i18n "Resource Author"}}</h1>
+        <div id="scf-js-social-enablement-author" class="coral-Form-fieldwrapper scf-js-enablement-user" data-resource-author="{{authors}}">
+            {{include this resourceType="social/enablement/components/hbs/admin/userselector"}}
+        </div>
+
+        <h1 class="content-create-heading">{{i18n "Resource Contact*"}}</h1>
+        <div id="scf-js-social-enablement-contact" class="coral-Form-fieldwrapper scf-js-enablement-user" data-resource-contact="{{contacts}}">
+            {{include this resourceType="social/enablement/components/hbs/admin/userselector"}}
+        </div>
+
+        <h1 class="content-create-heading">{{i18n "Resource Expert"}}</h1>
+        <div id="scf-js-social-enablement-expert" class="coral-Form-fieldwrapper scf-js-enablement-user" data-resource-expert="{{experts}}">
+            {{include this resourceType="social/enablement/components/hbs/admin/userselector"}}
+        </div>
+    </div>
+</div>

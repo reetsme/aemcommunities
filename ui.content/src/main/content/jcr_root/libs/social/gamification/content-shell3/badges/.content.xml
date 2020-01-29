@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Communities - Badges"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/badges"
+        currentView="content"
+        targetCollection="coral-masonry"
+        useSuffix="{Boolean}true">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coral3,cq.common.wcm,cq.social.author.badging.hbs.badgecollection]"/>
+        </head>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <secondary jcr:primaryType="nt:unstructured">
+                <managebadge
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/badge-manage.html"
+                    text="Create"
+                    variant="primary"/>
+            </secondary>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/breadcrumbs"
+            path="/libs/social/gamification/content-shell3/badges"
+            rootPath="/content/badges"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <badgecollection
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/gamification/components/hbs/badgecollection"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

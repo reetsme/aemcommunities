@@ -1,0 +1,30 @@
+﻿subject=[フォーラムの投稿] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}}さんが新しいフォーラムトピック「{{{object.displayName}}}」を投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対する新しいフォーラムの投稿を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を承認しました。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を閉じました。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を再度開きました。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+このフォーラムトピックに対するすべての投稿を表示したり、購読を変更したりするには、このリンクをクリックしてください。\n \
+{{objectReferrer}}\n \

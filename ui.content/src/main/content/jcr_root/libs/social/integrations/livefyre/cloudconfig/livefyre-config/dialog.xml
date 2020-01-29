@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    jcr:title="Livefyre Network Configuration"
+    height="{Long}425"
+    warnIfModified="{Boolean}false"
+    width="{Long}455"
+    xtype="dialog">
+    <items jcr:primaryType="cq:TabPanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="nt:unstructured"
+                title="Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <networkdomain
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Network Domain"
+                        name="./communities.integration.livefyre.networkdomain"
+                        xtype="textfield"/>
+                    <networkkey
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Network Key"
+                        inputType="password"
+                        name="./communities.integration.livefyre.networkkey"
+                        xtype="textfield"/>
+                    <networkkeyEncrypt
+                        jcr:primaryType="cq:Widget"
+                        name="./communities.integration.livefyre.networkkey@Encrypted"
+                        xtype="hidden"/>
+                    <siteid
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Site ID"
+                        name="./communities.integration.livefyre.siteid"
+                        xtype="textfield"/>
+                    <sitekey
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Site Key"
+                        inputType="password"
+                        name="./communities.integration.livefyre.sitekey"
+                        xtype="textfield"/>
+                    <sitekeyEncrypt
+                        jcr:primaryType="cq:Widget"
+                        name="./communities.integration.livefyre.sitekey@Encrypted"
+                        xtype="hidden"/>
+                </items>
+            </general>
+            <params
+                jcr:primaryType="nt:unstructured"
+                title="User Data Mapping"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <keyvalue
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Create field mapping"
+                        allowBlank="{Boolean}true"
+                        fieldDescription="e.g. CQ Field=Livefyre Field Name"
+                        fieldLabel="Add Key Value Pair"
+                        name="./userDataFieldMapping"
+                        orderable="{Boolean}false"
+                        xtype="multifield"/>
+                </items>
+            </params>
+        </items>
+    </items>
+</jcr:root>

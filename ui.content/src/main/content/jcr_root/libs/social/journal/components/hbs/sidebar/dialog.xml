@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        title="Sidebar config"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <list
+                jcr:primaryType="cq:Widget"
+                title="Journal Sidebar Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <dateFormat
+                        jcr:primaryType="cq:Widget"
+                        emptyText_noI18n="yyyy MMMMM"
+                        fieldDescription="&lt;a href=&quot;http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html&quot; target=&quot;_blank&quot; style=&quot;cursor: pointer;&quot;>Date format&lt;/a> used to display archives.&lt;br/>Sample: yyyy MMMMM for 2010 August"
+                        fieldLabel="Date format"
+                        name="./dateFormat"
+                        xtype="textfield"/>
+                    <selectList
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="0"
+                        fieldLabel="View Type"
+                        name="./viewType"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <authors
+                                jcr:primaryType="nt:unstructured"
+                                text="Authors"
+                                value="authors"/>
+                            <categories
+                                jcr:primaryType="nt:unstructured"
+                                text="Categories"
+                                value="categories"/>
+                            <archives
+                                jcr:primaryType="nt:unstructured"
+                                text="Archives"
+                                value="archives"/>
+                        </options>
+                    </selectList>
+                    <journalcomponentpath
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Path to the original journal component"
+                        fieldLabel="Journal Component Path"
+                        name="./journalComponentPath"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <itemFilterLimit
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Long}-1"
+                        fieldDescription="Number of items that should be displayed.  Default: -1, no limits."
+                        fieldLabel="Suggestion Limit"
+                        name="./itemFilterLimit"
+                        xtype="numberfield"/>
+                </items>
+            </list>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,56 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div class="coral-FixedColumn-column tabs-container coral-TabPanel--large coral-TabPanel" id="tabs-container" data-init="tabs">
+
+    <coral-tabview>
+
+        <coral-tablist target="panelstack-resource-info">
+            <coral-tab aria-controls="tab-info">
+                <coral-tab-label>{{i18n "Resource Info"}}</coral-tab-label>
+            </coral-tab>
+            <coral-tab aria-controls="tab-assets">
+                <coral-tab-label>{{i18n "Assets"}}</coral-tab-label>
+            </coral-tab>
+            <coral-tab aria-controls="tab-settings">
+                <coral-tab-label>{{i18n "Settings"}}</coral-tab-label>
+            </coral-tab>
+        </coral-tablist>
+
+        <coral-panelstack id="panelstack-resource-info">
+            <coral-panel class="coral-Well" id="tab-info">
+                {{include this resourceType="social/enablement/components/hbs/admin/resourceinfo" template="info"}}
+            </coral-panel>
+
+            <coral-panel class="coral-Well" id="tab-assets">
+                {{include this resourceType="social/enablement/components/hbs/admin/resourceinfo" template="assets"}}
+            </coral-panel>
+
+            <coral-panel class="coral-Well" id="tab-settings">
+                {{include this resourceType="social/enablement/components/hbs/admin/resourceinfo" template="settings"}}
+            </coral-panel>
+        </coral-panelstack>
+
+    </coral-tabview>
+
+
+
+
+</div>

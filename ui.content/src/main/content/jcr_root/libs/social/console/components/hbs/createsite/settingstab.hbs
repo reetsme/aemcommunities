@@ -1,0 +1,249 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div>
+    <div class="social-console-settings-tab social-console-edit-settings-tab">
+        <div class="coral-TabPanel coral-TabPanel--large scf-js-settingstabs" data-init="tabs">
+            <nav class="coral-TabPanel-navigation">
+                <a class="coral-TabPanel-tab is-active" data-toggle="tab">{{i18n "User Management"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Tagging"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Roles"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Moderation"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Analytics"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Translation"}}</a>
+            </nav>
+            <div class="coral-TabPanel-content">
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='cq-social-console-blueprint coral-FixedColumn foundation-layout-util-vmargin'>
+                        <div class='coral-FixedColumn-column social-console-user-setting-column'>
+                            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                                <coral-checkbox data-param="allowUserRegistration"
+                                                class="scf-js-fix-checks scf-fix-checks scf-js-console-allowregistration"
+                                                name="allowUserRegistration" value="true" checked>
+                                    {{i18n "Allow User Registration"}}
+                                </coral-checkbox>
+                            </div>
+                            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                                <coral-checkbox data-param="allowAnonymousAccess"
+                                                class="scf-js-fix-checks scf-fix-checks scf-js-console-allowregistration"
+                                                name="allowAnonymousAccess" value="true" checked>
+                                    {{i18n "Allow Anonymous Access"}}
+                                </coral-checkbox>
+                            </div>
+                            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                                <coral-checkbox data-param="allowPrivateMessaging"
+                                                class="scf-js-fix-checks scf-fix-checks"
+                                                name="allowPrivateMessaging" value="true">
+                                    {{i18n "Allow Messaging"}}
+                                </coral-checkbox>
+                            </div>
+                        </div>
+                        <div class='coral-FixedColumn-column social-console-user-setting-column'>
+                            <!-- Include twitter and FB connect page providers -->
+                            {{include this.id path="configs" resourceType="social/console/components/hbs/sociallogins"}}
+                        </div>
+                    </div>
+                </section>
+                <!-- Tags-->
+                <section class="coral-TabPanel-pane is-active">
+                    {{include resourceType="social/console/components/hbs/sitetags"}}
+                </section>
+                <!--Roles-->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+                        <div class="coral-Form-fieldwrapper">
+                            <b> <label class="coral-Form-fieldlabel">{{i18n "Community Managers"}}</label></b>
+                            <label class="coral-Form-fieldlabel">{{i18n "Selected members or groups will have the ability to create community groups promote or demote other Community Managers promote or demote other Community Moderators and promote or demote other Community Privileged Members"}}</label>
+                            <div id="console-communityManagerUsers" data-fieldName='communitymanagers'>
+                                {{include resourceType="social/console/components/hbs/userlist"}}
+                            </div>
+                        </div>
+                        <div class="coral-Form-fieldwrapper">
+                            <b><label class="coral-Form-fieldlabel">{{i18n "Community Moderators"}}</label></b>
+                            <label class="coral-Form-fieldlabel">{{i18n "Selected members or groups will have the ability to moderate user generated content"}}</label>
+                            <div id="console-moderatorUsers" data-fieldName='moderators'>
+                                {{include resourceType="social/console/components/hbs/userlist"}}
+                            </div>
+                        </div>
+                        <div class="coral-Form-fieldwrapper">
+                            <b><label class="coral-Form-fieldlabel">{{i18n "Community Privileged Members"}}</label></b>
+                            <label class="coral-Form-fieldlabel">{{i18n "Selected members or groups will have the ability to create new content when the Community Function has been secured by Allow Privileged Member"}}</label>
+                            <div id="console-privilegedMembersUsers" data-fieldName='privilegedmembers'>
+                                {{include resourceType="social/console/components/hbs/userlist"}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Moderation-->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+                        <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                            <coral-checkbox data-param="moderateContent"
+                                            class="scf-js-fix-checks scf-fix-checks"
+                                            name="moderateContent" value="false">
+                                {{i18n "Content is Premoderated"}}
+                            </coral-checkbox>
+                        </div>
+                        <label class="coral-Form-fieldlabel">{{i18n "Flagging threshold before content is hidden"}}</label>
+                        <coral-numberinput placeholder="Enter a number" name="flagModerator" min="0" step="1" value="5">
+                        </coral-numberinput>
+                    </div>
+                </section>
+
+                <!-- Analytics Settings -->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+                        <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                            <label class="coral-Form-fieldlabel">{{i18n "Cannot be enabled if there are no existing valid Analytics configurations."}}</label>
+                            <coral-checkbox data-param="enableAnalytics"
+                                            class="scf-js-fix-checks scf-fix-checks scf-js-social-console-enable-analytics"
+                                            name="enableAnalytics" value="false">
+                                {{i18n "Enable Analytics"}}
+                            </coral-checkbox>
+                        </div>
+                        <div class="cq-social-console-analytics-options" style="display:none">
+                            <label class="coral-Form-fieldlabel">{{i18n "Cloud Config Framework Reference"}}</label>
+                            <div class="coral-Form-fieldwrapper">
+                                {{include resourceType="social/reporting/analytics/components/hbs/frameworklist"}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Translation Settings -->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+
+                        <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                            <label class="coral-Form-fieldlabel">{{i18n "Community Site machine translation options"}}</label>
+                            <coral-checkbox data-param="allowMachineTranslation"
+                                            class="scf-js-fix-checks scf-fix-checks scf-js-social-console-allow-translation"
+                                            name="allowMachineTranslation" value="false">
+                                {{i18n "Allow Machine Translation"}}
+                            </coral-checkbox>
+                        </div>
+
+                        <div style="display:none">
+                            <label class="coral-Form-fieldlabel">{{i18n "Enable Machine Translation for selected languages"}}</label>
+                            <div class="coral-Form-fieldwrapper">
+                                <div id="console-available-languages">
+                                    <span id="social-console-availableLanguageSelect" class="coral-Select coral-Form-field" data-init="select">
+                                         <coral-select name="availableLanguages" multiple class="scf-js-cq-social-blueprints-select">
+                                         </coral-select>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="console-translation-provider-container">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Choose translation provider"}}</label>
+                                    <div class="coral-Form-fieldwrapper">
+                                        <div id="console-translation-provider">
+                                            <span id="social-console-span-translation-provider" class="coral-Select coral-Form-field" data-init="select">
+                                                <coral-select name="translationProvider" class="scf-js-cq-social-blueprints-select">
+                                                </coral-select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="console-common-store-languages">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Choose global shared store"}}</label>
+                                    <div class="coral-Form-fieldwrapper">
+                                        <div id="console-common-store">
+                                            <span id="social-console-common-store" class="coral-Select coral-Form-field" data-init="select">
+                                                <coral-select name="commonStoreLanguage" class="scf-js-cq-social-blueprints-select">
+                                                    <coral-select-item value="nc">{{i18n "No Global Store"}}</coral-select-item>
+                                                </coral-select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="console-translation-provider-container">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Choose translation provider config"}}</label>
+                                    <div class="coral-Form-fieldwrapper">
+                                        <div id="console-translation-provider">
+                                            <span id="social-console-translation-provider-config-span" class="coral-Select coral-Form-field" data-init="select">
+                                                <coral-select name="translationProviderConfig" class="scf-js-cq-social-blueprints-select">
+                                                </coral-select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="coral-Form-fieldlabel">{{i18n "Select the translation options for your community site"}}</label>
+                            <div class='cq-social-console-translation-options'>
+                                <div class="social-console-user-setting-column scf-js-social-console-translate-page coral-RadioGroup coral-Form-field" title="Translate Page" data-name="TranslatePageSectionOption">
+                                    <coral-radio name="translatePageOrSection" value="TRANSLATE_ENTIRE_PAGE">
+                                        {{i18n "Translate entire page"}}
+                                    </coral-radio>
+                                    <coral-radio name="translatePageOrSection" value="TRANSLATE_SELECTION" checked>
+                                        {{i18n "Translate selection only"}}
+                                    </coral-radio>
+                                </div>
+                            </div>
+
+                            <label class="coral-Form-fieldlabel">{{i18n "Select Persistence Options"}}</label>
+                            <div class='cq-social-console-translation-options'>
+                                <div class="social-console-user-setting scf-js-social-console-translate-page coral-RadioGroup coral-Form-field" title="Translate Page" data-name="persistTranslationOption">
+                                    <coral-radio name="persistTranslation" value="TRANSLATE_ON_USER_REQUEST">
+                                        {{i18n "Translate contributions on user request and persist afterwards"}}
+                                    </coral-radio>
+                                    <coral-radio name="persistTranslation" value="DO_NOT_PERSIST_TRANSLATION">
+                                        {{i18n "Don't persist translations."}}
+                                    </coral-radio>
+                                    <coral-radio name="persistTranslation" value="TRANSLATE_AUTOMATICALLY" checked>
+                                        {{i18n "Automatically translate new contributions and persist the new translations"}}
+                                    </coral-radio>
+                                </div>
+                            </div>
+                            <label class="coral-Form-fieldlabel">{{i18n "Smart Render"}}</label>
+                            <div class="coral-Form-fieldwrapper">
+                                <div id="console-smart-rendering">
+                                    <span id="social-console-smart-render" class="coral-Select coral-Form-field" data-init="select">
+                                        <coral-select class="scf-js-cq-social-blueprints-select" name="smartRender">
+                                            <coral-select-item value="off">
+                                                {{i18n "Always show contributions in the original language"}}
+                                            </coral-select-item>
+                                            <coral-select-item value="on">
+                                                {{i18n "Always show contributions in user preferred language"}}
+                                            </coral-select-item>
+                                            <coral-select-item value="logged_in_user">
+                                                {{i18n "Show contributions in user preferred language for only logged-in users"}}
+                                            </coral-select-item>
+                                        </coral-select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Other Settings -->
+                <section class="coral-TabPanel-pane">
+                    {{#include this.id path="extendednavsec" resourceType="social/console/components/hbs/extendednav" }}
+                        { "configPath" : "/content/communities/sitesettingsnav" }
+                    {{/include}}
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

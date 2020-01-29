@@ -1,0 +1,32 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-pagination btn-group" role="group" data-component-id="{{id}}" data-scf-component="social/reporting/components/hbs/reporting/datatable/bootstrap/pagination">
+    <button class="scf-reporting-pagination scf-pagination-first-btn btn btn-default" evt="click=firstPage">
+        <i class="glyphicon glyphicon-fast-backward"></i> {{i18n "First"}}
+    </button>
+    <button class="scf-reporting-pagination scf-pagination-previous-btn btn btn-default" evt="click=previousPage">
+        <i class="glyphicon glyphicon-arrow-left"></i> {{i18n "Previous"}}
+    </button>
+    <button class="scf-reporting-pagination scf-pagination-next-btn btn btn-default" evt="click=nextPage">
+        <i class="glyphicon glyphicon-arrow-right"></i> {{i18n "Next"}}
+    </button>
+    <button class="scf-reporting-pagination scf-pagination-last-btn btn btn-default" evt="click=lastPage">
+        <i class="glyphicon glyphicon-fast-forward"></i> {{i18n "Last"}}
+    </button>
+</div>

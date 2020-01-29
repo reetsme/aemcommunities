@@ -1,0 +1,30 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Commentaire du blog] {{{target.displayName}}}{{else}}[Commentaire du blog]{{/if}} \
+
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "add"}}\
+   {{{user.name}}} a ajouté un nouveau commentaire du blog {{#if this.target.properties.[jcr:title]}}à l’article « {{{target.displayName}}} » {{/if}}le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}} a mis à jour le commentaire du blog {{#if this.target.properties.[jcr:title]}}sur l’article « {{{target.displayName}}} » {{/if}}le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{{user.name}}} a supprimé le commentaire du blog {{#if this.target.properties.[jcr:title]}}sur l’article « {{{target.displayName}}} » {{/if}}le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{{user.name}}} a approuvé le commentaire du blog {{#if this.target.properties.[jcr:title]}}sur l’article « {{{target.displayName}}} » {{/if}}le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">Cliquez sur ce lien</a> pour afficher tous les commentaires du blog sur cet article ou modifier votre abonnement.\n \
+</div>\n \
+</body>\n \
+</html>\n \

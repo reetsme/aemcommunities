@@ -1,0 +1,49 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="content scf-js-cq-social-themes social-themes" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/admin/sitebygroupfilter">
+    <coral-masonry layout="fixed-spread" columnwidth="242" spacing="15">
+        {{#each items}}
+            <coral-masonry-item data-component-id="{{this.id}}">
+                <coral-card assetwidth="400" assetheight="400">
+                    <coral-card-asset>
+                        <img src="{{#if this.siteThumbnail}}{{this.siteThumbnail.thumbnailUrl}}{{else}}{{this.sitePagePath}}.thumb.319.319.jpg{{/if}}" />
+                    </coral-card-asset>
+
+                    <coral-card-info>
+                        <a style="width:100%; height:100%; position:absolute;" href="/communities/site-resources.html{{this.properties.siteResourcesPath}}"></a>
+                    </coral-card-info>
+                    <coral-card-content>
+                        <coral-card-title>{{this.name}}</coral-card-title>
+                        <coral-card-propertylist>
+                            <coral-card-property icon="demographic" title="{{i18n "Language"}}">{{this.configuration.translationManagementConfiguration.baseLanguage}}</coral-card-property>
+                        </coral-card-propertylist>
+                        {{#if created}}
+                            <coral-card-propertylist>
+                                <coral-card-property icon="edit" title= {{i18n "Created"}}>
+                                    <time datetime="{{created}}">{{pretty-time created}}</time>
+                                </coral-card-property>
+                            </coral-card-propertylist>
+                        {{/if}}
+                    </coral-card-content>
+                </coral-card>
+            </coral-masonry-item>
+        {{/each}}
+    </coral-masonry>
+</div>

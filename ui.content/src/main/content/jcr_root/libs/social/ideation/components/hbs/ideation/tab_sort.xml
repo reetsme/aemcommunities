@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Panel"
+    title="Sort Settings">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <sortBy
+            jcr:primaryType="cq:Widget"
+            defaultValue="['newest','added','latestActivityDate_dt']"
+            fieldLabel="Sort By"
+            name="./sortBy"
+            optionsProvider="function() {                   var contextPath = CQ.shared.HTTP.getContextPath() || '';                   var items = CQ.Util.eval(CQ.HTTP.get(contextPath+'/libs/social/commons/sortorder.json'));                   var opts = [];                   var defaultValues = ['newest', 'added', 'latestActivityDate_dt'];                   for (var i=0; i &lt; items.sortorder.length; i++) {                     var item = items.sortorder[i];                     var splitItem = item.split(':');                     if(defaultValues.indexOf(splitItem[1]) > -1){                         opts.push({                           text:CQ.I18n.get(splitItem[0]),                           value: splitItem[1],                           checked: true                         });                     } else{                        opts.push({                           text:CQ.I18n.get(splitItem[0]),                           value: splitItem[1]                         });                     }                   }                   return opts;                 }"
+            type="checkbox"
+            xtype="selection"/>
+        <sortField
+            jcr:primaryType="cq:Widget"
+            defaultValue="newest"
+            fieldDescription="Set as Default"
+            fieldLabel="Set as Default"
+            name="./sortField"
+            optionsProvider="function() {               var contextPath = CQ.shared.HTTP.getContextPath() || '';               var items = CQ.Util.eval(CQ.HTTP.get(contextPath+'/libs/social/commons/sortorder.json'));               var opts = [];                for (var i=0; i &lt; items.sortorder.length; i++) {                 var item = items.sortorder[i];                 var splitItem = item.split(':');                 opts.push({                   text:CQ.I18n.get(splitItem[0]),                   value: splitItem[1]                 });               }               return opts;             }"
+            type="select"
+            value="newest"
+            xtype="selection">
+            <listeners
+                jcr:primaryType="nt:unstructured"
+                selectionchanged="function(selectWidget, value, isChecked) {                     var sortOrderfield = selectWidget.findParentByType('form').find('name', './sortFieldOrder')[0];                     if (value === 'added') {                         sortOrderfield.setValue('asc');                                     } else {                         sortOrderfield.setValue('desc');                     }                 }"/>
+        </sortField>
+        <sortFieldOrder
+            jcr:primaryType="cq:Widget"
+            defaultValue="desc"
+            hidden="{Boolean}true"
+            name="./sortFieldOrder"
+            xtype="hidden"/>
+        <timeSelector
+            jcr:primaryType="cq:Widget"
+            defaultValue="total_tl"
+            fieldDescription="Select Time Options for Analytics Sorting"
+            fieldLabel="Select Time Options for Analytics Sorting"
+            name="./timeSelector"
+            type="select"
+            value="total_tl"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <last24Hours_tl
+                    jcr:primaryType="nt:unstructured"
+                    text="Last 24 Hours"
+                    value="last24Hours_tl"/>
+                <last7Days_tl
+                    jcr:primaryType="nt:unstructured"
+                    text="Last 7 Days"
+                    value="last7Days_tl"/>
+                <last30Days_tl
+                    jcr:primaryType="nt:unstructured"
+                    text="Last 30 Days"
+                    value="last30Days_tl"/>
+                <total_tl
+                    jcr:primaryType="nt:unstructured"
+                    text="All"
+                    value="total_tl"/>
+            </options>
+        </timeSelector>
+    </items>
+</jcr:root>

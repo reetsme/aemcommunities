@@ -1,0 +1,34 @@
+﻿subject=[Forum Post] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+Um novo tópico do fórum “{{{object.displayName}}}” foi publicado por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Uma nova publicação do fórum foi adicionada ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”“{{else}}”“{{{target.properties.eventTopic}}}”{{/if}} por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+A publicação do fórum ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”{{else}}“{{{target.properties.eventTopic}}}”{{/if}} foi atualizada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+A publicação do fórum ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”{{else}}“{{{target.properties.eventTopic}}}”{{/if}} foi excluída por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+A publicação do fórum ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”{{else}}“{{{target.properties.eventTopic}}}”{{/if}} foi aprovada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+A publicação do fórum ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”{{else}}“{{{target.properties.eventTopic}}}”{{/if}} foi fechada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+A publicação do fórum ao tópico {{#if this.target.properties.[jcr:title]}}“{{{target.displayName}}}”{{else}}“{{{target.properties.eventTopic}}}”{{/if}} foi aberta novamente por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Clique neste link</a> para visualizar todas as publicações feitas neste tópico ou para modificar suas preferências de notificação.\n \
+</div>\n \
+</body>\n \
+</html>\n \

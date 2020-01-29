@@ -1,0 +1,94 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/group/components/hbs/communitygroupmemberlist">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="{{i18n "Search..."}}" id="search">
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button" evt="click=search">{{i18n "Go!"}}</button>
+      </span>
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+    {{#if canInvite}}
+        <!-- tool bar -->
+        <div class="scf-comment-toolbar">
+            <button type="submit" class="scf-groupmemberlist-toolkit btn btn-default scf-icon-add" evt='click=showInviteBox'> {{i18n "invite"}}</button>
+            <!-- Modal Dialog - New Group -->
+            <div class="scf-js-invite-group-box" style="display: none">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form role="form" method="POST" action="/content.social.json" class="scf-group-form">
+                            <input type="hidden" name=":operation" value="social:inviteGroupMember" />
+                            <input type="hidden" name="_charset_" value="utf-8">
+                            <div class="row ui-widget">
+                                <input class="form-control" name="invitemember" id="invitemember" data-attrib="invitemember" autocomplete="on" />
+                            </div>
+                            <div class="row scf-form-row">
+                                <div class="col-sm-6 scf-composer-actions"></div>
+                                <div class="col-sm-6 scf-composer-actions">
+                                    <button type="reset" class="btn btn-default cancel" evt="click=cancelInvite">{{i18n "Cancel"}}</button>
+                                    <button type="submit" class="btn btn-primary" id="invite-group-submit" evt="click=invite">{{i18n "Invite"}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal New Group-->
+        </div>
+    {{/if}}
+    <!-- /.too bar-->
+
+    <div class="row">
+        <div class="col-lg-12"> &nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table scf-community-member-table">
+                <thead>
+                    <tr>
+                        <th>{{i18n "User"}}</th>
+                        <th>{{i18n "Abstract"}}</th>
+                        <th>{{i18n "Action"}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each items}}
+                        {{include this resourceType="social/group/components/hbs/communitygroupmember" authoringDisabled="true"}}
+                    {{/each}}
+                </tbody>
+            </table>
+            <nav>
+                <ul class="pager">
+                    <li id="previous"><a href="javascript:void(0)" evt="click=navigatePrevious">{{i18n "Previous"}}</a>
+                    </li>
+                    <li id="next"><a href="javascript:void(0)" evt="click=navigateNext">{{i18n "Next"}}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

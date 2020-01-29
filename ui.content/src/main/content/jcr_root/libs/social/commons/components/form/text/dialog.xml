@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    helpPath="en/cq/current/wcm/default_components.html#Forms Text Field"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <first
+            jcr:primaryType="cq:Widget"
+            path="/libs/foundation/components/form/text/dialog/items/first.infinity.json"
+            xtype="cqinclude"/>
+        <second
+            jcr:primaryType="nt:unstructured"
+            title="Initial Values"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <value
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Default Value"
+                    name="./defaultValue"
+                    xtype="textfield"/>
+                <emptytext
+                    jcr:primaryType="cq:Widget"
+                    boxLabel="Empty text"
+                    name="./emptytext"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </second>
+        <fourth
+            jcr:primaryType="cq:Widget"
+            path="/libs/foundation/components/form/text/dialog/items/fourth.infinity.json"
+            xtype="cqinclude"/>
+        <five
+            jcr:primaryType="cq:Widget"
+            path="/libs/foundation/components/form/text/dialog/items/five.infinity.json"
+            xtype="cqinclude"/>
+    </items>
+</jcr:root>

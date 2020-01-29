@@ -1,0 +1,89 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.social-console-settings-backgroundcolor {
+    background-color: #eee;
+}
+
+.social-console-edit-settings-tab {
+    margin: 0 auto;
+}
+
+.social-console-edit-settings-label {
+    font-size: .875rem;
+    padding-top: .375rem;
+    padding-right: .9375rem;
+    height: 2rem;
+    line-height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.coral-TabPanel-tab.enablement {
+    display: none;
+}
+
+#social-console-pages-accordion .coral-Accordion-item {
+    /*padding-bottom: 15px;*/
+}
+
+.scf-fix-checks {
+    z-index: 1;
+}
+
+.scf-wizardview-header {
+    display: -webkit-flex;
+    /* @polyfill Safari */
+    display: flex;
+    padding: 0 0.9375rem;
+    height: 4.125rem;
+    background-color: #FAFAFA;
+}
+
+.scf-wizardview-header .coral3-Step-markerContainer {
+    display: none;
+}
+
+.scf-wizard-title {
+    line-height: 4.125rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.scf-wizard-controls {
+    margin-top: 0.875rem;
+}
+
+.scf-wizard-controls button,
+.scf-wizard-controls a {
+    margin-right: 0.625rem;
+}
+
+.scf-wizard-steplist {
+    -webkit-flex: 1;
+    flex: 1;
+    margin-top: 0.875rem;
+}
+
+.social-console-design-tab {
+    display: inline-block;
+}

@@ -1,0 +1,28 @@
+subject=[构思事件] {{{object.displayName}}}
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 发布了新构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 添加了新构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 更新了构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 删除了构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 批准了构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 关闭了构思事件。\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 重新打开了构思事件。\n\n \
+{{/equals}}\
+请单击此链接查看所有构思事件或修改您的通知首选项。\n \
+{{targetUrl}}\n \

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-02-03T16:37:44.725-05:00"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2015-02-03T16:08:35.367-05:00"
+        cq:lastRolledoutBy="admin"
+        cq:template="/libs/social/console/templates/base_page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveSync,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Trash"
+        jcr:uuid="8e341fef-0b72-44a8-b6c4-916b8af12ffd"
+        sling:resourceType="social/console/components/basepage"
+        navTitle="Trash">
+        <clientlibslist
+            cq:lastRolledout="{Date}2015-02-03T16:08:35.353-05:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            scg:requiredClientLibs="[cq.social.hbs.messaging,cq.social.hbs.breadcrumbs,cq.social.hbs.userprofile,cq.social.hbs.forum,personalization.core.kernel,personalization.clientcontext.kernel,personalization.stores.kernel,personalization.kernel]"
+            sling:resourceType="social/console/components/clientlibslist"/>
+        <content
+            cq:lastRolledout="{Date}2015-02-03T16:08:35.355-05:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/hbs/singlecolumncontent">
+            <breadcrumbs
+                cq:lastRolledout="{Date}2015-02-03T16:08:35.360-05:00"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="social/console/components/hbs/breadcrumbs"/>
+            <primary
+                cq:lastRolledout="{Date}2015-02-03T16:08:35.362-05:00"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <messagingnavbar
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/console/components/hbs/messagingnavbar">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="2"/>
+                    </cq:responsive>
+                </messagingnavbar>
+                <trash_messages
+                    jcr:created="{Date}2015-02-03T16:35:14.169-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2015-02-03T16:37:44.721-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/messaging/components/hbs/messagebox"
+                    dateFormatPatterns="[en=MMM-DD-YYYY HH:mm:ss,de=DD-MMM-YYYY HH:mm:ss,fr=DD-MMM-YYYY HH:mm:ss,it=DD-MMM-YYYY HH:mm:ss,es=DD-MMM-YYYY HH:mm:ss,ja=YYYY-MMM-DD HH:mm:ss,zh_CN=YYYY-MMM-DD HH:mm:ss,ko_KR=YYYY-MMM-DD HH:mm:ss]"
+                    displayUserType="Sender"
+                    folderPaths="/mail/community"
+                    isTrash="true"
+                    pageSize="10"
+                    replyURL="compose.html"
+                    serviceSelector="/bin/community"
+                    showDelete="true"
+                    showMarkRead="true"
+                    showMarkUnread="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="10"/>
+                    </cq:responsive>
+                </trash_messages>
+            </primary>
+        </content>
+        <cq:LiveSyncConfig
+            cq:excludedPaths="[]"
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/communities/templates/basetemplate/messaging/trash"
+            cq:rolloutConfigs="[/etc/msm/rolloutconfigs/default]"
+            jcr:primaryType="cq:LiveCopy"/>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Decimal}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Decimal}992"/>
+                <mediumscreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Medium Screen"
+                    width="{Decimal}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

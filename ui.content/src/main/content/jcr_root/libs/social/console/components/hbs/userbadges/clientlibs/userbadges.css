@@ -1,0 +1,48 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2016 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-js-user-profile-badges-list {
+    padding: 20px 0 10px 0;
+    line-height: 35px;
+}
+
+.scf-js-user-profile-badge {
+    padding-right: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.scf-js-user-profile-badge img {
+    padding-right: 5px;
+}
+
+.scf-user-profile-badges-select {
+    font-size: 12px;
+}
+
+.scf-user-profile-badges-select .coral3-Select-label {
+    font-size: 10px;
+}
+
+.scf-user-profile-badges {
+    min-height: 150px;
+}
+
+.scf-js-user-profile-badges-top {
+    min-height: 30px;
+}

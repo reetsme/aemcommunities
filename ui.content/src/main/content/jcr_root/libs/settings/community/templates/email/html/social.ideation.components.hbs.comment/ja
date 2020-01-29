@@ -1,0 +1,26 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[ブログコメント] {{{target.displayName}}}{{else}}[ブログコメント]{{/if}} \
+
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "add"}}\
+    {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}記事「{{{target.displayName}}}」{{/if}}に対する新しいブログコメントを追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}記事「{{{target.displayName}}}」{{/if}}に対するブログコメントを更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}記事「{{{target.displayName}}}」{{/if}}に対するブログコメントを削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}記事「{{{target.displayName}}}」{{/if}}に対するブログコメントを承認しました。\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">このリンクをクリック</a>すると、この記事に対するすべてのブログコメントを表示したり、通知の基本設定を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

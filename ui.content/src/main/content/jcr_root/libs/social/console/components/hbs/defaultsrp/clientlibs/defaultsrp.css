@@ -1,0 +1,66 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.coral-Autocomplete.scf-hosturl {
+    width: auto;
+}
+
+.scf-srpconfigpanel {
+    padding: 10px;
+}
+
+#defaultAlert {
+    display: none;
+    position: fixed;
+    top: 45px;
+    left: 50%;
+}
+
+.js-scf-form-dsrp coral-multifield,
+.js-scf-form-msrp coral-multifield {
+    width: 100%;
+}
+
+.js-scf-form-dsrp coral-multifield input,
+.js-scf-form-msrp coral-multifield input {
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+.js-scf-dsrp-Button--primary,
+.js-scf-dsrp-Button--primary {
+    float: right;
+}
+
+.js-scf-form-asrp coral-multifield,
+.js-scf-form-jsrp coral-multifield {
+    width: 100%;
+}
+
+.js-scf-form-asrp coral-multifield button {
+    margin-left: 4px;
+}
+
+.js-scf-form-asrp coral-multifield input {
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+.js-scf-form-asrp .coral-Form-fieldset {
+    margin: 10px 0 10px 0;
+}

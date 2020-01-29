@@ -1,0 +1,16 @@
+﻿subject=Votre mot de passe a été mis à jour
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Demande de mise à jour du mot de passe</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Bonjour {{{givenName}}},</p>\n \
+<p>Votre mot de passe a été modifié le {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} </p>\n \
+<p>Si vous avez bien effectué cette demande, vous pouvez ignorer ce courrier électronique.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

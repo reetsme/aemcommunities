@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Panel"
+    title="Quick Search Settings">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <searchPaths
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Restrict the search to a list of paths."
+            fieldLabel="Quick Search Paths"
+            name="./searchPaths"
+            xtype="multifield">
+            <fieldConfig
+                jcr:primaryType="nt:unstructured"
+                allowBlank="{Boolean}false"
+                predicate="hierarchy"
+                xtype="pathfield"/>
+        </searchPaths>
+        <resultPage
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Result page"
+            fieldLabel="Result Page"
+            name="./resultPage"
+            xtype="pathfield"/>
+        <endpoint
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Endpoint"
+            fieldLabel="Endpoint"
+            name="./endpoint"
+            xtype="pathfield"/>
+    </items>
+</jcr:root>

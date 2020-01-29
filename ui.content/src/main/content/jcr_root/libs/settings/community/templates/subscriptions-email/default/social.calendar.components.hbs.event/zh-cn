@@ -1,0 +1,28 @@
+subject=[日历事件] {{{object.displayName}}}
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 发布了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 更新了日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 删除了日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 批准了日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 关闭了日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 重新打开了日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+请单击此链接查看所有日历事件或修改您的订阅。\n \
+{{targetUrl}}\n \

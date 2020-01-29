@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="col-lg-3 col-sm-4 scf-row" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/resource/card">
+    <div class="scf-content-card" data-resourcename="{{title}}">
+
+        <a class="thumbnail scf-linked-resource-title" href="{{friendlyUrl}}" evt="click=showBanner">
+
+            <div class="scf-card-header">
+                <span class="scf-resource-icon">
+                   {{include this resourceType="social/enablement/components/hbs/view/resource/card/icon" template=this.primaryAssetType}}
+                </span> {{include this resourceType="social/enablement/components/hbs/view/resource/card" template="assignment-status"}}
+            </div>
+
+            {{#if smallAsset }}
+                <div class="card-image" style="background-image: url('{{getContextPath ''}}{{smallAsset.assetResourcePath}}');"></div>
+            {{else}}
+
+                {{#if cardImagePath}}
+                    <div class="card-image" style="background-image: url('{{getContextPath ''}}{{cardImagePath}}');"></div>
+                {{else}}
+                    <div class="card-image" style="background-image: url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png');"></div>
+                {{/if}}
+
+            {{/if}}
+        </a>
+
+        <div class="card-info">
+
+            <div class="title">{{ title}}</div>
+
+            {{include this resourceType="social/enablement/components/hbs/view/resource/card" template="due-status"}} {{include this resourceType="social/enablement/components/hbs/view/resource/card/info" template=this.primaryAssetType}} {{include this resourceType="social/enablement/components/hbs/view/resource/card" template="contact-details"}}
+
+        </div>
+    </div>
+</div>

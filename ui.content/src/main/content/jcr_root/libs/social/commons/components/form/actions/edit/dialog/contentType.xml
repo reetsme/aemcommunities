@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Widget"
+    fieldLabel="Type"
+    name="./contentType"
+    type="select"
+    xtype="selection">
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        selectionchanged="function(field,value){&#xa;&#x9;var panel = field.findParentByType('tabpanel');&#xa;&#x9;var prt = panel.find('name','./parentResourceType')[0];&#xa;&#x9;var ep = panel.find('name','./endpoint')[0];&#xa;&#x9;if(prt &amp;&amp; ep){&#xa;&#x9;&#x9;ep.setValue(field.optionsProvider()[field.comboBox.selectedIndex].endpoint);&#xa;&#x9;&#x9;prt.setValue(field.optionsProvider()[field.comboBox.selectedIndex].parentResourceType);&#xa;&#x9;}&#xa;&#x9;var child = panel.find('name','./resourceType')[0];&#xa;&#x9;if(child){&#xa;&#x9;&#x9;if (value=='other') {&#xa;&#x9;&#x9;&#x9;child.show();&#xa;&#x9;&#x9;&#x9;panel.doLayout();&#xa;&#x9;&#x9;} &#xa;&#x9;&#x9;else {&#xa;&#x9;&#x9;&#x9;child.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+</jcr:root>

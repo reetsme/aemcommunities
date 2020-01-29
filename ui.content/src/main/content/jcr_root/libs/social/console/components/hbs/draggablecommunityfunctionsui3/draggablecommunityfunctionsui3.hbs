@@ -1,0 +1,52 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="content scf-js-cq-social-themes social-themes" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/draggablecommunityfunctionslist">
+    <div>
+        <section>
+            <div class="grid grid-container">
+                <div class="grid-2">
+                    <article class="card-asset scf-is-selected-functions">
+                        <h1 class="coral-Heading coral-Heading--1 scf-js-templatebuilder-title">
+                            {{#if functionsTitle}}{{i18n functionsTitle}}{{else}}
+                                {{i18n "Template Builder"}}
+                            {{/if}}
+                        </h1>
+                        <h4 class="coral-Heading coral-Heading--4 scf-css-dragarea">{{i18n "Order the Community Functions as they will show in the top level navigation bar"}}</h4>
+                        <div class="dropzone">
+                            <ul class="scf-js-community-function-list scf-js-community-function-existinglist draggable" data-component-id="{{id}}" data-init="draggable-list" data-allow="reorder drop" data-trackchanges= {{this.trackChanges}}>
+                                {{include this resourceType="social/console/components/hbs/draggablecommunityfunctionsui3" template="existinglist" authoringDisabled='true'}}
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <div class="grid-2">
+                    <article class="scf-function-library">
+                        <h1 class="coral-Heading coral-Heading--1">{{i18n "Community Functions Library"}}</h1>
+                        <h4 class="coral-Heading coral-Heading--4">{{i18n "Drag and Drop to the Builder to add Community Functions"}}</h4>
+                        <div class="dropzone">
+                            <ul class="draggable" data-init="draggable-list" data-allow="drag" data-closeable="true">
+                                {{include this.id path="communityfunctions" resourceType='social/console/components/hbs/draggablecommunityfunctionslist'}}
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,184 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-srpconfigpanel">
+
+    <div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/defaultsrp">
+        <h1>{{i18n "Select Default SRP Configuration"}}</h1>
+        <a href="{{i18n "https://www.adobe.com/go/aem6_4_docs_srp_config_en"}}">{{i18n "Docs"}}</a>
+        <div class="js-scf-storage-type-selection coral-RadioGroup">
+            <coral-radio name="source-type" value="asrp">
+                {{i18n "Adobe Storage Resource Provider (ASRP)"}}
+            </coral-radio><br />
+            <coral-radio name="source-type" value="msrp">
+                {{i18n "MongoDB Storage Resource Provider (MSRP)"}}
+            </coral-radio><br />
+            <coral-radio name="source-type" value="dsrp">
+                {{i18n "Database Storage Resource Provider (DSRP)"}}
+            </coral-radio><br />
+            <coral-radio name="source-type" value="jsrp" checked>
+                {{i18n "JCR Storage Resource Provider (JSRP)"}}
+            </coral-radio>
+        </div>
+    </div>
+
+    <form class="js-scf-form-jsrp">
+        <coral-multifield>
+            <coral-multfield-item>
+                <input is="coral-textfield" type="text" name="asipath" type="text" value="/content/usergenerated/asi/jcr" placeholder="/content/usergenerated/asi/jcr" style="display: none" readonly>
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <input is="coral-textfield" type="text" name="type" type="text" value="jsrp" style="display: none" readonly>
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <button is="coral-button" variant="primary" class="js-scf-dsrp-Button--primary">{{i18n "Submit"}}</button>
+            </coral-multfield-item>
+        </coral-multifield>
+    </form>
+
+    <form class="js-scf-form-asrp" style="display: none;">
+        <coral-multifield>
+            <coral-multfield-item>
+                <section class="coral-Form-fieldset">
+                    <div class="coral-Form-fieldwrapper">
+                        <label class="coral-Form-fieldlabel">{{i18n "Data Center URL"}}</label>
+                        <coral-autocomplete name="hosturl" placeholder="{{i18n 'Choose a datacenter'}}" required match="startswith" style="width:100%;">
+                            <coral-autocomplete-item value="https://sa-services-dc1.social.omniture.com">{{i18n "Oakland"}}</coral-autocomplete-item>
+                            <coral-autocomplete-item value="https://ep1da2.aemcommunities.com">{{i18n "Dallas"}}</coral-autocomplete-item>
+                            <coral-autocomplete-item value="https://ep1emea.aemcommunities.com">{{i18n "London"}}</coral-autocomplete-item>
+                            <coral-autocomplete-item value="https://ep1apac.aemcommunities.com">{{i18n "Singapore"}}</coral-autocomplete-item>
+                            <coral-autocomplete-item value="https://ep1or1.aemcommunities.com">{{i18n "Oregon"}}</coral-autocomplete-item>
+                        </coral-autocomplete>
+                    </div>
+                </section>
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Default Report Suite"}}</label>
+                <input is="coral-textfield" name="reportsuite" required>
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Consumer Key"}}</label>
+                <input is="coral-textfield" name="consumerkey" type="password" required autocomplete="off">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Secret"}}</label>
+                <input is="coral-textfield" name="secret" type="password" required autocomplete="off">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <div style="float:right;">
+                    <button class="coral-Button js-scf-dsrp-Button js-scf-testConfig" type="button">{{i18n "Test Config"}}</button>
+                    <button class="coral-Button coral-Button--primary js-scf-dsrp-Button--primary">{{i18n "Submit"}}</button>
+                </div>
+            </coral-multfield-item>
+        </coral-multifield>
+        <input is="coral-textfield" type="text" name="asipath" type="text" value="/content/usergenerated/asi/cloud" placeholder="/content/usergenerated/asi/cloud" style="display: none">
+        <input is="coral-textfield" type="text" name="type" type="text" value="asrp" style="display: none">
+    </form>
+    <form class="js-scf-form-msrp" style="display:none;">
+        <coral-multifield>
+            <h3>{{i18n "mongoDB Configuration"}}</h3>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "mongoDB URI"}}</label>
+                <input is="coral-textfield" name="mongouri" type="text" required value="mongodb://localhost/?maxPoolSize=10&waitQueueMultiple=5&readPreference=secondaryPreferred">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "mongoDB Database"}}</label>
+                <input is="coral-textfield" name="ugc" type="text" required value="communities">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "mongoDB UGC Collection"}}</label>
+                <input is="coral-textfield" name="collection" type="text" required value="content">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "mongoDB Attachment Collection"}}</label>
+                <input is="coral-textfield" name="attachments" type="text" required value="attachments">
+            </coral-multfield-item>
+
+            <h3>{{i18n "Solr Configuration"}}</h3>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Zookeeper Host"}}</label>
+                <input is="coral-textfield" name="zkhost" type="text">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Solr URL"}}</label>
+                <input is="coral-textfield" name="solr.url" type="text" value="http://127.0.0.1:8983/solr/">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Solr Collection"}}</label>
+                <input is="coral-textfield" name="solr.collection" type="text" required value="collection1">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <input class="coral-Form-field coral-Textfield" name="asipath" type="text" value="/content/usergenerated/asi/mongo" style="display: none">
+                <input class="coral-Form-field coral-Textfield" name="type" type="text" value="msrp" style="display: none">
+            </coral-multfield-item>
+
+            <p>{{i18n "Download and install the Solr plugin."}}
+                <ul>
+                    <li><a target="_blank" href="http://www.adobe.com/go/aem6_4_docs_msrp_solr_en">{{i18n "Solr Configuration Instructions"}}</a></li>
+                </ul>
+            </p>
+            <coral-multfield-item>
+                <button is="coral-button" variant="primary" class="js-scf-dsrp-Button--primary">{{i18n "Submit"}}</button>
+            </coral-multfield-item>
+        </coral-multifield>
+    </form>
+    <form class="js-scf-form-dsrp" style="display:none;">
+        <coral-multifield>
+            <h3>{{i18n "Database Configuration"}}</h3>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "JDBC datasource name"}}</label>
+                <input is="coral-textfield" name="datasource" type="text" required value="communities">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Database name"}}</label>
+                <input is="coral-textfield" name="database.name" type="text" required value="communities">
+            </coral-multfield-item>
+            <p>{{i18n "Download and install the database schema."}}
+                <ul>
+                    <li><a target="_blank" href="http://www.adobe.com/go/aem6_4_docs_dsrp_en">{{i18n "Database Configuration Instructions"}}</a></li>
+                </ul>
+            </p>
+            <h3>{{i18n "Solr Configuration"}}</h3>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Zookeeper Host"}}</label>
+                <input is="coral-textfield" name="zkhost" type="text">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Solr URL"}}</label>
+                <input is="coral-textfield" name="solr.url" type="text" value="http://127.0.0.1:8983/solr/">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <label class="coral-Form-fieldlabel">{{i18n "Solr Collection"}}</label>
+                <input is="coral-textfield" name="solr.collection" type="text" required value="collection1">
+            </coral-multfield-item>
+            <coral-multfield-item>
+                <input class="coral-Form-field coral-Textfield" name="asipath" type="text" value="/content/usergenerated/asi/rdbms" style="display: none">
+                <input class="coral-Form-field coral-Textfield" name="type" type="text" value="dsrp" style="display: none">
+            </coral-multfield-item>
+
+            <p>{{i18n "Download and install the Solr plugin."}}
+                <ul>
+                    <li><a target="_blank" href="http://www.adobe.com/go/aem6_4_docs_msrp_solr_en">{{i18n "Solr Configuration Instructions"}}</a></li>
+                </ul>
+            </p>
+            <coral-multfield-item>
+                <button is="coral-button" variant="primary" class="js-scf-dsrp-Button--primary">{{i18n "Submit"}}</button>
+            </coral-multfield-item>
+        </coral-multifield>
+    </form>
+</div>

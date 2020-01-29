@@ -1,0 +1,29 @@
+﻿subject=[Article de blog] {{{object.displayName}}}
+
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL : {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   {{{user.name}}} a publié un nouvel article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}} a mis à jour l’article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{{user.name}}} a supprimé l’article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{{user.name}}} a approuvé l’article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   {{{user.name}}} a clôturé l’article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   {{{user.name}}} a réouvert l’article de blog « {{{object.displayName}}} ».\n \
+{{/equals}}\
+
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Suivez ce lien pour afficher tous les articles de blog ou modifier votre abonnement.\n \
+{{targetUrl}}\n \

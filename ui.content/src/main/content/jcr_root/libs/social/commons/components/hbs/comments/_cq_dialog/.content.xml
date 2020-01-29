@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Comments Settings"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.social.author.hbs.dialogExternalLib]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <props
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Comments"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <allowReplies
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./allowRepliesToComments"
+                                text="Allow replies"
+                                value="{Boolean}true"/>
+                            <allowreplies-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowRepliesToComments@Delete"
+                                value="{Boolean}true"/>
+                            <allowRepliesHint
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowRepliesToComments@TypeHint"
+                                value="Boolean"/>
+                            <maxPerPage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}10"
+                                fieldDescription="Defines the number of comments shown per page. Default is 10."
+                                fieldLabel="Comments Per Page"
+                                name="./maxPerPage"/>
+                            <allowFileUploads
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./allowFileUploads"
+                                text="Allow File Uploads"
+                                value="{Boolean}true"/>
+                            <allowfileuploads-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowFileUploads@Delete"
+                                value="{Boolean}true"/>
+                            <maxFileSize
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}104857600"
+                                fieldDescription="Maximum number of bytes a file may have. Default: 104857600 (10 Mb)."
+                                fieldLabel="Max File Size"
+                                name="./maxFileSize"/>
+                            <maxMessageLength
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}4096"
+                                fieldDescription="Maximum number of characters a comment message text may have. Default: 4096."
+                                fieldLabel="Max Message Length"
+                                name="./maxMessageLength"/>
+                            <acceptFileTypes
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Comma seperated file extensions with dots, ex .jpg, .jpeg, .png, .doc, .docx, .ppt, .zip, .rar&#xa;Default: allow all file types."
+                                fieldLabel="Allowed File Types"
+                                name="./acceptFileTypes"/>
+                            <richTextEditor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./rteEnabled"
+                                text="Rich Text Editor"
+                                value="{Boolean}true"/>
+                            <richtexteditor-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./rteEnabled@Delete"
+                                value="{Boolean}true"/>
+                            <allowVoting
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./allowVoting"
+                                text="Allow Voting"
+                                value="{Boolean}true"/>
+                            <allowvoting-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowVoting@Delete"
+                                value="{Boolean}true"/>
+                            <allowFollowing
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./allowFollowing"
+                                text="Allow Following"
+                                value="{Boolean}true"/>
+                            <allowfollowing-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowFollowing@Delete"
+                                value="{Boolean}true"/>
+                            <allowBadges
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./allowBadges"
+                                text="Display Badges"
+                                value="{Boolean}true"/>
+                            <allowbadges-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowBadges@Delete"
+                                value="{Boolean}true"/>
+                            <allowBadgesHint
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowBadges@TypeHint"
+                                value="Boolean"/>
+                            <maxFileSizeHint
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./maxFileSize@TypeHint"
+                                value="Long"/>
+                            <maxMessageLengthHint
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./maxMessageLength@TypeHint"
+                                value="Long"/>
+                        </items>
+                    </columns>
+                </items>
+            </props>
+            <userMod
+                jcr:primaryType="nt:unstructured"
+                jcr:title="User Moderation"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <moderate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="If checked, comments must be approved before they are posted"
+                                name="./moderateComments"
+                                text="Pre-Moderation"
+                                value="{Boolean}true"/>
+                            <moderate-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./moderateComments@Delete"
+                                value="{Boolean}true"/>
+                            <allowDeleteComments
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow users to delete their own comments"
+                                name="./allowDeleteComments"
+                                text="Delete Comments"
+                                value="{Boolean}true"/>
+                            <allowdeletecomments-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowDeleteComments@Delete"
+                                value="{Boolean}true"/>
+                            <allowDenyComments
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow publish-side moderators to deny comments"
+                                name="./allowDenyComments"
+                                text="Deny Comments"
+                                value="{Boolean}true"/>
+                            <allowdenycomments-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowDenyComments@Delete"
+                                value="{Boolean}true"/>
+                            <allowCloseComments
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow publish-side moderators to close and reopen comments"
+                                name="./allowCloseComments"
+                                text="Close / Reopen Comments"
+                                value="{Boolean}true"/>
+                            <allowclosecomments-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowCloseComments@Delete"
+                                value="{Boolean}true"/>
+                            <allowUserFlagging
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow users to flag comments as inappropriate"
+                                name="./allowFlagComments"
+                                text="Flag Comments"
+                                value="{Boolean}true"/>
+                            <allowuserflagging-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowFlagComments@Delete"
+                                value="{Boolean}true"/>
+                            <useFlagReasonList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow users to choose a flagging reason from a list"
+                                name="./useFlagReasonList"
+                                text="Flag Reason List"
+                                value="{Boolean}true"/>
+                            <useflagreasonlist-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./useFlagReasonList@Delete"
+                                value="{Boolean}true"/>
+                            <useFlagReasonFreeformText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Allow users to enter a custom flag reason"
+                                name="./allowCustomFlagReason"
+                                text="Custom Flag Reason"
+                                value="{Boolean}true"/>
+                            <useflagreasonfreeformtext-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./allowCustomFlagReason@Delete"
+                                value="{Boolean}true"/>
+                            <flagModerateThreshold
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}1"
+                                fieldDescription="Number of times a comment is flagged before its status is changed to Flagged.                         Minimum: 1.  Default: 1."
+                                fieldLabel="Moderation Threshold"
+                                max="9223372036854775000"
+                                min="1"
+                                name="./flagModerateThreshold"/>
+                            <flagViewThreshold
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}5"
+                                fieldDescription="Number of times a comment is flagged before its status is changed to Denied                         (value must be at least as large as the Moderation Threshold, or -1 to never hide flagged comments).                          Default: 5."
+                                fieldLabel="Flagging Limit"
+                                max="9223372036854775000"
+                                min="-1"
+                                name="./flagViewThreshold"/>
+                        </items>
+                    </columns>
+                </items>
+            </userMod>
+            <sort
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Sort Settings"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sortField
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="scf-js-lf-sortField"
+                                fieldDescription="Set Sort Field"
+                                fieldLabel="Sort Field"
+                                name="./sortField">
+                                <items jcr:primaryType="nt:unstructured"/>
+                            </sortField>
+                            <sortOrder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldDescription="Set Sort Order"
+                                fieldLabel="Sort Order"
+                                name="./sortFieldOrder">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <asc
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Ascending"
+                                        value="ASC"/>
+                                    <desc
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Descending"
+                                        value="DESC"/>
+                                </items>
+                            </sortOrder>
+                        </items>
+                    </columns>
+                </items>
+            </sort>
+        </items>
+    </content>
+</jcr:root>

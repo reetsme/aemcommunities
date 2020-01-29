@@ -1,0 +1,148 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{includeClientLib js="cq.social.bootstrap.3" }}
+    {{#unless id}}
+        <script data-scf-json="true" type="application/json" id="empty_group_model">
+            {}
+
+        </script>
+    {{/unless}}
+    <div class="scf-member-user-profile" data-component-id="{{#if id}}{{id}}{{else}}empty_group_model{{/if}}" data-scf-component="social/members/components/hbs/groupprofile">
+        <div class="foundation-layout-panel-header">
+            <div class="granite-actionbar">
+                <div class="granite-actionbar-centerwrapper">
+                    <div class="granite-actionbar-center">
+                        <span class="granite-title" role="heading" aria-level="1">
+                            {{#if authorizableID}}
+                                <span>{{i18n "Edit Group Settings"}}</span>
+                        {{else}}
+                            <span>{{i18n "Create New Group"}}</span>
+                            {{/if}}
+                            </span>
+                    </div>
+                </div>
+                <div class="granite-actionbar-left">
+                    <div class="granite-actionbar-item">
+                        <a href="{{getContextPath ''}}/communities/groups" is="coral-anchorbutton" class="coral-Button" size="M" role="button" tabindex="0" aria-disabled="false">
+                            <coral-anchorbutton-label class="coral-Button-label">{{i18n "Cancel"}}</coral-anchorbutton-label>
+                        </a>
+                    </div>
+                </div>
+                <div class="granite-actionbar-right">
+                    <div class="granite-actionbar-item">
+                        <button type="button" {{#if authorizableID}} evt="click=update" {{else}} evt="click=create" {{/if}} autocomplete="off" variant="primary" is="coral-button" class="scf-js-group-profile-save coral-Button" size="M">
+                            <coral-button-label class="coral-Button-label">{{i18n "Save"}}</coral-button-label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scf-user-profile-textbox-tooltip scf-js-member-group-profile-success coral-Tooltip--success"></div>
+        <div class="scf-user-profile-textbox-tooltip scf-js-member-group-profile-error coral-Tooltip--error"></div>
+        {{#if authorizableID}}
+            <form evt="submit=update" id="propertiesform" class="coral-Form coral-Form--aligned content-container">
+        {{else}}
+            <form evt="submit=create" id="propertiesform" class="coral-Form coral-Form--aligned content-container">
+        {{/if}}
+        <div class="foundation-wizard-step scf-user-profile-add-group foundation-wizard-step-active" data-foundation-wizard-step-validation="false">
+            <h4>{{i18n "Group Details"}}</h4>
+            <div class="coral-Well">
+                <div class="coral-Form-fieldwrapper">
+                    <label class="coral-Form-fieldlabel ">{{i18n "ID"}} *</label>
+                    <input type="text" class="coral-Form-field coral-Textfield scf-user-profile-group-field" data-attrib="groupId" required name="groupId" value="{{authorizableID}}" {{#if authorizableID}} disabled {{/if}}>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <label class="coral-Form-fieldlabel">{{i18n "Name"}}</label>
+                    <input class="coral-Form-field coral-Textfield scf-user-profile-group-field" type="text" data-attrib="givenName" name="givenName" value="{{profileProperties.givenName}}">
+                </div>
+                <div class="about-container">
+                    <div class="coral-Form-fieldwrapper">
+                        <label class="coral-Form-fieldlabel">{{i18n "Description"}}</label>
+                        <input type="text" class="coral-Form-field coral-Textfield scf-user-profile-group-field" data-attrib="aboutMe" name="aboutMe" value="{{profileProperties.aboutMe}}">
+                    </div>
+                </div>
+                {{#if authorizableID}}
+                    <div class="about-container">
+                        <div class="coral-Form-fieldwrapper">
+                            <label class="coral-Form-fieldlabel">{{i18n "Parent Group"}}</label>
+                            <div class="scf-parentGroups-container scf-js-parentGroups-container">
+                                {{#each parentGroups}}
+                                    <a class="coral-Link" href="groupprofile.html?_charset_=utf-8&groupId={{xss-validHref @key}}">
+                                        <span>{{ this }}</span>
+                                    </a>
+                                    <span>,</span>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+            <h4>{{i18n "Add Members To Group"}}</h4>
+
+            <div class="coral-Well">
+                <div class="scf-js-group-profile-members scf-group-profile-add-members coral-Form-fieldwrapper">
+                    <label class="coral-Form-fieldlabel"></label>
+                </div>
+            </div>
+
+            {{#if authorizableID}}
+
+                <h4>{{i18n "Group Members"}}</h4>
+
+                <div class="coral-Well">
+                    <div class="coral-Form-fieldwrapper">
+                        <label class="coral-Form-fieldlabel"></label>
+                        <input class="coral-Form-field item-list-filter coral-Textfield scf-group-profile-members" evt="keyup=searchGroups" value="">
+                        <div class="removable-item-list-container user-group-list-container">
+                            {{#each this.members}}
+                                <article id="scf-js-memberlist-{{this.authorizableId}}" data-itemid="{{this.authorizableId}}" class="scf-js-memberlist-item card-asset foundation-collection-item">
+                                    <div class="edit-group">
+                                        <div class="label">
+                                            <p class="scf-memberlist-group-column view-group">
+                                                {{#if this.type}}
+                                                    <coral-icon class="scf-memberlist-group-icon" icon="users" size="S"></coral-icon>
+                                                {{else}}
+                                                    <coral-icon class="scf-memberlist-group-icon" icon="user" size="S"></coral-icon>
+                                                {{/if}}
+                                                <span>
+                                                    {{#if this.type}}
+                                                        <a class="coral-Link" href="groupprofile.html?_charset_=utf-8&groupId={{xss-validHref this.authorizableId}}">{{this.name}}</a>
+                                                    {{else}}
+                                                        <a class="coral-Link" href="memberprofile.html?_charset_=utf-8&userId={{xss-validHref this.authorizableId}}">{{this.name}}</a>
+                                                    {{/if}}
+                                                </span>
+                                            </p>
+                                            <p class="scf-memberlist-group-column scf-memberlist-delete-item">
+                                                <span evt="click=changeMemberStatus" data-itemid="{{this.authorizableId}}" class="coral-Icon coral-Icon--delete"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+            {{/if}}
+
+        </div>
+        </form>
+    </div>

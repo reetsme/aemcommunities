@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+{{#if this.author.badges}}
+    <coral-tooltip class="scf-js-profile-badges-tooltip" placement="right" target="_next">
+        {{#if this.author.hasAssignedBadges}}
+            <p>{{i18n "Assigned"}}</p>
+            <div class="scf-js-user-profile-badges-tooltip-list">
+                {{#each this.author.badges}}
+                    <span class="scf-js-user-profile-badge-item">
+                        <img src="{{this.imageUrl}}" />
+                        {{this.title}}
+                    </span>
+                {{/each}}
+            </div>
+        {{/if}}
+        {{#if this.author.hasEarnedTopBadges}}
+            <p>{{i18n "Earned"}}</p>
+            <div class="scf-js-user-profile-badges-tooltip-list">
+                {{#each this.author.badges}}
+                    {{#unless this.isAssigned}}
+                        <span class="scf-js-user-profile-badge-item">
+                            <img src="{{this.imageUrl}}" />
+                            {{this.title}}
+                        </span>
+                    {{/unless}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </coral-tooltip>
+{{/if}}

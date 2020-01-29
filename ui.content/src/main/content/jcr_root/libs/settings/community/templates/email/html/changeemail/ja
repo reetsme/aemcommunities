@@ -1,0 +1,18 @@
+﻿subject=電子メール変更リクエスト
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>電子メール変更リクエスト</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}} 様</p>\n \
+<p>アカウントに関連付けられている電子メールアドレスの変更がリクエストされました。</p>\n \
+<p>この電子メールアドレスを検証するには、このリンクをクリックするか、<a href="{{{actionURL}}}"">{{{actionURL}}}</a>お使いのブラウザーに貼り付けてください。</p>\n \
+<p>このリンクは {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} までにクリックする必要があります。クリックしない場合は期限切れになります。</p>\n \
+<p>この電子メールアドレスを使用しない場合はリンクをクリックしないでください。現在の電子メールアドレスを引き続き使用できます。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

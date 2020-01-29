@@ -1,0 +1,7 @@
+﻿subject=[Bereitstellung des Posts fehlgeschlagen] {{{email-subject}}}
+
+message=\n \
+Datum: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+Hallo {{{email-author}}}! Folgendes konnte nicht erfolgreich gepostet werden:\n \
+{{{email-message}}}\n\n \
+Versuchen Sie es erneut oder wenden Sie sich an Ihren Systemadministrator, um weitere Unterstützung zu erhalten.\n \

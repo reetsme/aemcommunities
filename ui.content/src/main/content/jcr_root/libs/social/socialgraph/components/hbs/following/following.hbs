@@ -1,0 +1,27 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-following" data-component-id="{{id}}" data-scf-component="social/socialgraph/components/hbs/following">
+    {{#if mayFollow}}
+        <div>
+            <button class="btn btn-default scf-follow-button scf-js-toggleFollow" evt="click=toggleFollow">
+                {{#if isFollowed}}{{i18n "Unfollow"}}{{else}}{{i18n "Follow"}}{{/if}}
+            </button>
+        </div>
+    {{/if}}
+</div>

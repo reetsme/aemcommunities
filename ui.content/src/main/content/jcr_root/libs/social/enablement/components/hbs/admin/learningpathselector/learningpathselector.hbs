@@ -1,0 +1,45 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-learningpathselector-container">
+    <coral-actionbar>
+        <coral-actionbar-container class="scf-learningpathselector-left">
+            <coral-actionbar-item>
+                <span class="block block-text">{{i18n "Prerequisite Learning Paths"}}</span>
+            </coral-actionbar-item>
+        </coral-actionbar-container>
+        <coral-actionbar-container class="scf-learningpathselector-right">
+            <coral-actionbar-item>
+                <a class="coral-Link cq-social-enablement-add-learningpath-activator" id="add-from-my-learningpaths" title="{{i18n 'Add Learning Paths'}}">
+                    <coral-icon icon="add" size="S"></coral-icon>{{i18n "Add Learning Paths"}}</a>
+            </coral-actionbar-item>
+        </coral-actionbar-container>
+    </coral-actionbar>
+    <div id="scf-js-learningpathselector" class="scf-learningpathselector-container add-asset-wizard-wrapper">
+        <iframe id="learningpathpicker" src=""></iframe>
+        <coral-taglist class="scf-learningpathselector-selectlist" data-type="">
+            {{#if prerequisites}}
+                {{#each prerequisites}}
+                    <coral-tag name="lp-prerequisites" value= {{this.id}}>
+                        {{this.title}}
+                    </coral-tag>
+                {{/each}}
+            {{/if}}
+        </coral-taglist>
+    </div>
+</div>

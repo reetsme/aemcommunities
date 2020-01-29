@@ -1,0 +1,25 @@
+﻿subject=[ブログ記事] {{{object.displayName}}}
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   {{{user.name}}}さんが新しいブログ記事「{{{object.displayName}}}」を投稿しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}}さんがブログ記事「{{{object.displayName}}}」を更新しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{{user.name}}}さんがブログ記事「{{{object.displayName}}}」を削除しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{{user.name}}}さんがブログ記事「{{{object.displayName}}}」を承認しました。\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   {{{user.name}}}さんがブログ記事「{{{object.displayName}}}」を閉じました。\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   {{{user.name}}}さんがブログ記事「{{{object.displayName}}}」を再度開きました。\n\n \
+{{/equals}}\
+すべてのブログ記事を表示したり、通知の基本設定を変更したりするには、このリンクをクリックしてください。\n \
+{{targetUrl}}\n \

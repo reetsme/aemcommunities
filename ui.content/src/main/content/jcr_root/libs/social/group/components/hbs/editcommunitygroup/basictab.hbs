@@ -1,0 +1,39 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Title"}}</label>
+                <input class="coral-Form-field coral-Textfield" type="text" name="name" value="{{title}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Description"}}</label>
+                <textarea class="coral-Form-field resizable-none coral-Textfield coral-Textfield--multiline" name="jcr:description" rows="5">{{description}}</textarea>
+            </div>
+
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Name"}}</label>
+                <input class="coral-Form-field scf-js-social-console-siteurl coral-Textfield" data-validation="foundation.jcr.name" type="text" disabled="disabled" name="urlName" value="{{name}}" aria-required="true">
+            </div>
+
+        </div>
+    </div>
+</div>

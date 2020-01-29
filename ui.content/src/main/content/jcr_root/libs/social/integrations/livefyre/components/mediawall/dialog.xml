@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Edit"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Configuration">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        emptyText="auto"
+                        fieldDescription="By default, the number of columns will change according to the width of the container. Set this to override that behavior and force a specific number of columns"
+                        fieldLabel="Number of Columns"
+                        name="./columns"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <initial
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        emptyText="50"
+                        fieldDescription="The number of Content items to render on page load"
+                        fieldLabel="Initial Items"
+                        name="./initial"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <modal
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="When there are attachments for a piece of content, Media Walls will display a clickable thumbnail. When this is enabled and the thumbnail is clicked, the App will open a modal displaying the photo/video attachment in its entirety."
+                        fieldLabel="Modal"
+                        name="./modal"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <postButton
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="Defines which kind of button renders to let users submit User-Generated Content"
+                        fieldLabel="Post Content Button"
+                        name="./postButton"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="None"
+                                value=""/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="Content Only"
+                                value="content"/>
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="Photos Only"
+                                value="photo"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="Content and Photos"
+                                value="contentWithPhoto"/>
+                        </options>
+                    </postButton>
+                    <collectionLink
+                        jcr:primaryType="cq:Widget"
+                        html="&lt;a href=&quot;#&quot; class=&quot;scf-js-lf-collectionLink&quot; target=&quot;_blank&quot;>&lt;/a>"
+                        xtype="static"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeshow="function(dialog){ window.LivefyreAuthoringComponents.determineCollectionUrl(dialog); }"/>
+</jcr:root>

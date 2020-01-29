@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs
+            jcr:primaryType="cq:TabPanel"
+            title="Featured Content properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <settings
+                    jcr:primaryType="cq:Panel"
+                    title="Settings">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <displayName
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Display Name"
+                            fieldLabel_commentI18n="Title that will be displayed at the top of the component."
+                            name="./displayName"
+                            xtype="textfield"/>
+                        <location
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Location of the Featured Content"
+                            fieldLabel_commentI18n="Location of the Featured Content."
+                            name="./location"
+                            predicate=""
+                            rootPath="/content"
+                            showTitlesInTree="false"
+                            xtype="pathfield"/>
+                        <displayLimit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}5"
+                            fieldLabel="Display Limit"
+                            fieldLabel_commentI18n="Number of items to display. Default is 5."
+                            name="./displayLimit"
+                            xtype="numberfield"/>
+                    </items>
+                </settings>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

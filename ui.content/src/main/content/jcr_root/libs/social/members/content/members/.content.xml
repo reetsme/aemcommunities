@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Community Members"
+        sling:resourceType="granite/ui/components/foundation/page"
+        sling:vanityOrder="{Long}301"
+        sling:vanityPath="/communities/members">
+        <redirector
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/admin/contentchecker"
+            allowEmpty="{Boolean}false"
+            path="/content"
+            redirect="/communities/users.html"/>
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/admin/page/viewport"/>
+            <meta
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/meta"
+                content="chrome=1"
+                name="X-UA-Compatible"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/siteadmin/admin/page/title"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                css="[coralui3,coralui2,granite.ui.foundation,cq.social.members.hbs.shell2,cq.social.members.hbs.users]"
+                js="[coralui3,granite.ui.foundation,granite.ui.coral.foundation,cq.social.author.coral3.shim,cq.social.members.hbs.shell2,cq.social.members.hbs.users]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/layouts/page"/>
+            <rail
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/navcolumns"
+                currentId="cq-communities-users"
+                srcPath="cq/core/content/nav"/>
+            <breadcrumbs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/siteadmin/admin/endor/breadcrumbs"
+                baseUrl="/communities/users.html"
+                contentPath="${requestPathInfo.suffix}"
+                depthAdjustment="{Long}-2"
+                rootPath=""
+                rootTitle="Communities - Members"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/siteadmin/admin/endor/title"
+                contentPath="/content"
+                rootTitle="Communities - Members"/>
+            <header
+                jcr:primaryType="nt:unstructured"
+                srcPath="cq/core/content/header"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/endor/layouts/content"/>
+                <header
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/mode"
+                        group="cq-social-enablement"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <search
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/innerrailtoggle"
+                                    icon="icon-search"
+                                    targetId="granite-rail-filter"
+                                    text="Search"
+                                    title="Search"/>
+                                <toggleselectionmode
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-mode-change"
+                                    foundation-mode-group="cq-social-enablement"
+                                    foundation-mode-value="selection"
+                                    hideText="{Boolean}true"
+                                    icon="icon-check-circle"
+                                    text="Enter Selection Mode"
+                                    title="Enter Selection Mode"/>
+                                <create_visible
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/hyperlink"
+                                    href="/communities/memberprofile.html?userId="
+                                    text="Create"
+                                    variant="primary">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </create_visible>
+                                <report
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/hyperlink"
+                                    class="js-users-csv-report"
+                                    icon="icon-report"
+                                    text="Export CSV">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </report>
+                            </items>
+                        </default>
+                        <selection
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <toggleselectionmode
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    active="{Boolean}true"
+                                    class="foundation-mode-change"
+                                    foundation-mode-group="cq-social-enablement"
+                                    foundation-mode-value="default"
+                                    icon="icon-close-circle active"
+                                    text="Exit Selection Mode"
+                                    title="Exit Selection Mode"/>
+                                <ban
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-collection-action cq-community-members-ban-member-activator"
+                                    hideText="{Boolean}true"
+                                    icon="icon-user"
+                                    rel="cq-social-members-ban-users"
+                                    text="Ban User(s)"/>
+                                <unban
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-collection-action cq-community-members-unban-member-activator"
+                                    hideText="{Boolean}true"
+                                    icon="icon-userLock"
+                                    rel="cq-social-members-unban-users"
+                                    text="UnBan User(s)"/>
+                                <selectionstatus
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/selectionstatus"
+                                    target=".cq-social-enablement">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </selectionstatus>
+                            </items>
+                        </selection>
+                    </items>
+                </header>
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <preview
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Preview"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            class="u-coral-hidden">
+                            <items jcr:primaryType="nt:unstructured">
+                                <userlist
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="social/members/components/hbs/users"
+                                    fromPublisher="true"
+                                    modeGroup="cq-community-members"
+                                    pageSize="40"
+                                    path="${requestPathInfo.suffix}"
+                                    type="users"/>
+                            </items>
+                        </preview>
+                    </items>
+                </content>
+                <aside
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/endor/layouts/sidepanels"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <filter
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            id="granite-rail-filter">
+                            <items jcr:primaryType="nt:unstructured">
+                                <searchform
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form"
+                                    action="/libs/social/members/content/members/jcr:content/body/content/content/items/preview/items/userlist.social.json?_charset_=utf-8"
+                                    async="{Boolean}true"
+                                    autosubmitForm="{Boolean}true"
+                                    class="js-users-search-form"
+                                    foundationForm="{Boolean}true">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <user
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Keyword"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/collapsible"
+                                                variant="block"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <keywordinput
+                                                    granite:class="scf-js-members-keyword-textbox"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Keyword"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    emptyText="Search"
+                                                    name="keyword"/>
+                                            </items>
+                                        </user>
+                                        <site
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Site"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/collapsible"
+                                                variant="block"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <sitefilter
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="social/console/components/hbs/sitecollection"
+                                                    sling:resourceType="social/members/components/hbs/users/filters/sitefilter"/>
+                                            </items>
+                                        </site>
+                                        <banstatus
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Ban status"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/collapsible"
+                                                variant="block"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <statusinput
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="social/members/components/hbs/users/filters/banstatusfilter"/>
+                                            </items>
+                                        </banstatus>
+                                        <controlscontainer
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            id="filter-controls-container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <filtercontrols
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="social/console/components/hbs/users/filters/controls"/>
+                                            </items>
+                                        </controlscontainer>
+                                    </items>
+                                </searchform>
+                            </items>
+                        </filter>
+                    </items>
+                </aside>
+            </content>
+        </body>
+    </jcr:content>
+</jcr:root>

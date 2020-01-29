@@ -1,0 +1,78 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-social-console-divInfoOverlay {
+    display: none;
+    z-index: 9001;
+    opacity: 0.8;
+    position: absolute;
+    margin-top: 30px;
+    background-color: #ffffff;
+    height: 70px;
+    width: 234px;
+    margin-left: -8px;
+    border: 1px solid #e2e2e2;
+}
+
+.scf-social-console-divImagePreview {
+    display: none;
+    z-index: 9000;
+}
+
+.scf-social-console-divChangeBranding {
+    display: none;
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
+.scf-social-console-pImgUploadPreviewFname {
+    font-weight: bold;
+}
+
+.truncFname {
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scf-social-console-divChangeBranding:hover {
+    cursor: pointer;
+}
+
+.coral-FileUpload-trigger {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.scf-js-social-console-imgUploadImage {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.scf-js-social-console-imgUploadPreview {
+    max-width: 220px;
+}

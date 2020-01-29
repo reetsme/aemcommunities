@@ -1,0 +1,18 @@
+﻿subject=[Risposta]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+Una nuova risposta {{#if this.target.properties.[jcr:title]}}alla domanda "{{{target.displayName}}}" {{/if}}è stata aggiunta da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}alla domanda "{{{target.displayName}}}" {{/if}}è stata aggiornata da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}alla domanda "{{{target.displayName}}}" {{/if}}è stata eliminata da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+La risposta {{#if this.target.properties.[jcr:title]}}alla domanda "{{{target.displayName}}}" {{/if}}è stata approvata da {{{user.name}}}.\n\n \
+{{/equals}}\
+Segui questo collegamento per visualizzare tutte le risposte a questa domanda o modificare le preferenze di notifica.\n \
+{{objectUrl}}\n \

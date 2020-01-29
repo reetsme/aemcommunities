@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Site Resources Report"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/site-resources-report"
+        consoleId="cq-communities-resources"
+        parentSuffix="{Boolean}true"
+        targetCollection=".scf-reporting-pageContent">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,granite.ui.coral.foundation,cq.common.wcm,social-enablement-core]"/>
+        </head>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <primary jcr:primaryType="nt:unstructured">
+                <create
+                    granite:id="site-Resources-Report"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/mnt/overlay/social/enablement/content-shell3/enablement-sites/site-resources/resourcesreport/jcr:content/views/content/items/table.csv${requestPathInfo.suffix}?filter=true"
+                    icon="download"
+                    text="Download Resources Report as CSV"
+                    variant="primary"/>
+            </primary>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/resourcebreadcrumbs"
+            path="/libs/social/enablement/content-shell3/enablement-sites/site-resources/resourcesreport"
+            rootPath="/libs/social/enablement/content-shell3/enablement-sites"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                granite:class="scf-reporting-pageContent"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/site/pagetitle"
+                        onlyShowName="true"/>
+                    <row
+                        granite:class="scf-reporting-hCenter scf-reporting-reportPageRow"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <chart
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/enablement/components/hbs/reports/site/ratingsreport"/>
+                        </items>
+                    </row>
+                    <table
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/site/resourcestable"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

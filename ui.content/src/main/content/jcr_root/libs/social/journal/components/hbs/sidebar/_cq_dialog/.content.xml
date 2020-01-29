@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <list
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Blog Sidebar Settings"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <dateFormat
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Date format used to display archives. Sample: yyyy MMMMM for 2010 August"
+                                fieldLabel="Date format"
+                                name="./dateFormat"/>
+                            <selectList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="View Type"
+                                name="./viewType"
+                                value="0">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <authors
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Authors"
+                                        value="authors"/>
+                                    <categories
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Categories"
+                                        value="categories"/>
+                                    <archives
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Archives"
+                                        value="archives"/>
+                                </items>
+                            </selectList>
+                            <journalcomponentpath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Path to the original blog component"
+                                fieldLabel="Blog Component Path"
+                                name="./journalComponentPath"
+                                required="{Boolean}true"
+                                validateOnBlur="true"/>
+                            <itemFilterLimit
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}-1"
+                                fieldDescription="Number of items that should be displayed.  Default: -1, no limits."
+                                fieldLabel="Suggestion Limit"
+                                name="./itemFilterLimit"/>
+                        </items>
+                    </columns>
+                </items>
+            </list>
+        </items>
+    </content>
+</jcr:root>

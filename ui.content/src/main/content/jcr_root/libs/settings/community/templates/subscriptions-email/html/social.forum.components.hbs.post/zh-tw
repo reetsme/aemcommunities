@@ -1,0 +1,37 @@
+subject=[論壇貼文] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 張貼新的論壇主題「{{{object.displayName}}}」。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 新增對主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的新論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新對主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 從主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 刪除論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 核准主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 上的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 關閉主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 上的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 重新開啟主題 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 上的論壇貼文。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectUrl}}">按一下此連結</a>檢視對此主題的所有論壇貼文，或修改您的訂閱。\n \
+</div>\n \
+</body>\n \
+</html>\n \

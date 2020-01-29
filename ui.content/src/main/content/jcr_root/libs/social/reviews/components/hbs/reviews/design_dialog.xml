@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Design"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab0
+                jcr:primaryType="cq:Widget"
+                path="/libs/social/commons/components/hbs/comments/design_dialog/items/items/tab1.infinity.json"
+                xtype="cqinclude"/>
+            <tab1
+                jcr:primaryType="cq:Widget"
+                path="/libs/social/reviews/components/hbs/reviews/dialog/items/first.infinity.json"
+                xtype="cqinclude"/>
+            <tab2
+                jcr:primaryType="cq:Widget"
+                path="/libs/social/reviews/components/hbs/reviews/dialog/items/second.infinity.json"
+                xtype="cqinclude"/>
+            <tab3
+                jcr:primaryType="cq:Widget"
+                path="/libs/social/reviews/components/hbs/reviews/dialog/items/props.infinity.json"
+                xtype="cqinclude"/>
+            <tab4
+                jcr:primaryType="cq:Widget"
+                path="/libs/social/reviews/components/hbs/reviews/dialog/items/userMod.infinity.json"
+                xtype="cqinclude"/>
+        </items>
+    </items>
+</jcr:root>

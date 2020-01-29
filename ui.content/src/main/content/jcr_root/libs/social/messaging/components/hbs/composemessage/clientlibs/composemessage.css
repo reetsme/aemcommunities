@@ -1,0 +1,326 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+label.mailform {
+    font-family: arial;
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+textarea.mailFormSubject {
+    font-size: 14px;
+    text-align: left;
+    height: 25px;
+    line-height: 25px;
+    width: 89%;
+    resize: none;
+    margin-top: 5px;
+    border: thin solid #CFCFCF;
+}
+
+textarea.mailFormContent {
+    font-size: 14px;
+    text-align: left;
+    resize: none;
+    padding: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 90%;
+    height: 220px;
+    margin-top: 5px;
+    border: thin solid #CFCFCF;
+}
+
+textarea.makeReadOnly {
+    border: 0px solid;
+    font-size: 12px;
+    color: 9a9a9a;
+}
+
+label.makeReadOnly {
+    border: 0px solid;
+    font-size: 14px;
+    font-weight: bold;
+    color: 9a9a9a;
+}
+
+.mailStatusMessageDiv {
+    align: center;
+    font-size: 14;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.scf-is-collapsed .scf-composer-toolbar {
+    display: none;
+}
+
+.scf-composer-toolbar {
+    position: relative;
+    margin-top: 10px;
+}
+
+.scf-messaging-compose {
+    margin: 0 0 0 50px;
+}
+
+.scf-messaging-compose .scf-composer.scf-section {
+    margin: 0;
+}
+
+.scf-composer.scf-edit-composer {
+    margin: 0px;
+}
+
+.scf-composer-actions {
+    text-align: right;
+    width: 95%;
+    margin: 5px;
+}
+
+.scf-message-attachment-input {
+    display: none;
+    float: left;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100px;
+}
+
+.scf-composer-attach {
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.scf-composer-attach:before {
+    font-family: SCFIcons;
+    font-size: 20px;
+    margin-right: 5px;
+    content: "";
+    color: #595959;
+    cursor: pointer;
+}
+
+.scf-attachment-list {
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+    list-style: none;
+}
+
+.scf-is-attached {
+    background: #969696;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.scf-is-rem-att {
+    font-size: 10px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.scf-composer .scf-input {
+    display: block;
+}
+
+.message-composer-action {
+    min-width: 100px;
+    min-height: 35px;
+    height: 42px;
+    color: #FFFFFF;
+    background: #227ECB;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-image: linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-repeat: no-repeat;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff484e55', endColorstr='#ff313539', GradientType=0);
+    filter: none;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.newMessageSubjectContainer,
+.newMessageContentContainer,
+.newMessageAttachmentContainer {
+    display: table;
+    width: 95%;
+    margin: 5px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    box-shadow: 0 1px 1px #eaeaea;
+    color: #777777;
+}
+
+.newMessageAttachmentContainer {
+    padding-left: 0.4em;
+    width: 97%;
+}
+
+.transparentAttachmentContainer {
+    background-color: transparent;
+}
+
+.newMessageContentContainer {
+    padding-top: 1em;
+}
+
+.newMessageSubjectContainer,
+.newMessageAttachmentContainer {
+    height: 3em;
+}
+
+.newMessageSubjectContainer .mailform,
+.newMessageContentContainer .mailform,
+.newMessageAttachmentContainer .mailform {
+    display: table-cell;
+    width: 10%;
+    text-align: left;
+    color: #808080;
+}
+
+.newMessageAttachmentContainer .mailform {
+    text-align: center;
+}
+
+.newMessageAttachmentContainer .mailform label {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.4em 0 0.2em 0;
+    height: auto;
+    width: 100%;
+    display: block;
+    background-image: -ms-linear-gradient(top left, #00C4E1 0%, #00A6C6 100%);
+    background-image: -moz-linear-gradient(top left, #00C4E1 0%, #00A6C6 100%);
+    background-image: -o-linear-gradient(top left, #00C4E1 0%, #00A6C6 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #00C4E1), color-stop(1, #00A6C6));
+    background-image: -webkit-linear-gradient(top left, #00C4E1 0%, #00A6C6 100%);
+    background-image: linear-gradient(to bottom right, #00C4E1 0%, #00A6C6 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00C4E1', endColorstr='#00A6C6');
+}
+
+.newMessageAttachmentContainer .mailform label:hover {
+    cursor: pointer;
+}
+
+.newMessageAttachmentContainer .fileContainer {
+    display: table-cell;
+    width: 85%;
+}
+
+.newMessageAttachmentContainer .fileContainer .inputContainer {
+    background-color: #F0F0F0;
+    font-weight: bold;
+    margin-left: 0.8em;
+    margin-bottom: 0.2em;
+    display: inline-block;
+    width: auto;
+    min-height: 2em;
+}
+
+.inputContainer .removeAttachment:hover {
+    cursor: pointer
+}
+
+.newMessageSubjectContainer .mailform,
+.newMessageUserChooser .mailform {
+    vertical-align: middle;
+    border-right: thin solid #e8e8e8;
+}
+
+.newMessageContentContainer .mailform {
+    vertical-align: top;
+    padding-top: 1em;
+}
+
+.newMessageSubjectContainer .mailFormSubject,
+.newMessageContentContainer .mailFormContent {
+    display: table-cell;
+    width: 95%;
+    border: none;
+    margin-top 0;
+    outline: none;
+    font-family: arial;
+    line-height: 1.5em;
+    float: left;
+}
+
+.newMessageContentContainer .mailFormContent {
+    padding-left: 1em;
+}
+
+.newMessageSubjectContainer .mailFormSubject {
+    height: 2em;
+    overflow-y: hidden;
+    margin-left: 0;
+}
+
+.nameAndDateSeparatorCircle {
+    max-width: 5px;
+    min-width: 5px;
+    max-height: 5px;
+    min-height: 5px !important;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #EFEFEF;
+}
+
+.newMessageContentContainer .newMessageSenderAvatar {
+    width: 36px;
+    height: 36px;
+    margin-right: 1em;
+    display: inline-block;
+    background-size: 36px;
+    background-repeat: none;
+    border-radius: 50%;
+}
+
+.newMessageContentContainer .senderDetailContainer {
+    display: none;
+    float: left;
+}
+
+.senderDetailContainer .newMessageSenderName,
+.senderDetailContainer .newMessageSendDate,
+.senderDetailContainer .circleContainer {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.senderDetailContainer .newMessageSenderName {
+    color: #00A6C6;
+}
+
+.senderDetailContainer .newMessageSendDate,
+.senderDetailContainer .circleContainer {
+    color: #808080;
+    padding-left: 1em;
+}
+
+.inputContainer .hiddenUploadInput {
+    display: none;
+}

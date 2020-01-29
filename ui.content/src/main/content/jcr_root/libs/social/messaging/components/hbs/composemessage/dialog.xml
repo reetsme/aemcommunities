@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <common
+                    jcr:primaryType="cq:Widget"
+                    title="Basic"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <redirectURL
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The URL on which one should be redirected after sending message."
+                            fieldLabel="Redirect URL"
+                            name="./redirectURL"
+                            xtype="pathfield"/>
+                        <cancelURL
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The URL to which you want to redirect if user clicks Cancel button."
+                            fieldLabel="Cancel URL"
+                            name="./cancelURL"
+                            xtype="pathfield"/>
+                        <maximumSubjectLength
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The maximum number of characters that can be entered in the Subject field of the message."
+                            fieldLabel="Maximum length of Message Subject."
+                            name="./maximumSubjectLength"
+                            xtype="numberfield"/>
+                        <maximumBodyLength
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The maximum number of characters that can be entered in the Body field of the message."
+                            fieldLabel="Maximum length of Message Body."
+                            name="./maximumBodyLength"
+                            xtype="numberfield"/>
+                        <serviceSelector
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="false"
+                            defaultValue=""
+                            fieldDescription="Identifier to be used to select an instance of messaging operation service."
+                            fieldLabel="Service selector"
+                            name="./serviceSelector"
+                            xtype="textfield"/>
+                    </items>
+                </common>
+                <display
+                    jcr:primaryType="cq:Widget"
+                    title="Display"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <subject
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}false"
+                            defaultValue="{Boolean}false"
+                            fieldLabel="Show Subject Field"
+                            name="./showSubject"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <subjectLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Subject"
+                            fieldLabel="Subject Label"
+                            name="./subjectLabel"
+                            xtype="textfield"/>
+                        <attachFile
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}false"
+                            defaultValue="{Boolean}false"
+                            fieldLabel="Show Attach File Field"
+                            name="./showAttachFile"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <attachFileLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Attach File"
+                            fieldLabel="Attach File Label"
+                            name="./attachFileLabel"
+                            xtype="textfield"/>
+                        <content
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}false"
+                            defaultValue="{Boolean}false"
+                            fieldLabel="Show Content Field"
+                            name="./showContent"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <contentLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Body"
+                            fieldLabel="Content Label"
+                            name="./contentLabel"
+                            xtype="textfield"/>
+                        <withRTE
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Using with Rich Text Editor?"
+                            fieldLabel="With Rich Text Editor"
+                            name="./withRTE"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <dateformatpatterns
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="[en=MMM-DD-YYYY HH:mm:ss,de=DD-MMM-YYYY HH:mm:ss,fr=DD-MMM-YYYY HH:mm:ss,it=DD-MMM-YYYY HH:mm:ss,es=DD-MMM-YYYY HH:mm:ss,ja=YYYY-MMM-DD HH:mm:ss,zh_CN=YYYY-MMM-DD HH:mm:ss,ko_KR=YYYY-MMM-DD HH:mm:ss]"
+                            fieldDescription="Specify date format to be displayed on messages in the format locale=timestamp Eg. en=MM-dd-yyyy HH:mm:ss"
+                            fieldLabel="Timestamp patterns"
+                            name="./dateFormatPatterns"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="cq:Widget"
+                                xtype="textfield"/>
+                        </dateformatpatterns>
+                    </items>
+                </display>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

@@ -1,0 +1,10 @@
+subject=[按讚]
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{targetUrl}}\n\n \
+{{{user.name}}} 在「{{{target.properties.eventTopic}}}」套用了新的按讚。\n \
+-------------------------------------------------------------------------------------\n \
+{{{target.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+請透過此連結檢視對此問題的所有回答，或修改您的訂閱。\n \
+{{targetUrl}}\n \

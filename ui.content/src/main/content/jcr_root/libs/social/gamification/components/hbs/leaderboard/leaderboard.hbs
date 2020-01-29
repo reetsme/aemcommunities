@@ -1,0 +1,70 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-leaderboard" data-component-id="{{id}}" data-scf-component="social/gamification/components/hbs/leaderboard">
+
+    <div id="scf-leaderboard-navwrapper" class="scf-leaderboard-navwrapper">
+        <h4>
+            {{#if properties.displayName}}
+                {{properties.displayName}}
+            {{else}}
+                {{i18n "Leaderboard"}}
+            {{/if}}
+        </h4>
+
+        <div class="scf-scrollTableInner">
+            {{#if items}}
+                <table class="table table-hover scf-table scf-js-leaderboard-table" data-sort-name="score" data-sort-order="desc">
+                    <thead>
+                        <tr>
+                            {{#if items.[0].badgeDisplayable}}
+                                <th class="text-center bootstrap-Table-headerCell" data-field="score" data-sortable="{{#if items.[0].sortable}}true{{else}}false{{/if}}">
+                                    {{i18n "Badge"}}
+                                </th>
+                            {{/if}}
+
+                            {{#if items.[0].badgeNameDisplayable}}
+                                <th class="text-center bootstrap-Table-headerCell" data-field="score" data-sortable="{{#if items.[0].sortable}}true{{else}}false{{/if}}">
+                                    {{i18n "Badge Name"}}
+                                </th>
+                            {{/if}}
+
+                            <th class="bootstrap-Table-headerCell" data-field="name" data-sortable="{{#if items.[0].sortable}}true{{else}}false{{/if}}">{{i18n "Name"}}</th>
+
+                            <th class="text-center bootstrap-Table-headerCell" data-field="score" data-sortable="{{#if items.[0].sortable}}true{{else}}false{{/if}}">{{i18n "Score"}}</th>
+
+                            {{#if items.[0].progressionDisplayable}}
+                                <th class="bootstrap-Table-headerCell" data-field="progression" data-sortable="false">{{this}} </th>
+                            {{/if}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each items}}
+                            {{include this resourceType="social/gamification/components/hbs/leaderboarditem" authoringDisabled="true"}}
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{include this resourceType="social/commons/components/hbs/pages"}}
+            {{else}}
+                <div class="col-md-12">
+                    <h4>{{i18n "Leaderboard is empty. "}}</h4>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

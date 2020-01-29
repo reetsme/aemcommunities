@@ -1,0 +1,38 @@
+﻿subject=[Evento de ideación] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha publicado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha añadido {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha actualizado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha eliminado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha aprobado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha cerrado {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   El evento de ideación "{{{object.displayName}}}" lo ha reabierto {{{user.name}}} el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{targetUrl}}">Haga clic en este vínculo</a> para ver todos los eventos de ideación o modificar su suscripción.\n \
+</div>\n \
+</body>\n \
+</html>\n \

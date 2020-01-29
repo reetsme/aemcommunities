@@ -1,0 +1,15 @@
+subject=更新密碼請求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>更新密碼請求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好</p>\n \
+<p>您已透過 {{{social}}} 設定您的帳戶。登入時，請使用您的 {{{social}}} 登入以便存取網站。</p>
+</div>\n \
+</body>\n \
+</html>\n \

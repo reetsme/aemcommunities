@@ -1,0 +1,15 @@
+subject=암호 업데이트 요청
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>암호 업데이트 요청</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}님 안녕하세요!</p>\n \
+<a href="{{forgotPasswordUrl}}">암호를 재설정하려면 이 링크를 클릭하십시오.</a>\n \
+</div>\n \
+</body>\n \
+</html>\n \

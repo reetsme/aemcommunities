@@ -1,0 +1,185 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-forum .scf-composer-msg,
+.scf-composer-block .scf-composer-msg,
+.cke_contents,
+.scf-composer-container-tags {
+    border-radius: 5px;
+    border: 1px solid #b5b5b5;
+    padding: 4px;
+    box-shadow: 0 1px 1px #eaeaea;
+}
+
+.scf-forum .scf-composer-msg,
+.scf-composer-block .scf-composer-msg {
+    height: 34px;
+    margin: 4px 0 4px 0;
+}
+
+.scf-forum .cke_toolbar,
+.scf-topic .cke_toolbar {
+    padding: 10px;
+}
+
+.scf-forum a.cke_button,
+.scf-topic a.cke_button {
+    padding: 4px 12px;
+    opacity: 0.9;
+}
+
+.scf-blog-heading {
+    display: block;
+}
+
+.scf-forum .scf-composer-container-tags,
+.scf-topic .scf-composer-container-tags,
+.scf-composer-container-commenting {
+    padding: 4px;
+    margin: 5px 0 5px 0;
+}
+
+.scf-composer-container-publish {
+    margin: 5px 0 15px 0;
+    padding-bottom: 2px;
+}
+
+.scf-composer-container-publish div {
+    margin: 5px 0 5px 0;
+}
+
+.scf-composer-container-publish .btn {}
+
+.scf-composer-container-publish .btn:hover {}
+
+.scf-draft-delete-btn {
+    margin-right: 50px;
+}
+
+.scf-js-event-basics-start-input {
+    border: 1px solid #dddddd;
+}
+
+.scf-event-basics-start-min,
+.scf-event-basics-start-hour {
+    width: 20px;
+}
+
+.scf-forum .scf-composer-container-tags .scf-horizontal-tag-list li,
+.scf-topic .scf-composer-container-tags .scf-horizontal-tag-list li {
+    margin-bottom: 0;
+    margin-left: 2px;
+}
+
+.scf-forum .scf-composer-container-tags .scf-selected-tag,
+.scf-topic .scf-composer-container-tags .scf-selected-tag {
+    padding: 2px;
+    background-color: #4191D2;
+    border-radius: 5px;
+    border: 1px solid #e2e2e2;
+}
+
+.scf-forum .scf-horizontal-tag-list .scf-selected-tag,
+.scf-topic .scf-horizontal-tag-list .scf-selected-tag {
+    border-radius: 5px;
+    padding: 2px 6px 2px 6px;
+    background-color: #4191D2;
+}
+
+.scf-forum .scf-composer-container-tags select,
+.scf-topic .scf-composer-container-tags select .scf-composer-container-publish select {
+    -webkit-appearance: menulist-button;
+    height: 30px;
+}
+
+.scf-forum .scf-topic-list .scf-topic-col1,
+.scf-topic .scf-topic-col1 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.scf-js-topic-details-tags-editable {
+    display: none;
+}
+
+.scf-forum .scf-composer-container-tags option {
+    background-color: #fafafa;
+    color: #333333;
+}
+
+.scf-forum .scf-composer-container-tags select {
+    color: #333333;
+}
+
+.scf-topic-section-comments {
+    float: left;
+}
+
+.scf-topic-section-comments span {
+    padding: 4px;
+}
+
+.scf-blog-article-author {
+    float: right;
+    margin: 0px 10px 10px 0px;
+}
+
+.scf-composer-journal {
+    margin: 0px 0px 0px 0px;
+}
+
+.scf-nav-tab-padding {
+    padding-top: 20px;
+}
+
+.scf-blog-following-block {
+    margin-right: 20px;
+}
+
+.scf-form_datepicker_right .scf-event-timepicker {
+    width: 75px;
+    float: left;
+    margin-right: 4px;
+}
+
+.scf-form_datepicker_right .scf-event-basics-start-input {
+    float: left;
+    width: 105px;
+}
+
+.scf-form_datepicker_middle {
+    float: left;
+    width: 23px;
+}
+
+.scf-badge-image {
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    float: none;
+}
+
+.scf-badge-text {
+    font-size: 9px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    display: inline;
+    /* For IE8 and earlier */
+    clear: left;
+}

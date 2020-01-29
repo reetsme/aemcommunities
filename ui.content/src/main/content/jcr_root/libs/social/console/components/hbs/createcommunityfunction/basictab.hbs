@@ -1,0 +1,39 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Function Name"}}</label>
+                <input is="coral-textfield" class="coral-Form-field scf-js-social-console-comfunc-name" type="text" name="functionName" value="{{name}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Function Description"}}</label>
+                <textarea is="coral-textarea" class="coral-Form-field resizable-none coral-Textfield--multiline" name="description" rows="5">{{description}}</textarea>
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <span class="coral-Switch">
+                    <label class="coral-Form-fieldlabel">{{i18n "Enabled"}}</label>
+                    <coral-switch class="social-console-switch" name="enabled" {{#unless disabled}}checked{{/unless}}></coral-switch>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

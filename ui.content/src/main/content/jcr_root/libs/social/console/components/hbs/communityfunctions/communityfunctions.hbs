@@ -1,0 +1,48 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/communityfunctions">
+    <coral-masonry layout="fixed-centered" columnwidth="242" spacing="15">
+        {{#each items}}
+            <coral-masonry-item>
+                <coral-card colorhint="#ffffff" assetwidth="242" assetheight="242">
+                    <coral-card-asset>
+                        <div class="globalnav-homecard-title">
+                            {{#if this.image}}
+                                <img src="{{this.image.thumbnailUrl}}" />
+                            {{else}}
+                                <coral-icon icon="{{this.iconClass}}" size="XXL"></coral-icon>
+                            {{/if}}
+                        </div>
+                    </coral-card-asset>
+                    <coral-card-info>
+                    </coral-card-info>
+                    <coral-card-content>
+                        <span class="scf-coral-card-content-title">{{this.title}}</span>
+                        <span class="scf-coral-card-content-description">{{this.description}}</span>
+                    </coral-card-content>
+                </coral-card>
+                <coral-quickactions target="_prev" alignMy="left top" alignAt="left top">
+                    <coral-quickactions-item icon="open" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/editor.html{{this.bluePrintPath}}.html">{{i18n "Open Community Function"}}</coral-quickactions-item>
+                    <coral-quickactions-item icon="edit" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/communities/editcommunityfunction.html{{this.id}}">{{i18n "Edit Community Function"}}</coral-quickactions-item>
+                </coral-quickactions>
+            </coral-masonry-item>
+        {{/each}}
+    </coral-masonry>
+</div>

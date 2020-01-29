@@ -1,0 +1,18 @@
+﻿subject=Solicitud de cambio de contraseña
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitud de cambio de contraseña</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hola, {{{givenName}}}:</p>\n \
+<p>Ha solicitado cambiar la dirección de correo electrónico asociada a su cuenta.</p>\n \
+<p>Para verificar esta dirección de correo electrónico, haga clic en este vínculo <a href="{{{actionURL}}}"">{{{actionURL}}}</a> o péguelo en el navegador.</p>\n \
+<p>Tiene hasta el {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} para hacer clic en el vínculo; caducará a partir de esa fecha.</p>\n \
+<p>Si no desea usar esta dirección de correo electrónico, no haga nada para seguir usando el correo electrónico actual.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

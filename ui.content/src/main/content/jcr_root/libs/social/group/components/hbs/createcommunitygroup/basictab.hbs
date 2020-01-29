@@ -1,0 +1,104 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Title"}}</label>
+               <input class="coral-Form-field coral-Textfield scf-js-social-console-title" id="scf-js-social-community-title" type="text" name="name" value="{{name}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Description"}}</label>
+                <textarea class="coral-Form-field resizable-none coral-Textfield coral-Textfield--multiline" name="jcr:description" rows="5">{{description}}</textarea>
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                  <label class="coral-Form-fieldlabel">{{i18n "Site Global Shared Store"}}</label>
+                  <div id="console-base-language">
+                      <span id="social-community"  class="coral-Select coral-Form-field" data-init="select">
+                      <input type='text' name="siteGlobalShareStore" class='coral-Textfield social-community-value' disabled value={{siteUrlName}}></input>
+                      </span>
+                  </div>
+             </div>
+            <div class="coral-Form-fieldwrapper" id="scf-community_group_root">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Root"}}</label>
+                {{#include this.id resourceType="granite/ui/components/foundation/form/pathbrowser" }}
+                    { "name" : "siteRoot", "rootPath" : "/content" }
+                {{/include}}
+            </div>
+           <div class="coral-Form-fieldwrapper">
+                  <label class="coral-Form-fieldlabel">{{i18n "Additional Available Community Group Language(s)"}}</label>
+                  <div id="community-base-language">
+                         <span id="social-community-baseLanguageSelect" class="coral-Select coral-Form-field" data-init="select">
+                           <coral-select name="initialLanguages" id="select-item-dropdown" multiple class="scf-js-cq-social-blueprints-select">
+                           </coral-select>
+                         </span>
+                  </div>
+             </div>
+             {{!--             <div>
+             <table is="coral-table" id="selected-table-data" name="table-data">
+                   <thead is="coral-table-head" sticky>
+                      <tr is="coral-table-row">
+                          <th is="coral-table-headercell" style="font-weight: normal">{{i18n "Language"}}</th>
+                          <th is="coral-table-headercell" style="font-weight: normal">{{i18n "Path"}}</th>
+                          <th is="coral-table-headercell" style="font-weight: normal">{{i18n "Name"}}</th>
+                       </tr>
+                    </thead>
+                    <tbody is="coral-table-body">
+                    </tbody>
+                         
+             </table>
+            </div>
+             <input class="coral-Form-field coral-Textfield" id="completeTableData" type="hidden" name="complTableData" value="{{comTableData}}"/>
+            <div class="coral-Form-fieldwrapper" id="scf-community_table_path">
+                 <label class="coral-Form-fieldlabel">{{i18n "path finder"}}</label>
+                 {{#include this.id resourceType="granite/ui/components/foundation/form/pathbrowser" }}
+                     { "id" : "table_path", "rootPath" : "/content" }
+                 {{/include}}
+            </div>--}}
+            <div id="modal-data" class="coral-Modal">
+                 <div class="coral-Modal-header">
+                 <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS"></i>
+                 <h2 class="coral-Modal-title coral-Heading coral-Heading--2">{{i18n "Change Name"}}</h2>
+                 <button type="button" class="coral-MinimalButton coral-Modal-closeButton" title="Close" data-dismiss="modal">
+                         <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon "></i>
+                 </button>
+            </div>
+                  <div class="coral-Modal-body" style="width:338px">
+                       <input class="coral-Form-field coral-Textfield scf-js-social-group-title" style="width:305px" type="text" id="modal-value" >
+                      </input>
+                  </div>
+                  <div class="coral-Modal-footer">
+                       <button type="button" class="coral-Button" data-dismiss="modal">{{i18n "Close"}}</button>
+                       <button type="button" id="save-title" class="coral-Button coral-Button--primary" data-dismiss="modal">{{i18n "Save"}}</button>
+                  </div>
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Group Name"}}</label>
+                <input class="coral-Form-field scf-js-social-console-siteurl coral-Textfield" data-validation="foundation.jcr.name" type="text" name="urlName" value="{{siteUrlName}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <input class="coral-Form-field scf-js-social-console-siteurlclone coral-Textfield" type="text" name="siteurlclone" disabled="disabled" value="{{siteUrlName}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <coral-select class="scf-js-cq-social-blueprints-select" name="blueprint" placeholder="{{i18n "select group template"}}" id="social-group-bluePrintSelect"></coral-select>
+            </div>
+        </div>
+    </div>
+</div>

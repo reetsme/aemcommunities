@@ -1,0 +1,7 @@
+﻿subject=[Post Failure Delivery] {{{email-subject}}}
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+Olá {{{email-author}}}. Ocorreu uma falha ao publicar o seguinte:\n \
+{{{email-message}}}\n\n \
+Tente novamente ou entre em contato com seu administrador de sistema para obter mais assistência.\n \

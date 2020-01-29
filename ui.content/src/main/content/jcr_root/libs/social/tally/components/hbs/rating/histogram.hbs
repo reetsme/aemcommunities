@@ -1,0 +1,31 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-rating-histogram" data-scf-template="histogram">
+    <ul class="scf-poll-result">
+        {{#each ratingResults}}
+            <li class="scf-poll-result-item">
+                <div class="scf-poll-results-bar">
+                    <div class="scf-poll-response" data-star-shown="{{this.[3]}}"></div>&nbsp;
+                    <span>({{this.[0]}})</span>
+                </div>
+            </li>
+        {{/each}}
+        <li>{{totalNumberOfResponses}} ratings</li>
+    </ul>
+</div>

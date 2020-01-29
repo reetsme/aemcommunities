@@ -1,0 +1,167 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-enablement-resource-landing-page" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/resource/detail">
+    <div class="content grey-border">
+
+        <div class="enablement-resource-information pull-left">
+            <div class="enablement-resource-item enablement-resource-info-item line-height-100 enablement-resource-title">{{title}}</div>
+            <div class="enablement-resource-item enablement-resource-info-item line-height-100 enablement-resource-details
+                        enablement-resource-details-due-date">
+                {{#if friendlyDueDate}}
+                    {{#unless resourceCompleted}}
+                        <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        {{#equals "DueInMoreThan3Days" dueStatus}}
+                            <span class="due-status-safe">{{i18n "DUE ON "}} {{friendlyDueDate}}</span>
+                {{else}}
+                    {{#equals "DueWithin3Days" dueStatus}}
+                        <span class="due-status-warning">{{i18n "DUE ON "}} {{friendlyDueDate}}</span>
+                    {{/equals}}
+                        {{/equals}}
+                    {{/unless}}
+                    {{#equals "PastDue" dueStatus}}
+                        <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <span class="due-status-expired">{{i18n "PAST DUE "}} {{friendlyDueDate}}</span>
+                    {{/equals}}
+                {{/if}}
+            </div>
+
+            {{#if publishedDate}}
+                <div class="enablement-resource-item line-height-100 enablement-resource-pubDate">{{publishedDate}}</div>
+            {{/if}}
+
+            <div class="enablement-resource-item enablement-resource-info-item line-height-100 enablement-resource-details">
+                {{#if assetProperties.friendly-duration}}<span>{{i18n "Duration: "}}{{assetProperties.friendly-duration}}, </span>{{/if}}
+                {{#if assetProperties.Location}}<span>{{i18n "Location: "}}{{assetProperties.Location}} </span>{{/if}}
+                <span>{{assetProperties.friendly-size}}</span>
+            </div>
+
+            <div class="enablement-resource-item enablement-resource-info-item line-height-100">
+                <ul class="enablement-resource-tags">
+                    {{#if resourceTags}}
+                        {{#each resourceTags}}
+                            <li>{{i18n this}}</li>
+                        {{/each}}
+                    {{/if}}
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="enablement-resource-item enablement-resource-info-item enablement-resource-ratings pull-right">{{include "force string context" path=ratingsEndpoint}}</div>
+        <div class="clearfix"></div>
+        <div class="enablement-resource-item enablement-resource-player">{{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer"}}</div>
+
+        {{#if description}}
+            <div class="enablement-resource-item enablement-resource-info-item enablement-resource-description">
+                {{#if truncatedDescription}}
+                    <div class="collapse collapseDescription text-justify">{{description}}</div>
+                    <div class="collapse in collapseDescription">
+                        <div class="text-justify">{{truncatedDescription}}...</div>
+                        <button class="btn btn-primary btn-xs description-toggle" type="button" data-toggle="collapse" data-target=".collapseDescription">{{i18n "More"}}</button>
+                    </div>
+                {{else}}
+                    <div class="text-justify">{{description}}</div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+        <div class="enablement-resource-item enablement-resource-info-item enablement-resource-comments">{{include "force string context" path=commentsEndpoint}}</div>
+
+    </div>
+    <div class="resource-contacts-container">
+        <div class="contacts contact-type-author">
+            <h6 class="contact-type-title">{{i18n "Resource Author"}}</h6>
+            {{#if authors }}
+                {{#each authors.authorizables}}
+                    <div class="contact-info">
+                        <div class="avatar-image-container ">
+                            {{#if this.authAvatarUrl }}
+                                <div class="avatar-image" style="background-image: url('{{getContextPath ''}}{{this.authAvatarUrl}}' );">
+                                </div>
+                            {{else}}
+                                <div class="avatar-image" style="background-image:
+                                    url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/UserProfile_Default_card.png' );">
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="contact-name">
+                            {{#if this.authPath }}
+                                <a href="{{sitePagePath}}/profile.html{{this.authPath}}/profile">{{this.authName}}</a>
+                            {{else}}
+                                <a href="#">{{this.authName}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="contacts contact-type-contact">
+            <h6 class="contact-type-title">{{i18n "Resource Contact"}}</h6>
+            {{#if contacts }}
+                {{#each contacts.authorizables}}
+                    <div class="contact-info">
+                        <div class="avatar-image-container ">
+                            {{#if this.authAvatarUrl }}
+                                <div class="avatar-image" style="background-image: url('{{getContextPath ''}}{{this.authAvatarUrl}}' );">
+                                </div>
+                            {{else}}
+                                <div class="avatar-image" style="background-image:
+              {{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablementl/enablement/default/images/UserProfile_Default_card.png' );">
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="contact-name">
+                            {{#if this.authPath }}
+                                <a href="{{sitePagePath}}/profile.html{{this.authPath}}/profile">{{this.authName}}</a>
+                            {{else}}
+                                <a href="#">{{this.authName}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="contacts contact-type-expert">
+            <h6 class="contact-type-title">{{i18n "Resource Expert"}}</h6>
+            {{#if experts }}
+                {{#each experts.authorizables}}
+                    <div class="contact-info">
+                        <div class="avatar-image-container inlineBlock">
+                            {{#if this.authAvatarUrl }}
+                                <div class="avatar-image" style="background-image: url('{{getContextPath ''}}{{this.authAvatarUrl}}' );">
+                                </div>
+                            {{else}}
+                                <div class="avatar-image" style="background-image:
+                                     url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/UserProfile_Default_card.png' );">
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="contact-name inlineBlock">
+                            {{#if this.authPath }}
+                                <a href="{{sitePagePath}}/profile.html{{this.authPath}}/profile">{{this.authName}}</a>
+                            {{else}}
+                                <a href="#">{{this.authName}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="wizard-step">
+    <div class="collectionresourcesettings">
+        <iframe id="assetpicker-tab1" src=""></iframe>
+        <div class="position-left">
+            <div class="newresourcecard">
+                <article>
+                    <div>
+                        <input type="hidden" id="field-name" name="cover-image" {{#if cardImagePath}} value="{{cardImagePath}}" {{/if}} />
+                        <i class="select"></i>
+                        <i class="move"></i>
+                        <div class="card">
+                            <div class="image">
+                                {{#if cardImagePath}}
+                                    <div class="rsc-img" data-cardimage="{{cardImagePath}}" style="background-image: url(&quot;{{getContextPath ''}}{{cardImagePath}}&quot)"></div>
+                                {{else}}
+                                    <div class="rsc-img" style="background-image: url(&quot;{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png&quot;)"></div>
+                                {{/if}}
+                            </div>
+
+                            <div class="label">
+                                <div class="main">
+                                    <div class="rsc-label block" id="scf-js-rsc-label" data-replace-ns="resource-name">{{title}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-upload-wait-bar"><span class="coral-Wait"></span></div>
+                </article>
+                <div class="thumbnail-action-wrapper">
+                    <div>
+                        <coral-fileupload id="rsc-add-thumb-btn" action="{{getContextPath ''}}/tmp/social-enablement.uploadfile.html" method="post" name="file" sizeLimit="1000000" accept="image/*" async="true" autostart="true" class="thumb-btn rsc-add-thumb-btn coral-Button" is="coral-button">
+                            <span coral-fileupload-select>
+                                <label>{{i18n "Add Image"}}</label>
+                            </span>
+                        </coral-fileupload>
+                        <div id="rsc-del-thumb-btn" type="button" class="thumb-btn rsc-del-thumb-btn coral-Button" is="coral-button">
+                            <span>
+                                <label>{{i18n "Remove Image"}}</label>
+                            </span>
+                        </div>
+                        <div class="recommended-size">{{i18n "Recommended Image Size - 480 x 480 px"}}</div>
+                    </div>
+                </div>
+                <div class="err"></div>
+            </div>
+        </div>
+
+        <div class="position-right">
+            <div>{{include this resourceType="social/enablement/components/hbs/admin/selectedsite"}}</div>
+            <span class="block block-text">{{i18n "Resource Name*"}}</span>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" class="coral-Form-field block site-controlled scf-js-social-enablement-resourcename" id="resourceTitle" type="text" name="resource-name" maxlength="64" value="{{title}}"></input>
+            </div>
+            <span class="block block-text">{{i18n "Tags"}}</span>
+            <div>
+                {{include this resourceType="social/enablement/components/hbs/admin/resourcetags"}}
+            </div>
+            <div class="scf-js-show-in-catalog">
+                <coral-checkbox class="coral-Form-field show-in-catalog" data-name="show-in-catalog" value="true" labelledby="show-in-catalog" {{#if allowCatalogVisibility}} checked='' {{else}} {{/if}}>
+                    {{i18n "Show in Catalog"}}
+                </coral-checkbox>
+                <input name="show-in-catalog" type="hidden" value="{{#if allowCatalogVisibility}}true{{else}}false{{/if}}">
+            </div>
+            <span class="block block-text">{{i18n "Description"}}</span>
+            <div class="coral-Form-fieldwrapper">
+                <textarea is="coral-textarea" class="coral-Form-field block site-controlled foundation-layout-util-resizable-none coral-Textfield--multiline" name="description" maxlength="4000" rows="5" value="">{{description}}</textarea>
+            </div>
+
+            <span class="block block-text">{{i18n "Small Asset"}}</span>
+            <div class="coral-Form-field cq-ProductPickerField">
+                <div class="coral-InputGroup coral-InputGroup--block">
+                    <input is="coral-textfield" type="text" name="small-asset" value="{{smallAsset.damPath}}" class="js-datafield coral-InputGroup-input small-asset">
+                    <span class="coral-InputGroup-button">
+                        <button class="coral-Button coral-Button--secondary coral-Button--square scf-js-browse small-asset" type="button" title="{{i18n 'Browse'}}">
+                            <i class="coral-Icon coral-Icon--sizeS coral-Icon--browse"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+            <span class="block block-text">{{i18n "Large Asset"}}</span>
+            <div class="coral-Form-field cq-ProductPickerField">
+                <div class="coral-InputGroup coral-InputGroup--block">
+                    <input is="coral-textfield" type="text" name="large-asset" value="{{largeAsset.damPath}}" class="js-datafield coral-InputGroup-input large-asset">
+                    <span class="coral-InputGroup-button">
+                        <button class="coral-Button coral-Button--secondary coral-Button--square scf-js-browse large-asset" type="button" title="{{i18n 'Browse'}}">
+                            <i class="coral-Icon coral-Icon--sizeS coral-Icon--browse"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <span class="block block-text">{{i18n "Content Fragment Asset"}}</span>
+            <div class="coral-Form-field cq-ProductPickerField">
+                <div class="coral-InputGroup coral-InputGroup--block">
+                    <input is="coral-textfield" type="text" name="content-fragment-asset" value="{{fragmentAsset.damPath}}" class="js-datafield coral-InputGroup-input content-fragment-asset">
+                    <span class="coral-InputGroup-button">
+                        <button class="coral-Button coral-Button--secondary coral-Button--square scf-js-browse content-fragment-asset" type="button" title="{{i18n 'Browse'}}">
+                            <i class="coral-Icon coral-Icon--sizeS coral-Icon--browse"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

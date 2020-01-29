@@ -1,0 +1,80 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-dashboard-user-details {
+    background-color: #ffffff;
+    padding: 10px;
+    width: 40rem;
+}
+
+.scf-dashboard-user-details-avatar-container {
+    float: left;
+    margin-right: 10px;
+}
+
+.scf-dashboard-user-details-avatar-container img {
+    border-radius: 5px;
+}
+
+.scf-dashboard-user-details-item {
+    padding: 5px 0;
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+
+.scf-dashboard-user-details-label {
+    float: left;
+    text-align: right;
+    width: 30%;
+    margin-right: 4%;
+}
+
+.scf-dashboard-user-details-info {
+    float: left;
+    text-align: left;
+    width: 66%;
+}
+
+.scf-dashboard-user-details-about .scf-dashboard-user-details-item {
+    width: 100%;
+}
+
+.scf-dashboard-user-details-about .scf-dashboard-user-details-label {
+    width: 15%;
+    margin-right: 2%;
+}
+
+.scf-dashboard-user-details-about .scf-dashboard-user-details-info {
+    width: 83%;
+}
+
+.scf-dashboard-user-details .scf-author-id {
+    height: 6rem;
+}
+
+.scf-dashboard-user-details .scf-author-info {
+    height: 12rem;
+}
+
+
+/* Fix for Component-Guide's IDE positioning */
+
+.ide {
+    clear: both;
+}

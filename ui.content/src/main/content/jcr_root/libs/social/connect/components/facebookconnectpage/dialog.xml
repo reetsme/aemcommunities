@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    jcr:title="Facebook Connect Configuration"
+    height="{Long}425"
+    warnIfModified="{Boolean}false"
+    width="{Long}455"
+    xtype="dialog">
+    <items jcr:primaryType="cq:TabPanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="nt:unstructured"
+                title="Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <oauthprovider
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        defaultValue="soco-facebook"
+                        fieldLabel="Provider"
+                        name="./oauth.config.provider.id"
+                        type="select"
+                        xtype="hidden"/>
+                    <appid
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="&lt;a href='http://developers.facebook.com/apps' target='_blank' style='color:#15428B; text-decoration:underline;'>App ID/API Key&lt;/a>"
+                        name="./oauth.client.id"
+                        xtype="textfield"/>
+                    <appsecret
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="App Secret"
+                        name="./oauth.client.secret"
+                        xtype="textfield"/>
+                    <callbackurl
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="/libs/social/content/oauth.callback.html"
+                        fieldLabel="Callback URL"
+                        name="./oauth.callBackUrl"
+                        xtype="hidden"/>
+                    <createusers
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="{Boolean}true"
+                        fieldLabel="Create Users"
+                        name="./oauth.create.users"
+                        xtype="checkbox"/>
+                    <encodeuserids
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Mask User Ids"
+                        name="./oauth.encode.userids"
+                        xtype="checkbox"/>
+                    <createusersgroups
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Add User Group"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Add to User Groups"
+                        name="./oauth.create.users.groups"
+                        orderable="{Boolean}false"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="false"
+                            fieldDescription="Examples: contributors, moderators"
+                            name="./name"
+                            optionsProvider="function(path,record){ return $CQ.SocialAuth.userGroupOptions(); } "
+                            type="select"
+                            xtype="selection"/>
+                    </createusersgroups>
+                </items>
+            </general>
+            <user_permissions
+                jcr:primaryType="cq:Panel"
+                title="User Permissions"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <user_about_me
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="About me"
+                        name="./user_about_me"
+                        xtype="checkbox"/>
+                    <user_activities
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Activities"
+                        name="./user_activities"
+                        xtype="checkbox"/>
+                    <user_birthday
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Birthday"
+                        name="./user_birthday"
+                        xtype="checkbox"/>
+                    <user_checkins
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Checkins"
+                        name="./user_checkins"
+                        xtype="checkbox"/>
+                    <user_education_history
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Education History"
+                        name="./user_education_history"
+                        xtype="checkbox"/>
+                    <user_email
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Email"
+                        name="./email"
+                        xtype="checkbox"/>
+                    <user_events
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Events"
+                        name="./user_events"
+                        xtype="checkbox"/>
+                    <user_games_activity
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Games Activity"
+                        name="./user_games_activity"
+                        xtype="checkbox"/>
+                    <user_groups
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Groups"
+                        name="./user_groups"
+                        xtype="checkbox"/>
+                    <user_hometown
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Hometown"
+                        name="./user_hometown"
+                        xtype="checkbox"/>
+                    <user_interests
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Interests"
+                        name="./user_interests"
+                        xtype="checkbox"/>
+                    <user_likes
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Likes"
+                        name="./user_likes"
+                        xtype="checkbox"/>
+                    <user_location
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Location"
+                        name="./user_location"
+                        xtype="checkbox"/>
+                    <user_notes
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Notes"
+                        name="./user_notes"
+                        xtype="checkbox"/>
+                    <user_online_presence
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Online Presence"
+                        name="./user_online_presence"
+                        xtype="checkbox"/>
+                    <user_photo_video_tags
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Photo Video Tags"
+                        name="./user_photo_video_tags"
+                        xtype="checkbox"/>
+                    <user_photos
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Photos"
+                        name="./user_photos"
+                        xtype="checkbox"/>
+                    <user_questions
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Questions"
+                        name="./user_questions"
+                        xtype="checkbox"/>
+                    <user_relationship_details
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Relationship Details"
+                        name="./user_relationship_details"
+                        xtype="checkbox"/>
+                    <user_relationships
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Relationships"
+                        name="./user_relationships"
+                        xtype="checkbox"/>
+                    <user_religion_politics
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Religion and Politics"
+                        name="./user_religion_politics"
+                        xtype="checkbox"/>
+                    <user_status
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Status"
+                        name="./user_status"
+                        xtype="checkbox"/>
+                    <user_subscriptions
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Subscriptions"
+                        name="./user_subscriptions"
+                        xtype="checkbox"/>
+                    <user_videos
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Videos"
+                        name="./user_videos"
+                        xtype="checkbox"/>
+                    <user_website
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Website"
+                        name="./user_website"
+                        xtype="checkbox"/>
+                    <user_work_history
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Work History"
+                        name="./user_work_history"
+                        xtype="checkbox"/>
+                </items>
+            </user_permissions>
+            <friend_permissions
+                jcr:primaryType="cq:Panel"
+                title="Friend Permissions"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <friends_about_me
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="About me"
+                        name="./friends_about_me"
+                        xtype="checkbox"/>
+                    <friends_activities
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Activities"
+                        name="./friends_activities"
+                        xtype="checkbox"/>
+                    <friends_birthday
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Birthday"
+                        name="./friends_birthday"
+                        xtype="checkbox"/>
+                    <friends_checkins
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Checkins"
+                        name="./friends_checkins"
+                        xtype="checkbox"/>
+                    <friends_education_history
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Education History"
+                        name="./friends_education_history"
+                        xtype="checkbox"/>
+                    <friends_events
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Events"
+                        name="./friends_events"
+                        xtype="checkbox"/>
+                    <friends_games_activity
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Games Activity"
+                        name="./friends_games_activity"
+                        xtype="checkbox"/>
+                    <friends_groups
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Groups"
+                        name="./friends_groups"
+                        xtype="checkbox"/>
+                    <friends_hometown
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Hometown"
+                        name="./friends_hometown"
+                        xtype="checkbox"/>
+                    <friends_interests
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Interests"
+                        name="./friends_interests"
+                        xtype="checkbox"/>
+                    <friends_likes
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Likes"
+                        name="./friends_likes"
+                        xtype="checkbox"/>
+                    <friends_location
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Location"
+                        name="./friends_location"
+                        xtype="checkbox"/>
+                    <friends_notes
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Notes"
+                        name="./friends_notes"
+                        xtype="checkbox"/>
+                    <friends_online_presence
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Online Presence"
+                        name="./friends_online_presence"
+                        xtype="checkbox"/>
+                    <friends_photo_video_tags
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Photo Video Tags"
+                        name="./friends_photo_video_tags"
+                        xtype="checkbox"/>
+                    <friends_photos
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Photos"
+                        name="./friends_photos"
+                        xtype="checkbox"/>
+                    <friends_questions
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Questions"
+                        name="./friends_questions"
+                        xtype="checkbox"/>
+                    <friends_relationship_details
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Relationship Details"
+                        name="./friends_relationship_details"
+                        xtype="checkbox"/>
+                    <friends_relationships
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Relationships"
+                        name="./friends_relationships"
+                        xtype="checkbox"/>
+                    <friends_religion_politics
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Religion and Politics"
+                        name="./friends_religion_politics"
+                        xtype="checkbox"/>
+                    <friends_status
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Status"
+                        name="./friends_status"
+                        xtype="checkbox"/>
+                    <friends_subscriptions
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Subscriptions"
+                        name="./friends_subscriptions"
+                        xtype="checkbox"/>
+                    <friends_videos
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Videos"
+                        name="./friends_videos"
+                        xtype="checkbox"/>
+                    <friends_website
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Website"
+                        name="./friends_website"
+                        xtype="checkbox"/>
+                    <friends_work_history
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Work History"
+                        name="./friends_work_history"
+                        xtype="checkbox"/>
+                </items>
+            </friend_permissions>
+            <extended_permissions
+                jcr:primaryType="cq:Panel"
+                title="Extended Permissions"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <ads_management
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Ads Management"
+                        name="./ads_management"
+                        xtype="checkbox"/>
+                    <create_event
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Create Event"
+                        name="./create_event"
+                        xtype="checkbox"/>
+                    <create_note
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Create Note"
+                        name="./create_note"
+                        xtype="checkbox"/>
+                    <export_stream
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Export Stream"
+                        name="./export_stream"
+                        xtype="checkbox"/>
+                    <manage_friendlists
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Manage Friendlists"
+                        name="./manage_friendlists"
+                        xtype="checkbox"/>
+                    <manage_notifications
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Manage Notifications"
+                        name="./manage_notifications"
+                        xtype="checkbox"/>
+                    <manage_pages
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Manage Pages"
+                        name="./manage_pages"
+                        xtype="checkbox"/>
+                    <photo_upload
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Photo Upload"
+                        name="./photo_upload"
+                        xtype="checkbox"/>
+                    <publish_actions
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Publish Actions"
+                        name="./publish_actions"
+                        xtype="checkbox"/>
+                    <publish_checkins
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Publish Checkins"
+                        name="./publish_checkins"
+                        xtype="checkbox"/>
+                    <publish_stream
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Publish Stream"
+                        name="./publish_stream"
+                        xtype="checkbox"/>
+                    <read_friendlists
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Read Friendlists"
+                        name="./read_friendlists"
+                        xtype="checkbox"/>
+                    <read_insights
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Read Insights"
+                        name="./read_insights"
+                        xtype="checkbox"/>
+                    <read_mailbox
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Read Mailbox"
+                        name="./read_mailbox"
+                        xtype="checkbox"/>
+                    <read_requests
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Read Requests"
+                        name="./read_requests"
+                        xtype="checkbox"/>
+                    <read_stream
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Read Stream"
+                        name="./read_stream"
+                        xtype="checkbox"/>
+                    <rsvp_event
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="RSVP Event"
+                        name="./rsvp_event"
+                        xtype="checkbox"/>
+                    <share_item
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Share Item"
+                        name="./share_item"
+                        xtype="checkbox"/>
+                    <sms
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="SMS"
+                        name="./sms"
+                        xtype="checkbox"/>
+                    <status_update
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Status Update"
+                        name="./status_update"
+                        xtype="checkbox"/>
+                    <video_upload
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Video Upload"
+                        name="./video_upload"
+                        xtype="checkbox"/>
+                    <xmpp_login
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="XMPP Login"
+                        name="./xmpp_login"
+                        xtype="checkbox"/>
+                </items>
+            </extended_permissions>
+            <params
+                jcr:primaryType="nt:unstructured"
+                title="URL Parameters"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <keyvalue
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Add Key Value Pair"
+                        allowBlank="{Boolean}true"
+                        fieldDescription="e.g. key=value"
+                        fieldLabel="Add Key Value Pair"
+                        name="./urlParams"
+                        orderable="{Boolean}false"
+                        xtype="multifield"/>
+                </items>
+            </params>
+        </items>
+    </items>
+</jcr:root>

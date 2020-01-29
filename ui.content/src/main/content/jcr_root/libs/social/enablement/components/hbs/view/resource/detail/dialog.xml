@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Catalog Page"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <generalSettings
+            jcr:primaryType="cq:Widget"
+            title="General"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection"/>
+        </generalSettings>
+        <videoSettings
+            jcr:primaryType="cq:Widget"
+            title="Video"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <marketingCloudOrgId
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldLabel="Marketing Cloud Org ID"
+                    name="./marketingCloudOrgId"
+                    xtype="textfield"/>
+            </items>
+        </videoSettings>
+    </items>
+</jcr:root>

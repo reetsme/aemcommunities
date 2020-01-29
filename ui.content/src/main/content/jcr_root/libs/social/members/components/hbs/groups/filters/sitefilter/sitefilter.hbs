@@ -1,0 +1,41 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div id="sitefilter" class="coral-Autocomplete" data-init="autocomplete" data-mode="contains">
+    <div class="coral-InputGroup coral-InputGroup--block js-coral-Autocomplete-field">
+        <label class="coral-DecoratedTextfield coral-InputGroup-input">
+            <span class="u-coral-screenReaderOnly">{{i18n "Search"}}</span>
+            <span class="coral-DecoratedTextfield-icon coral-Icon coral-Icon--sizeXS coral-Icon--search" aria-hidden="true"></span>
+            <input class="coral-DecoratedTextfield-input coral-Textfield js-coral-Autocomplete-textfield" name="siteName" placeholder="{{i18n "Search"}}" type="text">
+            <input id="siteFilterId" name="siteId" type="hidden">
+        </label>
+        <span class="coral-InputGroup-button">
+            <button class="coral-Button coral-Button--secondary coral-Button--square js-coral-Autocomplete-toggleButton" type="button">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--triangleDown"></i>
+            </button>
+        </span>
+    </div>
+
+    <!-- hardcoding list of sites, will be replaced by sitecollection -->
+    <ul class="coral-SelectList js-coral-Autocomplete-selectList">
+        {{#each items}}
+            <li class="coral-SelectList-item coral-SelectList-item--option" data-display="{{this.name}}" data-value="{{this.siteUrlName}}" data-id="{{this.siteId}}">{{this.name}}</li>
+        {{/each}}
+    </ul>
+</div>

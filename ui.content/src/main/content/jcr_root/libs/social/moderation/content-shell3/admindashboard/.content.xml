@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Moderation"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/moderation"
+        consoleId="cq-communities-moderation"
+        contentPath="${requestPathInfo.suffix}"
+        targetCollection="#ugc-container">
+        <redirector
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/admin/contentchecker"
+            allowed="(.*)"
+            path="${requestPathInfo.suffix}"
+            redirectWhenEmpty="/communities/moderation.html/content/sites"/>
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,cq.common.wcm,cq.ui.social.core.communities.filters]"/>
+        </head>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/breadcrumbs"
+            path="/libs/social/moderation/content-shell3/admindashboard"
+            rootPath="/libs/social/moderation/content-shell3/admindashboard"/>
+        <rails jcr:primaryType="nt:unstructured">
+            <searchWell
+                granite:class="cq-rail-searchWell"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Search"
+                sling:resourceType="granite/ui/components/coral/foundation/panel/railpanel"
+                icon="railLeft">
+                <items jcr:primaryType="nt:unstructured">
+                    <searchform
+                        granite:class="scf-dashboard-filters"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form">
+                        <items jcr:primaryType="nt:unstructured">
+                            <filters
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/moderation/filters"/>
+                        </items>
+                    </searchform>
+                </items>
+            </searchWell>
+        </rails>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <modcontainer
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/moderation/modcontainer">
+                        <filters
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/moderation/filters"/>
+                        <ugc
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/moderation/dashboard"/>
+                        <userdetails
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/moderation/userdetails"/>
+                        <userlist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/console/components/hbs/simpleusers"
+                            fromPublisher="true"
+                            groupId="community-members"
+                            includeSubGroups="true"
+                            type="simpleusers"/>
+                        <activitystream
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/activitystreams/components/hbs/activitystreams"
+                            allowAllView="true"
+                            allowFollowingView="false"
+                            allowUserView="false"
+                            streamContextPath="/content"
+                            streamName="moderation"/>
+                    </modcontainer>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

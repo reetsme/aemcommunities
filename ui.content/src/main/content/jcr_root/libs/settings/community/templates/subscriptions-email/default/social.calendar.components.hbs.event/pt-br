@@ -1,0 +1,28 @@
+﻿subject=[Calendar Event] {{{object.displayName}}}
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Um novo evento de calendário “{{{object.displayName}}}” foi publicado por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+O evento de calendário “{{{object.displayName}}}” foi atualizado por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+O evento de calendário “{{{object.displayName}}}” foi excluído por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+O evento de calendário “{{{object.displayName}}}” foi aprovado por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+O evento de calendário “{{{object.displayName}}}” foi fechado por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+O evento de calendário “{{{object.displayName}}}” foi aberto novamente por {{{user.name}}}.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Acesse este link para visualizar todos os eventos de calendário ou modificar sua assinatura.\n \
+{{targetUrl}}\n \

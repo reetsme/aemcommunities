@@ -1,0 +1,32 @@
+﻿subject=[Tema del foro] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} ha publicado el nuevo tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} ha actualizado el tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} ha eliminado el tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} ha aprobado el tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} ha cerrado el tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} ha reabierto el tema del foro "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Haga clic en este vínculo</a> para ver todos los temas del foro o modificar las preferencias de notificación. \n \
+</div>\n \
+</body>\n \
+</html>\n \

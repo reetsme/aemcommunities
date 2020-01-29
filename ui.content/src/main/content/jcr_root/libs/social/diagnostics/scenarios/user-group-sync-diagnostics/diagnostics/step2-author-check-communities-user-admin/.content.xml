@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Verify communities-user-admin ACLs on Author"
+    diagnosticsType="UserAccessConfigurationStep"
+    docsSectionName="Review configuration documents"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}false"
+    haltOnError="{Boolean}false"
+    jsObjectName="step2aAuthor"
+    principal="communities-user-admin"
+    repositoryPath="/var"
+    runGroups="[all,initial]"
+    runModes="[author]"/>

@@ -1,0 +1,35 @@
+﻿subject=[Question] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+Uma nova pergunta “{{{object.displayName}}}” foi publicada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+A pergunta “{{{object.displayName}}}” foi atualizada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+A pergunta “{{{object.displayName}}}” foi excluída por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+A pergunta “{{{object.displayName}}}” foi aprovada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+A pergunta “{{{object.displayName}}}” foi fechada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+A pergunta “{{{object.displayName}}}” foi aberta novamente por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{targetUrl}}">Clique neste link</a> para visualizar todas as perguntas ou para modificar sua assinatura.\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,115 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.social-themes .console-card-label {
+    float: left;
+    margin-left: 10px;
+}
+
+.social-themes .selection-layer {
+    position: absolute;
+    background-color: #428BCA;
+    /* width height same as .card */
+    width: -webkit-calc(100% - 0.9375rem);
+    width: -moz-calc(100% - 0.9375rem);
+    width: -o-calc(100% - 0.9375rem);
+    width: calc(100% - 0.9375rem);
+    margin: 0 0 0.9375rem 0;
+    height: -webkit-calc(100% - 0.9375rem);
+    height: -moz-calc(100% - 0.9375rem);
+    height: -o-calc(100% - 0.9375rem);
+    height: calc(100% - 0.9375rem);
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    display: none;
+    z-index: 10;
+}
+
+.social-themes .selection-layer i {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    width: 3rem;
+    height: 3rem;
+    margin: -1.5rem;
+    top: 50%;
+    left: 50%;
+    background-size: 3rem;
+    background-repeat: no-repeat;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNjQ4IDY0OCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNjQ4IDY0OCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMzI0LDBDMTQ1LjEsMCwwLDE0NS4xLDAsMzI0czE0NS4xLDMyNCwzMjQsMzI0YzE3OC45LDAsMzI0LTE0NS4xLDMyNC0zMjRTNTAyLjksMCwzMjQsMHogTTI1Miw1MDRMMTA4LDM2MA0KCWw3Mi03Mmw3Miw3MmwyMTYtMjE2bDcyLDcyTDI1Miw1MDR6Ii8+DQo8L3N2Zz4NCg==);
+    opacity: 0.65;
+}
+
+.scf-social-console-cssarticle {
+    height: 175px;
+    width: 250px;
+    display: inline-block;
+}
+
+.scf-social-console-card {
+    height: 20%;
+    background: #e6e6e6;
+    border: .0625rem solid #cbcbcb;
+    border-bottom: none;
+}
+
+.scf-social-console-card-image {
+    height: 80%;
+    background: #fafafa;
+    border: .0625rem solid #cbcbcb;
+}
+
+.scf-social-console-divCSSUpload {
+    margin: 0 auto;
+    width: 50%;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.scf-social-console-card h4 {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.scf-social-console-card .label {
+    padding-top: 12px;
+}
+
+.scf-social-console-coral-selector {
+    width: 250px;
+}
+
+.coral-FileUpload-trigger {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.scf-js-social-console-cssUploadCSS {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}

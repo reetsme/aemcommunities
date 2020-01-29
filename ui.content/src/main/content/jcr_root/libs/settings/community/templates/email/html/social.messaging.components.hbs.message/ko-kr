@@ -1,0 +1,17 @@
+subject=[개인 메시지] {{object.component.subject}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{user.name}} 님이 개인 메시지를 보냈습니다.</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<hr>\n \
+이 메시지는 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 {{user.name}} 님이 보냈습니다.\n \
+<hr>\n \
+모든 메시지를 보거나 알림 환경 설정을 수정하려면 <a href="{{targetUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Resource Information"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/resource-info"
+        consoleId="cq-communities-resources"
+        contentPath="${requestPathInfo.suffix}"
+        targetCollection=".se-site-resource-info">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,social-enablement-core,cq.social.enablement.enablementcontentinfo,cq.social.author.enablement.hbs.resourceinfo]"/>
+        </head>
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/text"
+            text="Resource Info"/>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <primary jcr:primaryType="nt:unstructured">
+                <edit
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/resource-create.html${requestPathInfo.suffix}"
+                    icon="edit"
+                    text="Edit"
+                    variant="actionBar"/>
+                <delete
+                    granite:class="foundation-toggleable-control"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                    icon="delete"
+                    text="Delete"
+                    variant="actionBar">
+                    <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        foundation-toggleable-control-target="#delete-dialog"/>
+                </delete>
+                <publish
+                    granite:id="publish-resource"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                    icon="globe"
+                    text="Publish"
+                    variant="actionBar"/>
+                <unpublish
+                    granite:class="foundation-toggleable-control"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                    icon="unpublish"
+                    text="Unpublish"
+                    variant="actionBar">
+                    <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        foundation-toggleable-control-target="#unpublish-dialog"/>
+                </unpublish>
+            </primary>
+            <secondary jcr:primaryType="nt:unstructured">
+                <report
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/site-resource/report.html${requestPathInfo.suffix}"
+                    icon="report"
+                    text="Report"
+                    variant="actionBar"/>
+            </secondary>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/resourcebreadcrumbs"
+            path="/libs/social/enablement/content-shell3/enablement-sites/site-resources/resource-info"
+            rootPath="/libs/social/enablement/content-shell3/enablement-sites"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <infoAlert
+                        granite:id="alert-info"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="INFO"
+                        sling:resourceType="granite/ui/components/coral/foundation/alert"
+                        text="The resource is being published."
+                        variant="info"/>
+                    <successAlert
+                        granite:id="alert-success"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SUCCESS"
+                        sling:resourceType="granite/ui/components/coral/foundation/alert"
+                        text="The resource was successfully published."
+                        variant="success"/>
+                    <errorAlert
+                        granite:id="alert-error"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="ERROR"
+                        sling:resourceType="granite/ui/components/coral/foundation/alert"
+                        text="An error occurred while publishing the resource."
+                        variant="error"/>
+                    <resourceinfo
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/admin/resourceinfo"/>
+                    <deleteResourceDialog
+                        granite:id="delete-dialog"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Delete item(s)"
+                        sling:resourceType="granite/ui/components/coral/foundation/dialog">
+                        <items jcr:primaryType="nt:unstructured">
+                            <form
+                                granite:id="deleteResourceForm"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form"
+                                action="${requestPathInfo.suffix}"
+                                method="POST">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <message
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="You are sure you want to delete this resource?"/>
+                                    <operation
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                        name=":operation"
+                                        value="social:deleteEnablementResourceModel"/>
+                                </items>
+                            </form>
+                        </items>
+                        <footer jcr:primaryType="nt:unstructured">
+                            <cancel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Cancel">
+                                <parentConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    close="{Boolean}true"/>
+                            </cancel>
+                            <submit
+                                granite:id="delete-resource"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Delete item(s)"
+                                type="submit"
+                                variant="primary"/>
+                        </footer>
+                    </deleteResourceDialog>
+                    <unpublishdialog
+                        granite:id="unpublish-dialog"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Unpublish this Resource"
+                        sling:resourceType="granite/ui/components/coral/foundation/dialog">
+                        <items jcr:primaryType="nt:unstructured">
+                            <form
+                                granite:id="unpublishresourceform"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form"
+                                action="${requestPathInfo.suffix}"
+                                method="POST">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <message
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Are you sure you want to unpublish this resource?"/>
+                                    <operation
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                        name=":operation"
+                                        value="social:publishEnablementResourceModel"/>
+                                    <activate
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                        name="replication-action"
+                                        value="deactivate"/>
+                                </items>
+                            </form>
+                        </items>
+                        <footer jcr:primaryType="nt:unstructured">
+                            <cancel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Cancel">
+                                <parentConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    close="{Boolean}true"/>
+                            </cancel>
+                            <submit
+                                granite:id="unpublish-resource"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Unpublish"
+                                type="submit"
+                                variant="primary"/>
+                        </footer>
+                    </unpublishdialog>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+    <report/>
+</jcr:root>

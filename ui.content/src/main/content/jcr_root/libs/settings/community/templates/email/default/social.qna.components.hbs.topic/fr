@@ -1,0 +1,24 @@
+﻿subject=[Question] {{{object.displayName}}}
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL : {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} a publié une nouvelle question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour la question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé la question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé la question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} a clôturé la question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} a réouvert la question « {{{object.displayName}}} ».\n\n \
+{{/equals}}\
+Suivez ce lien pour afficher toutes les questions ou modifier vos préférences de notification.\n \
+{{targetUrl}}\n \

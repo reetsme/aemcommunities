@@ -1,0 +1,28 @@
+﻿subject=[カレンダーイベント] {{{object.displayName}}}
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}}さんが新しいカレンダーイベント「{{{object.displayName}}}」を投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}}さんがカレンダーイベント「{{{object.displayName}}}」を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}}さんがカレンダーイベント「{{{object.displayName}}}」を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}}さんがカレンダーイベント「{{{object.displayName}}}」を承認しました。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}}さんがカレンダーイベント「{{{object.displayName}}}」を閉じました。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}}さんがカレンダーイベント「{{{object.displayName}}}」を再度開きました。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+すべてのカレンダーイベントを表示したり、購読を変更したりするには、このリンクをクリックしてください。\n \
+{{targetUrl}}\n \

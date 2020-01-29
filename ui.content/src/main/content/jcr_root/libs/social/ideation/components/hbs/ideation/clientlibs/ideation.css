@@ -1,0 +1,148 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2016 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-composer-actions-left {
+    float: left;
+}
+
+.scf-composer-actions-right {
+    float: right;
+}
+
+.tab-content .scf-topic-list {
+    padding-top: 20px;
+}
+
+.scf-css-container-ideation-status {
+    position: absolute;
+    right: 400px;
+}
+
+.scf-css-container-ideation-list {
+    float: right;
+    margin-right: 300px;
+}
+
+.scf-css-container-ideation-status>span,
+.scf-css-container-ideation-list>span {
+    font-size: 11px;
+    font-weight: normal;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+ul.dropdown-menu a:hover {
+    cursor: pointer;
+}
+
+.scf-ideation .scf-is-collapsed {
+    display: none;
+}
+
+.scf-ideation .scf-paste-btn {
+    min-width: 75px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.scf-topic-userinfo {
+    float: left;
+    width: 120px;
+}
+
+.scf-ideation-topic-col1 {
+    position: relative;
+    margin-left: 120px;
+    margin-right: 260px;
+    margin-bottom: 10px;
+}
+
+.scf-ideation-topic-col2 {
+    float: right;
+}
+
+.scf-ideation-topic-col3 {
+    margin-left: 120px;
+    margin-bottom: 10px;
+}
+
+.scf-css-idea-draftPosts .scf-ideation-topic-col1,
+.scf-css-idea-draftPosts .scf-ideation-topic-col3 {
+    margin-left: 0;
+}
+
+
+/* list-item */
+
+.scf-ideation-topic-col-state {
+    display: inline;
+    margin-right: 4px;
+}
+
+.scf-ideation-topic-col-like {
+    margin-right: 4px;
+}
+
+.scf-ideation-topic-col-comment {
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+
+/* idea */
+
+.scf-ideation-topic-col-idea-state {
+    display: inline;
+    margin-right: 60px;
+}
+
+.scf-ideation-topic-col-idea-likes {
+    display: inline;
+    top: 3px;
+}
+
+.scf-ideation-topic-col-idea-userinfo {
+    margin-top: 20px;
+}
+
+.scf-idea-topic-col-socialshare {
+    margin-top: 10px;
+}
+
+.scf-ideation-idea-topic-col1 {
+    margin-left: 120px;
+}
+
+.scf-idea-topic-col1 .scf-comment-toolbar {
+    margin-left: 120px;
+}
+
+.scf-ideation-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.scf-js-ideation-comment-section .scf-comment-avatar {
+    padding-bottom: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.scf-ideation .description {
+    margin-top: 20px;
+}

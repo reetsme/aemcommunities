@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf scf-user-profile-badges" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/userbadges">
+    <div class="dropdown">
+        <button class="btn btn-default" type="button" id="scf-js-badges-select" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="scf-js-badges-select-label">{{i18n "All Badges"}}</span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="scf-js-badges-select">
+            <li><a evt="click=selectBadges" data-type="" href="#">{{i18n "All Badges"}}</a></li>
+            <li><a evt="click=selectBadges" data-type="assigned-badges" href="#">{{i18n "All Assigned"}}</a></li>
+            <li><a evt="click=selectBadges" data-type="earned-badges" href="#">{{i18n "All Earned"}}</a></li>
+        </ul>
+    </div>
+    <br />
+    {{#if earnedBadges}}
+        <div id="earned-badges" class="scf-js-user-profile-badges-list">
+            {{#each earnedBadges}}
+                <span class="scf-js-user-profile-badge"><img src="{{this.imageUrl}}" />{{this.title}}</span>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#if assignedBadges}}
+        <div id="assigned-badges" class="scf-js-user-profile-badges-list">
+            {{#each assignedBadges}}
+                <span class="scf-js-user-profile-badge"><img src="{{this.imageUrl}}" />{{this.title}}</span>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

@@ -1,0 +1,32 @@
+subject=[行事曆事件回覆] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 對行事曆事件「{{{target.displayName}}}」張貼此回覆。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 對行事曆事件「{{{target.displayName}}}」新增此回覆。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 對行事曆事件「{{{target.displayName}}}」更新此回覆。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 從行事曆事件「{{{target.displayName}}}」刪除此回覆。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 核准行事曆事件「{{{target.displayName}}}」上的此回覆。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">按一下此連結</a>檢視對此行事曆事件的所有回覆，或修改您的訂閱。\n \
+</div>\n \
+</body>\n \
+</html>\n \

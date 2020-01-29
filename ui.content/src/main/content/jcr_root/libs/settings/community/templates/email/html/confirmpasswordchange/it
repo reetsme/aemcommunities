@@ -1,0 +1,16 @@
+﻿subject=La password è stata aggiornata
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Richiesta di aggiornamento della password</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Salve {{{givenName}}},</p>\n \
+<p>la tua password è stata modificata il giorno {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} </p>\n \
+<p>Se sei stato tu ad apportare la modifica, puoi ignorare questo messaggio e-mail.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

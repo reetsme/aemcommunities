@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<coral-quickactions target="_prev" alignMy="left top" alignAt="left top">
+    <coral-quickactions-item icon="check" class="scf-quickaction-bulkmode" evt="click=quickBulkMode">{{i18n "Select"}}</coral-quickactions-item>
+    <coral-quickactions-item icon="user" class="scf-quickaction-userInfo" evt="click=quickUserDetail">{{i18n "User Info"}}</coral-quickactions-item>
+    {{#if canReply}}
+        <!--
+        <coral-quickactions-item icon="reply" class="scf-quickaction-reply" evt="click=quickReply">{{i18n "Reply"}}</coral-quickactions-item>
+        -->
+    {{/if}}
+    {{#if moderatorActions.canAllow}}
+        <coral-quickactions-item icon="thumbUp" class="scf-quickaction-allow" evt="click=quickAllow">{{i18n "Allow"}}</coral-quickactions-item>
+    {{/if}}
+    {{#if moderatorActions.canDeny}}
+        <coral-quickactions-item icon="thumbDown" class="scf-quickaction-deny" evt="click=quickDeny">{{i18n "Deny"}}</coral-quickactions-item>
+    {{/if}}
+    {{#if canDelete}}
+        <coral-quickactions-item icon="delete" class="scf-quickaction-delete" evt="click=quickDelete">{{i18n "Delete"}}</coral-quickactions-item>
+    {{/if}}
+    {{#if moderatorActions.canClose}}
+        {{#if isClosed}}
+            <coral-quickactions-item icon="lockOff" class="scf-quickaction-open" evt="click=quickOpen">{{i18n "Reopen"}}</coral-quickactions-item>
+        {{else}}
+            <coral-quickactions-item icon="lockOn" class="scf-quickaction-close" evt="click=quickClose">{{i18n "Close"}}</coral-quickactions-item>
+        {{/if}}
+    {{/if}}
+    <coral-quickactions-item icon="history" class="scf-quickaction-history" evt="click=quickHistory">{{i18n "Moderation History"}}</coral-quickactions-item>
+    <coral-quickactions-item icon="viewDetail" class="scf-quickaction-detail" evt="click=quickDetail">{{i18n "View Detail"}}</coral-quickactions-item>
+    <coral-quickactions-item icon="tableHistogram" class="scf-quickaction-createfragment" evt="click=createFragment">{{i18n "Create Content Fragment"}}</coral-quickactions-item>
+</coral-quickactions>

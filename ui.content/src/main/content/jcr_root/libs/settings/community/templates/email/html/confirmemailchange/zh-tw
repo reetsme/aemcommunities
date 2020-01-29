@@ -1,0 +1,18 @@
+subject=更新電子郵件請求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>更新電子郵件請求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好</p>\n \
+<p>您已送出請求要變更與您帳戶相關的電子郵件地址。</p>\n \
+<p>您應可在 {{{newEmail}}} 找到我們所寄出的電子郵件。一旦該電子郵件地址經過確認 (按一下電子郵件中的連結)，就會變成與您帳戶相關的新電子郵件地址。</p>\n \
+<p>若在 {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} 之前尚未按下，連結就會到期，而您會繼續在目前的電子郵件地址收到所有來信。</p>\n \
+<p>若您並未送出這項請求，就代表有人已控制了您的帳戶。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

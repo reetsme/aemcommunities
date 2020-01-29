@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="js-social-console-theme-card" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/communityfunctions/communityfunction">
+    <div class="selection-layer"><i class="select"></i>
+    </div>
+    <article class="card-project stack foundation-collection-item" itemprop="item" itemscope="">
+        <i class="select"></i>
+        <i class="move"></i>
+        {{#if new}}
+            <span class="flag info">{{i18n "New"}}</span>
+        {{/if}}
+        <div class="card">
+            <span class="image">
+                <img src="{{this.image.path}}.thumb.319.319.png" alt=""></span>
+            <div class="label">
+                <div class="main">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <p>{{this.description}}</p>
+            </div>
+            <div class="foundation-collection-quickactions">
+                <a class="scf-js-edit-page" title="{{i18n "Open Community Function"}}" href="{{getContextPath ''}}/editor.html{{this.bluePrintPath}}.html" data-foundation-collection-item-id="{{this.bluePrintPath}}">
+                    <i class="coral-Icon coral-Icon--edit coral-Icon--sizeXS"></i>
+                </a>
+                <a title="{{i18n "Edit Community Function"}}" href="{{getContextPath ''}}/libs/social/console/content/editcommunityfunction.html{{this.id}}">
+                    <i class="coral-Icon coral-Icon--infoCircle coral-Icon--sizeXS"></i>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Verify Encrypted Password Transport Secret Provider on Author"
+    blackList="[encryptedPassword]"
+    diagnosticsType="OSGIConfigurationStep"
+    docsSectionName="Adobe Granite Distribution - Encrypted Password Transport Secret Provider"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable3_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}true"
+    haltOnError="{Boolean}false"
+    jsObjectName="step3Author"
+    osgiQuery="(&amp;(service.pid=com.adobe.granite.distribution.core.impl.CryptoDistributionTransportSecretProvider.*)(name=socialpubsync-publishUser))"
+    runGroups="[all,initial]"
+    runModes="[author]">
+    <too-many-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step3Author.configurations.length > 1))"
+        description="There are multiple Encrypted Password Transport Secret Providers for configuration &quot;socialpubsync-publishUser&quot; -- please remove duplicates"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <no-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step3Author.configurations.length &lt; 1))"
+        description="There are no Encrypted Password Transport Secret Providers for configuration &quot;socialpubsync-publishUser&quot; -- please create one."
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <extract-user
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="if (stepdata.step3Author &amp;&amp; &#xa;&#x9;stepdata.step3Author.configurations &amp;&amp; &#xa;&#x9;stepdata.step3Author.configurations[0].properties &amp;&amp;&#xa;&#x9;stepdata.step3Author.configurations[0].properties.username) {&#xa;&#xa;&#x9;var syncUser = stepdata.step3Author.configurations[0].properties.username;&#xa;&#x9;output.put(&quot;syncUser&quot;,syncUser);&#xa;}&#xa;true;&#xa;"
+        description="No Sling Sync Agents are configured -- please follow the link (below) to the documentation"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"
+        info="This actually doesn't perform an assertion, but it extracts the endpoints from the step1a data and places it in the context to make it more convenient to consume in HBS."/>
+    <extract-publish-endpoints-urls
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="var qs = &quot;?&quot;;&#xa;&#xa;if (queryString &amp;&amp; queryString.length > 0) {&#xa;  qs += queryString + &quot;&amp;&quot;;&#xa;}&#xa;qs += &quot;syncUser=&quot; + encodeURIComponent(stepdata.step3Author.output.syncUser);&#xa;&#xa;var publishDiagLinks = [];&#xa;output.put(&quot;publishDiagLinks&quot;,publishDiagLinks);&#xa;if (stepdata.step1a &amp;&amp; &#xa;&#x9;stepdata.step1a.configurations &amp;&amp; &#xa;&#x9;stepdata.step1a.configurations[0] &amp;&amp;&#xa;&#x9;stepdata.step1a.configurations[0].properties &amp;&amp;&#xa;&#x9;stepdata.step1a.configurations[0].properties['packageExporter.endpoints']) {&#xa;&#xa;&#x9;var endpoints = stepdata.step1a.configurations[0].properties['packageExporter.endpoints'];&#xa;&#x9;for (var i=0;i&lt;endpoints.length;i++) {&#xa;&#x9;    var url = endpoints[i];&#xa;&#x9;    var parts = url.split(&quot;/&quot;);&#xa;&#xa;&#x9;    var baseURL = parts[0] + &quot;//&quot; + parts[2] + requestPath + qs;&#xa;&#x9;    publishDiagLinks.push(baseURL);&#xa;&#x9;}&#xa;}&#xa;true;&#xa;"
+        description="Unable to derive Publish URLs"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"
+        info="This actually doesn't perform an assertion, but it extracts the endpoints from the step1a data and places it in the context to make it more convenient to consume in HBS.  This must come after both step1a and step3 are invoked&#xa;"/>
+</jcr:root>

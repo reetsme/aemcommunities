@@ -1,0 +1,34 @@
+﻿subject=[Publication du forum] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} a publié une nouvelle rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} a ajouté une nouvelle publication du forum à la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour la publication du forum de la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé la publication du forum de la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé la publication du forum de la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} a clôturé la publication du forum de la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} a réouvert la publication du forum de la rubrique {{#if this.target.properties.[jcr:title]}}« {{{target.properties.eventTopic}}} »{{else}}« {{{target.displayName}}} »{{/if}} le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Cliquez sur ce lien</a> pour afficher toutes les publications du forum pour cette rubrique ou modifier vos préférences de notification.\n \
+</div>\n \
+</body>\n \
+</html>\n \

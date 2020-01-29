@@ -1,0 +1,35 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-follows" data-component-id="{{id}}" data-scf-component="social/socialgraph/components/hbs/relationships">
+    {{#if properties.outgoing}}
+        <h3>{{i18n "Followers"}}&nbsp;<small>{{totalSize}}</small></h3>
+    {{else}}
+        <h3>{{i18n "Following"}}&nbsp;<small>{{totalSize}}</small></h3>
+    {{/if}}
+    <ul class="scf-relationshiplist">
+        {{#each items}}
+            {{#equals resourceType "social/commons/components/author"}}
+                <li>
+                    <img class="scf-follow-avatar" src="{{this.largeAvatarUrl}}" />
+                    <a class="scf-link" href="{{this.profileUrl}}">{{this.name}}</a>
+                </li>
+            {{/equals}}
+        {{/each}}
+    </ul>
+</div>

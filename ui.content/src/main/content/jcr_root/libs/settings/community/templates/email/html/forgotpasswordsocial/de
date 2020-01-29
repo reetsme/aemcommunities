@@ -1,0 +1,15 @@
+﻿subject=Kennwort-Aktualisierungsanfrage
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Kennwort-Aktualisierungsanfrage</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hallo {{{givenName}}},</p>\n \
+<p>Sie haben Ihr Konto über {{{social}}} eingerichtet. Melden Sie sich mit Ihren Anmeldedaten für {{{social}}} bei der Website an.</p>
+</div>\n \
+</body>\n \
+</html>\n \

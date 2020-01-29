@@ -1,0 +1,16 @@
+subject=[启用 {{#if this.object.properties.[enablementType]}}{{{this.object.properties.enablementType}}}{{/if}}] {{{this.target.properties.se_resource-name}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "Enrolled"}}\
+于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 注册了 {{{this.object.content}}}。\n \
+{{/equals}}\
+<br>请<a href="{{targetUrl}}">单击此链接</a>查看分配给您的所有社区资源或修改您的通知首选项。\n \
+</div>\n \
+</body>\n \
+</html>\n \

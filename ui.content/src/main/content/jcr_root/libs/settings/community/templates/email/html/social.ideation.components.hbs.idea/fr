@@ -1,0 +1,35 @@
+﻿subject=[Événement de conceptualisation] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    {{{user.name}}} a publié un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    {{{user.name}}} a ajouté un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{{user.name}}} a mis à jour un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}} a supprimé un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{{user.name}}} a approuvé un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+    {{{user.name}}} a clôturé un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+    {{{user.name}}} a réouvert un nouvel événement de conceptualisation « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Cliquez sur ce lien</a> pour afficher tous les événements de conceptualisation ou modifier vos préférences de notification.\n \
+</div>\n \
+</body>\n \
+</html>\n \

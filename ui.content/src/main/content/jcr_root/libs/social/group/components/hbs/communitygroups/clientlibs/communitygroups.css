@@ -1,0 +1,226 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+button.scf-groupmemberlist-toolkit {
+    border: none;
+}
+
+.scf-group-form {
+    font-size: 14px;
+    text-align: left;
+    color: black;
+}
+
+.scf-group-form-label {
+    color: #aaa;
+    font-weight: normal;
+    text-align: left;
+}
+
+.scf-privategroup-icon-span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+}
+
+.scf-privategroup-icon-span span {
+    padding: 0 5px 0 5px;
+}
+
+.scf-group-form .row {
+    padding-bottom: 2px;
+    min-width: 550px;
+    margin: 5px 5px 5px 5px;
+}
+
+.scf-group-form-textarea {
+    resize: vertical;
+    max-height: 200px;
+    min-height: 100px;
+}
+
+.scf-composer-actions {
+    text-align: right;
+}
+
+.scf-communitygroups .scf-is-collapsed {
+    display: none;
+}
+
+
+/** tab */
+
+.scf-tab-content {
+    overflow: auto;
+}
+
+.scf-tab-content > .scf-tab-pane {
+    display: none;
+}
+
+.scf-tab-content > .active {
+    display: block;
+}
+
+.scf-tab-content {
+    margin: 10px 0 10px 0;
+    min-height: 100px;
+}
+
+
+/** image uploader*/
+
+.scf-upload-image {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+}
+
+.scf-image-upload {
+    position: relative;
+    overflow: hidden;
+    color: #428bca;
+}
+
+.scf-image-upload input.scf-image-upload-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+/** community group list */
+
+.scf-group-image {
+    width: auto;
+    height: auto;
+    border-radius: 7px;
+    border: 1px solid #cccccc;
+    padding: 3px;
+    display: block;
+    margin: 0 auto;
+}
+
+.scf-group-aside {
+    float: left;
+    position: relative;
+    width: 170px;
+    height: 170px;
+}
+
+.scf-group-information {
+    margin-left: 190px;
+}
+
+.scf-communitygroups-list {
+    padding: 20px 0 0 0;
+    margin: 0px;
+    list-style: none;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.scf-communitygroup {
+    padding: 10px;
+    padding-right: 0px;
+    border-bottom: 1px solid #E6E6E6;
+    border-left: 5px solid #E6E6E6;
+}
+
+.scf-communitygroup:hover {
+    border-left: 5px solid #428bca;
+}
+
+.scf-communitygroup:last-child {
+    //border: 0;
+}
+
+.scf-group-title {
+    font-size: 18px;
+}
+
+.scf-group-desc {
+    min-height: 65px;
+}
+
+.scf-group-toolbar {
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.coral-Wait {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url("/etc.clientlibs/clientlibs/social/hbs/communitygroups/resources/wait_16.gif") no-repeat 0 0;
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    background-size: auto 100%;
+    -webkit-animation: wait 1.6s step-end infinite;
+    -moz-animation: wait 1.6s step-end infinite;
+    -o-animation: wait 1.6s step-end infinite;
+    -ms-animation: wait 1.6s step-end infinite;
+    animation: wait 1.6s step-end infinite;
+}
+
+.coral-Wait--large {
+    width: 32px;
+    height: 32px;
+    background-image: url("/etc.clientlibs/clientlibs/social/hbs/communitygroups/resources/wait_32.gif");
+}
+
+.selected-item-label {
+    background-color: #666666;
+    color: #cccccc;
+    display: inline-block;
+    line-height: 1rem;
+    margin: 6px 6px 0 0;
+    overflow: hidden;
+    padding: 8px 6px 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remove-selection {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 6px 0 0;
+}
+
+.scf-group-following-block {
+    float: right;
+    margin-left: 20px;
+}
+
+.scf-follow-button {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 5px;
+}

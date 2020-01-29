@@ -1,0 +1,27 @@
+﻿subject=[Forum Post] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Um novo tópico do fórum “{{{object.displayName}}}” foi publicado por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Uma nova publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi adicionada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+A publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi atualizada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+A publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi excluída por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+A publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi aprovada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+A publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi fechada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+A publicação do fórum {{#if this.target.properties.[jcr:title]}}ao tópico “{{{target.displayName}}}” {{/if}}foi aberta novamente por {{{user.name}}}.\n\n \
+{{/equals}}\
+Acesse este link para visualizar todas as publicações feitas a este tópico do fórum ou para modificar suas preferências de notificação.\n \
+{{objectUrl}}\n \

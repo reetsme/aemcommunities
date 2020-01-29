@@ -1,0 +1,15 @@
+﻿subject=ユーザー名のリクエスト
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>ユーザー名のリクエスト</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}} 様</p>\n \
+<p>アカウントが {{{social}}} で設定されました。サインイン時に、{{{social}}}  ログインを使用してサイトにアクセスしてください。</p>
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Widget"
+    fieldLabel="Mode"
+    name="./mode"
+    type="radio"
+    xtype="selection">
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        loadcontent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue());}"
+        selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
+    <options jcr:primaryType="cq:WidgetCollection">
+        <create
+            jcr:primaryType="nt:unstructured"
+            text="Create content"
+            value="createContent"/>
+        <edit
+            jcr:primaryType="nt:unstructured"
+            text="Edit content"
+            value="editContent"/>
+        <view
+            jcr:primaryType="nt:unstructured"
+            text="View content"
+            value="viewContent"/>
+    </options>
+</jcr:root>

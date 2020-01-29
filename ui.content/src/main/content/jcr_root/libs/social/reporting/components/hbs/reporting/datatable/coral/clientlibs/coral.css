@@ -1,0 +1,64 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.coral-Table {
+    margin-bottom: 0;
+}
+
+.coral-Table-headerCell {
+    border-left: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.coral-Table-headerCell:nth-child(1) {
+    border-left: 0;
+}
+
+.coral-Table {
+    border: 1px solid #d2d2d2;
+}
+
+.coral-Icon--arrowUp,
+.coral-Icon--arrowDown {
+    float: right;
+}
+
+.coral-Progress {
+    width: 100%;
+}
+
+.dataTables_filter {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.dataTables_info {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    float: left;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_footerbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

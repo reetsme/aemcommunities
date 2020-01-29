@@ -1,0 +1,15 @@
+﻿subject=Benutzernamen-Anfrage
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Benutzernamen-Anfrage</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hallo {{{givenName}}},</p>\n \
+<p>Ihr Benutzername lautet {{{userId}}}.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

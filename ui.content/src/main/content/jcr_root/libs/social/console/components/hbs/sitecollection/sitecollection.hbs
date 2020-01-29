@@ -1,0 +1,105 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-component-id="{{id}}" class="content scf-js-cq-social-themes social-themes" data-scf-component="social/console/components/hbs/sitecollection">
+
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-sitepublish-success coral-Tooltip--success">{{i18n "Site Published"}}</div>
+        <div class="scf-social-console-textbox-tooltip scf-js-sitepublish-error coral-Tooltip--error">{{i18n "Error Publishing Site"}}</div>
+    </div>
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-siteexport-success coral-Tooltip--success">{{i18n "Downloading Site Content Package..."}}</div>
+        <div class="scf-social-console-textbox-tooltip scf-js-siteexport-error coral-Tooltip--error">{{i18n "Error Building Site Content Package"}}</div>
+    </div>
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-sitedelete-error coral-Tooltip--error">{{i18n "Error Deleting Site"}}</div>
+    </div>
+
+    <coral-masonry layout="fixed-spread" columnwidth="242" spacing="15" class="foundation-collection" data-foundation-mode-group="scf-create" data-foundation-layout="{{{xss-htmlAttr "{\"name\":\"foundation-layout-masonry\"}"}}}">
+        {{#each items}}
+            <coral-masonry-item data-component-id="{{this.id}}">
+                <coral-card {{#if this.isCommunitySiteFolder}} variant="inverted" {{/if}} colorhint="#ffffff" assetwidth="242" assetheight="242">
+                    <coral-card-asset>
+                        <img src="{{#if this.siteThumbnail}}{{this.siteThumbnail.thumbnailUrl}}{{else}}{{this.sitePagePath}}.thumb.242.242.jpg{{/if}}" />
+                    </coral-card-asset>
+                    <coral-card-info>
+                        {{#if new}}
+                            <coral-tag class="grid-alert-tag" color="blue" size="m">{{i18n "New!"}}</coral-tag>
+                        {{/if}}
+                        {{#if this.isCommunitySiteFolder}}
+                            <a class="scf-social-console-card-info" href="/communities/sites.html{{this.sitePagePath}}"></a>
+                        {{else}}
+                            {{#if this.properties.groupPaths}}
+                                <a class="scf-social-console-card-info" href="/communities/communitygroups.html{{this.sitePagePath}}"></a>
+                            {{/if}}
+                        {{/if}}
+                    </coral-card-info>
+                    <coral-card-content>
+                        {{#if this.isCommunitySiteFolder}}
+                            <coral-card-context>{{i18n 'Folder'}}</coral-card-context>
+                            <coral-card-title>{{this.name}}</coral-card-title>
+                        {{else}}
+                            <coral-card-title>{{this.name}}</coral-card-title>
+                            <coral-card-propertylist>
+                                <coral-card-property icon="demographic" title="{{i18n "Language"}}">{{this.configuration.translationManagementConfiguration.baseLanguage}}</coral-card-property>
+                            </coral-card-propertylist>
+                            {{#if created}}
+                                <coral-card-propertylist>
+                                    <coral-card-property icon="edit" title= {{i18n "Created"}}>
+                                        <time datetime="{{created}}">{{pretty-time created}}</time>
+                                    </coral-card-property>
+                                </coral-card-propertylist>
+                            {{/if}}
+                        {{/if}}
+                    </coral-card-content>
+                </coral-card>
+                {{#unless this.isCommunitySiteFolder}}
+                    <coral-quickactions target="_prev" alignMy="left top" alignAt="left top">
+                        <coral-quickactions-item icon="edit" data-foundation-anchor-target="_blank" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/editor.html{{this.sitePagePath}}.html">{{i18n "Open Site"}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="infoCircle" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/communities/editsite.html{{this.sitePagePath}}">{{i18n "Edit Site"}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="globe" class="scf-js-quickaction-console-site-publish" data-path="{{this.sitePagePath}}">{{i18n " Publish Site "}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="download" class="scf-js-quickaction-console-site-export" data-path="{{this.sitePagePath}}">{{i18n " Export Site "}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="delete" class="scf-js-quickaction-console-site-delete" data-path="{{this.sitePagePath}}">{{i18n " Delete Site "}}</coral-quickactions-item>
+                    </coral-quickactions>
+                {{/unless}}
+            </coral-masonry-item>
+
+        {{/each}}
+    </coral-masonry>
+    <coral-wait class="scf-publish-site-wait" size="L" centered>
+    </coral-wait>
+    <coral-dialog class="scf-js-confirmation-dialog">
+            <coral-dialog-header>{{i18n "Delete Site"}}</coral-dialog-header>
+            <coral-dialog-content>
+                <input type="hidden" id="deleteSitePath">
+                <h3>{{i18n "You are sure you want to delete this site?"}}</h3>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox id="deleteIgnoreAssets">{{i18n "Ignore Assets"}}</coral-checkbox>
+                </div>
+            </coral-dialog-content>
+            <coral-dialog-footer>
+                <button is="coral-button" class="coral-Button" id="deleteCancelBtn">
+                    <coral-button-label class="coral-Button-label">{{i18n "Cancel"}}</coral-button-label>
+                </button>
+                <button is="coral-button" id="deleteOkBtn" variant="primary" class="foundation-validation-bind coral-Button coral-Button--primary" size="M">
+                    <coral-button-label class="coral-Button-label">{{i18n "Ok"}}</coral-button-label>
+                </button>
+            </coral-dialog-footer>
+        </coral-dialog>
+</div>

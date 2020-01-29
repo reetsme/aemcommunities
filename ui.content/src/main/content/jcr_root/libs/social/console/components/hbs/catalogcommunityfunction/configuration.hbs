@@ -1,0 +1,68 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-template="configuration" data-scf-component="social/console/components/hbs/communityfunctions/communityfunction">
+    <div class="scf-js-custom-config" style="min-height:250px">
+        <div class="coral-Form-fieldwrapper">
+            <label class="coral-Form-fieldlabel scf-js-community-function-title-label">{{i18n "Title"}}</label>
+            <br/>
+            <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-js-community-function-title" type="text">
+        </div>
+        <div class="coral-Form-fieldwrapper">
+            <label class="coral-Form-fieldlabel scf-js-community-function-url-label">{{i18n "URL"}}</label>
+            <br/>
+            <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-js-community-function-url" type="text">
+        </div>
+        <br/>
+        <div class="coral-Form-fieldwrapper">
+            <span class="coral-Select scf-js-console-sitetemplates-groupTemplates" data-init="select" data-config-id="groupDepth" name="groupDepth">
+                <button type="button" class="coral-Select-button coral-MinimalButton">
+                    <span class="coral-Select-button-text">{{i18n "Select Resource View Depth"}}</span>
+                </button>
+                    <select class="coral-Select-select">
+                        {{#each templateOptions}}
+                            <option value="{{encodeForHTMLAttr this.id}}">{{this.label}}</option>
+                        {{/each}}
+                    </select>
+               </span>
+            </span>
+        </div>
+        <br/>
+        <div class="coral-Form-fieldwrapper">
+            <coral-checkbox id="select-all-namespaces"
+                            data-config-id="selectAllNamespaces"
+                            data-type="checkbox"
+                            class="scf-js-fix-checks scf-fix-checks scf-js-console-allowregistration"
+                            value="true" checked>
+                {{i18n "Select All Namespaces"}}
+            </coral-checkbox>
+        </div>
+        <div class="coral-Form-fieldwrapper">
+            <span class="coral-Select scf-js-community-function-tagNamespaces" data-init="select" data-config-id="tagNamespaces" name="tagNamespaces">
+        <button type="button" class="coral-Select-button coral-MinimalButton">
+        <span class="coral-Select-button-text">{{i18n "Select Tag Namespaces"}}</span>
+            </button>
+            <select class="coral-Select-select" multiple="true">
+                {{#each configOptions}}
+                    <option value="{{encodeForHTMLAttr this.id}}">{{this.label}}</option>
+                {{/each}}
+            </select>
+            </span>
+        </div>
+    </div>
+</div>

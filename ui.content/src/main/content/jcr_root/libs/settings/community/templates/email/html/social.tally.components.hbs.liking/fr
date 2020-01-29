@@ -1,0 +1,15 @@
+﻿subject=[Aimer] {{target.properties.eventTopic}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{target.properties.eventTopic}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{{user.name}}} a aimé « {{target.properties.eventTopic}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<br><a href="{{targetUrl}}">Cliquez sur ce lien</a> pour afficher tous les votes ou modifier vos préférences de notification.\n \
+</div>\n \
+</body>\n \
+</html>\n \

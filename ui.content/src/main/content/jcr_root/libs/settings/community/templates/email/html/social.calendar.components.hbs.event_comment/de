@@ -1,0 +1,29 @@
+﻿subject=[Kalenderereignisantwort] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    Eine neue Antwort auf das Kalenderereignis „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gepostet.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    Eine neue Antwort wurde dem Kalenderereignis „{{{target.displayName}}}“ von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    Eine Antwort auf das Kalenderereignis „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Eine Antwort auf das Kalenderereignis „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    Eine Antwort auf das Kalenderereignis „{{{target.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Antworten auf dieses Kalenderereignis oder zum Ändern Ihrer Voreinstellungen für Benachrichtigungen.\n \
+</div>\n \
+</body>\n \
+</html>\n \

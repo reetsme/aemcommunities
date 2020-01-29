@@ -1,0 +1,159 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="coral-TabPanel-pane is-active" id="coral-2" role="tabpanel" aria-hidden="true">
+
+    <div class="asset-list">
+
+        {{#if primaryAsset}}
+
+            <div class="asset-row">
+                <div class="asset-details-container">
+
+                    <div class="asset-location">
+                        <div class="asset-name">primary</div>
+                    </div>
+
+                    <div class="asset-thumb">
+                        {{#if primaryAsset.coverImagePath}}
+                            <img src="{{primaryAsset.coverImagePath}}">
+                        {{else}}
+                            <img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png">
+                        {{/if}}
+                    </div>
+                    <div class="asset-location">
+                        <div class="asset-name">{{primaryAsset.title}}</div>
+                    </div>
+
+                    <div class="asset-location">
+                        <div class="asset-type">{{primaryAsset.type}}</div>
+                    </div>
+                    <div class="asset-location">
+                        {{#if primaryAsset.friendlySize}}
+                            <div class="asset-size">{{primaryAsset.friendlySize}}</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+        {{else}}
+            {{i18n "No primary asset attached."}}
+        {{/if}}
+
+        {{#if smallAsset}}
+
+            <div class="asset-row">
+                <div class="asset-details-container">
+
+                    <div class="asset-location">
+                        <div class="asset-name">small</div>
+                    </div>
+
+                    <div class="asset-thumb">
+                        {{#if smallAsset.coverImagePath}}
+                            <img src="{{smallAsset.coverImagePath}}">
+                        {{else}}
+                            <img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png">
+                        {{/if}}
+                    </div>
+                    <div class="asset-location">
+                        <div class="asset-name">{{smallAsset.title}}</div>
+                    </div>
+
+                    <div class="asset-location">
+                        <div class="asset-type">{{smallAsset.type}}</div>
+                    </div>
+                    <div class="asset-location">
+                        {{#if smallAsset.friendlySize}}
+                            <div class="asset-size">{{smallAsset.friendlySize}}</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+        {{/if}}
+
+        {{#if largeAsset}}
+
+            <div class="asset-row">
+                <div class="asset-details-container">
+
+                    <div class="asset-location">
+                        <div class="asset-name">large</div>
+                    </div>
+
+                    <div class="asset-thumb">
+                        {{#if largeAsset.coverImagePath}}
+                            <img src="{{largeAsset.coverImagePath}}">
+                        {{else}}
+                            <img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png">
+                        {{/if}}
+                    </div>
+                    <div class="asset-location">
+                        <div class="asset-name">{{largeAsset.title}}</div>
+                    </div>
+
+                    <div class="asset-location">
+                        <div class="asset-type">{{largeAsset.type}}</div>
+                    </div>
+                    <div class="asset-location">
+                        {{#if smallAsset.friendlySize}}
+                            <div class="asset-size">{{largeAsset.friendlySize}}</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+        {{/if}}
+
+        {{#if fragmentAsset}}
+
+            <div class="asset-row">
+                <div class="asset-details-container">
+
+                    <div class="asset-location">
+                        <div class="asset-name">fragment</div>
+                    </div>
+
+                    <div class="asset-thumb">
+                        {{#if fragmentAsset.coverImagePath}}
+                            <img src="{{fragmentAsset.coverImagePath}}">
+                        {{else}}
+                            <img src="/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png">
+                        {{/if}}
+                    </div>
+                    <div class="asset-location">
+                        <div class="asset-name">{{fragmentAsset.title}}</div>
+                    </div>
+
+                    <div class="asset-location">
+                        <div class="asset-type">{{fragmentAsset.type}}</div>
+                    </div>
+                    <div class="asset-location">
+                        {{#if smallAsset.friendlySize}}
+                            <div class="asset-size">{{fragmentAsset.friendlySize}}</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+        {{/if}}
+
+    </div>
+</div>

@@ -1,0 +1,77 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-calendar-listitem{{#if _isNew}} scf-is-new{{/if}}" data-component-id="{{id}}" data-scf-template="list-item">
+    <aside class="scf-event-cover">
+        {{#if properties.coverimage}}
+            <img class="scf-event-cover-image" src="{{getContextPath ''}}{{#if properties.coverimage}}{{properties.coverimage}}.thumb.120.80.png{{else}}{{author.largeAvatarUrl}}{{/if}}" />
+        {{else}}
+            <span class="scf-event-cover-image scf-event-empty-cover-image glyphicon glyphicon-calendar"></span>
+        {{/if}}
+
+    </aside>
+    <div class="scf-event-col1">
+        <a href="{{friendlyUrl}}"><h3>{{subject}}</h3></a>
+        <div>
+            <span class="scf-event-listitem-created-by text-muted">{{i18n "Created by"}}</span>
+            <a href="{{author.friendlyUrl}}" class="scf-event-listitem-author">{{author.name}}</a>
+            <span class="scf-event-listitem-author-badges">
+                {{#each author.badges}}
+                    {{#if this.isAssigned}}
+                        <div class="scf-badge-text">
+                            {{this.title}}
+                        </div>
+                    {{/if}}
+                {{/each}}
+                {{#each author.badges}}
+                    {{#unless this.isAssigned}}
+                        <img alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" class="scf-badge-image" />
+                    {{/unless}}
+                {{/each}}
+            </span>
+        </div>
+        <div>
+            <span class="scf-quiet">
+                <span class="scf-event-listitem-start-date">{{dateUtil start format=localeLongDateFormat timezone=timezone}}</span> |
+            {{#if isDate}}
+                <span class="scf-event-listitem-full-day">{{i18n "Full Day"}}</span>
+            {{else}}
+                <span class="scf-event-listitem-start-time">{{dateUtil start format=localeTimeFormat timezone=timezone}}</span>
+            {{/if}}
+            |
+            <span class="scf-event-listitem-location">{{properties.location_t}} {{properties.address_s}}</span>
+            </span>
+            {{#if configuration.isTaggingAllowed}}
+                <ul class="scf-horizontal-tag-list">
+                    {{#each tags}}
+                        <li class="scf-selected-tag">{{title}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+        <p class="scf-comment-msg">
+            {{{message}}}
+        </p>
+        {{#if canEdit}}
+            <p>
+                <a href="{{friendlyUrl}}#comment">{{i18n "Add comment"}}</a>
+            </p>
+        {{/if}}
+    </div>
+    <div class="scf-clear-both"></div>
+</div>

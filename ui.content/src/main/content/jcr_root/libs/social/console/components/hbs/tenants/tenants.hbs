@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="content social-tenants" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/tenants">
+
+    <div class="scf-js-themes-container grid card foundation-collection-container">
+
+
+        <table class="coral-Table">
+            <thead>
+                <tr class="coral-Table-row">
+                    <th class="coral-Table-headerCell">{{i18n "Tenant Id"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Organization"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Tenant hostname"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Contact Email"}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                    <tr class="coral-Table-row">
+                        {{include this resourceType="social/console/components/hbs/tenants/tenant" authoringDisabled="true"}}
+                    </tr>
+                {{/each}}
+                <tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</div>

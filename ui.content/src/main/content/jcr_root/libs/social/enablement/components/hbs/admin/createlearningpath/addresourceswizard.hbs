@@ -1,0 +1,80 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="add-resources-wizard">
+    <div class="foundation-layout-mode2" data-foundation-layout="{&quot;name&quot;:&quot;foundation-layout-mode2&quot;,&quot;group&quot;:&quot;cq-social-enablement&quot;}">
+        <coral-actionbar>
+            <coral-actionbar-container class="add-resources-wizard-left">
+                <coral-actionbar-item>
+                    <span class="block block-text section-header">{{i18n "Resources"}}</span>
+                </coral-actionbar-item>
+            </coral-actionbar-container>
+            <coral-actionbar-container class="add-resources-wizard-right">
+                <coral-actionbar-item>
+                    <a class="coral-Link cq-social-enablement-delete-resource-activator hidden" id="delete-from-my-resources" title="{{i18n 'Remove'}}">
+                        <coral-icon icon="delete" size="S"></coral-icon>{{i18n "Remove"}}</a>
+                    <a class="coral-Link cq-social-enablement-add-resource-activator" id="add-from-my-resources" title="{{i18n 'Add Resources'}}">
+                        <coral-icon icon="add" size="S"></coral-icon>{{i18n "Add Resources"}}</a>
+                </coral-actionbar-item>
+            </coral-actionbar-container>
+        </coral-actionbar>
+
+        <div class="add-asset-wizard-wrapper">
+            <iframe id="resourcepicker" src=""></iframe>
+            <div id="add-items-tbl" class="add-resources-tbl list">
+                <div class="ec-card card-item foundation-collection-item resources-header">
+                    <span class="coral-Table-headerCell header-select">
+                        <coral-checkbox class="header-select-all-items"></coral-checkbox>
+                    </span>
+                    <span class="coral-Table-headerCell header-asset-cover-image" data-sort-selector="uploaded-asset-name" data-title="{{i18n "Items"}}">{{i18n "Items"}}</span>
+                    <span class="coral-Table-headerCell header-asset-type" data-title="{{i18n 'Type'}}">{{i18n "Type"}}</span>
+                    <span class="coral-Table-headerCell header-asset-size" data-title="{{i18n 'Size'}}">{{i18n "Size"}}</span>
+                    <span class="coral-Table-headerCell header-blank">&nbsp;</span>
+                </div>
+
+                <div class="dropzone" id="dropzone">
+                    <ul class="scf-js-added-resources draggable" data-init="draggable-list" data-allow="reorder drop">
+                        {{#each items}}
+                            <li id="{{enablementResource.resourceUID}}" coral-dragaction coral-dragaction-dropzone="#dropzone" class="ec-card card-item foundation-collection-item scf-js-resource-item" coral-dragaction-axis="vertical" data-path="{{enablementResource.id}}" data-name="{{enablementResource.title}}">
+                                <span class="coral-Table-cell uploaded-select">
+                                    <i class="coral-Icon coral-Icon--delete coral-Icon--sizeS remove-resource-item scf-js-item-action"></i>
+                                </span>
+                                <span class="coral-Table-cell uploaded-asset-cover-image">
+                                    {{#if enablementResource.coverImage}}
+                                        <div style="background-image: url('{{getContextPath ''}}{{enablementResource.coverImage}}');"></div>
+                                    {{else}}
+                                        <div style="background-image: url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/defaultCardImage.png');"></div>
+                                    {{/if}} 
+                                </span>
+                                <span class="coral-Table-cell uploaded-asset-name">{{enablementResource.title}}</span>
+                                <span class="coral-Table-cell uploaded-asset-type">{{enablementResource.primaryAsset.assetType}}</span>
+                                <span class="coral-Table-cell uploaded-asset-size">
+                                    {{#if enablementResource.primaryAsset.friendlySize }}
+                                        {{enablementResource.primaryAsset.friendlySize}}
+                                    {{/if}}
+                                </span>
+                                <i class="move"></i>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

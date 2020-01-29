@@ -1,0 +1,16 @@
+﻿subject=[Enablement {{#if this.object.properties.[enablementType]}}{{{this.object.properties.enablementType}}}{{/if}}] {{{this.target.properties.se_resource-name}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "Enrolled"}}\
+{{{this.object.content}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{targetUrl}}">Clique neste link</a> para visualizar todas os recursos de comunidades ou para modificar suas preferências de notificação.\n \
+</div>\n \
+</body>\n \
+</html>\n \

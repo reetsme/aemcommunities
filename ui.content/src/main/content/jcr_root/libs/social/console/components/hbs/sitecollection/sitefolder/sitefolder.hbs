@@ -1,0 +1,59 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="js-social-console-theme-card" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/sitecollection/site">
+    <div class="selection-layer"><i class="select"></i>
+    </div>
+    <article class="foundation-collection-item card-page stack" data-foundation-collection-item-id="{{this.sitePagePath}}" itemprop="item" itemscope="itemscope" data-path="{{this.sitePagePath}}" data-timeline="true" data-item-title="{{this.name}}" data-gridlayout-sortkey="0">
+        <a href="/communities/sites.html{{this.sitePagePath}}">
+            <!--<i class="select"></i>-->
+            <i class="move"></i>
+            {{#if new}}
+                <span class="flag info">{{i18n "New"}}</span>
+            {{/if}}
+            <span class="image">
+      <img src="{{#if this.siteThumbnail}}{{this.siteThumbnail.thumbnailUrl}} {{else}} {{this.sitePagePath}}.thumb.319.319.jpg {{/if}}"/></span>
+            <div class="label">
+                <div class="main">
+                    <h4 class="foundation-collection-item-title" itemprop="title">{{this.name}}</h4>
+                    <h4 class="foundation-collection-item-title" itemprop="title">{{this.configuration.translationManagementConfiguration.baseLanguage}}</h4>
+                </div>
+                <div class="info">
+                    <p class="meta-info"></p>
+                    <p class="modified" title="Modified">
+                        {{#if created}}
+                            <span class="date" itemprop="lastmodified" data-timestamp="{{created}}">{{pretty-time created}}</span>
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="foundation-collection-quickactions">
+                <a class="scf-js-edit-page" title="{{i18n " Open Site "}}" href="{{getContextPath ''}}/editor.html{{this.sitePagePath}}.html" data-foundation-collection-item-id="{{this.sitePagePath}}">
+                    <i class="coral-Icon coral-Icon--edit coral-Icon--sizeXS"></i>
+                </a>
+                <a title="{{i18n " Edit Site "}}" href="{{getContextPath ''}}/libs/social/console/content/editsite.html{{this.sitePagePath}}">
+                    <i class="coral-Icon coral-Icon--infoCircle coral-Icon--sizeXS"></i>
+                </a>
+                <button class="foundation-collection-action scf-js-quickaction-console-site-publish" type="button" autocomplete="off" title="{{i18n " Publish Site "}}" data-path="{{this.sitePagePath}}">
+                    <i class="coral-Icon coral-Icon--globe coral-Icon--sizeXS"></i>
+                </button>
+            </div>
+        </a>
+    </article>
+</div>

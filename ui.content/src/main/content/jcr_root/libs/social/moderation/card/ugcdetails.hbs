@@ -1,0 +1,128 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="ugc-details" data-component-id="{{id}}" data-scf-component="social/moderation/card" data-template-id="ugcdetails">
+    <div class='ugc-quick-detail-box'>
+        <div>
+            <div class="entry_sentiment_container_vert entry_sentiment_container_vert_{{properties.sentiment}}" title='{{i18n "Sentiment Rating of "}}{{properties.sentiment}}'>
+                <div class="entry_sentiment_container_vert-internal">{{properties.sentiment}}</div>
+            </div>
+            <div class="detail_entry_avatar">
+                <div class="detail_entry_avatar_container" title="{{author.name}}">
+                    <div><img src="{{author.largeAvatarUrl}}"></div>
+                </div>
+            </div>
+            <div class="detail_entry_info">
+                <div class="detail_entry_author">
+                    <a title="{{author.name}}" evt="click=showUserDetails">
+                         {{#equals author.authorizableId "anonymous"}}
+                             {{this.properties.author_display_name}}
+                         {{else}}
+                             {{author.name}}
+                         {{/equals}}
+                    </a>
+                </div>
+                {{#if subject}}
+                    <div class="detail_entry_subject"><a title="{{subject}}" href="{{friendlyUrl}}">{{subject}}</a></div>
+                {{else}}
+                    <div class="detail_entry_subject"><a title="{{author.name}}'s {{lastPath resourceType}}" href="{{friendlyUrl}}">{{author.name}}'s {{lastPath resourceType}}</a></div>
+                {{/if}}
+                <div class="detail_entry_resource">{{resourceType}}</div>
+            </div>
+        </div>
+        <div class="detail_entry_message">
+            {{{message}}}
+        </div>
+        <div class="detail_entry_status">
+            <span class="scf-icon-replies detail_entry_status_item" title='{{i18n "Replies "}}{{totalSize}}'> {{totalSize}}</span>
+            {{#if moderatorStatus.isApproved}}
+                <span class="scf-icon-check detail_entry_status_item" title='{{i18n "Approved"}}'></span>
+            {{/if}}
+            {{#if moderatorStatus.isSpam}}
+                <span class="scf-icon-spam detail_entry_status_item" title='{{i18n "Spam"}}'></span>
+            {{/if}}
+            {{#if moderatorStatus.isFlagged}}
+                <span class="scf-icon-flag detail_entry_status_item" title='{{i18n "Flagged"}}'></span>
+            {{/if}}
+            <span class="detail_entry_status_time">{{pretty-time created daysCutoff=90}}</span>
+        </div>
+        <div>
+            <h3>{{i18n "Attachments"}}</h3>
+            {{#if attachments}}
+                {{#each attachments}}
+                    <div class="detail_entry_subitem">
+                        <p>
+                            {{#if image}}
+                                <div><img src="{{path}}"></div>
+                                <div>{{name}}</div>
+                            {{else}}
+                                <a href="{{path}}">{{name}}</a>
+                            {{/if}}
+                        </p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <h4>{{i18n "No attachments"}}</h4>
+            {{/if}}
+        </div>
+        <div>
+            <h3>{{i18n "Replies"}}</h3>
+            {{#if items}}
+                {{#each items}}
+                    <div class="detail_entry_subitem">
+                        <div>
+                            <div class="detail_entry_avatar">
+                                <div class="detail_entry_avatar_container" title="{{author.name}}">
+                                    <div><img src="{{author.largeAvatarUrl}}"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="detail_entry_author"><a title="{{author.name}}" evt="click=showUserDetails">{{author.name}}</a></div>
+                                {{#if subject}}
+                                    <div class="detail_entry_subject"><a title="{{subject}}" href="{{friendlyUrl}}">{{subject}}</a></div>
+                                {{else}}
+                                    <div class="detail_entry_subject"><a title="{{author.name}}'s {{lastPath resourceType}}" href="{{friendlyUrl}}">{{author.name}}'s {{lastPath resourceType}}</a></div>
+                                {{/if}}
+                                <div class="detail_entry_resource">{{resourceType}}</div>
+                            </div>
+                            <div class="detail_entry_message">
+                                {{{message}}}
+                            </div>
+                        </div>
+                        <div class="detail_entry_status_small">
+                            <span class="scf-icon-replies detail_entry_status_item_small" title='{{i18n "Replies "}}{{totalSize}}'> {{totalSize}}</span>
+                            {{#if moderatorStatus.isApproved}}
+                                <span class="scf-icon-check detail_entry_status_item_small" title='{{i18n "Approved"}}'></span>
+                            {{/if}}
+                            {{#if moderatorStatus.isSpam}}
+                                <span class="scf-icon-spam detail_entry_status_item_small" title='{{i18n "Spam"}}'></span>
+                            {{/if}}
+                            {{#if moderatorStatus.isFlagged}}
+                                <span class="scf-icon-flag detail_entry_status_item_small" title='{{i18n "Flagged"}}'></span>
+                            {{/if}}
+                            <span class="detail_entry_status_time">{{pretty-time created daysCutoff=90}}</span>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <h4>{{i18n "No replies"}}</h4>
+            {{/if}}
+        </div>
+    </div>
+</div>

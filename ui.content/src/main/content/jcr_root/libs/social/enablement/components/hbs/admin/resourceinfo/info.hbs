@@ -1,0 +1,37 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div class="coral-TabPanel-pane is-active" id="coral-1" role="tabpanel" aria-hidden="false">
+    <span class="coral-Form-fieldlabel">{{i18n "Resource Name"}}</span>
+    <div class="se-resource-name">{{title}}</div>
+    <span class="coral-Form-fieldlabel">{{i18n "Resource ID"}}</span>
+    <div class="se-resource-desc">{{resourceUID}}</div>
+
+    <span class="coral-Form-fieldlabel">{{i18n "Resource Tags"}}</span>
+
+    <ul class="se-resource-tags">
+        {{#each resourceTags}}
+            <li class="se-resource-tag">{{this}}</li>
+        {{/each}}
+    </ul>
+
+    <span class="coral-Form-fieldlabel">{{i18n "Description"}}</span>
+    <div class="se-resource-desc">{{description}}</div>
+</div>

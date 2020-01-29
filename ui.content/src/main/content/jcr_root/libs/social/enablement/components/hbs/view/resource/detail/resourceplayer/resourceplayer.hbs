@@ -1,0 +1,70 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-enablement-resource-player" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/resource/detail/resourceplayer">
+    <button type="button" class="scf-enablement-fullscreen-button btn btn-default" aria-label="Left Align" evt="click=showFullscreen">
+        <span class="scf-icon-fullscreen"></span>
+    </button>
+
+    <div class="scf-asset-cover scf-js-asset-cover">
+        {{#if largeAsset }}
+            <img src="{{largeAsset.coverImagePath}}" class="scf-cover-image" />
+        {{else}}
+            <img src="{{coverImage}}" class="scf-cover-image" />
+        {{/if}}
+        {{#equals primaryAssetType "location"}}
+            {{else}}
+                <div class="scf-play-button scf-js-play-button" evt="click=clickPlay"></div>
+        {{/equals}}
+        <div class="scf-asset-displaytext">{{i18n "The resource has been launched in a new window."}}</div>
+    </div>
+    <div class="scf-asset-container scf-js-asset-container">
+        {{#equals primaryAssetType "image"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/image"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "video"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/video"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "pdf"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/pdf"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "url"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/url"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "connect"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/url"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "location"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/location"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "scorm"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/scorm"}}
+        {{/equals}}
+
+        {{#equals primaryAssetType "swf"}}
+            {{include this resourceType="social/enablement/components/hbs/view/resource/detail/resourceplayer/swf"}}
+        {{/equals}}
+
+    </div>
+</div>

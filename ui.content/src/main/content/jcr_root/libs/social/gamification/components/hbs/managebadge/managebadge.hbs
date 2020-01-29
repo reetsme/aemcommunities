@@ -1,0 +1,102 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-component-id="{{id}}" data-scf-component="social/gamification/components/hbs/managebadge">
+    <form method="post" action="/content/community/badging/images.social.json" id="form-wizard-dataform" class="coral-Wizard coral-Form coral-Form--vertical js-scf-communities-components-form" data-init="flexwizard" enctype="multipart/form-data">
+        <input type="hidden" name=":operation" value="social:createBadge">
+        <input type="hidden" name="_charset_" value="utf-8">
+        <coral-wizardview>
+            <div class="scf-wizardview-header">
+                <div class="scf-wizard-title coral-Heading coral-Heading--2">
+                    {{i18n "Badge"}}
+                </div>
+                <coral-steplist class="scf-wizard-steplist" coral-wizardview-steplist="">
+                    <coral-step selected>
+                    </coral-step>
+                </coral-steplist>
+                <coral-panelstack coral-wizardview-panelstack="" class="scf-wizard-controls">
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <a is="coral-anchorbutton" href="/communities/badges">{{#if title}} {{i18n "Back"}} {{else}} {{i18n "Cancel"}} {{/if}}</a>
+                            <button class="coral-Button scf-js-badge-create" is="coral-button" variant="primary" type="submit">
+                                <span>{{#if title}} {{i18n "Save"}} {{else}} {{i18n "Create"}} {{/if}}</span>
+                            </button>
+                        </coral-panel-content>
+                    </coral-panel>
+                </coral-panelstack>
+            </div>
+        </coral-wizardview>
+
+        <div class="scf-badging-erroralert scf-is-hidden">
+            <coral-alert variant="error" style="position: absolute;">
+                <coral-alert-content class="coral-Alert-message">{{i18n "Server Error, Please try again"}}</coral-alert-content>
+
+                <div style="text-align:right">
+                    <button is="coral-button" variant="minimal" coral-close>{{i18n "Close"}}</button>
+                </div>
+            </coral-alert>
+        </div>
+
+        <div class="js-coral-Wizard-step coral-Wizard-step">
+
+            <!-- Badge Create Content -->
+            <div class="page-alignment">
+                <div class="width-setting">
+                    <div class="grid position-left">
+                        <div class="badgeImage">
+                            <div class="thumbnail-action-wrapper">
+                                <div>
+                                    {{#if image}}
+                                        {{modifycontext image key="inputname" value="badgeImage"}} {{include image resourceType='social/console/components/hbs/imageupload' authoringDisabled='true' }}
+                                    {{else}}
+                                        {{#include this.id path="as" resourceType='social/console/components/hbs/imageupload' authoringDisabled='true' }}
+                                            { "inputname" : "badgeImage" }
+                                        {{/include}}
+                                    {{/if}}
+                                    <div class="recommended-size">
+                                        <div>{{i18n "*Image mandatory"}}</div>
+                                        <div>{{i18n "Accepted files: jpg, and png"}}</div>
+                                        <div>{{i18n "Preferred size - 32 x 32 px"}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="err"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid position-right">
+                        <span class="block block-text">{{i18n "Name*"}}</span>
+                        <div class="coral-Form-fieldwrapper">
+                            <input is="coral-textfield" class="coral-Form-field block site-controlled scf-js-social-badge-badgename" id="badgeName" name="jcr:title" maxlength="64" value="{{title}}"></input>
+                        </div>
+                        <span class="block block-text">{{i18n "Display Name"}}</span>
+                        <div class="coral-Form-fieldwrapper">
+                            <input is="coral-textfield" class="coral-Form-field block site-controlled" name="displayName" value="{{displayName}}" maxlength="64"></input>
+                        </div>
+
+                        <span class="block block-text">{{i18n "Description"}}</span>
+                        <div class="coral-Form-fieldwrapper">
+                            <textarea is="coral-textarea" class="coral-Form-field block site-controlled foundation-layout-util-resizable-none coral-Textfield--multiline" name="jcr:description" maxlength="4000" rows="5" value="">{{description}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

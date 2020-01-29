@@ -1,0 +1,27 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Antwort auf Ideenbildungsereignis] {{{target.displayName}}} \
+{{else}}[Antwort auf Ideenbildungsereignis]{{/if}} \
+
+message=\n \
+Datum: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+Eine neue Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Die Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Die Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Die Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} genehmigt.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+Die Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} geschlossen.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+Die Antwort auf ein Ideenbildungsereignis {{#if this.target.properties.[jcr:title]}}für das Ereignis „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} erneut geöffnet.\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}Der Status des Ideenbildungsereignisses wurde geändert in: „{{{this.object.properties.toState}}}“.\n{{/if}}\n \
+Folgen Sie diesem Link, um alle Antworten für dieses Ideenbildungsereignis anzuzeigen oder Ihre Voreinstellungen für Benachrichtigungen zu ändern.\n \
+{{targetUrl}}\n \

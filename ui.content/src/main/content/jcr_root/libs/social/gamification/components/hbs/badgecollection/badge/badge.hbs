@@ -1,0 +1,40 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<coral-masonry-item data-badgeName="{{this.title}}" data-component-id="{{this.id}}" data-scf-component="social/gamification/components/hbs/badgecollection/badge">
+    <coral-card colorhint="#ffffff" assetwidth="80" assetheight="80">
+        <coral-card-asset>
+            {{#if this.imageURL}}<img src="{{this.imageURL}}" />{{/if}}
+        </coral-card-asset>
+        <coral-card-info class="scf-card-info-container">
+            <a href="/communities/badge-manage.html{{this.path}}"></a>
+        </coral-card-info>
+        <coral-card-content>
+            <coral-card-propertylist>
+                <coral-card-property>
+                    {{#if this.displayName}}{{i18n this.displayName}}{{/if}}
+                </coral-card-property>
+            </coral-card-propertylist>
+            <coral-card-title>{{i18n this.title}}</coral-card-title>
+        </coral-card-content>
+    </coral-card>
+
+    <coral-quickactions target="_prev" alignmy="left top" alignat="left top">
+        <coral-quickactions-item icon="edit" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/communities/badge-manage.html{{this.path}}">{{i18n "Edit Badge"}}</coral-quickactions-item>
+    </coral-quickactions>
+</coral-masonry-item>

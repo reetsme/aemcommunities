@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <tagcloud/>
+    <jcr:content
+        cq:designPath="/apps/settings/wcm/designs/social/community-components"
+        cq:lastModified="{Date}2013-11-20T17:09:55.757-05:00"
+        cq:lastModifiedBy="admin"
+        cq:socialProfilePage="/content/community-components/en/userprofile"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:language="en_US"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Community Components"
+        jcr:uuid="c4a2dc49-d2d1-4975-9777-d184d40faf51"
+        sling:resourceType="/apps/community-components/components/basepage"
+        navTitle="Home">
+        <header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/community-components/components/header"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <title
+                jcr:created="{Date}2013-12-06T11:35:15.808-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-12-06T11:35:15.808-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/title"/>
+        </content>
+    </jcr:content>
+    <activitystreams/>
+    <calendar/>
+    <comments/>
+    <communityactivitylist/>
+    <communitygroupmemberlist/>
+    <filelibrary/>
+    <followers/>
+    <followings/>
+    <follows/>
+    <forum/>
+    <ideation/>
+    <journal/>
+    <leaderboard/>
+    <messaging/>
+    <notifications/>
+    <qna/>
+    <rating/>
+    <reviews/>
+    <search/>
+    <subscriptions/>
+    <userdetails/>
+    <userprofile/>
+    <voting/>
+    <liking/>
+</jcr:root>

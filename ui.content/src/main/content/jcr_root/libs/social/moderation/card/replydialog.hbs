@@ -1,0 +1,45 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/moderation/card" data-template-id="replydialog">
+    <div class='card-quick-reply-box'>
+        <div class="card-quick-reply-selected-item">
+            <div class="card_top sentiment_{{ properties.sentiment }}">{{ properties.sentiment }}</div>
+            <div class="card_details">
+                <img src="{{author.avatarUrl}}">
+                <div>
+                    <div><a title="{{author.name}}">{{author.name}}</a></div>
+                    {{#if subject}}
+                        <div><a title="{{subject}}">{{subject}}</a></div>
+                    {{else}}
+                        <div>&nbsp;</div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="card_content">
+                {{{message}}}
+            </div>
+            <div style="float:right;">{{pretty-time created daysCutoff=90}}</div>
+            <textarea is="coral-textarea" class="card-quick-reply-msg" data-attrib="quickReplyMessage" placeholder="{{i18n "Write a reply"}}"></textarea>
+        </div>
+        <div class="scf-composer-actions">
+            <button is="coral-button" variant="primary" coral-close iconsize="XS">{{i18n "Cancel"}}</button>
+            <button value="{{i18n "Reply"}}" evt="click=addQuickReply" is="coral-button" iconsize="XS" variant="primary">{{i18n "Reply"}}</button>
+        </div>
+    </div>
+</div>

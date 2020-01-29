@@ -1,0 +1,49 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-template="configuration" data-scf-component="social/console/components/hbs/communityfunctions/communityfunction">
+    <div class="scf-js-custom-config" style="min-height:250px">
+        <div class="coral-Form-fieldwrapper">
+            <label class="coral-Form-fieldlabel scf-js-community-function-title-label">{{i18n "Title"}}</label>
+            <br/>
+            <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-community-function-field scf-js-community-function-title" type="text">
+        </div>
+        <div class="coral-Form-fieldwrapper">
+            <label class="coral-Form-fieldlabel scf-js-community-function-url-label">{{i18n "URL"}}</label>
+            <br/>
+            <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-community-function-field scf-js-community-function-url" type="text">
+        </div>
+        <br/>
+        <div class="coral-Form-fieldwrapper">
+            <span class="coral-Select scf-js-console-sitetemplates-groupTemplates" data-init="select" data-config-id="groupTemplates">
+                <coral-select name="groupTemplates" placeholder="{{i18n "Select Group Templates"}}" multiple class="scf-js-cq-social-blueprints-select">
+                    {{#each templateOptions}}
+                        <coral-select-item value="{{encodeForHTMLAttr this.id}}">{{i18n this.label}}</coral-select-item>
+                    {{/each}}
+                </coral-select>
+            </span>
+        </div>
+        <br/>
+        {{#each configOptions}}
+            <div class="coral-Form-fieldwrapper">
+                <span data-config-id="{{this.id}}" class="scf-js-function-config-def" data-label="{{i18n this.label}}" data-type="{{this.inputType}}" data-default="{{this.defaultValue}}" data-allow-users="{{this.allowUsers}}"></span>
+                <br/>
+            </div>
+        {{/each}}
+    </div>
+</div>

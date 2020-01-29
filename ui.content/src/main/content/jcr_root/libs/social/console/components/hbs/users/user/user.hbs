@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<article data-component-id="{{id}}" data-scf-component="social/console/components/hbs/users/user" class="foundation-collection-item card-page" data-foundation-collection-item-id="" itemprop="item" itemscope="itemscope" data-gridlayout-sortkey="0">
+    <div class="image">
+        <i class="move"></i>
+        <div class="header">
+            <span>
+               <img src="{{this.avatarUrl}}"/>
+            </span>
+        </div>
+        <div class="label">
+            <div class="scf-user-info">
+                <span>{{this.name}}</span>
+            </div>
+            <div class="scf-user-info">
+
+            </div>
+        </div>
+        <div class="scf-user-status">
+            {{#if this.disabled}}
+                <i class="coral-Icon coral-Icon--exclude coral-Icon--sizeXS icon-ban" title="{{i18n "Banned"}}"></i>
+            {{/if}}
+        </div>
+        <div class="foundation-collection-quickactions">
+            <a title="{{i18n "Unban"}}" evt="click=quickUnBan">
+                <i class="coral-Icon coral-Icon--checkCircle coral-Icon--sizeXS" data-id="{{id}}"></i>
+            </a>
+            <a title="{{i18n "Ban"}}" evt="click=quickBan">
+                <i class="coral-Icon coral-Icon--exclude coral-Icon--sizeXS" data-id="{{id}}"></i>
+            </a>
+        </div>
+    </div>
+</article>

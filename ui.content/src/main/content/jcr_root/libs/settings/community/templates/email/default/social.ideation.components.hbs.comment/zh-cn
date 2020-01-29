@@ -1,0 +1,27 @@
+subject={{#if this.target.properties.[jcr:title]}}[Ideation Event Reply] {{{target.displayName}}} \
+{{else}}[构思事件回复]{{/if}} \
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 添加了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的新构思事件回复。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 更新了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的构思事件回复。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 删除了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的构思事件回复。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 批准了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的构思事件回复。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 关闭了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的构思事件回复。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 重新打开了{{#if this.target.properties.[jcr:title]}}针对事件“{{{target.displayName}}}”{{/if}}的构思事件回复。\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}构思事件的状态已更改为：“{{{this.object.properties.toState}}}”。\n{{/if}}\n \
+请单击此链接查看针对此构思事件的所有回复或修改您的通知首选项。\n \
+{{targetUrl}}\n \

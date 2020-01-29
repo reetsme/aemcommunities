@@ -1,0 +1,39 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="coral-FixedColumn foundation-layout-util-vmargin">
+    <div class="coral-FixedColumn-column">
+        <!-- Moderators-->
+        <h3 class="coral-Heading coral-Heading--3">{{i18n "Moderators"}}</h3>
+        <div class='coral-FixedColumn-column'>
+            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+
+                <!-- Include a user component -->
+                <div class="coral-Form-fieldwrapper">
+                    <label class="coral-Form-fieldlabel">{{i18n "Community Moderators"}}</label>
+                    <div id="console-moderatorUsers" data-fieldName="moderators" data-selectedUsers='configuration.moderators'>
+                        {{include resourceType="social/console/components/hbs/userlist"}}
+                    </div>
+                </div>
+
+            </div>
+            <!-- Membership-->
+            <!--        <h3 class="coral-Heading coral-Heading--3">{{i18n "Membership"}}</h3>-->
+        </div>
+    </div>

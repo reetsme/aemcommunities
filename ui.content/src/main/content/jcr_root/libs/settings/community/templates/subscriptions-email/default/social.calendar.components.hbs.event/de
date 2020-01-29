@@ -1,0 +1,28 @@
+﻿subject=[Kalenderereignis] {{{object.displayName}}}
+
+message=\n \
+Datum: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Ein neues Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} gepostet.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Das Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Das Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Das Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} genehmigt.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+Das Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} geschlossen.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+Das Kalenderereignis „{{{object.displayName}}}“ wurde von {{{user.name}}} erneut geöffnet.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Folgen Sie diesem Link, um alle Kalenderereignisse anzuzeigen oder Ihr Abonnement zu ändern.\n \
+{{targetUrl}}\n \

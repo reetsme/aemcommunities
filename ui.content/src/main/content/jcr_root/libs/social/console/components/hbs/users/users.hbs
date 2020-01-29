@@ -1,0 +1,33 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div class="content scf-js-cq-social-themes social-themes" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/users">
+    <div class="foundation-collection-container foundation-layout-util-maximized card" evt="scroll=scroll">
+        <div class="scf-js-themes-container foundation-collection foundation-layout-card grid list-columns-3" itemscope="itemscope" data-foundation-layout="{&quot;name&quot;:&quot;foundation-layout-card&quot;,&quot;selectionMode&quot;:false,&quot;initialSelectionModeDecoration&quot;:true,&quot;limit&quot;:20,&quot;stateId&quot;:&quot;cq.sites.childpages&quot;,&quot;layoutId&quot;:&quot;card&quot;}">
+            {{#each items}}
+                <div class="coral-Selector">
+                    <label class="coral-Selector-option">
+                        {{include this resourceType="social/console/components/hbs/users/user" authoringDisabled="true"}}
+                    </label>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

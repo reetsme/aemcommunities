@@ -1,0 +1,223 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+table.subMessages {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+div.subMessagesSender,
+td.subMessagesSender {
+    font-weight: bold;
+    font-family: arial;
+}
+
+td.subMessagesSender {
+    font-size: 12px;
+    padding-top: 10px;
+    width: 30%;
+}
+
+div.subMessagesSubject,
+td.subMessagesSubject {
+    font-family: arial;
+    font-weight: bold;
+}
+
+td.subMessagesSubject {
+    font-size: 13px;
+    padding-top: 10px;
+    width: 70%;
+}
+
+div.subMessageColumn {
+    margin-left: 0px !important;
+}
+
+div.subMessagesContent {
+    font-family: arial;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: normal;
+}
+
+div.messageBackgroundDiv {
+    background-color: #EEEEEE;
+    padding: 10px;
+}
+
+div.messageSubject {
+    font-family: arial;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.messageParticipants {
+    font-family: arial;
+    font-size: 13px;
+    margin-top: 3px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+table.messageDetailTable {
+    width: 100%;
+}
+
+table.messageDetailTable td {
+    vertical-align: top;
+}
+
+div.avatarColumn {
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: left;
+    padding: 20px 20px 20px 0px;
+}
+
+td.messageDetails {
+    width: 92%;
+    padding-right: 1%;
+}
+
+form.messageLinkHolder,
+.minmessagelinkdiv {
+    float: left;
+}
+
+.unreadMessageContainingRow {
+    background-color: #F8F8F8;
+}
+
+.timestamp {
+    font-family: arial;
+    font-size: 11px;
+    color: #A6A6A6;
+    margin-top: 4px;
+}
+
+.verticalLine {
+    border-left: thin solid #E7E7E7;
+}
+
+#navigatorDiv {
+    border-bottom: thick solid #8C8C8C;
+}
+
+.messageActionDiv {
+    padding-top: 10px;
+    border-top: thin solid #E7E7E7;
+}
+
+#navigatorDiv a,
+#messageActionDiv a {
+    text-decoration: none;
+}
+
+#navigatorDiv div.inlineDiv {
+    margin-top: 5px;
+}
+
+.lineDiv {
+    width: 15px;
+    height: 0;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.rightFloatingDiv {
+    float: right;
+}
+
+.messageDetailedContent {
+    padding-top: 10px;
+}
+
+.messageAction {
+    min-width: 100px;
+}
+
+.enabledLink {
+    color: #5A5A5A !important;
+}
+
+.disabledLink {
+    color: #9C9C9C !important;
+    cursor: default;
+}
+
+#navigatorDiv .arrowLeft,
+#messageActionDiv .enabledLink .arrowLeft {
+    border-right: 5px solid #5A5A5A;
+}
+
+#messageActionDiv .enabledLink .arrowRight {
+    border-left: 5px solid #5A5A5A;
+}
+
+#messageActionDiv .disabledLink .arrowLeft {
+    border-right: 5px solid #9C9C9C;
+}
+
+#messageActionDiv .disabledLink .arrowRight {
+    border-left: 5px solid #9C9C9C;
+}
+
+#navigatorDiv .lineDiv,
+#messageActionDiv .enabledLink .lineDiv {
+    border-top: 1px solid #5A5A5A;
+}
+
+#messageActionDiv .disabledLink .lineDiv {
+    border-top: 1px solid #9C9C9C;
+}
+
+.message-detail-container .message-details {
+    max-width: 90%;
+}
+
+.message-detail-container {
+    margin-bottom: 2em;
+}
+
+.message-detail-avatar-column {
+    width: 41px;
+}
+
+.message-detail-avatar-column .avatar-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.detailMessageBackButtonContainer {
+    display: inline-block;
+}
+
+.message-attachments .attachment-holder {
+    margin: 0 0 1em 1em;
+    display: inline-block;
+}
+
+.message-attachments {
+    margin: 1em 0 1em 0;
+}
+
+.message-detailed-content {
+    margin-top: 20px;
+}

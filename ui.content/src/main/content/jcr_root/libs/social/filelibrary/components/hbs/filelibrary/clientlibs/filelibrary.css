@@ -1,0 +1,245 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-fl-page-conatiner {
+    /*background-color: #f8f8f8;*/
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.scf-fl-dragtarget {
+    display: table;
+    padding: 40px;
+    margin-top: 10px;
+    width: 98%;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    box-shadow: 0 1px 1px #eaeaea;
+    color: #777777;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.scf-filelibrary-spacer {
+    display: block;
+    margin: 20px;
+}
+
+
+/*  eo new CSS style for FL */
+
+.scf-filelibrary-table-row-items span.scf-icon-folder,
+.scf-filelibrary-table-row-items span.scf-icon-attachment {
+    font-size: 25px;
+    opacity: 0.7;
+}
+
+.scf-filelibrary-table-row-items a {
+    font-size: 14px;
+}
+
+.scf-filelibrary-table-row-items td.scf-filelibrary-table-item {
+    vertical-align: middle;
+}
+
+td.scf-filelibrary-table-item.scf-filelibrary-tags {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td.scf-filelibrary-table-item {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.scf-filelibrary-table {
+    width: 98%;
+}
+
+.scf-filelibrary-modal-container {
+    display: none;
+    text-align: left;
+}
+
+.scf-modal-dialog {
+    display: table;
+    width: 500px;
+}
+
+.scf-filelibrary-item-name {
+    color: #000000;
+}
+
+.scf-filelibrary-item-description {
+    width: 500px;
+    color: #000000;
+}
+
+.scf-filelibrary-document-summary {
+    display: table;
+    padding: 20px;
+    margin-top: 10px;
+    width: 98%;
+    background-color: #fff;
+    border-left: 5px solid #777777;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    box-shadow: 0 1px 1px #eaeaea;
+    color: #777777;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/**/
+
+.scf-filelibrary-tb-control {}
+
+.scf-forum .scf-is-collapsed {
+    display: block;
+}
+
+.scf-forum-newtopic {
+    float: right;
+    margin-right: 20px;
+}
+
+.scf-forum-heading {
+    float: left;
+}
+
+.scf-topic-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.scf-topic-list {
+    list-style-type: none;
+}
+
+.scf-topic-listitem {
+    position: relative;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.scf-topic-listitem:last-child {
+    border: 0;
+}
+
+.scf-topic-userinfo {
+    float: left;
+    width: 60px;
+}
+
+.scf-topic-col1 {
+    position: relative;
+    margin-left: 70px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+}
+
+.scf-topic-col2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+}
+
+.scf-fl-selected-tag {
+    padding: 5px;
+    margin-right: 5px;
+    background-color: #969696;
+    color: #FFFFFF;
+}
+
+.scf-input-file-selector {
+    line-height: 0px;
+}
+
+.scf-filelibrary-table-row-items:hover {
+    cursor: pointer;
+}
+
+#scf-upload-progress {
+    background-color: #00C5FF;
+}
+
+#scf-filelibrary-actions-toolbars-container button {
+    margin: 4px;
+}
+
+div.scf-dyn-filelibrary-item-name-div {
+    width: 200px;
+    height: 32px;
+    background-color: yellow;
+    display: none;
+}
+
+div.scf-fl-panel-comment {
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.scf-fl-textarea-comment {
+    width: 560px;
+}
+
+.scf-badge-image {
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    float: none;
+}
+
+.scf-badge-text {
+    font-size: 9px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    display: inline;
+    /* For IE8 and earlier */
+    clear: left;
+}
+
+.scf-filelibrary-actions-toolbars-hidden {
+    visibility: hidden;
+}
+
+.scf-fl-page-conatiner .scf-sort-type {
+    white-space: nowrap;
+}
+
+.scf-fl-page-conatiner .scf-sort-list.dropdown-menu {
+    left: inherit;
+    right: 0;
+}
+
+.scf-fl-page-conatiner .scf-sort-btngrp {
+    margin-right: 22px;
+}
+
+.scf-fl-page-conatiner .progress {
+    height: 20px;
+    width: 98%;
+}

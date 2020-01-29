@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Profile Component"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <text
+            jcr:primaryType="cq:Widget"
+            title="Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <maxAvatarUploadSize
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Long}5000000"
+                    fieldDescription="Maximum allowed size of uploaded profile picture file in bytes."
+                    fieldLabel="Profile photo max. size"
+                    maxValue="5000000"
+                    name="./maxAvatarUploadSize"
+                    xtype="numberfield"/>
+            </items>
+        </text>
+    </items>
+</jcr:root>

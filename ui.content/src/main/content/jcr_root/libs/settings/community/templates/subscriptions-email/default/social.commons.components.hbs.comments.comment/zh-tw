@@ -1,0 +1,24 @@
+subject=[評論] {{{target.displayName}}}
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{targetUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 已張貼對「{{{target.displayName}}}」的新評論。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已新增對「{{{target.displayName}}}」的新評論。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已更新對「{{{target.displayName}}}」的評論。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已刪除對「{{{target.displayName}}}」的評論。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已核准對「{{{target.displayName}}}」的評論。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+請透過此連結檢視所有評論，或修改您的訂閱。\n \
+{{objectReferrer}}\n \

@@ -1,0 +1,76 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class ="container-fluid">
+    <div class="enablementlist">
+        <div class="scf-enablementlist" data-component-id="{{id}}" data-scf-component="{{this.resourceType}}">
+            <coral-actionbar class="granite-selectionbar scf-enablementlist-actionbar-container">
+                <coral-actionbar-container class="scf-enablementlist-actionbar-actions">
+                    <coral-actionbar-item>
+                        <button is="coral-button" class="coral-Button--graniteActionBar scf-bulkaction-delete" variant="quiet" evt="click=bulkDelete">
+                            <coral-icon icon="delete" size="S"></coral-icon>
+                            {{i18n "Delete"}}
+                        </button>
+                        <button is="coral-button" class="coral-Button--graniteActionBar scf-bulkaction-submit" variant="quiet" evt="click=bulkSubmit">
+                            <coral-icon icon="check" size="S"></coral-icon>
+                            {{i18n "Submit"}}
+                        </button>
+                        <button is="coral-button" class="coral-Button--graniteActionBar scf-bulkaction-close" variant="quiet" evt="click=bulkClose">
+                            <coral-icon icon="close" size="S"></coral-icon>
+                            {{i18n "Close"}}
+                        </button>
+                    </coral-actionbar-item>
+                </coral-actionbar-container>
+
+                <coral-actionbar-container>
+                    <coral-actionbar-item>
+                        <button is="coral-button" class="scf-enablementlist-deselect" variant="minimal" evt="click=toggleBulkMode">
+                            <span class="scf-enablementlist-counter">0 {{i18n "selected"}}</span>
+                            <coral-icon icon="close" size="S"></coral-icon>
+                        </button>
+                    </coral-actionbar-item>
+                </coral-actionbar-container>
+            </coral-actionbar>
+
+            <div evt="scroll=scrollEnablementList">
+                <coral-masonry id="enablement-list" class="scf-js-masonry-container se-enablement-list foundation-collection" layout="fixed-spread" columnwidth="242" spacing="15" data-foundation-mode-group="scf-create" data-foundation-layout="{{{xss-htmlAttr "{\"name\":\"foundation-layout-masonry\"}"}}}">
+                    {{#if groupsPath}}
+                        <coral-masonry-item>
+                            <coral-card variant="inverted" colorhint="#ffffff" assetwidth="242" assetheight="242">
+                                <coral-card-info>
+                                    <a style="width:100%; height:100%; position:absolute;" href="/communities/resources/communities/communitygroups.html{{groupsPath}}"></a>
+                                </coral-card-info>
+                                <coral-card-content>
+                                    <coral-card-context>{{i18n "GROUP COLLECTION"}}</coral-card-context>
+                                    <coral-card-title>{{groupsName}}</coral-card-title>
+                                </coral-card-content>
+                            </coral-card>
+                        </coral-masonry-item>
+                    {{/if}}
+                    {{#each items}}
+                        {{#equals this.enablementType "learningpath"}}
+                            {{include this resourceType="social/enablement/components/hbs/admin/enablementlist/learningpathcard"}}
+                        {{else}}
+                            {{include this resourceType="social/enablement/components/hbs/admin/enablementlist/resourcecard"}}
+                        {{/equals}}
+                    {{/each}}
+                </coral-masonry>
+            </div>
+        </div>
+    </div>
+</div>

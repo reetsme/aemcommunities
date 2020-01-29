@@ -1,0 +1,19 @@
+subject=[文件库文件夹] {{{object.displayName}}}
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 发布了新文件库文件夹“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 添加了新文件库文件夹“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新了新文件库文件夹“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 删除了新文件库文件夹“{{{object.displayName}}}”。\n \
+{{/equals}}\
+请单击此链接查看所有文件库事件或修改您的通知首选项。\n \
+{{objectUrl}}\n \

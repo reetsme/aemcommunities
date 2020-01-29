@@ -1,0 +1,28 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-css-quicksearch-container" data-component-id="{{id}}" data-scf-component="social/commons/components/hbs/quicksearch">
+    <form id="form-search-input-inline" action="" data-paths="{{this.properties.paths}}" class="scf-js-searchform navbar-form navbar-left">
+        <div class="scf-quicksearch-form-group form-group">
+            <input type="text" id="scf-js-quicksearch-input-inline" placeholder='{{i18n "Search"}}' data-dropdown="drop_search" aria-controls="drop_search" aria-expanded="false" name="input_value" class="scf-quicksearch-value scf-js-search-value placeholder form-control" value="" required />
+            <input type="hidden" name="resultPage" class="scf-js-seach-resultPage" value="{{this.properties.searchPagePath}}" />
+            <input type="hidden" name="searchEndpoint" class="scf-js-search-endpoint" value="{{this.properties.endpoint}}" />
+        </div>
+    </form>
+</div>

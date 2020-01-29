@@ -1,0 +1,138 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.social-console-settings-backgroundcolor {
+    background-color: #eee;
+}
+
+.social-console-edit-settings-tab {
+    margin: 0 auto;
+}
+
+.social-console-edit-settings-label {
+    font-size: .875rem;
+    padding-top: .375rem;
+    padding-right: .9375rem;
+    height: 2rem;
+    line-height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.scf-is-selected-functions ul {
+    padding-left: 0;
+}
+
+.scf-is-selected-functions ul.draggable li {
+    margin-top: 5px;
+}
+
+.scf-is-selected-functions {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.scf-fix-checks {
+    z-index: 1;
+}
+
+.scf-css-dragarea {
+    padding-bottom: 2rem;
+}
+
+.scf-function-library ul.draggable li {
+    margin: 5px 0;
+}
+
+.scf-builder-header {
+    padding-left: 2.5rem;
+    padding-top: 0.5rem;
+}
+
+.card-asset i:before {
+    opacity: 0.3;
+}
+
+.scf-console-list-move {
+    opacity: 0.3;
+    float: right;
+    padding-left: 1rem;
+    cursor: move;
+}
+
+.scf-console-list-item-icon {
+    opacity: 0.3;
+    float: right;
+    padding-left: 1rem;
+    display: none;
+    cursor: pointer;
+}
+
+.scf-is-list-added-item .scf-console-list-item-icon {
+    display: inline;
+}
+
+.scf-is-list-added-item .scf-func-title-grp {
+    display: inline-block;
+    line-height: 1.00rem;
+    margin-top: .2rem;
+    max-width: 8rem;
+}
+
+.scf-is-list-added-item .scf-func-name {
+    opacity: 0.6;
+    text-overflow: ellipsis;
+}
+
+.scf-is-list-added-item button.close {
+    display: none;
+}
+
+.scf-is-list-added-item .scf-func-title-grp span {
+    display: block;
+}
+
+.scf-is-list-added-item .scf-is-func-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.scf-console-icon-display {
+    padding-right: 5px;
+    opacity: 0.3;
+}
+
+.scf-community-function-field {
+    width: 24rem;
+}
+
+.scf-js-community-function-title-label,
+.scf-js-community-function-url-label {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.scf-js-community-function-title {
+    margin-bottom: 15px;
+}
+
+.grid [class^="card-"] h4 {
+    margin: 0;
+}

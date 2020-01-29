@@ -1,0 +1,41 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div id="groupfilter" class="coral-Autocomplete" data-init="autocomplete" data-multiple="true" data-mode="contains">
+    <div class="coral-InputGroup coral-InputGroup--block js-coral-Autocomplete-field">
+        <label class="coral-DecoratedTextfield coral-InputGroup-input">
+            <span class="u-coral-screenReaderOnly">{{i18n "Search"}}</span>
+            <span class="coral-DecoratedTextfield-icon coral-Icon coral-Icon--sizeXS coral-Icon--search" aria-hidden="true"></span>
+            <input class="coral-DecoratedTextfield-input coral-Textfield js-coral-Autocomplete-textfield" name="name1" placeholder="{{i18n "Search"}}" value="" type="text">
+        </label>
+        <span class="coral-InputGroup-button">
+            <button class="coral-Button coral-Button--secondary coral-Button--square js-coral-Autocomplete-toggleButton" type="button">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--triangleDown"></i>
+            </button>
+        </span>
+    </div>
+    <!-- static placeholder data, will be removed -->
+    <ul class="coral-SelectList js-coral-Autocomplete-selectList">
+        <li class="coral-SelectList-item coral-SelectList-item--option" data-display="Group 1" data-value="Group 1">Group 1</li>
+        <li class="coral-SelectList-item coral-SelectList-item--option" data-display="Group 2" data-value="Group 2">Group 2</li>
+        <li class="coral-SelectList-item coral-SelectList-item--option" data-display="Group 3" data-value="Group 3">Group 3</li>
+        <li class="coral-SelectList-item coral-SelectList-item--option" data-display="Group 4" data-value="Group 4">Group 4</li>
+        <li class="coral-SelectList-item coral-SelectList-item--option" data-display="Group 5" data-value="Group 5">Group 5</li>
+    </ul>
+</div>

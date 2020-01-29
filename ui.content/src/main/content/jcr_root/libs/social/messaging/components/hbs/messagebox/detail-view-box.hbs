@@ -1,0 +1,63 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div id="parentmessagediv" class="parentmessagediv">
+    <input type='hidden' name='serviceSelector' value='{{properties.serviceSelector}}' />
+    <input type='hidden' name='profileFormPath' value='{{properties.profileFormPath}}' />
+    <input type='hidden' name='dateFormatPatterns' value='{{properties.dateFormatPatterns}}' />
+    <input type='hidden' name='messageBoxTarget' value='{{id}}' />
+    <input type='hidden' name='currentOffset' value='{{pageInfo.currentIndex}}' />
+    <input type='hidden' name='totalMessageCount' value='{{totalSize}}' />
+    <div class='clearfix message-action-button-holder col-sm-6'>
+        <input type='submit' class='btn btn-primary' id='newMessageButton' name='{{properties.replyURL}}' value='{{i18n "New Message"}}' />
+    </div>
+    {{#each items}}
+        <div class='clearfix message-action-button-holder col-sm-6'>
+            <input type='hidden' name='replyTypeValue' value='{{../properties.replyType}}' />
+            <input type='hidden' name='resourcePath' value='{{id}}' />
+            <input type='hidden' name='folderPath' value='{{messageBoxRelativePath}}' />
+            <input type='hidden' name='messageID' value='{{messageID}}' />
+            <div class="pull-right">
+                {{#if ../properties.isTrash}}
+                    <input type='submit' class='messageAction restoreMessageTrashAction btn btn-default' name='delete' value='{{i18n "Restore"}}' />
+                    <input type='submit' class='messageAction deleteMessageTrashAction btn btn-default' name='delete' value='{{i18n "Delete"}}' />
+                {{else}}
+                    <input type='submit' class='messageAction reply btn btn-default' name='{{../properties.replyURL}}' value='{{i18n "Reply"}}' />
+                    <input type='submit' class='messageAction replyAll btn btn-default' value='{{i18n "Reply All"}}' />
+                    <input type='submit' class='messageAction forward btn btn-default' value='{{i18n "Forward"}}' />
+                    <input type='submit' class='messageAction delete btn btn-default' name="delete" value='{{i18n "Delete"}}' />
+                {{/if}}
+            </div>
+        </div>
+        <div class='clearfix col-sm-12 message-hr'>
+            <hr/>
+        </div>
+        {{include this resourceType='social/messaging/components/hbs/message'}}
+        <div class="rightFloatingDiv detailMessageViewNavigator">
+            <nav>
+                <ul class="pager">
+                    <li class="next detailMessageForwardLink"><a href="#">{{i18n "Older"}} <span
+                            class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                    <li class="previous detailMessageBackLink"><a href="#"><span
+                            class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{i18n "Newer"}}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,25 @@
+subject=[포럼 게시물]
+
+message=\n \
+날짜: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   새 포럼 게시물을 {{{user.name}}} 님이 게시했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   새 포럼 게시물을 {{{user.name}}} 님이 추가했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   새 포럼 게시물을 {{{user.name}}} 님이 업데이트했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   새 포럼 게시물을 {{{user.name}}} 님이 삭제했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   새 포럼 게시물을 {{{user.name}}} 님이 승인했습니다.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+이 포럼 주제에 대한 모든 게시물을 보거나 사용 중인 가입을 수정하려면 이 링크로 이동하십시오.\n \
+{{objectReferrer}}\n \

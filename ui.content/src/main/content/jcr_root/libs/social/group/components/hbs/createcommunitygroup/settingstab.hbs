@@ -1,0 +1,96 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div>
+    <div class="social-console-settings-tab social-console-edit-settings-tab">
+        <div class="coral-TabPanel coral-TabPanel--large scf-js-settingstabs" data-init="tabs">
+            <nav class="coral-TabPanel-navigation">
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Moderation"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Membership"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Thumbnail"}}</a>
+            </nav>
+            <div class="coral-TabPanel-content">
+                <!-- Moderation-->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+                        <!-- Include a user component -->
+                        <div class="coral-Form-fieldwrapper">
+                            <label class="coral-Form-fieldlabel">{{i18n "Community Group Moderators"}}</label>
+                            <div id="console-moderatorUsers" data-fieldName="moderators">
+                                {{include resourceType="social/console/components/hbs/userlist"}}
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- Membership-->
+                <section class="coral-TabPanel-pane is-active">
+                    <div class='coral-FixedColumn-column'>
+                        <div class="coral-Form-fieldwrapper">
+                            <label class="coral-Form-fieldlabel">{{i18n "Community Group Membership"}}</label>
+                            <div class="scf-js-social-console-group-creation coral-RadioGroup coral-Form-field" title="Group Creation" data-name="type" data-fieldlabel="Community Group Membership">
+                                <label class="coral-Radio coral-Form-field">
+                                    <input type="radio" name="type" value="Public" class="coral-Radio-input" checked="">
+                                    <span class="coral-Radio-checkmark"></span>
+                                    <span class="coral-Radio-description">{{i18n "Optional Membership"}}</span>
+                                </label>
+                                <label class="coral-Radio coral-Form-field">
+                                    <input class="scf-js-social-console-group-members coral-Radio-input" type="radio" name="type" value="Open">
+                                    <span class="coral-Radio-checkmark"></span>
+                                    <span class="coral-Radio-description">{{i18n "Required Membership"}}</span>
+                                </label>
+                                <label class="coral-Radio coral-Form-field">
+                                    <input type="radio" name="type" value="Secret" class="coral-Radio-input">
+                                    <span class="coral-Radio-checkmark"></span>
+                                    <span class="coral-Radio-description">{{i18n "Restricted Membership"}}</span>
+                                </label>
+                            </div>
+                            <div class="coral-Form-fieldwrapper">
+                                <label class="coral-Form-fieldlabel">{{i18n "Invite"}}</label>
+                                <div class="scf-js-social-group-invites">
+                                    <div id="console-group-inviteUsers" data-fieldName="invite">
+                                        {{include resourceType="social/console/components/hbs/userlist"}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Thumbnail-->
+                <section class="coral-TabPanel-pane is-active">
+                    <div data-assettype="file">
+                        {{#if this.siteThumbnail}}
+                            {{modifycontext this.groupThumbnail key="inputname" value="file"}} {{include this.siteThumbnail resourceType='social/console/components/hbs/imageupload' authoringDisabled='true'}}
+                        {{else}}
+                            {{#include this.id path="as" resourceType='social/console/components/hbs/imageupload' authoringDisabled='true' }}
+                                { "inputname" : "file" }
+                            {{/include}}
+                        {{/if}}
+                    </div>
+                </section>
+
+                <!-- Other Settings -->
+                <section class="coral-TabPanel-pane">
+                    {{#include this.id path="extendednavsec" resourceType="social/console/components/hbs/extendednav" }}
+                        { "configPath" : "/content/communities/groupsettingsnav" }
+                    {{/include}}
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

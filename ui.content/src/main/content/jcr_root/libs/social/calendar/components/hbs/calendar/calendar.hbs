@@ -1,0 +1,201 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if-wcm-mode mode="EDIT" }}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-calendar" data-component-id="{{id}}" data-scf-component="social/calendar/components/hbs/calendar">
+
+    {{#if loggedInUser.loggedIn}}
+        <div class="scf-action-container">
+            {{#unless isClosed}}
+                {{#if mayPost}}
+                    <button class="btn btn-primary scf-action-item scf-calendar-newevent scf-js-newevent" evt="click=toggleComposer">{{i18n "New Event"}}</button>
+                {{/if}}
+            {{/unless}}
+            {{#if configuration.followingAllowed}}
+                <div class="scf-action-item scf-calendar-following-block">
+                    {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                </div>
+            {{/if}}
+            <div class="scf-clear-both"></div>
+        </div>
+    {{/if}}
+
+    {{#if mayPost}}
+        <div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+            <form evt="submit=addComment" class="scf-composer scf-eventbasics scf-section">
+                <div class="scf-form_row">
+                    <input class="scf-composer-subj form-control" type="text" data-attrib="subject" name="subject" placeholder="{{i18n "Add an event title"}}" />
+                </div>
+                <div class="scf-form_row scf-form-padding">
+                    <textarea class="scf-composer-msg form-control" type="text" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" class="comment-composer-input" {{#if configuration.isRTEEnabled}} data-field-type="rte" {{/if}}></textarea>
+                </div>
+                <div class="scf-form_row">
+                    {{#if configuration.isTaggingAllowed}}
+                        <ul class="scf-calendar-smart-tags" data-attrib="tags" name="tags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+                    {{/if}}
+                </div>
+                <div class="scf-form_row scf-form-padding">
+                    <input type="text" class="form-control scf-form_field scf-form_field_text" data-attrib="location" name="location" size="58" onkeydown="" placeholder="{{i18n "Add a location name" }}">
+                </div>
+                <div class="scf-form_row scf-form-padding">
+                    <input type="text" class="form-control scf-form_field scf-form_field_text" data-attrib="address" name="address" size="58" onkeydown="" placeholder="{{i18n "Add an address" }}">
+                </div>
+                <div class="scf-form_row scf-form-padding">
+                    <div>
+                        <label class='scf-label' for="./start">{{i18n "From"}}</label>
+                    </div>
+                    <div>
+                        <div class="scf-form_datepicker_left" id="scf-event-basics-start">
+                            <input name="scf-event-basics-start-input" class="scf-form_field scf-form_field_text scf-event-basics-start-input scf-js-event-basics-start-input form-control" placeholder="{{localeDateFormat}}" value="{{dateUtil start format=localeDateFormat timezone=timezone}}" size="15">&nbsp;</div>
+                        <div class="scf-form_datepicker_middle">&nbsp;</div>
+                        <div class="scf-form_datepicker_right" id="scf-form_rightcol_right_event-basics-start">
+                            <input type="text" id="scf-event-basics-start-time" name="scf-event-basics-start-time" class="scf-form_field scf-form_field_text ui-autocomplete-input scf-event-basics-start-time scf-js-event-basics-start-time form-control" data-timepicker-type="select" data-timepicker-timezone="true" placeholder="{{localeTimeFormat}}" autocomplete="off" value="{{dateUtil start format=localeTimeFormat timezone=timezone}}">
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        </div>
+                    </div>
+                    <div class="scf-clear-both"></div>
+                </div>
+                <div class="scf-form_row">
+                    <div>
+                        <label class='scf-label' for="./end">{{i18n "To"}}</label>
+                    </div>
+                    <div>
+                        <div class="scf-form_datepicker_left" id="scf-event-basics-end">
+                            <input name="scf-event-basics-end-input" class="scf-form_field scf-form_field_text scf-event-basics-end-input scf-js-event-basics-end-input form-control" placeholder="{{localeDateFormat}}" value="{{dateUtil start format=localeDateFormat timezone=timezone}}" size="15">&nbsp;</div>
+                        <div class="scf-form_datepicker_middle">&nbsp;</div>
+                        <div class="scf-form_datepicker_right">
+                            <input type="text" id="scf-event-basics-end-time" class="scf-form_field scf-form_field_text ui-autocomplete-input scf-event-basics-end-time scf-js-event-basics-end-time form-control" data-timepicker-type="select" placeholder="{{localeTimeFormat}}" autocomplete="off" value="{{dateUtil end format=localeTimeFormat timezone=timezone}}">
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        </div>
+                    </div>
+                    <div class="scf-clear-both"></div>
+                </div>
+                <div class="scf-form_row">
+                    <div>
+                        <label class='scf-label' for="isdate">{{i18n "Full Day"}}</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="scf-form_field scf-form_field_text scf-event-basics-isdate scf-js-event-basics-isdate" id="scf-event-basics-isdate" name="scf-event-basics-isdate" />
+                    </div>
+                    <div class="scf-clear-both"></div>
+                </div>
+                <div class='scf-composer-toolbar'>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <button type="button" class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                        <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                    {{/if}}
+                    <button type="button" class="btn btn-primary scf-composer-action scf-composer-attach-cover" evt="click=openCoverDialog">{{i18n "Cover"}}</button>
+                    <input class="scf-calendar-cover-input scf-js-calendar-cover-input" type="file" data-attrib="coverimage" name="coverimage" evt="change=renderCover" />
+                    <div class="scf-composer-actions">
+                        <button type="reset" class="btn btn-default scf-composer-action" evt="click=toggleComposer">{{i18n "Cancel"}}</button>
+                        <button type="submit" class="btn btn-primary" evt="submit=addComment">{{i18n "Add Event"}}</button>
+                    </div>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <div class="scf-composer-attachments">
+                            <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    {{/if}}
+
+    <br/>
+
+    <div class="well well-sm scf-calendar-toolbar">
+        <form evt="submit=filter">
+            <div class="row">
+                {{#if configuration.isTaggingAllowed}}
+                    <div class="col-sm-2">
+                {{else}}
+                    <div class="col-sm-4">
+                {{/if}}
+                {{i18n "Keyword Search" }}
+                </div>
+                {{#if configuration.isTaggingAllowed}}
+                    <div class="col-sm-3">
+                        {{i18n "Tags" }}
+                    </div>
+                {{/if}}
+                <div class="col-sm-2">
+                    {{i18n "From" }}
+                </div>
+                <div class="col-sm-2">
+                    {{i18n "To" }}
+                </div>
+                </div>
+                <div class="row">
+                    {{#if configuration.isTaggingAllowed}}
+                        <div class="col-sm-2">
+                    {{else}}
+                        <div class="col-sm-4">
+                    {{/if}}
+                    <input type="text" class="form-control scf-calendar-filter-by-text" placeholder="{{i18n "Search..." }}" />
+                    </div>
+                    {{#if configuration.isTaggingAllowed}}
+                        <div class="col-sm-3">
+                            <ul class="scf-calendar-smart-tags" data-attrib="tag" name="tag" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+                        </div>
+                    {{/if}}
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="calendar-addon1"><span class="scf-icon-calendar">&nbsp;</span></span>
+                            <input type="text" class="form-control scf-calendar-filter-by-date-from" placeholder="{{localeDateFormat}}" aria-describedby="calendar-addon1">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="calendar-addon2"><span class="scf-icon-calendar">&nbsp;</span></span>
+                            <input type="text" class="form-control scf-calendar-filter-by-date-to" placeholder="{{localeDateFormat}}" aria-describedby="calendar-addon2">
+                        </div>
+                    </div>
+                    {{#if configuration.isTaggingAllowed}}
+                        <div class="col-sm-3 text-right">
+                    {{else}}
+                        <div class="col-sm-4 text-right">
+                    {{/if}}
+                    <button id="scf-calendar-filter" type="submit" class="btn btn-primary scf-calendar-filter-button">{{i18n "Apply"}}</button>
+                    <button id="scf-calendar-clear" type="button" class="btn btn-default scf-calendar-clear-button" evt="click=clear">{{i18n "Clear"}}</button>
+                    </div>
+                    </div>
+                    <div class="scf-is-collapsed">
+                        <div class="scf scf-calendar-datepicker-buttons">
+                            {{i18n "View:"}}
+                            <a href="javascript:void(0)" class="scf-calendar-datepicker-today-button">{{i18n "Today"}}</a> |
+                            <a href="javascript:void(0)" class="scf-calendar-datepicker-tomorrow-button">{{i18n "Tomorrow"}}</a> |
+                            <a href="javascript:void(0)" class="scf-calendar-datepicker-next7-button">{{i18n "Next 7"}}</a> |
+                            <a href="javascript:void(0)" class="scf-calendar-datepicker-next30-button">{{i18n "Next 30"}}</a>
+                        </div>
+                    </div>
+        </form>
+        </div>
+
+        <ul class="scf-event-list">
+            {{#each items}}
+                {{#if isVisible}}
+                    <li {{#if this.isPinned}} class="alert-info" {{/if}}>
+                        {{#if this.isPinned}}<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>{{/if}}{{include this resourceType="social/calendar/components/hbs/event" template="list-item" bind=false}}</li>
+                {{/if}}
+            {{/each}}
+        </ul>
+        <!-- pagination -->
+        {{include this resourceType="social/commons/components/hbs/pages"}}
+        <!-- eo pagination -->
+        </div>

@@ -1,0 +1,32 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="coral-FixedColumn-column" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/admin/enablementsite">
+    <div class="coral-Form-fieldwrapper">
+        <label class="coral-Form-fieldlabel">{{i18n "Enablement Managers"}}</label>
+        <div class="scf-js-social-console-group-enablement-managers">
+            <div id="console-group-enablementManagers" data-fieldName="groupEnablementManagers" data-selectedUsers='configuration.enablementManagers'>
+                {{include resourceType="social/console/components/hbs/userlist"}}
+            </div>
+        </div>
+    </div>
+    <div class="coral-Form-fieldwrapper">
+        <label class="coral-Form-fieldlabel">{{i18n "Marketing Cloud Org Id"}}</label>
+        <input is="coral-textfield" class="coral-Form-field" type="text" name="macOrgId" value="{{configuration.marketingCloudOrgId}}">
+    </div>
+</div>

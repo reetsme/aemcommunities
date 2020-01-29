@@ -1,0 +1,11 @@
+subject=[投票]
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{targetUrl}}\n\n \
+{{{user.name}}} 在“{{{target.properties.eventTopic}}}”中进行了新投票。\n \
+-------------------------------------------------------------------------------------\n \
+{{{target.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+请单击此链接查看针对此问题的所有回答或修改您的订阅。\n \
+{{targetUrl}}\n \

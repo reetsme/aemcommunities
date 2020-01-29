@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}650"
+    helpPath="en/cq/current/wcm/default_components.html#Form"
+    stateful="{Boolean}false"
+    width="{Long}530"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs
+            jcr:primaryType="cq:TabPanel"
+            hideFieldSet="function(comps){&#xa;&#x9;&#x9;var i=0;&#xa;&#x9;&#x9;for (i=0;i&lt;comps.length;i++)&#xa;&#x9;&#x9;{&#xa;&#x9;&#x9;&#x9;var obj=this.find('name', comps[i])[0];&#xa;&#x9;&#x9;&#x9;if(obj){&#xa;&#x9;&#x9;&#x9;&#x9;obj.hide();&#x9;&#x9;&#x9;&#x9;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#x9;&#xa;}"
+            manageTabs="function(tab){&#xa;&#x9;var tabs=['props','createContent','editContent','viewContent'];&#xa;&#x9;var createItems=['./action', './contentType', './resourceType', './renderOption', './selector', './formurl', './clientValidation', './redirect','./workflowModel'];&#xa;&#x9;var editItems=['./contentType','./clientValidation', './redirect', './workflowModel'];&#xa;&#x9;var index=tabs.indexOf(tab);&#xa;&#x9;if(index==-1) return;&#xa;&#x9;&#x9;var actiontype = this.find('name','./actionType')[0];&#xa;&#x9;&#x9;if(index==1){&#xa;&#x9;&#x9;&#x9;actiontype.setValue('social/commons/components/form/actions/create');&#xa;&#x9;&#x9;&#x9;this.showFieldSet(createItems);&#xa;&#x9;&#x9;&#x9;var cp=this.find('name', './contentType')[0];&#xa;&#x9;&#x9;&#x9;if(cp){&#xa;&#x9;&#x9;&#x9;&#x9;cp.selectionchanged(cp, cp.getValue());&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;cp=this.find('name', './renderOption')[0];&#xa;&#x9;&#x9;&#x9;if(cp){&#xa;&#x9;&#x9;&#x9;&#x9;cp.selectionchanged(cp, cp.getValue());&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;&#xa;&#x9;&#x9;}else if(index ==2){&#xa;&#x9;&#x9;&#x9;actiontype.setValue('social/commons/components/form/actions/edit');&#xa;&#x9;&#x9;&#x9;this.hideFieldSet(createItems);&#xa;&#x9;&#x9;&#x9;this.showFieldSet(editItems);&#xa;            var cp=this.find('name', './contentType')[0];&#xa;&#x9;&#x9;&#x9;if(cp){&#xa;&#x9;&#x9;&#x9;&#x9;cp.selectionchanged(cp, cp.getValue());&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}else if(index ==3){&#xa;&#x9;&#x9;&#x9;actiontype.setValue('foundation/components/form/actions/edit');&#xa;&#x9;&#x9;&#x9;this.hideFieldSet(createItems);&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;&#xa;&#x9;var secondtab = this.findByType('panel')[2];&#xa;&#x9;secondtab.doLayout();&#xa;}"
+            showFieldSet="function(comps){&#xa;&#x9;&#x9;var i=0;&#xa;&#x9;&#x9;for (i=0;i&lt;comps.length;i++)&#xa;&#x9;&#x9;{&#xa;&#x9;&#x9;&#x9;var obj=this.find('name', comps[i])[0];&#xa;&#x9;&#x9;&#x9;if(obj){&#xa;&#x9;&#x9;&#x9;&#x9;obj.show();&#x9;&#x9;&#x9;&#x9;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#x9;&#xa;}"
+            xtype="tabpanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <mode
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="createContent"
+                    title="Mode"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <listMode
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Mode"
+                            name="./mode"
+                            type="radio"
+                            xtype="selection">
+                            <listeners
+                                jcr:primaryType="nt:unstructured"
+                                loadcontent="function(){this.findParentByType('tabpanel').manageTabs(this.getValue());}"
+                                selectionchanged="function(box,value){box.findParentByType('tabpanel').manageTabs(value);}"/>
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <create
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Create content"
+                                    value="createContent"/>
+                                <edit
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Edit content"
+                                    value="editContent"/>
+                                <view
+                                    jcr:primaryType="nt:unstructured"
+                                    text="View content"
+                                    value="viewContent"/>
+                            </options>
+                        </listMode>
+                    </items>
+                </mode>
+                <advanced
+                    jcr:primaryType="nt:unstructured"
+                    title="Advance"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <actiontype
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="social/commons/components/form/actions/create"
+                            fieldLabel="Action Type"
+                            hidden="{Boolean}true"
+                            name="./actionType"
+                            xtype="textfield">
+                            <listeners
+                                jcr:primaryType="nt:unstructured"
+                                loadcontent="function(){var child = this.nextSibling();if(child){child.hide();}}"/>
+                        </actiontype>
+                        <actionconfig
+                            jcr:primaryType="cq:Widget"
+                            path="/libs/social/commons/components/form/actions/create/dialog.infinity.json"
+                            xtype="cqinclude"/>
+                        <formid
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldDescription="A unique identifier for the form on the page"
+                            fieldLabel="Form Identifier"
+                            name="./formid"
+                            regex="/^[a-zA-Z0-9_-]+$/"
+                            regexText="This field should only contain numbers, letters, dashes and underscores"
+                            xtype="textfield">
+                            <listeners
+                                jcr:primaryType="nt:unstructured"
+                                loadcontent="function() {var f = this.findParentByType(&quot;form&quot;); if(f &amp;&amp; (typeof(this.value) == &quot;undefined&quot; || this.value.length() == 0)) { this.setValue(f.form.url.replace(/[/:.]/g,&quot;_&quot;))}}"/>
+                        </formid>
+                        <clientVal
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="If this is enabled java-script client code for validation will be generated"
+                            fieldLabel="Client Validation"
+                            name="./clientValidation"
+                            type="checkbox"
+                            xtype="selection">
+                            <listeners
+                                jcr:primaryType="nt:unstructured"
+                                selectionchanged="function() { CQ.WCM.getSidekick().previewReload = true; }"/>
+                        </clientVal>
+                        <redirect
+                            jcr:primaryType="cq:Widget"
+                            componentId="redirectField"
+                            fieldDescription="Leave empty to redisplay the form after submission"
+                            fieldLabel="Thank You Page"
+                            name="./redirect"
+                            xtype="pathfield"/>
+                        <workflowmodel
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}true"
+                            componentId="cq5_form_action_workflow_id"
+                            fieldDescription="Choose the workflow that should be started on form submission. Click the thumbnail image to view or edit the selected workflow model."
+                            fieldLabel="Start Workflow"
+                            name="./workflowModel"
+                            xtype="cq.social.workflow.model.selector"/>
+                    </items>
+                </advanced>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

@@ -1,0 +1,46 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="js-social-console-theme-card" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/grouptemplates/grouptemplate">
+    <div class="selection-layer"><i class="select"></i>
+    </div>
+    <article class='card-project stack foundation-collection-item' itemprop='item' itemscope=''>
+        <i class="select"></i>
+        <i class="move"></i>
+        {{#if new}}
+            <span class="flag info">{{i18n "New"}}</span>
+        {{/if}}
+        <div class="card">
+            <span class="image">
+        <img src="{{image}}" alt="">
+        </span>
+            <div class="label">
+                <div class="main">
+                    <h4>{{i18n title}}</h4>
+                </div>
+                <p>{{description}}</p>
+            </div>
+            <div class="foundation-collection-quickactions">
+                <a title="{{i18n " Edit Group Template "}}" href="{{getContextPath ''}}/libs/social/console/content/editgrouptemplate.html{{this.id}}">
+                    <i class="coral-Icon coral-Icon--infoCircle coral-Icon--sizeXS"></i>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>

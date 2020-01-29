@@ -1,0 +1,152 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-communitygroups" data-component-id="{{id}}" data-scf-component="social/group/components/hbs/communitygroups">
+    {{#if canAdd}}
+        <div class="scf-composer-block">
+            <button type="submit" class="btn btn-default scf-login" evt='click=showNewGroupWizard'>{{i18n "New Group"}}</button>
+            <!-- Modal Dialog - New Group -->
+            <div class="scf-js-new-group-box" style="display: none">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form role="form" method="POST" action="/content.social.json" class="scf-group-form">
+                            <input type="hidden" name=":operation" value="social:addGroup" />
+                            <input type="hidden" name="_charset_" value="utf-8">
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tabs-1" data-toggle="tab" evt="click=handleTab">{{i18n "Settings" }}</a>
+                                    </li>
+                                    <li><a href="#tabs-2" data-toggle="tab" evt="click=handleTab">{{i18n "Template" }}</a>
+                                    </li>
+                                    <li><a href="#tabs-3" data-toggle="tab" evt="click=handleTab">{{i18n "Image" }}</a>
+                                    </li>
+                                </ul>
+                                <div class="scf-tab-content">
+                                    <div id="tabs-1" class="active tab scf-tab-pane">
+                                        <div class="row">
+                                            <label class="scf-group-form-label">{{i18n "Group Name"}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <input class="form-control" name="name" id="groupName" data-attrib="name" evt="blur=autoPopulateGrpUrl" />
+                                        </div>
+                                        <div class="row">
+                                            <label class="scf-group-form-label">{{i18n "Description"}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <textarea class="form-control" name="description" data-attrib="description"></textarea>
+                                        </div>
+                                        <div class="row">
+                                            <label class="scf-group-form-label">{{i18n "Invite"}}</label>
+                                        </div>
+                                        <div class="row ui-widget">
+                                            <input class="form-control scf-js-userfilter" name="invite" data-attrib="invite" />
+                                        </div>
+                                        <div class="row">
+                                            <label class="scf-group-form-label">{{i18n "Group URL Name"}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <input class="form-control" name="urlName" id="groupUrlName" data-attrib="urlName" />
+                                        </div>
+                                        <div class="row">
+                                            <input type="radio" value="Open" name="privacyType">&nbsp;{{i18n "Open Group"}}
+                                        </div>
+                                        <div class="row">
+                                            <input type="radio" value="Secret" name="privacyType">&nbsp;{{i18n "Member Only Group"}}
+                                        </div>
+                                    </div>
+                                    <div id="tabs-2" class="tab scf-tab-pane">
+                                        <div>
+                                            <select id="social-group-templateSelect" class="form-control" data-attrib="blueprint">
+                                                {{#each allowedTemplates}}
+                                                    <option value="{{path}}">{{i18n name}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="tabs-3" class="tab scf-tab-pane">
+                                        <div>
+                                            <img id="imgUploadPreview" class="scf-upload-image" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row scf-form-row">
+                                <div class="col-sm-3">
+                                    <div class="scf-image-upload" id="divImageUpload" style="display: none">
+                                        <span>{{i18n "New Image"}}</span>
+                                        <input id="imgUploadImage" class="scf-image-upload-input" name="file" data-upload-url="dummy" data-file-name-parameter="fileName" type="file" evt="change=previewImages">
+                                        <span class="scf-icon-image"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6 scf-composer-actions">
+                                    <button type="reset" class="btn btn-default cancel" evt="click=cancelGroup">{{i18n "Cancel"}}</button>
+                                    <button type="submit" class="btn btn-primary" id="new-group-submit" evt="click=addGroup">{{i18n "Create Group"}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal New Group-->
+        </div>
+        <br/>
+        <div class="modal scf-js-group-success" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-primary close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><b>{{i18n "Please Wait."}}</b>{{i18n "Your new group is being created"}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    {{/if}}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group">
+                <input type="text" class="form-control scf-group-search" placeholder="{{i18n "Search..."}}" id="search" evt="keypress=searchKeyPress">
+                <span class="input-group-btn">
+            <button class="btn btn-default" id="group-search-button" type="button" evt="click=search">{{i18n "Go!"}}</button>
+          </span>
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+    <ul class="scf-communitygroups-list">
+        {{#each items}} {{include this resourceType="social/group/components/hbs/communitygroups/communitygroup" authoringDisabled="true"}} {{/each}}
+    </ul>
+    <div class="alert alert-danger scf-js-group-validate-error scf-is-hidden" role="alert">{{i18n "Name and URL Name are required."}}</div>
+    <div class="alert alert-success scf-js-group-success-alert scf-is-hidden" role="alert"><b>{{i18n "Hey, There!"}}</b>&nbsp;{{i18n "Your new group has been created. Refresh your browser to view it."}}</div>
+    <div class="alert alert-danger scf-js-group-danger-alert scf-is-hidden" role="alert">{{i18n "Oh, Snap! Your new group has not been created. Please try again"}}</div>
+</div>

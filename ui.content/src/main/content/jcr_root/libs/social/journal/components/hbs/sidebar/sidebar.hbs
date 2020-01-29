@@ -1,0 +1,50 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-scf-component="social/journal/components/hbs/sidebar" data-component-id="{{id}}" class="sidebar-container">
+    {{#equals viewType "categories"}}
+        <h4>{{i18n "Tags"}}</h4>
+        {{else}}
+            <h4>{{i18n viewType}}</h4>
+    {{/equals}}
+    <ul name="sidebar-list" class="scf-journal-sidebar">
+        {{#equals viewType "authors"}}
+            {{#each itemsMap}}
+                <li class>
+                    <img src="{{avatarUrl}}" alt="Avatar image" class="img-circle">
+                    <a href="{{friendlyUrl}}?filter={{encodeURI "userIdentifier eq "}}{{encodeURI authorizableID}}&filter={{encodeURI "isDraft ne true"}}" title="{{@key}}">{{@key}} ({{count}})</a>
+                </li>
+            {{/each}}
+        {{/equals}}
+        {{#equals viewType "categories"}}
+            {{#each itemsMap}}
+                <li class>
+                    <a href="{{friendlyUrl}}?filter={{encodeURI "tag eq "}}{{encodeURI id}}&filter={{encodeURI "isDraft ne true"}}" title="{{@key}}">{{@key}} ({{count}})</a>
+                </li>
+            {{/each}}
+        {{/equals}}
+        {{#equals viewType "archives"}}
+            {{#each items}}
+                <li class>
+                    <a href="{{url}}&filter={{encodeURI "isDraft ne true"}}" title="{{title}}">{{title}} ({{count}})</a>
+                </li>
+            {{/each}}
+        {{/equals}}
+    </ul>
+</div>

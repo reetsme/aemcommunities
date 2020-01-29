@@ -1,0 +1,15 @@
+﻿subject=Solicitud de nombre de usuario
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitud de nombre de usuario</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hola, {{{givenName}}}:</p>\n \
+<p>Su nombre de usuario es {{{userId}}}</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

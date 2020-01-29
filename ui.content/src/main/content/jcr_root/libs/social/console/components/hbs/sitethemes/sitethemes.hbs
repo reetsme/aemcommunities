@@ -1,0 +1,28 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="content scf-js-cq-social-themes social-themes" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/sitethemes">
+    <input type="hidden" name="theme" value="" />
+    <coral-masonry class="scf-js-cq-social-themes-masonry" layout="fixed-centered" spacing="20" columnwidth="240">
+        {{#each items}}
+            <coral-masonry-item>
+                {{include this resourceType="social/console/components/hbs/sitethemes/sitetheme" authoringDisabled="true"}}
+            </coral-masonry-item>
+        {{/each}}
+    </coral-masonry>
+</div>

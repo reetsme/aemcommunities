@@ -1,0 +1,104 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if pageProperties.page-template}}
+    {{include this template=pageProperties.page-template}}
+{{else}}
+    <nav class="scf-site-header navbar navbar-default hidden-xs" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand scf-js-site-title" data-id="{{siteId}}" href="{{siteUrl}}.html">{{siteTitle}}</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                {{#if loggedInUser.loggedIn}}
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{siteUrl}}/profile.html">{{i18n "Profile"}}</a></li>
+                        {{#if messagingAllowed}}
+                            <li>
+                                <script>
+                                    var data = {};
+                                    data["messageFolder"] = "inbox";
+                                    var messagecount;
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "{{siteUrl}}" + "/messaging/jcr:content/content/primary/messagebox_5ab3.social.0.0.json",
+                                        async: true,
+                                        data: data,
+                                        success: function(json) {
+                                            messagecount = json["messageCounts"].nonDeletedUnreadCount;
+                                            $("a.messageBoxPrimaryLink").html($("a.messageBoxPrimaryLink").html() + " <span class=\"badge\">" + messagecount + "</span>");
+                                        }
+                                    });
+
+                                </script>
+                                <a href="{{siteUrl}}/messaging.html" class="messageBoxPrimaryLink">{{i18n "Messages"}}</a>
+                            </li>
+                        {{/if}}
+                        <li>
+                            <a href="{{siteUrl}}/notifications.html">
+                          {{i18n "Notifications"}} <span class="badge" id="scf-js-notificationsUnreadCount" data-siteUrl="{{siteUrl}}">0</span>
+                       </a>
+                        </li>
+                    </ul>
+                {{/if}}
+                <div class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        {{#unless loggedInUser.loggedIn}}
+                            <li><a href="{{siteUrl}}/signin.html">{{i18n "Log In"}}</a></li>
+{{else}}
+    <li><a href="/system/sling/logout.html?resource={{siteUrl}}.html">{{i18n "Log Out"}}</a></li>
+                        {{/unless}}
+                    </ul>
+                    <button id="scf-language-picker" class="nav btn navbar-btn navbar-nav navbar-right dropdown-toggle navbar-link" type="button" data-toggle="dropdown">{{i18n baseLanguage}}
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">{{i18n baseLanguage}}</a></li>
+                        {{#each siteLanguageCopiesURLs}}
+                            <li><a href="{{this}}.html">{{i18n @key}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="nav navbar-nav navbar-right">
+                    {{#include this.id resourceType="social/commons/components/hbs/quicksearch" }}
+                        {"endpoint":"{{searchPagePath}}/jcr:content/content/primary/searchresult", "paths":"{{this.ugcPath}}", "searchPagePath":"{{searchPagePath}}"}
+                    {{/include}}
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    {{#if bannerImage}}
+        <div class="scf-site-brand-img hidden-xs" style="background-image:url('{{bannerImage}}');"></div>
+    {{/if}}
+    {{#include this.id path="sitenav" resourceType="social/console/components/hbs/sitenavbar" }}
+        {"searchPath":"{{ugcPath}}","searchPage":"{{searchPagePath}}"}
+    {{/include}}
+    {{include this.id path="groupnav" resourceType="social/console/components/hbs/groupnavbar"}}
+    <div class="container-fluid scf-site-body-content-container">
+        <div class="row scf-breadcrumbs-box">
+            <div class="col-md-12">
+                {{include this.id path="content/breadcrumbs"}}
+            </div>
+        </div>
+        {{include this.id path="content"}}
+    </div>
+    {{include this.id path="clientcontext" resourceType="cq/personalization/components/clientcontext"}} {{include this.id path="cloudservices" resourceType="cq/cloudserviceconfigs/components/servicecomponents"}}
+{{/if}}

@@ -1,0 +1,8 @@
+﻿subject=[Voting]
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}\n \
+URL: {{targetUrl}}\n\n \
+Um novo voto foi aplicado a “{{target.properties.eventTopic}}” por {{{user.name}}}.\n\n \
+Acesse este link para visualizar todas as respostas a esta pergunta ou para modificar suas preferências de notificação.\n \
+{{targetUrl}}\n \

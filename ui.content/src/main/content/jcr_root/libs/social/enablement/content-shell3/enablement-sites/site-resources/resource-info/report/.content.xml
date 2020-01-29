@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Resource Report"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/site-resource/report"
+        consoleId="cq-communities-resources"
+        contentPath="${requestPathInfo.suffix}"
+        parentSuffix="{Boolean}true"
+        targetCollection=".se-site-resource-report">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,cq.common.wcm,social-enablement-core,cq.social.author.enablement.hbs.reports.resource]"/>
+        </head>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <primary jcr:primaryType="nt:unstructured">
+                <download
+                    granite:id="resource-Report"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/mnt/overlay/social/enablement/content-shell3/enablement-sites/site-resources/resource-info/report/jcr:content/views/content/items/content/items/table.csv${requestPathInfo.suffix}?filter=true"
+                    icon="download"
+                    text="Download Resource Report as CSV"
+                    variant="primary"/>
+            </primary>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/inforeportbreadcrumbs"
+            path="/libs/social/enablement/content-shell3/enablement-sites/site-resources/resource-info/report"
+            rootPath="/libs/social/enablement/content-shell3/enablement-sites"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <content
+                        granite:class="scf-reporting-pageContent se-site-resource-report"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/enablement/components/hbs/reports/resource/pagetitle"/>
+                            <row1
+                                granite:class="scf-reporting-hCenter scf-reporting-reportPageRow scf-js-reporting-analytics"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <trendsummaryreport
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/enablement/components/hbs/reports/resource/trendsummaryreport"/>
+                                </items>
+                            </row1>
+                            <row2
+                                granite:class="scf-reporting-hCenter scf-reporting-reportPageRow scf-js-reporting-video-analytics"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        granite:class="scf-reporting-reportPageColumnLeft"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <videodropoffreport
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/enablement/components/hbs/reports/resource/videodropoffreport"/>
+                                        </items>
+                                    </left>
+                                    <right
+                                        granite:class="scf-reporting-reportPageColumnRight"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <videoclientreport
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/enablement/components/hbs/reports/resource/videoclientreport"/>
+                                        </items>
+                                    </right>
+                                </items>
+                            </row2>
+                            <row3
+                                granite:class="scf-reporting-hCenter scf-reporting-reportPageRow"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        granite:class="scf-reporting-reportPageColumnLeft"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <enrollmentstatusreport
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/enablement/components/hbs/reports/resource/enrollmentstatusreport"/>
+                                        </items>
+                                    </left>
+                                    <right
+                                        granite:class="scf-reporting-reportPageColumnRight"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <ratingsreport
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/enablement/components/hbs/reports/resource/ratingsreport"/>
+                                        </items>
+                                    </right>
+                                </items>
+                            </row3>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/enablement/components/hbs/reports/resource/enrollmentreport"/>
+                        </items>
+                    </content>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,345 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{includeClientLib js="cq.social.bootstrap.3" }}
+    {{#unless id}}
+        <script data-scf-json="true" type="application/json" id="empty_member_model">
+            {}
+
+        </script>
+    {{/unless}}
+    <div class="scf-member-user-profile" data-component-id="{{#if id}}{{id}}{{else}}empty_member_model{{/if}}" data-scf-component="social/members/components/hbs/userprofile">
+        <div class="foundation-layout-panel-header">
+            <div class="granite-actionbar">
+                <div class="granite-actionbar-centerwrapper">
+                    <div class="granite-actionbar-center">
+                        <span class="granite-title" role="heading" aria-level="1">
+                            {{#if authorizableID}}
+                                <span>{{i18n "Edit Member Settings"}}</span>
+                        {{else}}
+                            <span>{{i18n "Create New Member"}}</span>
+                            {{/if}}
+                            </span>
+                    </div>
+                </div>
+                <div class="granite-actionbar-left">
+                    <div class="granite-actionbar-item">
+                        <a href="{{getContextPath ''}}/communities/members" is="coral-anchorbutton" class="coral-Button" size="M" role="button" tabindex="0" aria-disabled="false">
+                            <coral-anchorbutton-label class="coral-Button-label">{{i18n "Cancel"}}</coral-anchorbutton-label>
+                        </a>
+                    </div>
+                </div>
+                <div class="granite-actionbar-right">
+                    <div class="granite-actionbar-item">
+                        <button type="button" {{#if authorizableID}} evt="click=update" {{else}} evt="click=create" disabled {{/if}} variant="primary" autocomplete="off" is="coral-button" class="scf-js-member-user-profile-save coral-Button" size="M">
+                            <coral-button-label class="coral-Button-label">{{i18n "Save"}}</coral-button-label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scf-user-profile-textbox-tooltip scf-js-saveuser-success coral-Tooltip--success"></div>
+        <div class="scf-user-profile-textbox-tooltip scf-js-saveuser-error coral-Tooltip--error"></div>
+
+        <form {{#if authorizableID}} evt="submit=update" {{else}} evt="submit=create" {{/if}} enctype="multipart/form-data" class="scf-user-profile-form coral-Form coral-Form--aligned content-container">
+            <div class="coral-TabPanel coral-TabPanel--large scf-js-settingstabs" data-init="tabs">
+                <nav class="coral-TabPanel-navigation">
+                    <a class="coral-TabPanel-tab is-active" data-toggle="tab">{{i18n "General"}}</a>
+                    <a class="coral-TabPanel-tab" evt="click=getSiteCollectionForBadges" data-toggle="tab">{{i18n "Badges"}}</a>
+                </nav>
+                <div class="coral-TabPanel-content">
+                    <section class="coral-TabPanel-pane is-active">
+                        <div class="foundation-wizard-step scf-user-profile-add-user foundation-wizard-step-active" data-foundation-wizard-step-validation="false">
+                            <h4>{{i18n "Member Details"}}</h4>
+                            <div class="scf-user-profile-user-editor-container coral-Well">
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel ">{{i18n "ID"}}</label>
+                                    <input type="text" class="coral-Form-field coral-Textfield" data-attrib="userId" name="userId" value="{{authorizableID}}" {{#if authorizableID}} disabled {{/if}}>
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Screen Name"}}
+                                    </label>
+                                    <input class="coral-Form-field coral-Textfield" type="text" data-attrib="displayName" name="displayName" value="{{displayName}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Email Address"}} *
+                                    </label>
+                                    <input class="coral-Form-field coral-Textfield" type="text" data-attrib="email" name="email" value="{{profileProperties.email}}" required>
+                                </div>
+                                {{#unless authorizableID}}
+                                    <div class="coral-Form-fieldwrapper">
+                                        <label class="coral-Form-fieldlabel">{{i18n "Password"}} *</label>
+                                        <input class="coral-Form-field first-name coral-Textfield" type="password" data-attrib="password" name="password" autocomplete="off" required>
+                                    </div>
+                                    <div class="coral-Form-fieldwrapper">
+                                        <label class="coral-Form-fieldlabel">{{i18n "Retype Password"}} *</label>
+                                        <input class="coral-Form-field last-name coral-Textfield" type="password" data-attrib="confirmpass" name="confirmpass" autocomplete="off" required>
+                                    </div>
+                                {{/unless}}
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "First Name"}}</label>
+                                    <input class="coral-Form-field first-name coral-Textfield" type="text" data-attrib="givenName" name="givenName" value="{{profileProperties.givenName}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Last Name"}}</label>
+                                    <input class="coral-Form-field last-name coral-Textfield" type="text" data-attrib="familyName" name="familyName" value="{{profileProperties.familyName}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Occupation"}}</label>
+                                    <input class="coral-Form-field coral-Textfield" type="text" data-attrib="jobTitle" name="jobTitle" value="{{profileProperties.jobTitle}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Address"}}</label>
+                                    <input class="coral-Form-field coral-Textfield" type="text" data-attrib="streetAddress" name="streetAddress" value="{{profileProperties.streetAddress}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "City, State"}}</label>
+                                    <input class="coral-Form-field coral-Textfield" type="text" data-attrib="city" name="city" value="{{profileProperties.city}},{{profileProperties.region}}">
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Language"}}</label>
+                                    <coral-select class="scf-js-userprofile-language" name="language" data-attrib="language">
+                                    </coral-select>
+                                </div>
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Url"}}</label>
+                                    <input type="text" class="coral-Form-field coral-Textfield" data-attrib="url" name="url" value="{{profileProperties.url}}">
+                                </div>
+
+                                <div class="coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel">{{i18n "Gender"}}</label>
+                                    <coral-select class="scf-js-member-profile-select" name="gender" data-attrib="gender" value="{{profileProperties.gender}}">
+                                        <coral-select-item value="">
+                                            {{i18n "Select"}}
+                                        </coral-select-item>
+                                        <coral-select-item value="male">
+                                            {{i18n "Male"}}
+                                        </coral-select-item>
+                                        <coral-select-item value="female">
+                                            {{i18n "Female"}}
+                                        </coral-select-item>
+                                    </coral-select>
+                                </div>
+                                <div class="scf-user-profile-about-container">
+                                    <div class="coral-Form-fieldwrapper">
+                                        <label class="coral-Form-fieldlabel">{{i18n "Bio"}}</label>
+                                        <textarea class="coral-Form-field foundation-layout-util-resizable-none coral-Textfield coral-Textfield--multiline" data-attrib="aboutMe" name="aboutMe" class="comment-composer-input" rows="5">{{profileProperties.aboutMe}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="scf-user-profile-user-details-column-left">
+                                    <h4>{{i18n "Account settings"}}</h4>
+                                    <div class="scf-user-profile-user-details-sections-margin scf-user-profile-photo-accout-settings coral-Well">
+                                        <div class="coral-Form-fieldwrapper">
+                                            <label class="coral-Form-fieldlabel">{{i18n "Status"}}</label>
+                                            <coral-select class="scf-js-member-profile-status" name="disabled" data-attrib="disabled">
+                                                <coral-select-item value="false">
+                                                    {{i18n "Not Banned"}}
+                                                </coral-select-item>
+                                                <coral-select-item value="true">
+                                                    {{i18n " Banned"}}
+                                                </coral-select-item>
+                                            </coral-select>
+                                        </div>
+                                        <div class="coral-Form-fieldwrapper">
+                                            <div class="coral-Checkbox scf-member-user-ugclimited">
+                                                <span class="coral-Form-fieldlabel coral-Checkbox-description">{{i18n "Contribution Limits"}}</span>
+                                                <input type="hidden" name="limitUserUGC" data-attrib="limitUserUGC" {{#if userUGCLimited}} value="true" {{else}} value="false" {{/if}} />
+                                                <input type="checkbox" data-param="limitUserUGC" class="coral-Checkbox-input scf-js-fix-checks scf-fix-checks" {{#if userUGCLimited}} checked {{/if}} />
+                                                <span class="coral-Checkbox-checkmark"></span>
+                                            </div>
+                                        </div>
+                                        {{#if authorizableID}}
+                                            <a class="foundation-toggleable-control scf-user-profile-account-settings-link coral-Link" evt="click=showPasswordBox" href="#">{{i18n "Change Password"}}</a>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="scf-user-profile-user-details-column-right">
+                                    <h4>{{i18n "Photo"}}</h4>
+
+                                    <div class="scf-user-profile-user-details-sections-margin scf-user-profile-photo-accout-settings coral-Well">
+                                        <div class="scf-user-profile-left scf-user-profile-user-photo">
+                                            <div class="scf-user-profile-user-photo-container scf-user-profile-user-photo-detailed scf-js-userprofile-avatar" style="background-image: url({{largeAvatarUrl}});"></div>
+                                        </div>
+                                        <div class="scf-user-profile-left scf-user-profile-photo-upload-info">
+                                            <coral-fileupload class="coral-Form-field photoupload coral3-FileUpload">
+                                                <button evt="click=showAvatarBox" type="button" class="coral-Button">
+                                                    <coral-button-label class="coral-Button-label">{{i18n "Upload Image"}}</coral-button-label>
+                                                </button>
+                                            </coral-fileupload>
+                                            <span class="scf-user-profile-user-photo-upload-instructions">{{i18n "Accepted file types: .jpg, .png, .tif, and .gif. Preferred size 240x240 px."}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scf-user-profile-clear"></div>
+                            </div>
+
+                            <h4>{{i18n "Add Member to Sites"}}</h4>
+
+                            <div class="coral-Well">
+                                <div class="scf-js-member-profile-sites scf-member-profile-add-to coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel"></label>
+                                </div>
+                            </div>
+
+                            {{#if authorizableID}}
+                                <h4>{{i18n "Sites"}}</h4>
+
+                                <div class="coral-Well">
+                                    <div class="coral-Form-fieldwrapper">
+                                        <label class="coral-Form-fieldlabel"></label>
+                                        <input class="coral-Form-field item-list-filter coral-Textfield scf-member-profile-filter" data-collection-name="memberOfSites" evt="keyup=searchMemberOfItems" type="text" value="">
+                                        <div class="removable-item-list-container user-group-list-container scf-js-member-of-sites">
+                                            {{#each memberOfSites}}
+                                                <article id="scf-js-memberlist-{{this.authorizableId}}" data-item-id="{{this.authorizableId}}" class="scf-js-memberlist-item card-asset foundation-collection-item">
+                                                    <div class="edit-group">
+                                                        <div class="label">
+                                                            <p class="scf-memberlist-group-column view-group">
+                                                                <span class="scf-memberlist-site-name">
+                                                        <a class="coral-Link" href="{{this.sitePagePath}}.html">{{this.name}}</a>
+                                                    </span>
+                                                                {{#if this.userRoles}}
+                                                                    <span class="scf-memberlist-site-roles">{{this.userRoles}}</span>
+                                                                {{/if}}
+                                                            </p>
+                                                            <p class="scf-memberlist-group-column scf-memberlist-delete-item">
+                                                                <span evt="click=changeItemStatus" data-item-id="{{this.authorizableId}}" class="coral-Icon coral-Icon--delete"></span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            <h4>{{i18n "Add Member to Groups"}}</h4>
+
+                            <div class="coral-Well">
+                                <div class="scf-js-member-profile-groups scf-member-profile-add-to coral-Form-fieldwrapper">
+                                    <label class="coral-Form-fieldlabel"></label>
+                                </div>
+                            </div>
+                            {{#if authorizableID}}
+
+                                <h4>{{i18n "Groups"}}</h4>
+
+                                <div class="coral-Well">
+                                    <div class="coral-Form-fieldwrapper">
+                                        <label class="coral-Form-fieldlabel"></label>
+                                        <input class="coral-Form-field item-list-filter coral-Textfield scf-member-profile-filter" data-collection-name="memberOfGroups" evt="keyup=searchMemberOfItems" type="text" value="">
+                                        <div class="removable-item-list-container user-group-list-container scf-js-member-of-groups">
+                                            {{#each memberOfGroups}}
+                                                <article id="scf-js-memberlist-{{this.authorizableId}}" data-item-id="{{this.authorizableId}}" class="scf-js-memberlist-item card-asset foundation-collection-item">
+                                                    <div class="edit-group">
+                                                        <div class="label">
+                                                            <p class="scf-memberlist-group-column view-group">
+                                                                <span>
+                                                        <a class="coral-Link" href="groupprofile.html?_charset_=utf-8&groupId={{xss-validHref this.authorizableId}}">{{this.name}}</a>
+                                                    </span>
+                                                            </p>
+                                                            <p class="scf-memberlist-group-column scf-memberlist-delete-item">
+                                                                <span evt="click=changeItemStatus" data-item-id="{{this.authorizableId}}" class="coral-Icon coral-Icon--delete"></span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </section>
+                    <section class="coral-TabPanel-pane is-active">
+                        {{include this resourceType="social/members/components/hbs/userprofile" template="rolesbadges" authoringDisabled='true'}}
+                    </section>
+                </div>
+            </div>
+
+        </form>
+        <coral-dialog class="scf-js-password-box">
+            <form role="form" method="POST" id="changeUserPasswordForm" class="coral-Form coral-Form--aligned">
+                <coral-dialog-header>{{i18n "Change Password"}}</coral-dialog-header>
+                <coral-dialog-content>
+                    <div class="coral-Form-fieldwrapper">
+                        <label class="coral-Form-fieldlabel scf-password-box-label">{{i18n "New Password:"}} *</label>
+                        <input is="coral-textfield" class="coral-Form-field change-user-password coral-Textfield" type="password" id="resetPwd" name="resetPwd" autocomplete="off" data-attrib="resetPwd">
+                    </div>
+                    <div class="coral-Form-fieldwrapper">
+                        <label class="coral-Form-fieldlabel scf-password-box-label">{{i18n "Retype Password:"}} *</label>
+                        <input is="coral-textfield" class="coral-Form-field change-user-password coral-Textfield" type="password" id="confirmPwd" name="confirmPwd" autocomplete="off" data-attrib="confirmPwd">
+                    </div>
+                </coral-dialog-content>
+                <coral-dialog-footer>
+                    <div class="scf-user-profile-textbox-tooltip scf-js-changepass-error coral-Tooltip--error"></div>
+                    <button type="button" class="coral-Button" evt="click=cancelAvatar">
+                        <coral-button-label class="coral-Button-label">{{i18n "Cancel"}}</coral-button-label>
+                    </button>
+                    <button is="coral-button" variant="primary" class="foundation-validation-bind coral-Button coral-Button--primary" size="M" evt="click=changePassword">
+                        <coral-button-label class="coral-Button-label">{{i18n "Save"}}</coral-button-label>
+                    </button>
+                </coral-dialog-footer>
+            </form>
+        </coral-dialog>
+        <coral-dialog class="scf-js-avatar-box scf-user-profile-avatar-box">
+            <coral-dialog-header>{{i18n "Edit Photo"}}</coral-dialog-header>
+            <coral-dialog-content>
+                <form role="form" method="POST">
+                    <div class="scf-form-row" id="canvas-row">
+                        <div class="col-sm coral-Dialog-content" id="divImagePreview">
+                            <div>
+                                <canvas id="imgUploadPreview1" class="scf-upload-avatar"></canvas>
+                            </div>
+                            <input type="radio" value="Crop a" name="cropOption"> {{i18n "Crop a"}}
+                        </div>
+                        <div class="col-sm coral-Dialog-content">
+                            <div>
+                                <canvas id="imgUploadPreview2" class="scf-upload-avatar" }></canvas>
+                            </div>
+                            <input type="radio" value="Crop b" name="cropOption"> {{i18n "Crop b"}}
+                        </div>
+                        <div class="col-sm coral-Dialog-content">
+                            <div>
+                                <canvas id="imgUploadPreview3" class="scf-upload-avatar"></canvas>
+                            </div>
+                            <input type="radio" value="Crop c" name="cropOption"> {{i18n "Crop c"}}
+                        </div>
+                    </div>
+                    <div class="scf-form-row">
+                        <div class="col-sm coral-Dialog-content scf-avatar-upload" id="divImageUpload">
+                            <span>{{i18n "New Photo"}}</span>
+                            <input id="imgUploadImage" class="scf-avatar-upload-input" name="file" data-upload-url="dummy" data-file-name-parameter="fileName" type="file" evt="change=previewImages">
+                            <span class="scf-icon-camera"></span>
+                        </div>
+                        <div class="col-sm coral-Dialog-content scf-composer-actions">
+                            <button type="button" class="coral-Button" evt="click=cancelAvatar">
+                                <coral-button-label class="coral-Button-label">{{i18n "Cancel"}}</coral-button-label>
+                            </button>
+                            <button type="button" id="change-avatar-submit" accept="image/*" class="coral-Button coral-Button--primary" evt="click=changeAvatar">
+                                <coral-button-label class="coral-Button-label">{{i18n "Save"}}</coral-button-label>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </coral-dialog-content>
+        </coral-dialog>
+    </div>

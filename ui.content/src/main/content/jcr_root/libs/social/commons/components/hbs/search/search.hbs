@@ -1,0 +1,43 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div class="scf-search-form ">
+    <form action="" data-paths="{{this.paths}}" class="scf-js-searchform">
+        <label class="scf-search-query-label" title="{{i18n "Query"}}">
+            <input type="text" name="input_value" class="scf-search-value, scf-js-search-value" value="" required>
+        </label>
+        <label class="scf-search-label">
+            <input type="checkbox" name="title_checkbox" class="scf-search-checkbox scf-js-search-jcrtitle" value="jcr:title" />{{i18n "Subject"}}</label>
+        <label class="scf-search-label">
+            <input type="checkbox" name="msg_checkbox" class="scf-search-checkbox scf-js-search-jcrdescription" value="jcr:description" />{{i18n "Body"}}</label>
+        <label class="scf-search-label">
+            <input type="checkbox" name="tag_checkbox" class="scf-search-checkbox scf-js-search-tag" value="tag" />{{i18n "Tag"}}</label>
+        <label class="scf-search-label">
+            <input type="checkbox" name="userIdentifier" class="scf-search-checkbox scf-js-search-userIdentifier" value="userIdentifier" />{{i18n "Author"}}</label>
+        <select class="form-language-select">
+            {{#each availableLanguages}}
+                <option value="{{this.languageCode}}">{{this.languageName}}</option>
+            {{/each}}
+        </select>
+        <label>{{ i18n "Target Language"}}</label>
+        <input type="hidden" name="resultPage" class="scf-js-seach-resultPage" value="{{resultPage}}" />
+        <input type="submit" class="btn btn-primary search_submit" value="{{i18n "Search..."}}" />
+    </form>
+</div>

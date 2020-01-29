@@ -1,0 +1,7 @@
+subject=[帖子提交失败] {{{email-subject}}}
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+{{{email-author}}}，您好！以下电子邮件未能成功发布：\n \
+{{{email-message}}}\n\n \
+请重试或联系您的系统管理员获取进一步帮助。\n \

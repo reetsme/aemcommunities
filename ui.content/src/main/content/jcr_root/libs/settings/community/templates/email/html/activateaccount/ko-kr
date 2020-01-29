@@ -1,0 +1,4 @@
+subject=새 계정에 등록해 주셔서 감사합니다.
+
+message=\n \
+<a href="{{actionURL}}">계정을 활성화하려면 이 링크를 클릭하십시오.</a>\n \

@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<tr class="scf scf-leaderboarditem" data-component-id="{{id}}" data-scf-component="social/gamification/components/hbs/leaderboarditem">
+
+    {{#if badgeDisplayable}}
+        <td class="scf-table-cell text-center">
+            {{#if badgePath}}
+                <img src="{{badgePath}}" />
+            {{/if}}
+        </td>
+    {{/if}}
+    {{#if badgeNameDisplayable}}
+        <td class="scf-table-cell text-center">
+            {{#if badgeName}}
+                {{badgeName}}
+            {{/if}}
+        </td>
+    {{/if}}
+    <td class="scf-table-cell">
+        {{#if avatarDisplayable}}
+            <img class="scf-leaderboard-avatar" alt="{{user.name}}" title="{{user.name}}" src="{{user.avatarUrl}}" />
+        {{/if}}
+        <a href="{{user.profileUrl}}">{{user.name}}</a>
+    </td>
+    <td class="scf-table-cell text-center">{{score}}</td>
+    {{#if progressionDisplayable}}
+        <td class="scf-table-cell">
+            <div class="scf-js-progression-container" data-thresholds="{{thresholds}}">
+                <div class="progress-bar progress-bar-success progress-bar-striped scf-js-progress" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    <div class="score-progression">&nbsp;{{i18n "Current Score: "}}{{score}}</div>
+                </div>
+            </div>
+        </td>
+    {{/if}}
+</tr>

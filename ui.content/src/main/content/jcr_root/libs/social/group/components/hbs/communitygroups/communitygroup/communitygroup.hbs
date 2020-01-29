@@ -1,0 +1,56 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<li class="scf scf-communitygroup" data-component-id="{{id}}" data-scf-component="social/group/components/hbs/communitygroups/communitygroup">
+    <aside class="scf-group-aside">
+        <img class="scf-group-image" src="{{imageURL}}.thumb.90.170.jpg"></img>
+        {{#equals type "Secret"}}
+            <span class="scf-privategroup-icon-span">
+             <span class=" scf-icon-viewOff"></span>
+            </span>
+        {{/equals}}
+    </aside>
+    <div class="scf-group-information">
+        <div class="scf-group-body">
+            <div class="scf-group-title">
+                <a id="groupUrl" class="scf-link" href="{{pagePath}}.html">{{title}}</a>
+            </div>
+            <div class="scf-group-desc">
+                {{description}}
+            </div>
+        </div>
+        {{#if loggedInUser.loggedIn}}
+            <div class="scf-group-toolbar">
+                <div class="scf-group-following-block">
+                    {{#include this.pagePath path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions" authoringDisabled="true" }}
+                        {"subscribedId" : "{{this.pagePath}}"}
+                    {{/include}}
+                </div>
+                {{#equals type "Public"}}
+        {{else}}
+            {{#if loggedInAsMember}}
+                <button type="submit" class="btn btn-default scf-login" evt="click=leaveGroup" {{#if loggedInAsAdmin}} disabled {{/if}}>{{i18n "Leave"}}</button>
+            {{else}}
+                <button type="submit" class="btn btn-default scf-login" evt="click=joinGroup">{{i18n "Join"}}</button>
+            {{/if}}
+                {{/equals}}
+            </div>
+        {{/if}}
+        <div style="clear: both;"> </div>
+    </div>
+</li>

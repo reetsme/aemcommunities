@@ -1,0 +1,223 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-profile-heading {
+    float: left;
+    font-weight: bold;
+}
+
+.scf-user-profile .scf-is-collapsed {
+    display: none;
+}
+
+.scf-profile-form {
+    font-size: 14px;
+}
+
+.scf-profile-form-label {
+    color: #aaa;
+    font-weight: normal;
+    text-align: left;
+    margin: 5px 0 5px 0;
+}
+
+.scf-profile-form span {
+    color: #428bca;
+}
+
+.scf-profile-form .row {
+    padding-bottom: 10px;
+}
+
+.scf-profile-form .row-small-padding {
+    padding-bottom: 2px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.scf-profile-form .row-right-padding {
+    padding-bottom: 2px;
+    margin-right: -15px;
+}
+
+.scf-profile-form .row-left-padding {
+    padding-bottom: 2px;
+    margin-left: -15px;
+}
+
+.scf-profile-form-textarea {
+    resize: vertical;
+    max-height: 200px;
+    min-height: 100px;
+}
+
+.scf-profile-edit {
+    float: right;
+    margin-right: 20px;
+}
+
+.scf-tool-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.scf-container-fluid {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.scf-large-lable {
+    font-size: 16px;
+}
+
+.scf-user-info-card {
+    height: 100px;
+}
+
+.scf-user-avatar-left {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 80px;
+    margin-right: 10px;
+}
+
+.scf-user-avatar-left .scf-overlay-top-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 1px 5px 1px 5px;
+    color: #428BCA;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.scf-user-info-middle {
+    display: inline-block;
+    float: left;
+    width: 32%;
+}
+
+.scf-user-info-right {
+    display: inline-block;
+    float: left;
+    width: 49%;
+}
+
+.scf-badge-right {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 10px;
+    float: right;
+}
+
+.scf-profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    padding: 2px;
+    float: left;
+}
+
+
+/** tab */
+
+.scf-tab-content {
+    overflow: auto;
+}
+
+.scf-tab-content > .scf-tab-pane {
+    display: none;
+}
+
+.scf-tab-content > .active {
+    display: block;
+}
+
+.scf-tab-content {
+    margin-top: 10px;
+}
+
+.scf-upload-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+}
+
+.scf-form-row {
+    margin: 0 15px 20px 15px;
+}
+
+.scf-avatar-upload {
+    position: relative;
+    overflow: hidden;
+    color: #428bca;
+}
+
+.scf-avatar-upload-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.scf-js-avatar-box {
+    color: #000;
+}
+
+.scf-password-form {
+    min-width: 500px;
+    text-align: left;
+}
+
+.scf-following-content {
+    display: inline-block;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    min-width: 154px;
+}
+
+.scf-profile-button-group-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.scf-profile-button-group-left {
+    float: left;
+    margin-left: 10px;
+}

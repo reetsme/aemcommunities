@@ -1,0 +1,21 @@
+﻿subject=[Kommentar] {{{target.displayName}}}
+message=\n \
+Datum: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{targetUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Ein neuer Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} gepostet.\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Ein neuer Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} hinzugefügt.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} aktualisiert.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} gelöscht.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Der Kommentar zu „{{{target.displayName}}}“ wurde von {{{user.name}}} genehmigt.\n\n \
+{{/equals}}\
+Folgen Sie diesem Link, um alle Kommentare anzuzeigen oder Ihre Voreinstellungen für Benachrichtigungen zu ändern.\n \
+{{objectUrl}}\n \

@@ -1,0 +1,37 @@
+﻿subject=[フォーラムの投稿] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが新しいフォーラムトピック「{{{object.displayName}}}」を投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対する新しいフォーラムの投稿を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に対するフォーラムの投稿を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}からフォーラムの投稿を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に関するフォーラムの投稿を承認しました。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に関するフォーラムの投稿を閉じました。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがトピック{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{else}}「{{{target.properties.eventTopic}}}」{{/if}}に関するフォーラムの投稿を再度開きました。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectUrl}}">このリンクをクリック</a>すると、このトピックに対するすべてのフォーラムの投稿を表示したり、購読を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,33 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf scf-user-profile-top-badges" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/userbadges">
+    <div class="scf-js-user-profile-badges-top">
+        {{#each earnedTopBadges}}
+            <span class="scf-js-user-profile-top-earned-badge"><img src="{{this.imageUrl}}" /></span>
+        {{/each}}
+        <span class="scf-js-user-profile-top-earned-badge-count"></span>
+    </div>
+    <div class="scf-js-user-profile-badges-top">
+        {{#each assignedBadges}}
+            <span class="scf-js-user-profile-top-assigned-badge"><img src="{{this.imageUrl}}" /></span>
+        {{/each}}
+        <span class="scf-js-user-profile-top-assigned-badge-count"></span>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿subject=[Argomento forum] {{{object.displayName}}}
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Un nuovo argomento forum "{{{object.displayName}}}" è stato pubblicato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+L'argomento forum "{{{object.displayName}}}" è stato aggiornato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+L'argomento forum "{{{object.displayName}}}" è stato eliminato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+L'argomento forum "{{{object.displayName}}}" è stato approvato da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+L'argomento forum "{{{object.displayName}}}" è stato chiuso da {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+L'argomento forum "{{{object.displayName}}}" è stato riaperto da {{{user.name}}}.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Segui questo collegamento per visualizzare tutti gli argomenti forum o modificare la sottoscrizione.\n \
+{{targetUrl}}\n \

@@ -1,0 +1,138 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-signup" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/signup">
+    <hr/>
+    {{#equals emailVerifyParam ""}}
+        <h3>{{i18n "Sign Up"}}</h3>
+        <div class="alert alert-danger scf-js-signup-error" role="alert" style="display:none;"></div>
+
+        <div class="scf-js-signup-success" role="alert" style="display:none;">
+            <h1>{{i18n "THANK YOU!"}}</h1>
+            {{#if emailVerificationRequired}}
+                <p>{{i18n "Before you can login, you must activate your account with the code sent to your email address."}}</p>
+                <p>{{i18n "If you did not receive this email, please check your junk/spam folder."}}</p>
+                <p>{{i18n "Click "}}<a href="{{resendUrl}}" class="alert-link">{{i18n "here"}}</a> {{i18n " to resend the activation email."}}</p>
+            {{else}}
+                {{i18n "Registration successful. Click "}}<a href="{{loginUrl}}" class="alert-link">{{i18n "here"}}</a>{{i18n " to login"}}
+            {{/if}}
+        </div>
+
+        <form role="form" class="scf-js-signup-form">
+            <div class="form-group">
+                <label class="control-label">{{i18n "First Name"}}</label>
+                <div>
+                    <input type="text" placeholder="{{i18n "First Name"}}" class="form-control" name="fname" data-attrib="fname" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{i18n "Last Name"}}</label>
+                <div>
+                    <input type="text" placeholder="{{i18n "Last Name"}}" class="form-control" name="lname" data-attrib="lname" />
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="control-label">{{i18n "Email"}}</label>
+                <div>
+                    <input type="email" placeholder="{{i18n "Email"}}" class="form-control" name="email" data-attrib="email" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <input type="hidden" name="check_use_email" value="1" />
+                    <label>
+                        <input type="checkbox" checked name="use_email" evt="click=toggleUserName" value="on">
+                        {{i18n "Use my email address to log in"}}
+                    </label>
+                </div>
+            </div>
+            <div class="form-group scf-username-container">
+                <label class="control-label">{{i18n "User Name"}}</label>
+                <div>
+                    <input type="text" placeholder="{{i18n "User Name"}}" class="form-control" name="user_id" data-attrib="user_id" />
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="control-label">{{i18n "Password"}}</label>
+                <div>
+                    <input type="password" placeholder="{{i18n "Password"}}" class="form-control scf-js-password" name="password" data-attrib="password" />
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="control-label">{{i18n "Confirm Password"}}</label>
+                <div>
+                    <input type="password" placeholder="{{i18n "Confirm Password"}}" class="form-control scf-js-confirm-password" evt="keyup=confirmPassword" />
+                </div>
+            </div>
+            {{#if allowCaptcha}}
+                <hr/>
+                <div class="form-group">
+                    <div>
+                        <label>{{i18n "Captcha"}}</label>
+                        <br/>
+                        {{i18n "Captcha component is deprecated and should no longer be used."}}
+                    </div>
+                </div>
+            {{/if}}
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-primary scf-signup-action" evt="click=register">{{i18n "Sign Up"}}</button>
+                    <button type="cancel" class="btn btn-primary scf-signup-action" evt="click=cancel">{{i18n "Cancel"}}</button>
+                    <br/>
+                    {{#if emailVerificationRequired}}
+                        <span class="scf-signup-text">
+                            {{i18n "Already registered but forgot to activate account? Click"}}&nbsp;<a href="{{resendUrl}}">{{i18n "here"}}</a>{{i18n " to resend email."}}
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </form>
+        {{else}}
+            {{#equals emailVerifyParam "resend"}}
+                <h3>{{i18n "Resend Activation Email"}}</h3>
+                <div class="scf-js-resend-success" role="alert" style="display:none;">
+                    {{i18n "Email sent. Click "}}<a href="{{loginUrl}}" class="alert-link">{{i18n "here"}}</a>{{i18n " to login after activating your account"}}
+                </div>
+                <div class="alert alert-danger scf-js-resend-error" role="alert" style="display:none;"></div>
+                <form role="form" class="scf-js-resend-form">
+                    <div class="form-group">
+                        <label class="control-label">{{i18n "User Name"}}</label>
+                        <div>
+                            <input type="text" placeholder="{{i18n "User Name"}}" class="form-control" name="user_id" data-attrib="user_id" />
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <button type="submit" class="btn btn-primary scf-resend-action" evt="click=resend">{{i18n "Resend Email"}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {{else}}
+                    <h3>{{i18n "Account Activation and Verification Status"}}</h3>
+                    {{#equals emailVerifyParam "true"}}
+                        <div class="alert alert-success scf-js-signup-success" role="alert">
+                            {{i18n "Email confirmation successful. Click "}}<a href="{{loginUrl}}" class="alert-link">{{i18n "here"}}</a>{{i18n " to login."}}
+                        </div>
+                        {{else}}
+                            <div class="alert alert-danger scf-js-signup-error" role="alert">
+                                {{i18n "Email confirmation failed. Click "}}<a href="{{resendUrl}}" class="alert-link">{{i18n "here"}}</a>{{i18n " to send another email confirmation."}}
+                            </div>
+                    {{/equals}}
+            {{/equals}}
+    {{/equals}}
+</div>

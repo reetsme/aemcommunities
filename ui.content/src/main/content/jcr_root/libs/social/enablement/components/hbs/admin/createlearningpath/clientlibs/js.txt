@@ -1,0 +1,3 @@
+createlearningpath.js
+fileupload.js
+addresourceswizard.js

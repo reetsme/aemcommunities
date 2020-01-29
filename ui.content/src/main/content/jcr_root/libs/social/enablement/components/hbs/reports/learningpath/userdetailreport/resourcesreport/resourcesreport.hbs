@@ -1,0 +1,91 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-learningpath-user-enrollment-table" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/learningpath/userdetailreport/resourcesreport">
+    <div class="scf-table-content scf-js-table-content">
+        <div class="scf-user-detail-report-title">
+            <h2 class="scf-js-completed-summary scf-summary-item">{{userName}} {{title}} {{i18n "Learning Path Report"}}</h2>
+            <div class="scf-js-completed-summary scf-summary-item">{{siteTitle}}: <span class="scf-js-title-date"></span></div>
+        </div>
+        <div class="scf-user-detail-report-summary">
+            <h3 class="scf-summary-item">{{i18n "Summary:"}}</h2>
+            <div class="scf-summary-item">{{i18n "Total Resources:"}} {{totalSize}}</div>
+            <div class="scf-summary-item">{{i18n "Completion Status:"}} {{i18n completionStatus}}</div>
+            <div class="scf-summary-item">{{i18n "Average Rating:"}} {{averageRating}}</div>
+            <div class="scf-summary-item">{{i18n "Total Comments:"}} {{totalComments}}</div>
+            <div class="scf-summary-item">{{i18n "Average Score:"}}
+                {{#equals "2" completionStatus}}
+                    {{averageScore}}
+                {{else}}
+                    {{i18n "N/A"}}
+                {{/equals}}
+            </div>
+        </div>
+        {{#if queryRequest}}
+            {{#if items}}
+                <table class="scf-table coral-Table" id="user-enrollment-table" width="100%">
+                    <thead>
+                        <tr class="coral-Table-row">
+                            <th class="coral-Table-headerCell">{{i18n "Resource Name"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Start Date"}}</th>
+                            <th class="dt-hide coral-Table-headerCell">{{i18n "Completion Date"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Completion Status"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Success Status"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Score"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Comments"}}</th>
+                            <th class="coral-Table-headerCell">{{i18n "Rating"}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each items}}
+                            <tr class="coral-Table-row">
+                                <td class="coral-Table-cell">{{title}}</td>
+                                <td class="coral-Table-cell">{{dateUtil startDate format=../localeDateFormat}}</td>
+                                <td class="coral-Table-cell">{{dateUtil completeDate format=../localeDateFormat}}</td>
+                                <td class="coral-Table-cell">
+                                    {{#if percentageStatus}}
+                                        <div class="coral-Progress">
+                                            <div class="coral-Progress-bar" title="{{i18n completionStatus}}">
+                                                <div class="coral-Progress-status" style="width: {{completionStatus}};"></div>
+                                            </div>
+                                            <label class="coral-Progress-label">
+                                                {{i18n completionStatus}}
+                                            </label>
+                                        </div>
+                                    {{else}}
+                                        {{i18n completionStatus}}
+                                    {{/if}}
+                                </td>
+                                <td class="coral-Table-cell">{{i18n successStatus}}</td>
+                                <td class="coral-Table-cell">{{score}}</td>
+                                <td class="coral-Table-cell">{{commentCount}}</td>
+                                <td class="coral-Table-cell">{{rating}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <h3 class="coral-Heading coral-Heading--3">{{i18n "No assignments."}}</h3>
+            {{/if}}
+            {{else}}
+            <coral-wait size="L" centered>
+            </coral-wait>
+                {{/if}}
+        </div>
+    </div>
+    {{includeClientLib categories="cq.social.author.enablement.hbs.reports.learningpath.userdetailreport.resourcesreport" }}

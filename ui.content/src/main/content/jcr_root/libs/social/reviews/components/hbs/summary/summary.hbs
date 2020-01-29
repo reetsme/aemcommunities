@@ -1,0 +1,53 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/reviews/components/hbs/summary">
+    <div class='scf-review-summary'>
+        <ul>
+            {{#each ratingAverages}}
+                <li>
+                    {{#if ../compositeRating}}{{@key}}{{/if}}
+                    <div class='scf-ratings-stars'>
+                        <div class='scf-ratings-bar-empty'>
+                            <div class='scf-ratings-bar scf-ratings-bar-full' data-rating-shown='{{#if this}}{{xss-htmlAttr this}}{{else}}0{{/if}}' title='{{this}} of 5 stars'>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+        <span class='scf-ratings-text'>Average of &nbsp;{{totalSize}} reviews: {{overallRating.averageRating}} stars</span>
+        {{#if includeHistogram}}
+            <div class='scf-review-histogram'>
+                <ol class='scf-review-result'>
+                    {{#each overallRating.ratingResults}}
+                        <li class='scf-review-result-item'>
+                            <div class='scf-review-bar'>
+                                <span class='scf-review-result-name'>{{this.[3]}} Star&nbsp;</span>
+                                <span class='scf-review-result-empty-bar'>
+                            <span class='scf-review-result-bar ' style='width: {{this.[2]}}%;'>&nbsp;</span>
+                                </span>
+                                <span class='scf-review-result-value'>&nbsp;{{this.[0]}}</span>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+            </div>
+        {{/if}}
+    </div>
+</div>

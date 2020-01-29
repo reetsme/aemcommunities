@@ -1,0 +1,39 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="forum section">
+    <div class="topic post parbase comment">
+        <table id="question-match-table">
+            <tr name="related-questions-row">
+                <td>
+                    <h3>Related Questions</h3>
+                    <hr/>
+                    <ul name="related-question-list" related-question-list-id="{{id}}">
+                        {{#each items}}
+                            <li class="matched-questions">
+                                <p class="subject">
+                                    <a href="{{friendlyUrl}}">{{subject}}</a>&nbsp;
+                                </p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

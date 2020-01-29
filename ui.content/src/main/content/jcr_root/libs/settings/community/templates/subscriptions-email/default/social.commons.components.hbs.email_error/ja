@@ -1,0 +1,7 @@
+﻿subject=[投稿の失敗の配信] {{{email-subject}}}
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+こんにちは、{{{email-author}}}さん正常に投稿されなかったものを以下に示します。\n \
+{{{email-message}}}\n\n \
+もう一度やり直すか、システム管理者にお問い合わせください。\n \

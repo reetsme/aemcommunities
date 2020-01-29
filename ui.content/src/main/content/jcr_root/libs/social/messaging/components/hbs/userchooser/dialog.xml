@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <common
+                    jcr:primaryType="cq:Widget"
+                    title="Basic"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <profilePath
+                            jcr:primaryType="cq:Widget"
+                            defaultValue=""
+                            fieldLabel="Profile Display Form"
+                            name="./profilePath"
+                            xtype="textfield"/>
+                        <userchooserName
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="false"
+                            defaultValue="receiverId"
+                            fieldLabel="Component Name"
+                            name="./userchooserName"
+                            xtype="textfield"/>
+                        <showUsers
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}true"
+                            defaultValue="{Boolean}true"
+                            fieldLabel="Show Users"
+                            name="./showUsers"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <showGroups
+                            jcr:primaryType="cq:Widget"
+                            checked="{Boolean}false"
+                            defaultValue="{Boolean}false"
+                            fieldLabel="Show Groups"
+                            name="./showGroups"
+                            type="checkbox"
+                            xtype="selection"/>
+                    </items>
+                </common>
+                <display
+                    jcr:primaryType="cq:Widget"
+                    title="Display"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <userchooserLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="To"
+                            fieldLabel="Label"
+                            name="./userchooserLabel"
+                            xtype="textfield"/>
+                    </items>
+                </display>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

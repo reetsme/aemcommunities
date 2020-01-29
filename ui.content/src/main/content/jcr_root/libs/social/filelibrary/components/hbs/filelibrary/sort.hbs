@@ -1,0 +1,56 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2017 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if configuration.sortByItemsList}}
+    <div class="btn-group scf-sort-btngrp">
+        <button class="btn btn-primary dropdown-toggle scf-sort-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="button_label" class="scf-sort-btngrp-btnlabel" data-sort-field="{{pageInfo.sortIndex}}">
+                {{i18n "Sort By"}}
+            </span>
+        <span class="caret"></span>
+    </button>
+        <ul class="scf-sort-list dropdown-menu" role="menu" aria-labelledby="sortDropdownMenu">
+            {{#each configuration.sortByItemsList}}
+                {{#equals this "latestActivityDate_dt"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="latestActivityDate_dt" data-sort-order="ASC">
+                            {{i18n "Oldest"}}
+                        </span>
+                    </li>
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="latestActivityDate_dt" data-sort-order="DESC">
+                            {{i18n "Last updated"}}
+                        </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "jcr_title"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="jcr:title" data-sort-order="ASC">
+                            {{i18n "File name (ascending)"}}
+                        </span>
+                    </li>
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="jcr:title" data-sort-order="DESC">
+                            {{i18n "File name (descending)"}}
+                        </span>
+                    </li>
+                {{/equals}}
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

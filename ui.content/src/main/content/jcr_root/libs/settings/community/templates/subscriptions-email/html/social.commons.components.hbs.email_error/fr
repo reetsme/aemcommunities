@@ -1,0 +1,18 @@
+﻿subject=[Échec de distribution du courrier électronique] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Échec de distribution du courrier électronique</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+Bonjour {{{email-author}}}. L’élément suivant n’a pas pu être ajouté le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<hr>\n \
+Réessayez ou contactez votre administrateur système pour obtenir de l’aide.\n \
+</div>\n \
+</body>\n \
+</html>\n \

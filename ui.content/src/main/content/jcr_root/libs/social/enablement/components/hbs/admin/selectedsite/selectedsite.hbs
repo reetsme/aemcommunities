@@ -1,0 +1,31 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-enablement-site-selector" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/admin/selectedsite">
+    <div class="coral-Form-fieldwrapper">
+        <label class="block block-text">{{i18n "Site Name"}}</label>
+        <span class="coral-Form-field block">{{site.properties.name}}</span>
+    </div>
+    <input type="hidden" name="site" value="{{site.properties.siteResourcesPath}}">
+
+    <div class="dataCommunityGroupId" data-groupid="{{communityGroupMembersId}}"> </div>
+    <div class="dataSiteId" data-siteid="{{site.properties.siteId}}"> </div>
+    <div class="dataSite" data-site=""> </div>
+    <div class="dataSiteAssetsPath" data-siteassetspath="{{site.properties.siteAssetsPath}}"></div>
+    <div class="dataSiteResourcesPath" data-siteresourcespath="{{id}}"></div>
+</div>

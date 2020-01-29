@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Manage Badge"
+        sling:resourceType="granite/ui/components/shell/page"
+        sling:vanityOrder="{Long}1400"
+        sling:vanityPath="/communities/badge-manage">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[granite.shared,coralui3,cq.social.console.hbs.imageupload,cq.social.author.badging.hbs.managebadge]"/>
+        </head>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <managebadge
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/gamification/components/hbs/managebadge"
+                    foundation-validation-ui="none"
+                    rel="cq-live-copy-from"
+                    selectionMode="single"/>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

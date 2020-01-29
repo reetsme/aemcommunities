@@ -1,0 +1,23 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Réponse à un événement de calendrier] {{{target.displayName}}} \
+{{else}}[Réponse à un événement de calendrier]{{/if}} \
+
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL : {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} a ajouté une nouvelle réponse {{#if this.target.properties.[jcr:title]}}à l’événement de calendrier « {{{target.displayName}}} »{{/if}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de calendrier « {{{target.displayName}}} »{{/if}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de calendrier « {{{target.displayName}}} »{{/if}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de calendrier « {{{target.displayName}}} »{{/if}}.\n\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Suivez ce lien pour afficher toutes les réponses à cet événement de calendrier ou modifier votre abonnement.\n \
+{{objectReferrer}}\n \

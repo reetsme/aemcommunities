@@ -1,0 +1,18 @@
+﻿subject=[Message privé] {{object.displayName}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{user.name}} vous a envoyé un message privé.</title>\n \
+</head>\n \
+<body>\n \
+<div>{{objectContent}}</div>\n \
+<div>\n \
+<hr>\n \
+{{user.name}} a envoyé ce message le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<hr>\n \
+<a href="{{targetUrl}}">Cliquez sur ce lien</a> pour afficher tous les messages ou modifier votre abonnement.\n \
+</div>\n \
+</body>\n \
+</html>\n \

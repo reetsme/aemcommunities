@@ -1,0 +1,84 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-learningpath-resource-table" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/learningpath/resourcereport/resourcestable">
+    {{#if queryRequest}}
+        <table class="scf-table coral-Table" id="learning-path-resource-table" width="100%">
+            <thead>
+                <tr class="coral-Table-row">
+                    <th class="coral-Table-headerCell">{{i18n "Resource Name"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Resource Alias"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Status"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Views"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Plays"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Average Rating"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Ratings"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Comments"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Format"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Size"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Asset"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Site"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Publish Date"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Enablement Manager"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "App Name"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Resource ID"}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                    <tr class="coral-Table-row">
+                        <td class="coral-Table-cell">{{title}}</td>
+                        <td class="coral-Table-cell">{{resourceId}}</td>
+                        <td class="coral-Table-cell">{{i18n publishStatus}}</td>
+                        <td class="coral-Table-cell">{{viewCount}}</td>
+                        <td class="coral-Table-cell">
+                            {{#equals resourceAssetType "image"}}
+                                {{i18n "N/A"}}
+    {{else}}
+        {{#equals resourceAssetType "location"}}
+            {{i18n "N/A"}}
+    {{else}}
+        {{playCount}}
+        {{/equals}}
+                            {{/equals}}
+                        </td>
+                        <td class="coral-Table-cell" data-order="{{averageRating}}">
+                            <div class="emptyStar" title="{{averageRating}}">
+                                <div class="ratingStar" style="width: {{ratingWidth}}%;"></div>
+                            </div>
+                        </td>
+                        <td class="coral-Table-cell">{{ratingCount}}</td>
+                        <td class="coral-Table-cell">{{commentCount}}</td>
+                        <td class="coral-Table-cell">{{resourceAssetType}}</td>
+                        <td class="coral-Table-cell">{{resourceAssetSize}}</td>
+                        <td class="coral-Table-cell">{{assetId}}</td>
+                        <td class="coral-Table-cell">{{siteId}}</td>
+                        <td class="coral-Table-cell">{{publishDate}}</td>
+                        <td class="coral-Table-cell">{{publisherName}}</td>
+                        <td class="coral-Table-cell">{{appName}}</td>
+                        <td class="coral-Table-cell">{{displayId}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <coral-wait size="L" centered>
+        </coral-wait>
+    {{/if}}
+</div>
+{{includeClientLib categories="cq.social.author.enablement.hbs.reports.learningpath.resourcestable" }}

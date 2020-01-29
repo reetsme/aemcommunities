@@ -1,0 +1,36 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="well well-sm scf-myassigned-toolbar" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/myassigned/toolbar">
+    <div class="row">
+        <div class="col-sm-8 scf-toolbar-row">
+            <input type="text" data-attrib="search-inp" class="scf-myassigned-search-inp scf-js-myassigned-search-inp form-control" placeholder="{{i18n "Search"}}..." evt="keyup=startSearching">
+        </div>
+        <div class="col-sm-2 scf-toolbar-row">
+            <button class="btn btn-default btn-block scf-myassigned-search-btn" type="button" evt="click=startSearching">{{i18n "Go"}}</button>
+        </div>
+        <div class="col-sm-2 scf-view-toggle-button btn-group btn-toggle scf-toolbar-row">
+            <button id="grid-view-button" class="btn btn-primary active" evt="click=toggleView">
+                <span class="glyphicon glyphicon-th"></span>
+            </button>
+            <button id="list-view-button" class="btn btn-default" evt="click=toggleView">
+                <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+        </div>
+    </div>
+</div>

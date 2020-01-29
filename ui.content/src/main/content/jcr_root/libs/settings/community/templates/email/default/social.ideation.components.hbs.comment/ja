@@ -1,0 +1,27 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[アイディエーションイベントの返信] {{{target.displayName}}} \
+{{else}}[アイディエーションイベントの返信]{{/if}} \
+
+message=\n \
+日付：{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL：{{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}}さんがイベント{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{/if}}に対する新しいアイディエーションイベントの返信を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}}さんがイベント{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{/if}}に対するアイディエーションイベントの返信を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}}さんがイベント{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{/if}}に対するアイディエーションイベントの返信を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}イベント「{{{target.displayName}}}」{{/if}}に対するアイディエーションイベントの返信を承認しました。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}}さんがイベント{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{/if}}に対するアイディエーションイベントの返信を閉じました。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}}さんがイベント{{#if this.target.properties.[jcr:title]}}「{{{target.displayName}}}」{{/if}}に対するアイディエーションイベントの返信を再度開きました。\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}アイディエーションイベントの状態が変更されました：「{{{this.object.properties.toState}}}」。\n{{/if}}\n \
+このアイディエーションイベントに対するすべての返信を表示したり、通知の基本設定を変更したりするには、このリンクをクリックしてください。\n \
+{{targetUrl}}\n \

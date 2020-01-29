@@ -1,0 +1,7 @@
+﻿subject=[Errore di pubblicazione] {{{email-subject}}}
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+Salve {{{email-author}}}. L'elemento seguente non è stato pubblicato correttamente:\n \
+{{{email-message}}}\n\n \
+Riprova o contatta l'amministratore di sistema per ulteriore assistenza.\n \

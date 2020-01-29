@@ -1,0 +1,50 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<script id="infoTemplate" type="text/x-handlebars-template">
+    <div class="diagnostics-alert diagnostics-alert-info">
+        <div class="diagnostics-type-indicator">[{{i18n "INFO"}}]</div>
+        <div class="diagnostics-message-area">
+            <div class="diagnostics-header-line">Confirmation: Please ensure that the all the publishers are listed below</div>
+            <div class="diagnostics-message-line">If the list is correct, please click on each link to *execute the diagnostics on the corresponding publish instance:</div>
+            <div>*Please ensure that you are already logged in as an administrator before clicking on the Publisher links</div>
+            {{! The step "step3Author" is critical for us to display links to the Publishers.  Essentially, Step1a ensure that there are publishers defined; however, we cannot generate links to the publishers until we know the defined user, which is obtained in "step3Author"}}
+            {{#if this.results.diagnostics.stepdata.step3Author.output.publishDiagLinks}}
+                <ul class="coral-List">
+                    {{#each this.results.diagnostics.stepdata.step3Author.output.publishDiagLinks}}
+                        <li class="coral-Item"><a target="_blank" href="{{xss-validHref this}}" class="coral-Link">{{xss-html this}}</a></li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+            <div class="diagnostics-message-line">If these are incorrect or missing, please refer to the documentation links and modify the existing, active configuration (below):</div>
+            <div class="diagnostics-message-line"><a target="_blank" href="http://www.adobe.com/go/aem6_4_docs_usersync_enable1_en" class="coral-Link">Apache Sling Distribution Agent - Sync Agents Factory</a></div>
+            <div class="diagnostics-message-line"><a target="_blank" href="http://www.adobe.com/go/aem6_4_docs_usersync_multpub0_en" class="coral-Link">Configure for Multiple Publish Instances</a></div>
+            <br/>{{! step1a is important here as it is what collects the endpoints.  If it succeeded, the rules dictate that there will be only one configuration }}
+            {{! We have to do a loop (even though we know we have ONE) because HBS doesn't support array index access [] }}
+            <div class="diagnostics-message-line">You can edit the existing OSGi configuration:</div>
+            <ul class="coral-List">
+                {{#each this.results.diagnostics.stepdata.step1a.configurations}}
+                    {{#if this.pid}}
+                        <li class="coral-Item"><a target="_blank" href="{{xss-validHref ../this.hostBaseURL}}/system/console/configMgr/{{xss-htmlAttr this.pid}}" class="coral-Link">{{xss-html this.pid}}</a></li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,35 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<tr class="scf-filelibrary-table-row-items" data-scf-template="item" data-component-id="{{id}}" data-scf-component="social/filelibrary/components/hbs/document" evt="click=onRowSelect">
+    <td class="scf-filelibrary-table-item" evt="dblclick=onDocumentRowDoubleClick,click=onDocumentRowClick"><span class="scf-icon-attachment"></span></td>
+    <td class="scf-filelibrary-table-item" evt="dblclick=onDocumentRowDoubleClick,click=onDocumentRowClick"><span>{{this.name}}<span></td>
+    <td class="scf-filelibrary-table-item" evt="dblclick=onDocumentRowDoubleClick,click=onDocumentRowClick"><span>{{{abbreviate this.message maxLength=75}}}<span></td>
+    <td class="scf-filelibrary-table-item scf-filelibrary-last-updated" evt="dblclick=onDocumentRowDoubleClick,click=onDocumentRowClick"><span>{{pretty-time this.properties.latestActivityDate_dt}}</span><a href="{{author.profileUrl}}"> {{i18n author.name}}</a></td>
+    {{#if configuration.isTaggingAllowed}}
+        /*ignore js-beautify start*/ /*ignore html-beautify start*/
+        <td class="scf-filelibrary-table-item scf-filelibrary-tags" title="{{#each this.tags}}{{#if @index}}, {{/if}}{{this.title}}{{/each}}" evt="click=onDocumentRowClick">
+            {{#each this.tags}}{{#if @index}}, {{/if}}{{this.title}}{{/each}}
+        </td>
+        /*ignore html-beautify end*/ /*ignore js-beautify start*/
+    {{/if}}
+    <td class="scf-filelibrary-table-item" evt="dblclick=onDocumentRowDoubleClick,click=onDocumentRowClick">
+        {{include this.rating template="display" bind=false}}
+    </td>
+</tr>

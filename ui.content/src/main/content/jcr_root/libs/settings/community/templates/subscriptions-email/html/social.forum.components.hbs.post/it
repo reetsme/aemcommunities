@@ -1,0 +1,37 @@
+﻿subject=[Post forum] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+Un nuovo argomento forum "{{{object.displayName}}}" è stato pubblicato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Un nuovo post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato aggiunto da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Il post forum nell'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato aggiornato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Il post forum è stato eliminato dall'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Il post forum sull'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato approvato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+Il post forum sull'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato chiuso da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+Il post forum sull'argomento {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} è stato riaperto da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectUrl}}">Fai clic su questo collegamento</a> per visualizzare tutti i post forum per questo argomento o modificare la sottoscrizione.\n \
+</div>\n \
+</body>\n \
+</html>\n \

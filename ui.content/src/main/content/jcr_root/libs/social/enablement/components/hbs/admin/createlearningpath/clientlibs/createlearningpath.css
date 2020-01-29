@@ -1,0 +1,413 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.collectionresourcesettings {
+    width: auto;
+}
+
+.collectionaddresources {
+    width: 47rem;
+}
+
+.collectionresourcesettings > iframe {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+.scf-wizardview-header {
+    display: -webkit-flex;
+    /* @polyfill Safari */
+    display: flex;
+    padding: 0 0.9375rem;
+    height: 4.125rem;
+    background-color: #FAFAFA;
+}
+
+.scf-wizard-title {
+    line-height: 4.125rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.scf-wizard-steplist {
+    -webkit-flex: 1;
+    flex: 1;
+    margin-top: 0.875rem;
+}
+
+.scf-wizard-controls {
+    margin-top: 0.875rem;
+}
+
+.scf-wizard-controls button,
+.scf-wizard-controls a {
+    margin-right: 0.625rem;
+}
+
+.wizard-step {
+    text-align: center;
+    width: 65rem;
+    margin: auto;
+}
+
+.rsc-label {
+    margin: 10px 0 0 20px;
+    padding-bottom: 10px;
+}
+
+.wizard-content-step {
+    width: 60rem;
+    margin: auto;
+}
+
+.content-create-heading {
+    font-weight: 200;
+    font-size: 1.3rem;
+}
+
+.collectionresourcesettings {
+    width: auto;
+}
+
+.position-left {
+    float: left;
+    width: 18rem;
+    height: 36rem;
+}
+
+.position-right {
+    float: right;
+    text-align: left;
+    width: 46rem;
+}
+
+.create-resource-content .foundation-wizard-step .coral-Form-field {
+    width: 35rem;
+}
+
+.coral-DatePicker .coral-Textfield {
+    width: 32.7rem;
+}
+
+.collectionresourcesettings .coral-Form-fieldwrapper {
+    margin-bottom: 2rem;
+    min-height: 2.375rem;
+}
+
+.collectionresourcesettings input {
+    font-size: 12px;
+}
+
+.collectionresourcesettings textarea {
+    height: 110px;
+    margin-bottom: 15px;
+}
+
+.collectionresourcesettings .block-text {
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.collectionresourcesettings .section-header {
+    font-weight: bold;
+    font-size: 18px;
+    color: #3B3B3B;
+}
+
+.collectionresourcesettings .bottom-margin {
+    margin-bottom: 25px;
+}
+
+.collectionresourcesettings .members {
+    display: none;
+}
+
+.grid-margin {
+    margin-left: 30px;
+}
+
+.actionbar-left-button {
+    margin-left: 8px;
+}
+
+textarea {
+    resize: none;
+}
+
+.collectionresourcesettings {
+    height: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
+.content-container .form-wizard-wrapper,
+.content-container .form-wizard {
+    height: 100%;
+}
+
+h1:not(:first-child) {
+    margin-top: 2.25rem;
+}
+
+.page .content .content-container {
+    overflow-y: hidden;
+}
+
+.page .content footer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 2rem);
+}
+
+.page .content {
+    overflow-x: hidden;
+}
+
+.coral-InputGroup-button:nth-of-type(1) > .coral-Button,
+.coral-InputGroup-button:nth-of-type(1) > .coral-ButtonGroup {
+    margin-right: 0;
+}
+
+.create-resource-content .add-user-add-groups .list {
+    border: 0;
+}
+
+.create-resource-content .add-user-add-groups .view-group span,
+.create-resource-content .add-user-add-groups .view-user span {
+    font-style: normal;
+    font-weight: 400;
+    color: #4B4B4B;
+}
+
+.create-resource-content .add-user-add-groups .view-group span:hover,
+.create-resource-content .add-user-add-groups .view-user span:hover {
+    cursor: text;
+}
+
+.coral-Modal-body {
+    width: auto;
+}
+
+.coral-Modal-header {
+    width: auto;
+}
+
+.create-resource-content .foundation-wizard-step {
+    padding: 1.43rem 0 0 0.9375rem;
+    text-align: center;
+    margin: 0;
+}
+
+.create-resource-content .zero-padding {
+    padding: 0;
+}
+
+.create-resource-content .grid {
+    padding: 0.9375rem;
+}
+
+.create-resource-cancel-btn {
+    display: none;
+}
+
+.coral-Form--vertical .coral-Form-fieldwrapper .coral-Form-fieldinfo,
+.coral-Form--vertical .coral-Form-fieldwrapper .coral-Form-fielderror {
+    right: 5px;
+}
+
+.coral-Modal {
+    max-width: 42rem;
+}
+
+.endor-Panel-content--actionBarHeight {
+    top: 0;
+}
+
+.searchable-list,
+.searchable-list > .searchable-list-popover,
+.searchable-list > .removable-item-list-container {
+    width: 24.6rem;
+}
+
+.removable-item-list-container {
+    max-height: 240px;
+    margin-top: 1.1rem;
+    border: 0;
+}
+
+.removable-item-list-container article {
+    border-top: 0;
+    border-bottom: 0.0625rem solid #BBBBBB;
+    border-left: 0.0625rem solid #BBBBBB;
+    border-right: 0.0625rem solid #BBBBBB;
+}
+
+.removable-item-list-container article:first-child {
+    border-top: 0.0625rem solid #BBBBBB;
+}
+
+.scf-enablement-site-selector .coral-Select {
+    width: 25rem;
+}
+
+.scf-enablement-site-selector .coral-Button--primary {
+    text-align: right;
+    margin-left: 1.25rem;
+}
+
+.collectionresourcesettings .u-italic {
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 2.5rem;
+}
+
+
+/* Upload Image */
+
+.newresourcecard {
+    padding: 0 20px 20px 25px;
+}
+
+.grid .newresourcecard article {
+    float: none;
+    width: -webkit-calc(100% - 0.09375rem);
+    width: -moz-calc(100% - 0.09375rem);
+    width: -o-calc(100% - 0.09375rem);
+    width: calc(100% - 0.09375rem);
+    -webkit-box-shadow: 0 0.09375rem 0.09375rem rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0.09375rem 0.09375rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.09375rem 0.09375rem rgba(0, 0, 0, 0.25);
+}
+
+.newresourcecard article .image .rsc-img {
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+}
+
+.newresourcecard article .image {
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+}
+
+.newresourcecard article .label {
+    padding-top: 10px;
+    background-color: white;
+}
+
+.newresourcecard article .meta-info .author-text {
+    display: inline-block;
+    line-height: 1.7px;
+}
+
+.newresourcecard article .meta-info .rsc-author {
+    display: inline-block;
+}
+
+.newresourcecard article .info > p {
+    font-weight: bold;
+}
+
+.newresourcecard article .info > p > span {
+    color: #333333;
+}
+
+.grid .ec-card .image {
+    border-bottom: 0;
+}
+
+.newresourcecard .err {
+    width: calc(100% - 3.6375rem);
+    margin: 0;
+}
+
+.rsc-label {
+    height: 16px;
+}
+
+.newresourcecard .thumbnail-action-wrapper {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.newresourcecard .recommended-size {
+    margin-top: 20px;
+    color: #888888;
+}
+
+.newresourcecard .rsc-add-thumb-btn,
+.newresourcecard .rsc-del-thumb-btn {
+    padding: 0.3rem;
+    height: 1.7rem;
+    min-width: 7.35rem;
+    width: 7.35rem;
+}
+
+.newresourcecard .rsc-add-thumb-btn label,
+.newresourcecard .rsc-del-thumb-btn label {
+    display: inline-block;
+    font-family: adobe-clean;
+    font-weight: 400;
+    margin-left: 0.25rem;
+    text-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.4);
+}
+
+.newresourcecard article .img-upload-wait-bar {
+    display: none;
+}
+
+.newresourcecard article.busy .img-upload-wait-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: black;
+    /*fallback color for browsers that don't know rgba() format*/
+    background-color: rgba(195, 195, 195, 0.25);
+}
+
+.newresourcecard article.busy .img-upload-wait-bar .coral-Wait {
+    margin-top: 50%;
+}
+
+.u-line {
+    border-bottom: 0.0625rem solid #e4e4e4;
+    margin-bottom: 10px;
+}
+
+coral-alert {
+    left: 35%;
+    top: 1rem;
+    width: 33%;
+    z-index: 99;
+    box-shadow: #3A3A3A 1px 1px 7px;
+}

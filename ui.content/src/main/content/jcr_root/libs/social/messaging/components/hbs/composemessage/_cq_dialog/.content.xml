@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Compose Message"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <common
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Basic"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <redirectURL
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="The URL on which one should be redirected after sending message."
+                                fieldLabel="Redirect URL"
+                                name="./redirectURL"/>
+                            <cancelURL
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="The URL to which you want to redirect if user clicks Cancel button."
+                                fieldLabel="Cancel URL"
+                                name="./cancelURL"/>
+                            <maximumSubjectLength
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                fieldDescription="The maximum number of characters that can be entered in the Subject field of the message."
+                                fieldLabel="Maximum length of Message Subject."
+                                name="./maximumSubjectLength"/>
+                            <maximumBodyLength
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                fieldDescription="The maximum number of characters that can be entered in the Body field of the message."
+                                fieldLabel="Maximum length of Message Body."
+                                name="./maximumBodyLength"/>
+                            <serviceSelector
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Identifier to be used to select an instance of messaging operation service."
+                                fieldLabel="Service selector"
+                                name="./serviceSelector"
+                                required="false"/>
+                        </items>
+                    </columns>
+                </items>
+            </common>
+            <display
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Display"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <subject
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}false"
+                                name="./showSubject"
+                                text="Show Subject Field"
+                                value="{Boolean}true"/>
+                            <subject-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showSubject@Delete"
+                                value="{Boolean}true"/>
+                            <subjectLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Subject Label"
+                                name="./subjectLabel"/>
+                            <attachFile
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}false"
+                                name="./showAttachFile"
+                                text="Show Attach File Field"
+                                value="{Boolean}true"/>
+                            <attachfile-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showAttachFile@Delete"
+                                value="{Boolean}true"/>
+                            <attachFileLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Attach File Label"
+                                name="./attachFileLabel"/>
+                            <content
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}false"
+                                name="./showContent"
+                                text="Show Content Field"
+                                value="{Boolean}true"/>
+                            <content-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showContent@Delete"
+                                value="{Boolean}true"/>
+                            <contentLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Content Label"
+                                name="./contentLabel"/>
+                            <withRTE
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Using with Rich Text Editor?"
+                                name="./withRTE"
+                                text="With Rich Text Editor"
+                                value="{Boolean}true"/>
+                            <withrte-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./withRTE@Delete"
+                                value="{Boolean}true"/>
+                            <dateformatpatterns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                fieldDescription="Specify date format to be displayed on messages in the format locale=timestamp Eg. en=MM-dd-yyyy HH:mm:ss"
+                                fieldLabel="Timestamp patterns">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                    name="./dateFormatPatterns"/>
+                            </dateformatpatterns>
+                        </items>
+                    </columns>
+                </items>
+            </display>
+        </items>
+    </content>
+</jcr:root>

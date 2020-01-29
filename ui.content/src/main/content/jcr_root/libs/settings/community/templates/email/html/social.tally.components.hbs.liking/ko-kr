@@ -1,0 +1,15 @@
+subject=[좋아요] {{target.properties.eventTopic}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{target.properties.eventTopic}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+"{{target.properties.eventTopic}}"에 새 좋아요를 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 추가했습니다.\n \
+모든 투표를 보거나 알림 환경 설정을 수정하려면 <br><a href="{{targetUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

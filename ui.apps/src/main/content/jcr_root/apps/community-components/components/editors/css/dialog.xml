@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        title="CSS"
+        xtype="tabpanel">
+        <items
+            jcr:primaryType="cq:Panel"
+            border="false"
+            height=""
+            title="CSS"
+            width=""
+            xtype="panel">
+            <items
+                jcr:primaryType="nt:unstructured"
+                fieldDescription="Click the '+' to add a new client lib"
+                fieldLabel="CSS Libs"
+                name="./scg:targets"
+                xtype="multifield">
+                <fieldConfig
+                    jcr:primaryType="cq:Widget"
+                    predicate="hierarchy"
+                    rootPath="/"
+                    width="155"
+                    xtype="pathfield"/>
+            </items>
+        </items>
+    </items>
+</jcr:root>

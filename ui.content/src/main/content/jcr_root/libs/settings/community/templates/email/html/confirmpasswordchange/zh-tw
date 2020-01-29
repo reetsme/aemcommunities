@@ -1,0 +1,16 @@
+subject=密碼已更新
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>更新密碼請求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好</p>\n \
+<p>您的密碼已在 {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} 變更 </p>\n \
+<p>若是您本人進行了這項變更，請放心忽略這封電子郵件。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

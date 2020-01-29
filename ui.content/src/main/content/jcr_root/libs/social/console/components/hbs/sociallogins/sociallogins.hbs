@@ -1,0 +1,63 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/sociallogins">
+    <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+        <coral-checkbox data-param="allowFacebook"
+                        class="scf-js-fix-checks scf-fix-checks scf-js-console-allowfacebook"
+                        name="allowFacebook" value="false">
+            {{i18n "Allow Social Logins: Facebook"}}
+        </coral-checkbox>
+    </div>
+    <div class="coral-Form-fieldwrapper scf-console-facebook-div" style="display:none;">
+        <label class="coral-Form-fieldlabel">{{i18n "Facebook Connect Configurations"}}</label>
+        <div class="scf-js-social-console-facebook-connect">
+            {{#with socialLoginConnectConfigs.facebookConnectConfigs}}
+                <span class="coral-Select scf-js-social-console-facebook-connect-select" data-init="select">
+
+                    <coral-select name="fbconnectoauthid" class="scf-js-cq-social-blueprints-select">
+                        {{#each this}}
+                            <coral-select-item value="{{id}}">{{name}}</coral-select-item>
+                        {{/each}}
+                    </coral-select>
+                </span>
+            {{/with}}
+        </div>
+    </div>
+    <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+        <coral-checkbox data-param="allowTwitter"
+                        class="scf-js-fix-checks scf-fix-checks scf-js-console-allowtwitter"
+                        name="allowTwitter" value="false">
+            {{i18n "Allow Social Logins: Twitter"}}
+        </coral-checkbox>
+    </div>
+    <div class="coral-Form-fieldwrapper scf-console-twitter-div" style="display:none;">
+        <label class="coral-Form-fieldlabel">{{i18n "Twitter Connect Configurations"}}</label>
+        <div class="scf-js-social-console-twitter-connect">
+            {{#with socialLoginConnectConfigs.twitterConnectConfigs}}
+                <span class="coral-Select scf-js-social-console-twitter-connect-select" data-init="select">
+                    <coral-select name="twitterconnectoauthid" class="scf-js-cq-social-blueprints-select">
+                        {{#each this}}
+                            <coral-select-item value="{{id}}">{{name}}</coral-select-item>
+                        {{/each}}
+                    </coral-select>
+                </span>
+            {{/with}}
+        </div>
+    </div>
+</div>

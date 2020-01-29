@@ -1,0 +1,111 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-webchannel scf-channel-settings">
+    <div>
+        <b>{{i18n "Activity that involves content you created"}}:</b>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Votes"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.usercontents.votes-true" data-id="notificationCategorySettings.web.usercontents.votes" type="radio"  name="web-votes" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.usercontents.votes}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.usercontents.votes-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.usercontents.votes-false" data-id="notificationCategorySettings.web.usercontents.votes" type="radio"  name="web-votes" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.usercontents.votes}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.usercontents.votes-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Replies/Comments"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.usercontents.comments-true" data-id="notificationCategorySettings.web.usercontents.comments" type="radio" name="web-comments" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.usercontents.comments}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.usercontents.comments-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.usercontents.comments-false" data-id="notificationCategorySettings.web.usercontents.comments" type="radio" name="web-comments" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.usercontents.comments}} checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.usercontents.comments-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Activity that involves content you're following"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.followcontents.enable-true" data-id="notificationCategorySettings.web.followcontents.enable" type="radio" name="web-followcontents" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.followcontents.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.followcontents.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.followcontents.enable-false" data-id="notificationCategorySettings.web.followcontents.enable" type="radio" name="web-followcontents" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.followcontents.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.followcontents.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Activity that involves people you're following"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.followusers.enable-true" data-id="notificationCategorySettings.web.followusers.enable" type="radio" name="web-followusers" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.followusers.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.followusers.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.followusers.enable-false" data-id="notificationCategorySettings.web.followusers.enable" type="radio" name="web-followusers" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.followusers.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.followusers.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Community Resource assigned to you"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.resourceassignments.enable-true" data-id="notificationCategorySettings.web.resourceassignments.enable" type="radio" name="web-resourceassignments" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.resourceassignments.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.resourceassignments.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.resourceassignments.enable-false" data-id="notificationCategorySettings.web.resourceassignments.enable" type="radio" name="web-resourceassignments" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.resourceassignments.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.resourceassignments.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <b>{{i18n "Activity from the community that involves you"}}:</b>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Private Messages"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.web.privatemessaging.enable-true" data-id="notificationCategorySettings.web.privatemessaging.enable" type="radio"  name="web-privatemessaging" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.web.privatemessaging.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.web.privatemessaging.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.web.privatemessaging.enable-false" data-id="notificationCategorySettings.web.privatemessaging.enable" type="radio"  name="web-privatemessaging" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.web.privatemessaging.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.web.privatemessaging.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <div class="scf-line-break"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-right">
+                <button type="button" class="btn btn-primary" evt="click=updatePrefs" role="button">{{i18n "Save"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

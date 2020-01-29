@@ -1,0 +1,19 @@
+﻿subject=[Carpeta de biblioteca de archivos] {{{object.displayName}}}
+
+message=\n \
+Fecha: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+    {{{user.name}}} ha publicado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    {{{user.name}}} ha añadido la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{{user.name}}} ha actualizado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}} ha eliminado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+Siga este vínculo para ver todos los eventos de biblioteca de archivos o modificar las preferencias de notificación.\n \
+{{objectUrl}}\n \

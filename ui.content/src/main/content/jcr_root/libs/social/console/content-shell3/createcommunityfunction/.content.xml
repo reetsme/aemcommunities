@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Sites"
+        sling:resourceType="granite/ui/components/shell/page"
+        sling:vanityOrder="{Long}1300"
+        sling:vanityPath="/communities/createcommunityfunction">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[granite.shared,coralui3,granite.ui.coral.foundation,granite.ui.coral.foundation.admin,social.console.blueprintpicker,cq.social.console.hbs.themes,cq.social.console.hbs.imageupload,cq.social.console.hbs.sitetags,cq.social.console.hbs.cssupload,cq.social.console.hbs.createcommunityfunction]"/>
+        </head>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <createcommunityfunction
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/console/components/hbs/createcommunityfunction"
+                    foundation-mode-group="cq-social-console-preview"
+                    foundation-validation-ui="none"
+                    rel="cq-live-copy-from"
+                    selectionMode="single"/>
+            </items>
+        </content>
+    </jcr:content>
+    <blueprint
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+        emptyText="Select"
+        fieldDescription="Select Community Site Template"
+        fieldLabel="Select Community Site Template"
+        multiple="{Boolean}false"
+        name="blueprintPath"
+        path="/content/communities/templates"
+        translateOptions="{Boolean}[true]">
+        <datasource
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/datasources/fetchblueprints"/>
+    </blueprint>
+</jcr:root>

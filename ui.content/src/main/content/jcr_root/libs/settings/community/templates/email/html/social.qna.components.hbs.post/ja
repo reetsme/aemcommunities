@@ -1,0 +1,25 @@
+﻿subject=[回答]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "add"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}質問「{{{target.displayName}}}」{{/if}}に対する新しい回答を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}質問「{{{target.displayName}}}」{{/if}}に対する回答を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}質問「{{{target.displayName}}}」{{/if}}に対する回答を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが{{#if this.target.properties.[jcr:title]}}質問「{{{target.displayName}}}」{{/if}}に対する回答を承認しました。\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">このリンクをクリック</a>すると、この質問に対するすべての回答を表示したり、通知の基本設定を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

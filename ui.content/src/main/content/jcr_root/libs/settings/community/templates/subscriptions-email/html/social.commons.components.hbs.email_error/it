@@ -1,0 +1,18 @@
+﻿subject=[Errore di recapito e-mail] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Errore di recapito e-mail</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+Salve {{{email-author}}}. L'elemento seguente non è stato aggiunto correttamente in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<hr>\n \
+Riprova o contatta l'amministratore di sistema per ulteriore assistenza.\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,169 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div id="scf-filelibrary-list" class="scf scf-forum" data-component-id="{{id}}" data-scf-component="social/filelibrary/components/hbs/filelibrary">
+
+    <!-- eo page container -->
+
+    <div class="scf-fl-page-conatiner">
+
+        <!-- nav -->
+        {{#if loggedInUser.loggedIn}}
+            <div class="scf-action-container">
+                <div class="dropdown scf-action-item">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        {{i18n "Create New"}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" evt="click=openModalCreateFolder">{{i18n "New Folder"}}</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" evt="click=openModalAddDocument">{{i18n "Add file"}}</a></li>
+                    </ul>
+                </div>
+                {{#if canPaste}}
+                    <div class="btn-group scf-action-item scf-forum-paste-grp">
+                        <button class="btn btn-default scf-paste-btn" evt="click=paste">{{i18n "Paste"}}({{pasteCount}})</button>
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">{{i18n "Toggle clipboard options"}}</span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" evt="click=clearClipboard">{{i18n "Clear Clipboard"}}</a></li>
+                        </ul>
+                    </div>
+                {{/if}}
+                {{#if configuration.followingAllowed}}
+                    <div class="scf-action-item scf-filelibrary-following-block">
+                        {{include this.id path="subscriptions" resourceType='social/subscriptions/components/hbs/subscriptions'}}
+                    </div>
+                {{/if}}
+                {{include this template="sort"}}
+                <div class="scf-clear-both"></div>
+            </div>
+        {{/if}}
+        <!-- eo nav -->
+
+        <!-- dd -->
+
+        {{#if loggedInUser.loggedIn}}
+            <div id="scf-filelibrary-dragtarget" class="scf-fl-dragtarget" evt="dragenter=onDragEnter,dragover=onDragOver,drop=onDrop,dragleave=onDragLeave">
+                {{i18n "Drag and Drop to upload"}}
+            </div>
+        {{/if}}
+
+        <!-- progress bar -->
+        <div id="scf-fileupload-progress" style="height:20px;">
+            <span id="scf-upload-progress-text"></span>
+        </div>
+        <div id="scf-upload-progress-bar-container" class="progress scf-filelibrary-actions-toolbars-hidden">
+            <div class="progress-bar progress-bar-striped active" id="scf-upload-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        <!-- eo progress bar -->
+        <!-- eo dd -->
+
+        <!-- filelist -->
+        <div>
+
+            <div id="scf-filelibrary-actions-toolbars-container" class="scf-filelibrary-actions-toolbars-hidden">
+                <div class="panel-heading">
+                    <button class="btn btn-default">&nbsp;</button>
+                </div>
+            </div>
+
+            <table class="table scf-filelibrary-table">
+                <thead>
+                    <tr>
+                        <th>{{i18n "File Type"}}</th>
+                        <th>{{i18n "Name"}}</th>
+                        <th>{{i18n "Description"}}</th>
+                        <th>{{i18n "Last Updated"}}</th>
+                        {{#if this.configuration.isTaggingAllowed}}
+                            <th>{{i18n "Tags"}}</th>
+                        {{/if}}
+                        <th>{{i18n "Rating"}}</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+
+                    {{#each items}}
+                        {{#if this.isVisible}}
+
+                            {{#if this.folder}}
+                                {{ include this resourceType="social/filelibrary/components/hbs/folder" template="item" authoringDisabled="true" }}
+
+                            {{else}}
+                                {{ include this resourceType="social/filelibrary/components/hbs/document" template="item" authoringDisabled="true" }}
+                            {{/if}}
+
+                        {{/if}}
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+        <!-- eo filist -->
+
+        <!-- pagination -->
+        {{include this resourceType="social/commons/components/hbs/pages"}}
+        <!-- eo pagination -->
+
+    </div>
+
+    <!-- eo page container -->
+
+    <!-- scf modal create folder -->
+    <div class="scf-filelibrary-modal-container" id="scf-filelibrary-modal-new-folder">
+
+        <div>
+            <p>{{i18n "New Folder Name"}}</p>
+            <input type="text" class="scf-input scf-filelibrary-item-name" id="scf-folder-create">
+            <span class="scf-filelibrary-spacer"></span>
+            <p>{{i18n "New Folder Description"}}</p>
+            <textarea id="scf-folder-edit-message" class="scf-filelibrary-item-description"></textarea>
+
+        </div>
+        <span class="scf-filelibrary-spacer"></span>
+        <div>
+            <button type="button" class="btn btn-default" evt="click=createFolderCancel">{{i18n "Close"}}</button>
+            <button type="button" class="btn btn-primary" evt="click=createFolder">{{i18n "OK"}}</button>
+        </div>
+
+    </div>
+    <!-- eo scf modal create folder -->
+
+    <!-- scf modal add document -->
+    <div class="scf-filelibrary-modal-container" id="scf-filelibrary-modal-new-document">
+        <div>
+            <input class="btn btn-default scf-filelibrary-item-name" type="file" id="scf-file-upload-form-fileupload">
+            <span class="scf-filelibrary-spacer"></span>
+            <p>{{i18n "Document Description"}}</p>
+            <textarea id="scf-document-create-message" class="scf-filelibrary-item-description"></textarea>
+        </div>
+        <span class="scf-filelibrary-spacer"></span>
+        <div>
+            <button type="button" class="btn btn-default" evt="click=addDocumentCancel">{{i18n "Close"}}</button>
+            <button type="button" class="btn btn-primary" evt="click=addDocument">{{i18n "OK"}}</button>
+        </div>
+
+    </div>
+    <!-- eo scf modal add document -->
+    <div class="scf-filelibrary-modal-container-delete"></div>
+
+</div>

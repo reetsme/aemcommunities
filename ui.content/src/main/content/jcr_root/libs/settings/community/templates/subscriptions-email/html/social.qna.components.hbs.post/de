@@ -1,0 +1,28 @@
+﻿subject=[Antwort]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "add"}}\
+Eine neue Antwort {{#if this.target.properties.[jcr:title]}}auf die Frage „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Die Antwort {{#if this.target.properties.[jcr:title]}}auf die Frage „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Die Antwort {{#if this.target.properties.[jcr:title]}}auf die Frage „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Die Antwort {{#if this.target.properties.[jcr:title]}}auf die Frage „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Antworten auf diese Frage oder zum Ändern Ihres Abonnements.\n \
+</div>\n \
+</body>\n \
+</html>\n \

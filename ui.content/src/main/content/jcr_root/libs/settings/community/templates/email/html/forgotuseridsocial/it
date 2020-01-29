@@ -1,0 +1,15 @@
+﻿subject=Richiesta del nome utente
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Richiesta del nome utente</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Salve {{{givenName}}},</p>\n \
+<p>hai configurato l'account tramite {{{social}}}. Per accedere al sito, utilizza i dati di accesso del tuo account {{{social}}}.</p>
+</div>\n \
+</body>\n \
+</html>\n \

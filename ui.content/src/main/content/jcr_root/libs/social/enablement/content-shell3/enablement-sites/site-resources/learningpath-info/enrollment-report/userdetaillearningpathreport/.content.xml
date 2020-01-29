@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Assignee Report"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/learningpath/assignee-report"
+        consoleId="cq-communities-resources"
+        parentSuffix="{Boolean}true"
+        targetCollection=".scf-report-learningpath-user-enrollment-table">
+        <head jcr:primaryType="nt:unstructured">
+            <includeclientlib
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[social-enablement-core,cq.social.reporting.hbs.reporting]"/>
+        </head>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <primary jcr:primaryType="nt:unstructured">
+                <download
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/mnt/overlay/social/enablement/content-shell3/enablement-sites/site-resources/learningpath-info/enrollment-report/userdetaillearningpathreport/jcr:content/views/content/items/report.csv#{requestPathInfo.suffix}?user=#{param[&quot;user&quot;]}&amp;filter=true"
+                    icon="download"
+                    text="Download Learning Path User Detail Report as CSV"
+                    variant="primary"/>
+            </primary>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/inforeportbreadcrumbs"
+            path="/libs/social/enablement/content-shell3/enablement-sites/site-resources/learningpath-info/enrollment-report/userdetaillearningpathreport"
+            rootPath="/libs/social/enablement/content-shell3/enablement-sites"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <report
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/learningpath/userdetailreport/resourcesreport"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

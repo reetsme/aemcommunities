@@ -1,0 +1,32 @@
+subject=[블로그 항목] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    새 블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 게시했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 업데이트했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 삭제했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 승인했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+    블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 닫았습니다.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+    블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 다시 열었습니다.\n \
+{{/equals}}\
+<br>모든 블로그 항목을 보거나 알림 환경 설정을 수정하려면 <a href="{{targetUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

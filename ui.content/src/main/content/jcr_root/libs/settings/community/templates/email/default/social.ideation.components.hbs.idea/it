@@ -1,0 +1,28 @@
+﻿subject=[Evento ideazione] {{{object.displayName}}}
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   Un nuovo evento ideazione è stato pubblicato da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   Un nuovo evento ideazione è stato aggiunto da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   Un evento ideazione è stato aggiornato da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Un evento ideazione è stato eliminato da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    Un evento ideazione è stato approvato da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+    Un evento ideazione è stato chiuso da {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+    Un evento ideazione è stato riaperto da {{{user.name}}}.\n\n \
+{{/equals}}\
+Segui questo collegamento per visualizzare tutti gli eventi ideazione o modificare le preferenze di notifica.\n \
+{{targetUrl}}\n \

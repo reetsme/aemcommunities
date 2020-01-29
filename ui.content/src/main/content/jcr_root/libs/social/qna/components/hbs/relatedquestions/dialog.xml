@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Related Question Search"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Panel"
+            title="Settings">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <termFreq
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldLabel="Term Frequency"
+                    name="./termFrequency"
+                    predicate="system"
+                    regex="/^[0-9]*$/"
+                    showTitlesInTree="false"
+                    validateOnBlur="true"
+                    xtype="numberfield"/>
+                <docFreq
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldLabel="Document Frequency"
+                    name="./documentFrequency"
+                    predicate="system"
+                    regex="/^[0-9]*$/"
+                    showTitlesInTree="false"
+                    validateOnBlur="true"
+                    xtype="numberfield"/>
+            </items>
+        </settings>
+    </items>
+</jcr:root>

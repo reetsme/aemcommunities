@@ -1,0 +1,18 @@
+subject=[電子郵件遞送失敗] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>電子郵件遞送失敗</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{{email-author}}} 您好，下列項目未於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 成功張貼。\n \
+<hr>\n \
+請重試或連絡您的系統管理員以取得進一步協助。\n \
+</div>\n \
+</body>\n \
+</html>\n \

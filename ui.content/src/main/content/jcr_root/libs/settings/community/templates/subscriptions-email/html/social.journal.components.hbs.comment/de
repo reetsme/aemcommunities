@@ -1,0 +1,30 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Blog-Kommentar] {{{target.displayName}}}{{else}}[Blog-Kommentar]{{/if}} \
+
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "add"}}\
+   Ein neuer Blog-Kommentar {{#if this.target.properties.[jcr:title]}}zum Artikel „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   Der Blog-Kommentar {{#if this.target.properties.[jcr:title]}}zum Artikel „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   Der Blog-Kommentar {{#if this.target.properties.[jcr:title]}}zum Artikel „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   Der Blog-Kommentar {{#if this.target.properties.[jcr:title]}}zum Artikel „{{{target.displayName}}}“ {{/if}}wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Blog-Kommentare zu diesem Artikel oder zum Ändern Ihres Abonnements.\n \
+</div>\n \
+</body>\n \
+</html>\n \

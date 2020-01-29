@@ -1,0 +1,15 @@
+subject=用户名请求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>用户名请求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好！</p>\n \
+<p>您的用户名是 {{{userId}}}</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

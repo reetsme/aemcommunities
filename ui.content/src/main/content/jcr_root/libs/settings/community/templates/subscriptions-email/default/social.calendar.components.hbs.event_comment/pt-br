@@ -1,0 +1,23 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Calendar Event Reply] {{{target.displayName}}} \
+{{else}}[Calendar Event Reply]{{/if}} \
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+Uma nova resposta de evento de calendário {{#if this.target.properties.[jcr:title]}}foi adicionada ao evento “{{{target.displayName}}}” {{/if}}por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Uma nova resposta de evento de calendário {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi atualizada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Uma nova resposta de evento de calendário {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi excluída por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Uma nova resposta de evento de calendário {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi aprovada por {{{user.name}}}.\n\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Acesse este link para visualizar todas as respostas a este evento de calendário ou para modificar sua assinatura.\n \
+{{objectReferrer}}\n \

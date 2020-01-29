@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Widget"
+    fieldLabel="Render with"
+    name="./renderOption"
+    selectionchanged="function(field,value){&#xa;&#x9;var panel = field.findParentByType('tabpanel');&#xa;&#x9;var formurl = panel.find('name','./formurl')[0];&#xa;&#x9;var selector = panel.find('name','./selector')[0];&#xa;&#x9;if (value=='component') {&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.show();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;panel.doLayout();&#xa;&#x9;} else if(value=='form'){&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.show();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;panel.doLayout();&#xa;&#x9;} else {&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;&#xa;&#x9;}&#xa;}&#xa;"
+    type="select"
+    xtype="selection">
+    <options jcr:primaryType="cq:WidgetCollection">
+        <empty
+            jcr:primaryType="nt:unstructured"
+            text="(default)   "
+            value="default"/>
+        <component
+            jcr:primaryType="nt:unstructured"
+            text="Component"
+            value="component"/>
+        <form
+            jcr:primaryType="nt:unstructured"
+            text="Form"
+            value="form"/>
+    </options>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        selectionchanged="function(field,value){&#xa;&#x9;var panel = field.findParentByType('tabpanel');&#xa;&#x9;var formurl = panel.find('name','./formurl')[0];&#xa;&#x9;var selector = panel.find('name','./selector')[0];&#xa;&#x9;if (value=='component') {&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.show();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;panel.doLayout();&#xa;&#x9;} else if(value=='form'){&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.show();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;panel.doLayout();&#xa;&#x9;} else {&#xa;&#x9;&#x9;if(formurl){&#xa;&#x9;&#x9;&#x9;formurl.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;if(selector){&#xa;&#x9;&#x9;&#x9;selector.hide();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;&#xa;&#x9;}&#xa;}&#xa;"/>
+</jcr:root>

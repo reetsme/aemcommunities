@@ -1,0 +1,22 @@
+﻿subject=[File Library Document] {{{target.displayName}}}
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{targetUrl}}\n\n \
+{{#equals this.verb "attach"}}\
+    Um novo documento da biblioteca de arquivos “{{{object.displayName}}}” foi anexado por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "post"}}\
+    Um novo documento da biblioteca de arquivos “{{{object.displayName}}}” foi publicado por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    Um novo documento da biblioteca de arquivos “{{{object.displayName}}}” foi adicionado por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    Um novo documento da biblioteca de arquivos “{{{object.displayName}}}” foi atualizado por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Um novo documento da biblioteca de arquivos “{{{object.displayName}}}” foi excluído por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+Acesse este link para visualizar todos os eventos da biblioteca de arquivos ou para modificar suas preferências de notificação.\n \
+{{targetUrl}}\n \

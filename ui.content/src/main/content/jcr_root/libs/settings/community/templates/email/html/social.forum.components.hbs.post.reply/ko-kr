@@ -1,0 +1,29 @@
+subject=[포럼 게시물] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    "{{{target.displayName}}}"에 대한 새 포럼 게시물 답글을 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 게시했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    "{{{target.displayName}}}"에 대한 새 포럼 게시물 답글을 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 추가했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    "{{{target.displayName}}}"에 대한 새 포럼 게시물 답글을 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 업데이트했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    "{{{target.displayName}}}"에 대한 새 포럼 게시물 답글을 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 삭제했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    "{{{target.displayName}}}"에 대한 새 포럼 게시물 답글을 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 승인했습니다.\n \
+{{/equals}}\
+<br>이 주제에 대한 모든 포럼 게시물을 보거나 알림 환경 설정을 수정하려면 <a href="{{objectUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

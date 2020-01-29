@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Forum Settings"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <settings
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/social/ideation/components/hbs/ideation/tab_settings.infinity.json"
+                    xtype="cqinclude"/>
+                <userMod
+                    jcr:primaryType="cq:Panel"
+                    title="User Moderation">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <allowDenyComments
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldDescription="Allow publish-side moderators to deny posts"
+                            fieldLabel="Deny Posts"
+                            name="./allowDenyComments"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <allowCloseComments
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldDescription="Allow publish-side moderators to close and reopen topics"
+                            fieldLabel="Close / Reopen Topics"
+                            name="./allowCloseComments"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <allowUserFlagging
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldDescription="Allow users to flag posts as inappropriate"
+                            fieldLabel="Flag Posts"
+                            name="./allowFlagComments"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <useFlagReasonList
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldDescription="Allow users to choose a flagging reason from a list"
+                            fieldLabel="Flag Reason List"
+                            name="./useFlagReasonList"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <useFlagReasonFreeformText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldDescription="Allow users to enter a custom flag reason"
+                            fieldLabel="Custom Flag Reason"
+                            name="./allowCustomFlagReason"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <flagModerateThreshold
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}1"
+                            fieldDescription="Number of times a post is flagged by users before moderators are notified.  Default: 1."
+                            fieldLabel="Moderation Threshold"
+                            name="./flagModerateThreshold"
+                            xtype="numberfield"/>
+                        <flagViewThreshold
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}5"
+                            fieldDescription="Number of times a post is flagged but before it is hidden from public view (value must be at least as large as the Moderation Threshold).  Default: 5."
+                            fieldLabel="Flagging Limit"
+                            name="./flagViewThreshold"
+                            xtype="numberfield"/>
+                    </items>
+                </userMod>
+                <tagfieldTab
+                    jcr:primaryType="nt:unstructured"
+                    title="Tag field"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <tagfilter
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Leave empty to allow all namespaces."
+                            fieldLabel="Allowed Namespaces"
+                            name="./taggingFilter"
+                            optionsProvider="     function() {      try {       var tags = CQ.Util.eval(CQ.HTTP.get(&quot;/content/cq:tags.tags.json?count=false&quot;));       var opts = [];       for (var name in tags) {        var ns = tags[name];        for(var val in ns) {         if (ns[val].title) {          opts.push({value: ns[val].path, text: ns[val].title});         }        }       }       opts.sort(function (l1, l2) {if (l1.text &lt; l2.text) {return -1;} else if (l1.text == l2.text) {return 0;} else {return 1;}});       opts.push({value: '/content/cq:tags', text: 'Include All Tags'});       return opts;      } catch (e) {       CQ.Log.error(&quot;Loading Tag Namespaces Failed: &quot; + e.message);      }     return [];    }"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <tagFilterLimit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}0"
+                            fieldDescription="Number of suggested tags that should be displayed.  Default: -1, no limits."
+                            fieldLabel="Suggestion Limit"
+                            name="./tagFilterLimit"
+                            xtype="numberfield"/>
+                    </items>
+                </tagfieldTab>
+                <sort
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/social/forum/components/hbs/forum/tab_sort.infinity.json"
+                    xtype="cqinclude"/>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

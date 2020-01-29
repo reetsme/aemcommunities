@@ -1,0 +1,388 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{includeClientLib js="cq.social.bootstrap.3" }}
+    <div class="scf scf-user-profile" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/userprofile">
+        {{#if displayName}}
+            <div class="scf-user-info-card">
+                <div class="scf-user-avatar-left scf-profile-header">
+                    <img class="scf-profile-avatar" src="{{largeAvatarUrl}}" />
+                    {{#if mayEdit}}
+                        <span class="glyphicon glyphicon-camera scf-overlay-top-right" evt='click=showAvatarBox'></span>
+                        <!-- Modal Dialog - Avatar -->
+                        <div class="scf-js-avatar-box" style='display: none'>
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form role="form" method="POST" action="/content.social.json" enctype="multipart/form-data">
+                                        <input type="hidden" name=":operation" value="social:changeAvatar" />
+                                        <input type="hidden" name="_charset_" value="utf-8">
+                                        <div class="row scf-form-row" id="canvas-row">
+                                            <div class="col-sm-4" id="divImagePreview">
+                                                <div><canvas id="imgUploadPreview1" class="scf-upload-avatar"></canvas></div>
+                                                <input type="radio" value="Crop a" name="cropOption"> {{i18n "Crop a"}}
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div><canvas id="imgUploadPreview2" class="scf-upload-avatar" }></canvas></div>
+                                                <input type="radio" value="Crop b" name="cropOption"> {{i18n "Crop b"}}
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div><canvas id="imgUploadPreview3" class="scf-upload-avatar"></canvas></div>
+                                                <input type="radio" value="Crop c" name="cropOption"> {{i18n "Crop c"}}
+                                            </div>
+                                        </div>
+                                        <div class="row scf-form-row">
+                                            <div class="scf-profile-button-group-left">
+                                                <label class="btn btn-primary btn-file">
+                        <span class="glyphicon glyphicon-camera"></span>
+                        <span>{{i18n "New Photo"}}</span>
+                        <input id="imgUploadImage" class="scf-avatar-upload-input" name="file" data-upload-url="dummy" data-file-name-parameter="fileName" type="file" evt="change=previewImages" accept="image/*">
+                        </label>
+                                            </div>
+                                            <div class="scf-profile-button-group-right scf-composer-actions">
+                                                <button type="reset" class="btn btn-default cancel" evt="click=cancelAvatar">{{i18n "Cancel"}}</button>
+                                                <button type="submit" class="btn btn-primary" id="change-avatar-submit" accept="image/*" evt="click=changeAvatar">
+                        {{i18n "Save"}}
+                    </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal avatar -->
+                    {{/if}}
+                </div>
+                <div class="scf-user-info-middle">
+                    <div>
+                        <label class="scf-large-lable">{{displayName}}</label>
+                        <br /> {{include this.id path="userbadges" resourceType="social/console/components/hbs/userbadges" template="usertopbadges" authoringDisabled="true"}}
+                    </div>
+                </div>
+            </div>
+            {{#if mayEdit}}
+                {{#unless profileProperties.isSocialUser}}
+                    <div>
+                        <button type="submit" class="btn btn-primary" evt='click=showPasswordBox'>{{i18n "Change Password"}}</button>
+                        <span class="scf-js-password-success" style='display: none'> {{i18n "Your password has been successfully saved."}}</span>
+                        <br/>
+                        <!-- Modal Dialog - Password -->
+                        <div class="scf-js-password-box" style='display: none'>
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form role="form" method="POST" action="/content.social.json" class="scf-password-form">
+                                        <input type="hidden" name=":operation" value="social:changePassword" />
+                                        <input type="hidden" name="_charset_" value="utf-8">
+                                        <div class="scf-form-row">
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "Current Password:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <input type="password" class="form-control" name="currentPwd" autocomplete="off" data-attrib="currentPwd" />
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "New Password:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <input type="password" class="form-control" name="newPwd" autocomplete="off" data-attrib="newPwd" />
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "Confirm New Password:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <input type="password" class="form-control" name="confirmPwd" autocomplete="off" data-attrib="confirmPwd" />
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="scf-form-row">
+                                            <div class="scf-composer-actions scf-changepassword-action">
+                                                <button type="reset" class="btn btn-default cancel" evt="click=cancelAvatar">{{i18n "Cancel"}}</button>
+                                                <button type="submit" class="btn btn-primary" id="change-password-submit" evt="click=changePassword">
+                                        {{i18n "Save"}}
+                                    </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal password-->
+                    </div>
+                {{/unless}}
+            {{/if}}
+            {{#unless mayEdit}}
+                {{#if loggedInUser.loggedIn}}
+                    <div class="scf-following-content">
+                        {{#include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions" authoringDisabled="true" }}
+                            {"subscribedId" : "{{this.authorizableID}}"}
+                        {{/include}}
+                    </div>
+                {{/if}}
+            {{/unless}}
+            <br/>
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tabs-1" data-toggle="tab" evt="click=handleTab">{{i18n "Profile" }}</a></li>
+                    <li><a href="#tabs-2" data-toggle="tab" evt="click=handleTab">{{i18n "Activities" }}</a></li>
+                    <li><a href="#tabs-3" data-toggle="tab" evt="click=handleTab">{{i18n "Badges" }}</a></li>
+                </ul>
+                <div class="scf-tab-content">
+                    <div id="tabs-1" class="active tab scf-tab-pane">
+                        <header class="scf-profile-header">
+                            <h4 class="scf-profile-heading">{{i18n "Profile Data" }}</h4>
+                            {{#if mayEdit}}
+                                <button class="btn btn-primary scf-profile-edit scf-js-profile-edit" evt="click=toggleComposer">
+                            <span class="glyphicon glyphicon-cog"></span>
+                            {{i18n "Edit Profile"}}
+                        </button>
+                                <button class="btn btn-primary scf-profile-edit scf-js-profile-edit scf-is-collapsed" evt="click=update">
+                            <span class="glyphicon glyphicon-ok"></span>
+                            {{i18n "Save Changes"}}
+                        </button>
+                            {{/if}}
+                            <div class="scf-clear-both"></div>
+                        </header>
+                        <div class="scf-composer-block scf-js-composer-block">
+                            <form class="scf-profile-form" id="profile-read-only-form">
+                                <div class="form-group-read_only">
+                                    <div class="scf-container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Screen Name:"}} </label>
+                                                <span>{{displayName}}</span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Gender:"}} </label>
+                                                {{#if profileProperties.gender}}
+                                                    <span>{{i18n profileProperties.gender}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.gender}}</span>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "First Name:"}} </label>
+                                                {{#if profileProperties.givenName}}
+                                                    <span>{{i18n profileProperties.givenName}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.givenName}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Address:"}} </label>
+                                                {{#if profileProperties.streetAddress}}
+                                                    <span>{{i18n profileProperties.streetAddress}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.streetAddress}}</span>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Last Name:"}} </label>
+                                                {{#if profileProperties.familyName}}
+                                                    <span>{{i18n profileProperties.familyName}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.familyName}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "City, State:"}} </label>
+                                                <span>{{profileProperties.city}}, {{profileProperties.region}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 scf-profile-email-label-container">
+                                                <label class="scf-profile-form-label">{{i18n "Email Address:"}} </label>
+                                                <span>{{profileProperties.email}}</span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Always show contributions in my preferred language:"}} </label>
+                                                {{#if profileProperties.smartRendering}}
+                                                    <span>{{i18n profileProperties.smartRendering}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.smartRendering}}</span>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <label class="scf-profile-form-label">{{i18n "Language:"}} </label>
+                                                {{#if profileProperties.language}}
+                                                    <span>{{i18n profileProperties.language}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.language}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <div class="row">
+                                                <label class="scf-profile-form-label">{{i18n "Occupation:"}} </label>
+                                                {{#if profileProperties.jobTitle}}
+                                                    <span>{{i18n profileProperties.jobTitle}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.jobTitle}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <div class="row">
+                                                <label class="scf-profile-form-label">{{i18n "URL:"}} </label>
+                                                <span>{{profileProperties.url}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <label class="scf-profile-form-label">{{i18n "Bio:"}} </label>
+                                            </div>
+                                            <div>
+                                                {{#if profileProperties.aboutMe}}
+                                                    <span>{{i18n profileProperties.aboutMe}}</span>
+                                                {{else}}
+                                                    <span>{{profileProperties.aboutMe}}</span>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+                            <form role="form" evt="submit=editProfile" action="/content.social.json" class="scf-profile-form" id="profile-edit-form">
+                                <input type="hidden" name=":operation" value="social:updateUserProfile" />
+                                <input type="hidden" name="_charset_" value="utf-8">
+                                <div class="form-group">
+                                    <div class="scf-container-fluid">
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Screen Name:"}} </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Gender:"}} </label>
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" data-attrib="displayName" value="{{displayName}}" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" data-attrib="gender" id="scf-gender-list">
+                                            <option value="male">{{i18n "Male"}}</option>
+                                            <option value="female">{{i18n "Female"}}</option>
+                                        </select>
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "First Name:"}} </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Address:"}} </label>
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" data-attrib="fname" value="{{profileProperties.givenName}}" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" data-attrib="address" value="{{profileProperties.streetAddress}}" />
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Last Name:"}} </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "City, State:"}} </label>
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" data-attrib="lname" value="{{profileProperties.familyName}}" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" data-attrib="city_n_state" value="{{profileProperties.city}}, {{profileProperties.region}}" />
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Email Address:"}} </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="scf-profile-form-label">{{i18n "Always show contributions in my preferred language:"}} </label>
+                                            </div>
+                                        </div>
+                                        <div class="row-small-padding">
+                                            <div class="col-sm-6">
+                                                {{#if profileProperties.isSocialUser}}
+                                                    <span>{{profileProperties.email}}</span>
+                                                {{else}}
+                                                    <input type="email" class="form-control" data-attrib="email" value="{{profileProperties.email}}" />
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" data-attrib="smartRendering" id="scf-smartRendering-list">
+                                            <option value="off">{{i18n "Off"}}</option>
+                                            <option value="on">{{i18n "On"}}</option>
+                                        </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "Language:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <select class="form-control" data-attrib="language" id="scf-userlanguage-list">
+                                        </select>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "Occupation:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <input type="text" class="form-control" data-attrib="jobTitle" value="{{profileProperties.jobTitle}}" />
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <label class="scf-profile-form-label">{{i18n "URL:"}} </label>
+                                            </div>
+                                            <div class="row-left-padding">
+                                                <input type="url" class="form-control" data-attrib="url" value="{{profileProperties.url}}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <label class="scf-profile-form-label">{{i18n "Bio:"}} </label>
+                                            </div>
+                                            <div class="row-right-padding">
+                                                <textarea class="form-control scf-profile-form-textarea" data-attrib="aboutMe">{{profileProperties.aboutMe}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="tabs-2" class="tab scf-tab-pane">
+                        {{include this.id path="activitystream"}}
+                    </div>
+                    <div id="tabs-3" class="tab scf-tab-pane">
+                        {{include this.id path="userbadges" resourceType="social/console/components/hbs/userbadges" authoringDisabled="true"}}
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="alert alert-danger scf-js-group-danger-alert" role="alert">{{i18n "The user profile link is broken!"}}</div>
+        {{/if}}
+    </div>

@@ -1,0 +1,35 @@
+﻿subject=[Rubrique de forum] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} a publié une nouvelle rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour la rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé la rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé la rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} a clôturé la rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} a réouvert la rubrique de forum « {{{object.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{targetUrl}}">Cliquez sur ce lien</a> pour afficher toutes les rubriques de forum ou modifier votre abonnement.\n \
+</div>\n \
+</body>\n \
+</html>\n \

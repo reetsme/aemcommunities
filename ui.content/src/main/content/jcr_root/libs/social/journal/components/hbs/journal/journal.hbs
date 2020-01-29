@@ -1,0 +1,78 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if-wcm-mode mode="EDIT" }}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-forum" data-component-id="{{id}}" data-scf-component="social/journal/components/hbs/journal">
+    <header>
+        {{#if properties.title}}
+            <h2 class="scf-forum-heading">{{properties.title}}</h2>
+            <br/>
+            <div class="description">{{properties.description}}</div>
+        {{else}}
+            <h2 class="scf-blog-heading">{{i18n "Blog" }}</h2>
+        {{/if}}
+        <div class="scf-clear-both"></div>
+    </header>
+    <div class="scf-action-container">
+        {{#if loggedInUser.loggedIn}}
+            {{#unless isClosed}}
+                {{#if mayPost}}
+                    <button class="btn btn-primary scf-action-item" evt="click=toggleComposer">{{i18n "New Article"}}</button>
+                {{/if}}
+            {{/unless}}
+            {{#if configuration.followingAllowed}}
+                <div class="scf-action-item scf-blog-following-block">
+                    {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                </div>
+            {{/if}}
+            <!--<button class="" evt="click=doShare">{{i18n "Share"}}</button>
+    <button class="" evt="click=doSubscribe">{{i18n "Subscribe"}}</button>-->
+
+            <!--<button class="" evt="click=doRSS">{{i18n "RSS"}}</button>-->
+        {{/if}}
+        <div class="scf-clear-both"></div>
+    </div>
+    {{include this template="composer"}}
+    {{#if mayPost}}
+        <ul class="nav nav-tabs scf-nav-tab-padding scf-js-journal-tab" role="tablist">
+            <li role="presentation" class="scf-journal-tab active"><a class="scf-js-allPosts" href="#scf-js-allPosts" aria-controls="scf-js-allPosts" role="tab" data-toggle="tab" evt="click=fetchAllPosts">{{i18n "Published"}}</a></li>
+            <li role="presentation" class="scf-journal-tab"><a class="scf-js-draftPosts" href="#scf-js-allDrafts" aria-controls="scf-js-allDrafts" role="tab" data-toggle="tab" evt="click=fetchDrafts">{{i18n "Drafts"}}</a></li>
+            <li role="presentation" class="scf-journal-tab"><a class="scf-js-laterPosts" aria-controls="scf-js-laterPosts" role="tab" data-toggle="tab" href="#scf-js-laterPosts" evt="click=fetchLaterPosts">{{i18n "Scheduled"}}</a></li>
+        </ul>
+    {{/if}}
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="scf-js-allPosts">
+            <ul class="scf-topic-list scf-js-topic-list">
+                {{#each items}}
+                    {{#if isVisible}}
+                        <li>{{include this resourceType="social/journal/components/hbs/entry_topic" template="list-item" bind=false}}</li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            <!-- NEW pagination -->
+            {{include this resourceType="social/commons/components/hbs/pages"}}
+            <!-- eo NEW pagination -->
+        </div>
+        {{#if mayPost}}
+            <div role="tabpanel" class="tab-pane" id="scf-js-draftPosts"></div>
+            <div role="tabpanel" class="tab-pane" id="scf-js-laterPosts"></div>
+        {{/if}}
+    </div>
+</div>

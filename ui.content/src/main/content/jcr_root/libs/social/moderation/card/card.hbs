@@ -1,0 +1,73 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<coral-masonry-item data-component-id="{{id}}" data-scf-component="social/moderation/card">
+    <coral-card fixedwidth assetwidth="200" assetheight="33" evt="click=handleItemSelect">
+        <coral-card-info>
+            <coral-tag class="scf-sentiment_{{properties.sentiment}}"></coral-tag>
+        </coral-card-info>
+        <coral-card-propertylist>
+            <coral-card-property class="scf-ugc-author-avatar">
+                <img src="{{author.largeAvatarUrl}}">
+            </coral-card-property>
+            <coral-card-property class="scf-ugc-author">
+                {{#equals author.authorizableId "anonymous"}}
+                    <a title="{{lastPath this.author.id}}">{{this.properties.author_display_name}}</a>
+                    {{else}}
+                        <a title="{{author.name}}">{{author.name}}</a>
+                {{/equals}}
+            </coral-card-property>
+        </coral-card-propertylist>
+        <coral-card-title class="scf-ugc-title" evt="click=goToUGC">
+            {{#if subject}}
+                <a title="{{subject}}">{{subject}}</a>
+            {{else}}
+                <a title="{{author.name}}'s {{lastPath resourceType}}">{{author.name}}'s {{lastPath resourceType}}</a>
+            {{/if}}
+        </coral-card-title>
+        <div class="scf-ugc-message">{{{message}}}</div>
+        <coral-card-propertylist>
+            {{#if totalSize}}
+                <coral-card-property icon="replies" title='{{i18n "Replies"}}'>{{totalSize}}</coral-card-property>
+            {{/if}}
+            {{#if moderatorStatus.isFlagged}}
+                <coral-card-property icon="flag" title='{{i18n "Flagged"}}'></coral-card-property>
+            {{/if}}
+            {{#if moderatorStatus.isPending}}
+                <coral-card-property icon="pending" title='{{i18n "Pending"}}'></coral-card-property>
+            {{else}}
+                {{#if moderatorStatus.isApproved}}
+                    <coral-card-property icon="thumbUp" title='{{i18n "Approved"}}'></coral-card-property>
+                {{else}}
+                    <coral-card-property icon="thumbDown" title='{{i18n "Denied"}}'></coral-card-property>
+                {{/if}}
+            {{/if}}
+            {{#if isClosed}}
+                <coral-card-property icon="lockOn" title='{{i18n "Locked"}}'></coral-card-property>
+            {{/if}}
+            {{#if attachments}}
+                <coral-card-property icon="attach" title='{{i18n "Attachments"}}'></coral-card-property>
+            {{/if}}
+        </coral-card-propertylist>
+        <coral-card-propertylist>
+            <coral-card-property>{{pretty-time created daysCutoff=90}}</coral-card-property>
+        </coral-card-propertylist>
+    </coral-card>
+    {{include this template="quick-actions" resourceType="/libs/social/moderation/card" authoringDisabled="true"}}
+</coral-masonry-item>

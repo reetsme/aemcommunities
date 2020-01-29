@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <learningpath-info/>
+    <resource-info/>
+    <resourcesreport/>
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Communities - Resources"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/site-resources"
+        consoleId="cq-communities-resources"
+        contentPath="${requestPathInfo.suffix}"
+        currentView="content"
+        modeGroup="scf-create"
+        targetCollection=".se-enablement-list">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,granite.ui.coral.foundation,cq.common.wcm,cq.social.author.hbs.enablementlist]"/>
+        </head>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <secondary jcr:primaryType="nt:unstructured">
+                <createdropdown
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/pulldown"
+                    text="Create"
+                    variant="primary">
+                    <items jcr:primaryType="nt:unstructured">
+                        <resourcecreate
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="/libs/granite/ui/components/coral/foundation/hyperlink"
+                            href="/communities/resource-create.html${granite:encodeURIPath(requestPathInfo.suffix)}"
+                            text="Resource"/>
+                        <learningPath
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="/libs/granite/ui/components/coral/foundation/hyperlink"
+                            href="/communities/learningpath-create.html${requestPathInfo.suffix}"
+                            text="Learning Path"/>
+                    </items>
+                </createdropdown>
+                <report
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/site-resources-report.html${requestPathInfo.suffix}"
+                    icon="report"
+                    text="Report"
+                    variant="actionBar"/>
+            </secondary>
+            <selection
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+                <delete
+                    granite:class="scf-js-resource-delete"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/site-resources-report.html${requestPathInfo.suffix}"
+                    icon="delete"
+                    text="Delete"
+                    variant="actionBar"/>
+            </selection>
+        </actions>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/resourcebreadcrumbs"
+            path="/libs/social/enablement/content-shell3/enablement-sites/site-resources"
+            rootPath="/libs/social/enablement/content-shell3/enablement-sites"/>
+        <rails jcr:primaryType="nt:unstructured">
+            <searchWell
+                granite:class="cq-rail-searchWell"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Search"
+                sling:resourceType="granite/ui/components/coral/foundation/panel/railpanel"
+                icon="search">
+                <items jcr:primaryType="nt:unstructured">
+                    <searchform
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                        action="/libs/social/enablement/content-shell3/enablement-sites/site-resources/jcr:content/views/content/items/resourcelist.social.query.json${requestPathInfo.suffix}"
+                        async="{Boolean}true"
+                        autosubmitForm="{Boolean}true"
+                        foundationForm="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <filters
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/enablement/components/hbs/admin/enablementlist/filters"/>
+                        </items>
+                    </searchform>
+                </items>
+            </searchWell>
+        </rails>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <resourcelist
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/admin/enablementlist"
+                        bulkClose="{Boolean}false"
+                        bulkSubmit="{Boolean}false"
+                        filter="true"
+                        groupDepth="0"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

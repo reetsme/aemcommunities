@@ -1,0 +1,52 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="container-fluid scf-search-results scf" data-component-id="{{id}}" data-scf-component="social/commons/components/hbs/search">
+
+    <div class="row">
+        <div class="col-md-12">
+            <form action="" data-paths="{{this.paths}}" class="scf-js-searchresultform" autocomplete="off">
+                <div class="input-group">
+                    <input name="input_value" type="text" class="form-control scf-search-value scf-js-searchresult-value" required />
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default scf-search-result-submit" title="{{i18n "Search"}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="small text-info scf-num-items">
+        {{i18n "Showing results:"}} {{totalSize}}
+        <!--
+        {{pageInfo.pageSize}}
+        {{i18n " out of "}}
+        -->
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#each items}}
+                {{include this resourceType='social/commons/components/hbs/search/searchresult' template="searchitem"}}
+            {{/each}}
+        </div>
+    </div>
+    <!-- pagination -->
+    {{include this resourceType="social/commons/components/hbs/pages"}}
+    <!-- eo pagination -->
+</div>

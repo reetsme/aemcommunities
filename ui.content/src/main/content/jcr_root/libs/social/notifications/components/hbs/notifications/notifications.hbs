@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-notifications" data-component-id="{{id}}" data-scf-component="social/notifications/components/hbs/notifications">
+    <header>
+        <h2 class="scf-notification-heading">{{i18n "All Notifications" }}</h2>
+        {{#if loggedInUser.loggedIn}}
+            <div class="scf-notification-tool scf-quiet" evt="click=openPreferencesPage">
+                <span>{{i18n "Notification Settings" }}</span>
+                <span class="scf-notification-tool-icon glyphicon glyphicon-cog"></span>
+            </div>
+            <div class= {{#if this.unreadCount}} "scf-notification-tool scf-quiet" evt="click=markAllAsRead" {{else}} "scf-notification-tool-disable" {{/if}}>
+                <span>{{i18n "Mark All As Read" }}</span>
+                <span class="scf-notification-tool-icon glyphicon glyphicon-ok-circle"></span>
+            </div>
+        {{/if}}
+        <div class="scf-clear-both"></div>
+    </header>
+
+    <!-- eo page container -->
+    <div class="scf-sl-page-conatiner">
+        <!-- itemlist -->
+        <table class="table scf-js-notifications-table">
+            <tbody>
+                {{#each items}} {{include this authoringDisabled="true"}} {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+    <!-- eo page container -->
+
+</div>

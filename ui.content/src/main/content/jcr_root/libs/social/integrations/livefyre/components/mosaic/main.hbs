@@ -1,0 +1,61 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div id="livefyre-mosaic-{{id}}"
+     data-component-id="{{id}}"
+     data-scf-component="livefyre-mosaic"
+     ></div>
+<script>
+(function () {
+useOrFetchLivefyre(function (Livefyre) {
+    Livefyre.require(['mosaic-component#0'], function (Mosaic) {
+        new Mosaic({
+            el: document.getElementById('livefyre-mosaic-{{id}}'),
+            collection: {
+                "network": "{{networkname}}",
+                "siteId": "{{siteid}}",
+                "articleId": "{{articleId}}"
+                {{#if collectionMeta}}
+                  ,signed: true
+                  ,collectionMeta: '{{collectionMeta}}'
+                  ,checksum: '{{checksum}}'
+                {{/if}}
+            }
+            {{#if-wcm-mode mode="EDIT"}}
+            , __aem: {
+              wcmmode: 'EDIT'
+            }
+            {{/if-wcm-mode}}
+        });
+      });
+});
+
+function useOrFetchLivefyre(withLivefyre) {
+    if (typeof Livefyre !== 'undefined') {
+        return withLivefyre(Livefyre);
+    }
+    var livefyreJsScript = document.createElement('script');
+    livefyreJsScript.setAttribute(
+        'src', 'https://cdn.livefyre.com/Livefyre.js');
+    livefyreJsScript.onload = function () {
+        withLivefyre(Livefyre);
+    };
+    document.head.appendChild(livefyreJsScript);
+}
+}());
+</script>

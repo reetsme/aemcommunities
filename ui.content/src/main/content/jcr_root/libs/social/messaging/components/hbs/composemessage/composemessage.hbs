@@ -1,0 +1,75 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf scf-messaging-compose" data-component-id="{{id}}" data-scf-component="social/messaging/components/hbs/composemessage">
+    <form class="scf-composer scf-section" action="#">
+        <input type="hidden" name="serviceSelector" value="{{properties.serviceSelector}}" />
+        <input type="hidden" name="redirectURL" id="redirectURL" value="{{properties.redirectURL}}" />
+        <input type="hidden" name="attachmentPaths" id="attachmentPaths">
+        <input type='hidden' name="_charset_" value="utf-8">
+        <input type="hidden" name=":operation" value="social:createMessage">
+        {{#if properties.showSubject}}
+            <div class="newMessageSubjectContainer">
+                <label class="mailform"> {{i18n properties.subjectLabel}} </label>
+                <textarea id="subject" name="subject" class="mailFormSubject" maxlength="{{properties.maximumSubjectLength}}"></textarea>
+            </div>
+        {{/if}}
+        {{#if properties.showContent}}
+            <div class="newMessageContentContainer">
+                <div class="senderDetailContainer">
+                    <input type="hidden" class="avatarURLValue" value="{{loggedInUser.avatarUrl}}" />
+                    <span class="newMessageSenderAvatar"></span>
+                    <span class="newMessageSenderName">{{loggedInUser.name}}</span>
+                    <span class="circleContainer"><span class="nameAndDateSeparatorCircle"></span></span>
+                    <span class="newMessageSendDate"></span>
+                </div>
+                <textarea id="content" name="content" class="mailFormContent comment-composer-input scf-composer-msg" maxlength="{{properties.maximumBodyLength}}" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" {{#if properties.withRTE}} data-field-type="rte" {{/if}}></textarea>
+            </div>
+        {{/if}}
+        <div class="scf-composer-toolbar scf">
+            {{#if properties.showAttachFile}}
+                <button class="scf-composer-action scf-composer-attach btn btn-primary" evt="click=openAttachmentDialog">{{i18n properties.attachFileLabel}}</button>
+                <input class="scf-message-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="messageFile" multiple evt="change=renderAttachmentList" />
+            {{/if}}
+            <div class="scf-composer-actions">
+                <input type="submit" class="sendButton message-composer-action btn btn-primary" name="sendMail" id="sendMail" value="{{i18n "Send"}}" />
+                <input type="reset" class="cancelNewMessage message-composer-action btn btn-primary" name="cancelMail" id="cancelMail" value="{{i18n "Cancel"}}" />
+            </div>
+            {{#if properties.showAttachFile}}
+                <div class="scf-composer-attachments ">
+                    <ul class="scf-attachment-list scf-js-composer-att "></ul>
+                </div>
+            {{/if}}
+        </div>
+        {{#if message}}
+            {{#if toBeForwarded}}
+                <div class="message-attachments ">
+                    {{#each message.attachmentsList}}
+                        <div class='attachment-holder'>
+                            <a target='_blank' href='{{externalLink}}'>
+                                <img src='{{externalLink}}.thumb.30.60.png' />&nbsp;{{name}}
+                            </a>
+                            <a class='remove-attachment' value='{{path}}' href="# ">X</a>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+        {{/if}}
+    </form>
+</div>

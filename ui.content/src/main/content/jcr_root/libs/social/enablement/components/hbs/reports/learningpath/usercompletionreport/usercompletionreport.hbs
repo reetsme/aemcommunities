@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-learningpath-user-completion-report" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/learningpath/usercompletionreport">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{i18n "Completed Learning Paths"}} {{#if queryRequest}}({{totalSize}}){{/if}}</h3>
+        </div>
+        <div class="scf-fixed-height panel-body">
+            {{#unless queryRequest}}
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" />
+                </div>
+                {{else}}
+                    {{#if items}}
+                        <ul class="list-group">
+                            {{#each items}}
+                                <li class="list-group-item">
+                                    <span class="badge">{{completeDate}}</span>
+                                    <a href="{{referrer}}">
+                                        {{#if thumbnailUrl}}
+                                            <img class="scf-lp-thumbnail" src="{{thumbnailUrl}}" />{{title}} ({{learningPathResourceCount}})</a>
+                    {{else}}
+                        <span class="scf-lp-thumbnail glyphicon glyphicon-road" aria-hidden="true"></span>{{title}} ({{learningPathResourceCount}})
+                    {{/if}}
+                    </a>
+                    </li>
+                    {{/each}}
+                    </ul>
+                    {{else}}
+                        {{i18n "There are no items to display." }}
+                        {{/if}}
+            {{/unless}}
+        </div>
+    </div>
+</div>

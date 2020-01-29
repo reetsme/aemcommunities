@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/reet"/>
+    <filter root="/content/community-components/en"/>
+    <filter root="/content/communities"/>
+    <filter root="/libs/social"/>
+    <filter root="/libs/settings/community/templates"/>
+
+</workspaceFilter>

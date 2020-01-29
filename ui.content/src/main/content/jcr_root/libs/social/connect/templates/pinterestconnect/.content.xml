@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Account settings for Pinterest Connect access"
+    jcr:primaryType="cq:Template"
+    jcr:title="Pinterest Connect Configuration"
+    sling:resourceSuperType="cq/cloudserviceconfigs/templates/configpage"
+    allowedChildren=""
+    allowedPaths="[/etc/cloudservices/pinterestconnect(/.*)?]"
+    ranking="{Long}90">
+    <jcr:content
+        cq:cloudservicename="pinterestconnect"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="social/connect/components/pinterestconnectpage"
+        thumbnailPath="/libs/social/connect/templates/pinterestconnect/thumbnail.png"/>
+</jcr:root>

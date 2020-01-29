@@ -1,0 +1,136 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.coral-TabPanel-pane > div:not(.coral-Form-fieldlabel) {
+    margin-bottom: 1.2rem;
+}
+
+.info-page-section > div:not(.coral-Form-fieldlabel) {
+    margin-bottom: 1rem;
+}
+
+.resource-contacts-section > div:not(.coral-Form-fieldlabel) {
+    margin-bottom: 0.5rem;
+}
+
+.tabs-container nav {
+    margin: 0 0 0 1rem;
+}
+
+.info-page-section-heading:first-child {
+    margin-top: 0.2rem;
+}
+
+.info-page-section-heading {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.coral-TabPanel-pane > div.info-page-section {
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.info-page-section:last-child {
+    border-bottom: 0;
+}
+
+.coral-TabPanel-content {
+    background-color: #EEEEEE;
+    border: 0;
+    border-top: 0.0625rem solid black;
+    /*fallback color for browsers that don't know rgba() format*/
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.15);
+}
+
+.coral-TabPanel-content a {
+    color: #3287d2;
+}
+
+.coral-FixedColumn-column {
+    margin: 0;
+    font-weight: 600;
+    color: #444444;
+    font-size: 0.75rem;
+}
+
+.coral-Form--vertical .foundation-field-edit {
+    display: none;
+}
+
+.se-resource-desc {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.coral-TabPanel-navigation > .coral-TabPanel-tab:focus {
+    text-decoration: none;
+}
+
+.coral-FixedColumn {
+    max-width: 82rem;
+    margin-top: 2rem;
+}
+
+.coral-FixedColumn-column {
+    width: 22rem;
+    margin-bottom: 2rem;
+}
+
+.tabs-container {
+    width: 62%;
+    margin-left: 1rem;
+    max-width: 35rem;
+}
+
+.foundation-layout-thumbnail > .foundation-layout-thumbnail-image {
+    width: 15.5rem;
+}
+
+.thumbnail-action-wrapper {
+    display: none;
+}
+
+.coral-TagList,
+.coral-TagList-tag,
+.coral-TagList-tag-label {
+    font-weight: bold;
+    color: #444444;
+    font-size: 0.75rem;
+}
+
+.coral-TabPanel-navigation > .coral-TabPanel-tab {
+    font-size: 0.80rem;
+}
+
+.coral-Form--vertical .coral-Form-fieldlabel {
+    line-height: 1.75rem;
+}
+
+.se-resource-enrolles {
+    margin-top: 1rem;
+}
+
+.coral3-Alert {
+    display: none;
+    position: absolute;
+    left: 41%;
+    top: -3rem;
+    z-index: 10;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Search Result Settings">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <maxPerPage
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Defines the number of topics/posts shown per page. Default is 10."
+            fieldLabel="Search Results Per Page"
+            name="./maxPerPage"
+            regex="/^[0-9]*$/"
+            regexText="Please enter a positive integer number."
+            xtype="textfield"/>
+        <searchPaths
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Restrict the search to a list of paths."
+            fieldLabel="Search Paths"
+            name="./searchPaths"
+            xtype="multifield">
+            <fieldConfig
+                jcr:primaryType="nt:unstructured"
+                allowBlank="{Boolean}false"
+                predicate="hierarchy"
+                xtype="pathfield"/>
+        </searchPaths>
+    </items>
+</jcr:root>

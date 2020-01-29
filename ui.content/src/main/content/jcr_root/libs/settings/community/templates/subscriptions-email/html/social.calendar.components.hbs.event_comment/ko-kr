@@ -1,0 +1,32 @@
+subject=[달력 이벤트 답글] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+   달력 이벤트 "{{{target.displayName}}}"에 대해 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 이 답글을 게시했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   달력 이벤트 "{{{target.displayName}}}"에 대해 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 이 답글을 추가했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   달력 이벤트 "{{{target.displayName}}}"에 대해 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 이 답글을 업데이트했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   달력 이벤트 "{{{target.displayName}}}"에서 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 이 답글을 삭제했습니다.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   달력 이벤트 "{{{target.displayName}}}"에 대해 {{{user.name}}} 님이 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 이 답글을 승인했습니다.\n \
+{{/equals}}\
+<hr>\n \
+이 달력 이벤트에 대한 모든 답글을 보거나 사용 중인 가입을 수정하려면 <a href="{{objectReferrer}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

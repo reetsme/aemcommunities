@@ -1,0 +1,38 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="mod-history" data-component-id="{{id}}" data-scf-component="social/moderation/card" data-template-id="modhistory">
+    <div class='ugc-quick-history-box'>
+        <div>
+            {{#if items}}
+                {{#each items}}
+                    <div class="ugc-quick-history-item">
+                        {{#equals user.name "Unknown"}}
+                            <span>Automoderation{{i18n " Process"}}{{i18n " set "}}{{i18n verb}}{{i18n " to "}}{{i18n target.content}} {{pretty-time published daysCutoff=90}}</span>
+                        {{else}}
+                            <span>{{user.name}}{{i18n " set "}}{{i18n verb}}{{i18n " to "}}{{i18n target.content}} {{pretty-time published daysCutoff=90}}</span>
+                        {{/equals}}
+                    </div>
+                {{/each}}
+            {{else}}
+                <h4>{{i18n "No moderation history"}}</h4>
+            {{/if}}
+        </div>
+    </div>
+</div>

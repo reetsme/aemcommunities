@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Edit"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Configuration">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <height
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                        defaultValue="400"
+                        emptyText="400"
+                        fieldDescription="Height of map (in pixels)"
+                        fieldLabel="Height"
+                        minValue="1"
+                        name="./height"
+                        xtype="numberfield"/>
+                    <latitude
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                        fieldDescription="Latitude of the Map center"
+                        fieldLabel="Latitude"
+                        maxValue="90.0"
+                        minValue="-90.0"
+                        name="./latitude"
+                        value="37.78"
+                        xtype="numberfield"/>
+                    <longitude
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                        fieldDescription="Longitude of the Map center"
+                        fieldLabel="Longitude"
+                        maxValue="180.0"
+                        minValue="-180.0"
+                        name="./longitude"
+                        value="-122.39"
+                        xtype="numberfield"/>
+                    <zoom
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                        fieldDescription="Default zoom level (1-18)"
+                        fieldLabel="Zoom Level"
+                        maxValue="18"
+                        minValue="0"
+                        name="./zoom"
+                        xtype="numberfield"/>
+                    <hideZoomControl
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        fieldDescription="Hide the buttons that a user can click to zoom in and out"
+                        fieldLabel="Hide Zoom Control"
+                        name="./hideZoomControl"
+                        text="Hide Zoom Control"
+                        type="checkbox"
+                        value="{Boolean}true"
+                        xtype="selection"/>
+                    <disablePanning
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        fieldDescription="Prevent the user from paning the map away from its default bounding box"
+                        fieldLabel="Disable Panning"
+                        name="./disablePanning"
+                        text="Disable Panning"
+                        type="checkbox"
+                        value="{Boolean}true"
+                        xtype="selection"/>
+                    <disableClustering
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        fieldDescription="Disable clustering of dense groups of Content markers"
+                        fieldLabel="Disable Clustering"
+                        name="./disableClustering"
+                        text="Disable Clustering"
+                        type="checkbox"
+                        value="{Boolean}true"
+                        xtype="selection"/>
+                    <disableModal
+                        jcr:primaryType="cq:Widget"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        defaultValue="{Boolean}false"
+                        fieldDescription="Enable Content modal when a user clicks on a single Content Marker on the map"
+                        fieldLabel="Disable Modal"
+                        name="./disableModal"
+                        text="Disable Modal"
+                        type="checkbox"
+                        value="{Boolean}true"
+                        xtype="selection"/>
+                    <collectionLink
+                        jcr:primaryType="cq:Widget"
+                        html="&lt;a href=&quot;#&quot; class=&quot;scf-js-lf-collectionLink&quot; target=&quot;_blank&quot;>&lt;/a>"
+                        xtype="static"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeshow="function(dialog){ window.LivefyreAuthoringComponents.determineCollectionUrl(dialog); }"/>
+</jcr:root>

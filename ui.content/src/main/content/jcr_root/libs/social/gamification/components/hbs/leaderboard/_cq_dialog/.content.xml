@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Leaderboard Component"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <settings
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Settings"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <displayName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Display Name"
+                                name="./displayName"/>
+                            <displayBadge
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./displayBadge"
+                                text="Badge"
+                                value="{Boolean}true"/>
+                            <displaybadge-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./displayBadge@Delete"
+                                value="{Boolean}true"/>
+                            <displayBadgeName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./displayBadgeName"
+                                text="Badge Name"
+                                value="{Boolean}true"/>
+                            <displaybadgename-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./displayBadgeName@Delete"
+                                value="{Boolean}true"/>
+                            <displayAvatar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./displayAvatar"
+                                text="User Avatar"
+                                value="{Boolean}true"/>
+                            <displayavatar-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./displayAvatar@Delete"
+                                value="{Boolean}true"/>
+                        </items>
+                    </columns>
+                </items>
+            </settings>
+            <rules
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Rules"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <ruleLocation
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldLabel="Rule Location"
+                                name="./ruleLocation"
+                                predicate="page"
+                                rootPath="/content"/>
+                            <scoringRule
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/social/gamification/components/scoringrules"
+                                emptyText="Select the Scoring Rule"
+                                fieldLabel="Scoring Rule"
+                                name="./scoringRule"
+                                path="${empty param.item ? requestPathInfo.suffix : param.item }">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/libs/social/gamification/components/datasources/scoringrule"/>
+                            </scoringRule>
+                            <badgingRule
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/social/gamification/components/badgingrules"
+                                emptyText="Select the Badging Rule"
+                                fieldLabel="Badging Rule"
+                                name="./badgingRule"
+                                path="${empty param.item ? requestPathInfo.suffix : param.item }">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/libs/social/gamification/components/datasources/badgingrule"/>
+                            </badgingRule>
+                            <displayLimit
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}10"
+                                fieldLabel="Display Limit"
+                                name="./displayLimit"/>
+                        </items>
+                    </columns>
+                </items>
+            </rules>
+        </items>
+    </content>
+</jcr:root>

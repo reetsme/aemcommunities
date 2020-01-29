@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Login Component"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <text
+            jcr:primaryType="cq:Widget"
+            title="Texts &amp; Labels"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <allowFBlogin
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Allow logging in with Facebook accounts"
+                    fieldLabel="Allow logging in with Facebook accounts"
+                    name="./allowFBLogin"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowTWlogin
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Allow logging in with Twitter accounts"
+                    fieldLabel="Allow logging in with Twitter accounts"
+                    name="./allowTWLogin"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowRegistration
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Does the site allow user registrations?"
+                    fieldLabel="Does the site allow user registrations?"
+                    name="./allowRegistration"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </text>
+    </items>
+</jcr:root>

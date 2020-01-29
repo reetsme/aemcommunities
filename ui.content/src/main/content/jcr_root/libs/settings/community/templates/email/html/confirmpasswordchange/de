@@ -1,0 +1,16 @@
+﻿subject=Kennwort wurde aktualisiert
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Kennwort-Aktualisierungsanfrage</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hallo {{{givenName}}},</p>\n \
+<p>Ihr Kennwort wurde am {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} geändert.</p>\n \
+<p>Wenn Sie diese Änderung veranlasst haben, können Sie diese E-Mail ignorieren.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

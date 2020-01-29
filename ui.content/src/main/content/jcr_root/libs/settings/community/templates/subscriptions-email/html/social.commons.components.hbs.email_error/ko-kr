@@ -1,0 +1,18 @@
+subject=[이메일 전달 실패] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>이메일 전달 실패</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+안녕하세요, {{{email-author}}} 님. {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}에 다음 내용이 제대로 추가되지 않았습니다.\n \
+<hr>\n \
+다시 시도하거나 시스템 관리자에게 추가적인 도움을 요청하십시오.\n \
+</div>\n \
+</body>\n \
+</html>\n \

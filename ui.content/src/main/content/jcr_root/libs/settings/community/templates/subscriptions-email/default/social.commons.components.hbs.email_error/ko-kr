@@ -1,0 +1,7 @@
+subject=[게시 실패 전달] {{{email-subject}}}
+
+message=\n \
+날짜: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+안녕하세요, {{{email-author}}} 님. 다음 내용이 제대로 게시되지 않았습니다.\n \
+{{{email-message}}}\n\n \
+다시 시도하거나 시스템 관리자에게 추가적인 도움을 요청하십시오.\n \

@@ -1,0 +1,32 @@
+﻿subject=[Commentaire] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Commentaire</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} a publié un nouveau commentaire concernant : « {{{target.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} a ajouté un nouveau commentaire concernant : « {{{target.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour le commentaire concernant : « {{{target.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé le commentaire concernant : « {{{target.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé ce commentaire concernant : « {{{target.displayName}}} » le {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">Cliquez sur ce lien</a> pour afficher tous les commentaires ou modifier votre abonnement.\n \
+</div>\n \
+</body>\n \
+</html>\n \

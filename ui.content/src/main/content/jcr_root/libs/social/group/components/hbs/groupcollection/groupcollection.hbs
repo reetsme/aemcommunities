@@ -1,0 +1,104 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-component-id="{{id}}" class="content scf-js-cq-social-themes social-themes" data-scf-component="social/group/components/hbs/communitygroups">
+
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-grouppublish-success coral-Tooltip--success">{{i18n "Group Published"}}</div>
+        <div class="scf-social-console-textbox-tooltip scf-js-grouppublish-error coral-Tooltip--error">{{i18n "Error Publishing Group"}}</div>
+    </div>
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-groupexport-success coral-Tooltip--success">{{i18n "Downloading Group Content Package..."}}</div>
+        <div class="scf-social-console-textbox-tooltip scf-js-groupexport-error coral-Tooltip--error">{{i18n "Error Building Group Content Package"}}</div>
+    </div>
+
+    <div>
+        <div class="scf-social-console-textbox-tooltip scf-js-groupdelete-error coral-Tooltip--error">{{i18n "Error Deleting Group"}}</div>
+    </div>
+
+
+    <coral-masonry layout="fixed-spread" columnwidth="242" spacing="15" class="foundation-collection" data-foundation-mode-group="scf-create" data-foundation-layout="{{{xss-htmlAttr "{\"name\":\"foundation-layout-masonry\"}"}}}">
+        {{#each items}}
+            <coral-masonry-item data-component-id="{{this.id}}">
+                <coral-card {{#if this.isCommunityGroupFolder}} variant="inverted" {{/if}} colorhint="#ffffff" assetwidth="242" assetheight="242">
+                    <coral-card-asset>
+                        <img src="{{#if this.imageURL}}{{this.imageURL}}.thumb.319.319.jpg{{/if}}" />
+                    </coral-card-asset>
+                    <coral-card-info>
+                        {{#if new}}
+                            <coral-tag class="grid-alert-tag" color="blue" size="m">{{i18n "New!"}}</coral-tag>
+                        {{/if}}
+                        {{#if this.isCommunityGroupFolder}}
+                            <a style="width:100%; height:100%; position:absolute;" href="/communities/communitygroups.html{{this.sitePagePath}}"></a>
+                        {{else}}
+                            {{#if this.configuration.groupPaths}}
+                                <a style="width:100%; height:100%; position:absolute;" href="/communities/communitygroups.html{{this.pagePath}}"></a>
+                            {{/if}}
+                        {{/if}}
+                    </coral-card-info>
+                    <coral-card-content>
+                        {{#if this.isCommunityGroupFolder}}
+                            <coral-card-context>{{i18n "GROUP COLLECTION"}}</coral-card-context>
+                            <coral-card-title>{{this.name}}</coral-card-title>
+                        {{else}}
+                            <coral-card-title>{{this.title}}</coral-card-title>
+                            <coral-card-propertylist>
+                                <coral-card-property icon="demographic" title="{{i18n "Language"}}">{{this.configuration.translationManagementConfiguration.baseLanguage}}</coral-card-property>
+                            </coral-card-propertylist>
+                            {{#if created}}
+                                <coral-card-propertylist>
+                                    <coral-card-property icon="edit" title= {{i18n "Created"}}>
+                                        <time datetime="{{created}}">{{pretty-time created}}</time>
+                                    </coral-card-property>
+                                </coral-card-propertylist>
+                            {{/if}}
+                        {{/if}}
+                    </coral-card-content>
+                </coral-card>
+                {{#unless this.isCommunityGroupFolder}}
+                    <coral-quickactions target="_prev" alignMy="left top" alignAt="left top" role="menu">
+                        <coral-quickactions-item icon="edit" data-foundation-anchor-target="_blank" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/editor.html{{this.pagePath}}.html">{{i18n "Open Group"}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="infoCircle" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/communities/editcommunitygroup.html{{this.pagePath}}">{{i18n "Edit Group"}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="globe" class="scf-js-quickaction-console-group-publish" data-path="{{this.pagePath}}">{{i18n " Publish Group "}}</coral-quickactions-item>
+                        <coral-quickactions-item icon="delete" class="scf-js-quickaction-console-group-delete" data-path="{{this.pagePath}}">{{i18n " Delete Group "}}</coral-quickactions-item>
+                    </coral-quickactions>
+
+                {{/unless}}
+            </coral-masonry-item>
+
+        {{/each}}
+    </coral-masonry>
+    <coral-wait class="scf-publish-group-wait" size="L" centered>
+    </coral-wait>
+    <coral-dialog class="scf-js-confirmation-dialog">
+            <coral-dialog-header>{{i18n "Delete Group"}}</coral-dialog-header>
+            <coral-dialog-content>
+                <input type="hidden" id="deleteGroupPath">
+                <h3>{{i18n "You are sure you want to delete this group?"}}</h3>
+            </coral-dialog-content>
+            <coral-dialog-footer>
+                <button is="coral-button" class="coral-Button" id="deleteCancelBtn">
+                    <coral-button-label class="coral-Button-label">{{i18n "Cancel"}}</coral-button-label>
+                </button>
+                <button is="coral-button" id="deleteOkBtn" variant="primary" class="foundation-validation-bind coral-Button coral-Button--primary" size="M">
+                    <coral-button-label class="coral-Button-label">{{i18n "Ok"}}</coral-button-label>
+                </button>
+            </coral-dialog-footer>
+        </coral-dialog>
+</div>

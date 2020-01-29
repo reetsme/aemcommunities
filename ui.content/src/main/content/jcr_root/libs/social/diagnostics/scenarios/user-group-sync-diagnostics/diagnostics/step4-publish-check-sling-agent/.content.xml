@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Verify Apache Sling Distribution Agent on Publisher"
+    diagnosticsType="OSGIConfigurationStep"
+    docsSectionName="Apache Sling Distribution Agent - Queue Agents Factory"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable4_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}true"
+    haltOnError="{Boolean}false"
+    jsObjectName="step4Publish"
+    osgiQuery="(&amp;(service.pid=org.apache.sling.distribution.agent.impl.QueueDistributionAgentFactory.*)(name=socialpubsync-reverse)(serviceName=socialpubsync-distributionService)(enabled=true))"
+    runGroups="[all,initial]"
+    runModes="[publish]">
+    <too-many-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step4Publish.configurations.length > 1))"
+        description="Multiple Apache Sling Distribution Agent - Queue Agents Factory configurations -- please remove or disable duplicates"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <no-agents-configured
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(!(stepdata.step4Publish.configurations.length &lt; 1))"
+        description="No Apache Sling Distribution Agent - Queue Agents Factory configurations -- please follow the link (below) to the documentation"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-allowed-roots-home-users
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="var allowedRoots = stepdata.step4Publish.configurations[0].properties[&quot;allowed.roots&quot;];&#xa;var found = false;&#xa;for (var i=0;i&lt;allowedRoots.length;i++) {&#xa;    if (&quot;/home/users&quot; == allowedRoots[i]) {&#xa;        found = true;&#xa;&#x9;break;&#xa;    }&#xa;}&#xa;found;&#xa;&#xa;&#xa;"
+        description="/home/users is missing in allowed.roots"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-allowed-roots-home-groups
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="var allowedRoots = stepdata.step4Publish.configurations[0].properties[&quot;allowed.roots&quot;];&#xa;var found = false;&#xa;for (var i=0;i&lt;allowedRoots.length;i++) {&#xa;    if (&quot;/home/groups&quot; == allowedRoots[i]) {&#xa;        found = true;&#xa;&#x9;break;&#xa;    }&#xa;}&#xa;found;&#xa;"
+        description="/home/groups is missing in allowed.roots"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+    <check-allowed-roots-var-diff
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="var allowedRoots = stepdata.step4Publish.configurations[0].properties[&quot;allowed.roots&quot;];&#xa;var found = false;&#xa;for (var i=0;i&lt;allowedRoots.length;i++) {&#xa;    if (&quot;/var/community/distribution/diff&quot; == allowedRoots[i]) {&#xa;        found = true;&#xa;&#x9;break;&#xa;    }&#xa;}&#xa;found;&#xa;"
+        description="/var/community/distribution/diff is missing in allowed.roots"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+</jcr:root>

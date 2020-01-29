@@ -1,0 +1,29 @@
+﻿subject=[Commento] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Commento</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+Un nuovo commento a "{{{target.displayName}}}" è stato pubblicato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Un nuovo commento a "{{{target.displayName}}}" è stato aggiunto da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Il commento a "{{{target.displayName}}}" è stato aggiornato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Il commento a "{{{target.displayName}}}" è stato eliminato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Il commento a "{{{target.displayName}}}" è stato approvato da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Fai clic su questo collegamento</a> per visualizzare tutti i commenti o modificare le preferenze di notifica.\n \
+</div>\n \
+</body>\n \
+</html>\n \

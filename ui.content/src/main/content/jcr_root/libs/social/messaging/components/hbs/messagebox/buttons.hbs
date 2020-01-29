@@ -1,0 +1,40 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class='clearfix quickActionButtons row'>
+    <input type='submit' class='btn btn-primary' id='newMessageButton' name='{{properties.replyURL}}' value='{{i18n "New Message"}}' />
+    <div class="pull-right">
+        {{#if properties.showDelete}}
+            {{#if properties.isTrash}}
+                <input type='submit' class='quickActionButton disabled delete btn btn-default' name='permdelete' value='{{i18n "Delete"}}' disabled='disabled' onclick="return confirm('{{i18n
+                       "This will permanently delete the message(s). Do you really want to proceed?"}}')" />
+            {{else}}
+                <input type='submit' class='quickActionButton disabled delete btn btn-default' name='deleted' value='{{i18n "Delete"}}' disabled='disabled' />
+            {{/if}}
+        {{/if}}
+        {{#if properties.showMarkRead}}
+            <input type='submit' class='quickActionButton disabled read btn btn-default' name='read' value='{{i18n "Mark Read"}}' disabled='disabled' />
+        {{/if}}
+        {{#if properties.showMarkUnread}}
+            <input type='submit' class='quickActionButton disabled unread btn btn-default' name='undo+read' value='{{i18n "Mark Unread"}}' disabled='disabled' />
+        {{/if}}
+        {{#if properties.isTrash}}
+            <input type='submit' class='quickActionButton disabled delete btn btn-default' name='undo+deleted' value='{{i18n "Restore"}}' disabled='disabled' />
+        {{/if}}
+    </div>
+</div>

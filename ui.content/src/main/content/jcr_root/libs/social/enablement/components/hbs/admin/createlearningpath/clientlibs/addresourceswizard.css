@@ -1,0 +1,318 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.list .ec-card .move {
+    visibility: visible;
+    display: inline-block;
+}
+
+.dropzone ul.draggable li:before {
+    height: 4rem;
+    max-height: 4rem;
+}
+
+.dropzone ul.draggable li {
+    height: 4rem;
+    max-height: 4rem;
+}
+
+.cq-social-enablement-delete-resource-activator,
+.cq-social-enablement-add-resource-activator,
+.cq-social-enablement-add-learningpath-activator {
+    color: #868686;
+}
+
+.cq-social-enablement-delete-resource-activator:hover,
+.cq-social-enablement-add-resource-activator:hover,
+.cq-social-enablement-add-learningpath-activator:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cq-social-enablement-delete-resource-activator coral-icon,
+.cq-social-enablement-add-resource-activator coral-icon,
+.cq-social-enablement-add-learningpath-activator coral-icon {
+    padding-right: 0.625rem;
+}
+
+.cq-social-enablement-delete-resource-activator {
+    padding-right: 2.5rem;
+}
+
+.remove-resource-item {
+    cursor: pointer;
+}
+
+.add-resources-tbl .label-th {
+    font-weight: bold;
+    font-size: 13px;
+    color: #4B4B4B;
+}
+
+.list .ec-card .move:before {
+    margin-right: 50px;
+    margin-top: 1.5rem;
+    width: 0.25rem;
+}
+
+.list .selectable,
+.list .selectable .label {
+    background: none;
+    min-height: 2.375rem;
+}
+
+.list .ec-card .move:before {
+    content: url("/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/gripper.png");
+    opacity: 1;
+}
+
+.list .ec-card:not(.dragging) .move {
+    cursor: pointer;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    opacity: 1;
+}
+
+.list .dragging .move {
+    cursor: pointer;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    opacity: 1;
+}
+
+.list .ec-card .select:before {
+    top: calc(50% - 0.4375rem);
+}
+
+.list .selected > i.select {
+    height: 100%;
+}
+
+.list .ec-card .sort {
+    display: none;
+}
+
+.coral-Icon--delete:before,
+.coral-Icon--add:before {
+    color: #4b4b4b;
+}
+
+.collectionresourcesettings .section-header {
+    font-weight: bold;
+    font-size: 18px;
+    color: #3B3B3B;
+}
+
+.collectionresourcesettings .bottom-margin {
+    margin-bottom: 25px;
+}
+
+.endor-ActionBar {
+    padding: 0.4375rem 0 1.25rem 0;
+    border-bottom: 0;
+    overflow-y: hidden;
+    line-height: 2.25rem;
+}
+
+.add-asset-wizard-wrapper > iframe {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+.coral-Table-headerCell,
+.coral-Table-cell {
+    padding: 0;
+}
+
+.add-resources-tbl {
+    min-height: 17.23rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30rem;
+    max-width: 100%;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.add-resources-tbl .uploaded-asset-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-resources-tbl .uploaded-asset-cover-image >div {
+    height: 44px;
+    width: 78px;
+    background-size: cover;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: inherit;
+}
+
+.add-resources-tbl .scf-js-resource-item {
+    font-weight: normal;
+    font-size: 0.875rem;
+    color: #212121;
+    margin: 0 0 0 0;
+    border: 0.0625rem solid #b3b3b3;
+}
+
+.add-resources-tbl .label-th > .add-items-tbl-item-name {
+    padding-left: 1.25rem;
+    max-width: 26rem;
+    min-width: 26rem;
+    display: inline-block;
+}
+
+.add-resources-tbl .foundation-collection-item > .uploaded-asset-cover-image {
+    max-width: 6rem;
+    min-width: 6rem;
+    display: inline-block;
+    background-color: inherit;
+    height: 4rem;
+}
+
+.add-resources-tbl .foundation-collection-item > .uploaded-asset-name {
+    max-width: 20rem;
+    width: 20rem;
+    min-width: 20rem;
+    display: inline-block;
+    background-color: inherit;
+    padding-left: 0.3rem;
+}
+
+.add-resources-tbl .label-th > .add-items-tbl-type,
+.add-resources-tbl .foundation-collection-item > .uploaded-asset-type {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+    display: inline-block;
+    background-color: inherit;
+}
+
+.add-resources-tbl .label-th > .add-items-tbl-size,
+.add-resources-tbl .foundation-collection-item > .uploaded-asset-size {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+    display: inline-block;
+    background-color: inherit;
+}
+
+.add-asset-wizard-wrapper {
+    border: 1px solid #BBBBBB;
+    position: relative;
+}
+
+.scf-learningpathselector-container {
+    border: none;
+}
+
+.scf-learningpathselector-container .scf-learningpathselector-left {
+    left: 0;
+}
+
+.scf-learningpathselector-container .scf-learningpathselector-right {
+    right: 0;
+}
+
+.coral-Table-headerCell {
+    background-color: #efefef;
+    display: table-cell;
+}
+
+.resources-header .header-select {
+    width: 2rem;
+    max-width: 2rem;
+    min-width: 2rem;
+    padding-left: 0.9rem;
+}
+
+.resources-header .header-asset-cover-image {
+    max-width: 26rem;
+    width: 26rem;
+    min-width: 26rem;
+    padding-left: 0.5rem;
+}
+
+.resources-header .header-asset-type {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.resources-header .header-asset-size {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.resources-header .header-blank {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.list .ec-card .uploaded-select {
+    width: 2rem;
+    max-width: 2rem;
+    min-width: 2rem;
+    display: inline-block;
+    background-color: inherit;
+}
+
+.list .ec-card .uploaded-select input:hover {
+    cursor: pointer;
+}
+
+.dropzone {
+    width: 100%;
+}
+
+.add-resources-wizard .section-header {
+    font-weight: bold;
+    font-size: 18px;
+    color: #3B3B3B;
+}
+
+.add-resources-wizard .add-resources-wizard-left {
+    left: 0;
+}
+
+.add-resources-wizard .add-resources-wizard-right {
+    right: 0;
+}
+
+.endor-ActionBar-left .endor-ActionBar-item:first-child {
+    margin-left: 0;
+}
+
+.dropzone .scf-js-added-resources {
+    padding: 0;
+}
+
+.add-resources-tbl .scf-js-added-resources .scf-js-resource-item {
+    height: 4rem;
+    max-height: 4rem;
+    padding-right: 0;
+}

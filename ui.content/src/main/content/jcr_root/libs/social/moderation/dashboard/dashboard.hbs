@@ -1,0 +1,70 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-mod-content" data-component-id="{{id}}" data-scf-component="social/moderation/dashboard">
+    <coral-actionbar class="granite-selectionbar scf-dashboard-actionbar-container">
+        <coral-actionbar-container threshold="-1" class="scf-dashboard-actionbar-actions" morebuttontext="{{i18n "Left More"}}">
+            {{include this template="bulk-actions"}}
+        </coral-actionbar-container>
+
+        <coral-actionbar-container threshold="2" morebuttontext="{{i18n "Right More"}}">
+            <coral-actionbar-item>
+                <button is="coral-button" class="scf-dashboard-deselect" variant="minimal" evt="click=toggleBulkMode">
+                    <span class="scf-dashboard-counter">0 {{i18n "selected"}}</span>
+                    <coral-icon icon="close" size="S"></coral-icon>
+                </button>
+            </coral-actionbar-item>
+        </coral-actionbar-container>
+    </coral-actionbar>
+    <div evt="scroll=scrollUgc">
+        <coral-masonry id="ugc-container" layout="fixed-spread" columnwidth="242" spacing="15" class="foundation-collection scf-ugc-container" data-foundation-mode-group="scf-moderation" data-foundation-layout="{{{xss-htmlAttr "{\"name\":\"foundation-layout-masonry\"}"}}}">
+            {{#each items}}
+                {{include this resourceType="social/moderation/card" authoringDisabled="true"}}
+            {{/each}}
+        </coral-masonry>
+    </div>
+    <div class="scf-content-fragment-confirmation-success scf-js-content-fragment-confirmation-success ugc-quick-history-box">
+        <h3>{{i18n "Title"}}</h3>
+        <h4><div class="scf-js-content-fragment-title detail_entry_subject"><a target="_blank"></a></div></h4>
+        <h3>{{i18n "Path"}}</h3>
+        <h4><div class="scf-js-content-fragment-path"></div></h4>
+    </div>
+    <div class="scf-content-fragment-confirmation-timeout scf-js-content-fragment-confirmation-timeout ugc-quick-history-box">
+        <h3>{{i18n "Maximum wait time exceeded."}}</h3>
+        <h4>{{i18n "The content fragment may have been created or you may need to try again."}}</h4>
+    </div>
+    <div class="scf-content-fragment-confirmation-error scf-js-content-fragment-confirmation-error ugc-quick-history-box">
+        <h3>{{i18n "An unexpected error occurred."}}</h3>
+    </div>
+    <div id="successModal" class="coral-Modal">
+        <div class="coral-Modal-header">
+            <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS"></i>
+            <h2 class="coral-Modal-title coral-Heading coral-Heading--2">{{i18n "Fragment Created"}}</h2>
+            <button type="button" class="coral-MinimalButton coral-Modal-closeButton" title="Close" data-dismiss="modal">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon "></i>
+            </button>
+        </div>
+        <div class="coral-Modal-body">
+            <p>{{i18n "Content Fragment Created"}}</p>
+        </div>
+        <div class="coral-Modal-footer">
+            <button type="button" class="coral-Button" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

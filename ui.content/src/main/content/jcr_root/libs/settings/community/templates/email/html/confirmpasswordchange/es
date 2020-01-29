@@ -1,0 +1,16 @@
+﻿subject=Se ha actualizado la contraseña
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitud de actualización de contraseña</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hola, {{{givenName}}}:</p>\n \
+<p>Se ha modificado su contraseña el {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} </p>\n \
+<p>Si ha realizado esta modificación, puede ignorar este correo electrónico con seguridad.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

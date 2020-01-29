@@ -1,0 +1,169 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-filter-container">
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:contentPathText">
+            <coral-accordion-item-label>{{i18n "Content Path"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <input is="coral-textfield" name="input_value_content_path" class="dashboard-content-path-value" value="">
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:searchText">
+            <coral-accordion-item-label>{{i18n "Text search"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <input is="coral-textfield" name="input_value" class="dashboard-search-value" value="">
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    {{#if hasSites}}
+        <coral-accordion variant="large">
+            <coral-accordion-item data-id="social:sites">
+                <coral-accordion-item-label>{{i18n "Site"}}</coral-accordion-item-label>
+                <coral-accordion-item-content>
+                    {{#if hasMultipleSites}}
+                        {{#each sites}}
+                            <div class="coral-Form-fieldwrapper">
+                                <coral-checkbox value="{{this}}">{{this}}</coral-checkbox>
+                            </div>
+                        {{/each}}
+                    {{else}}
+                        {{#each sites}}
+                            {{this}}
+                        {{/each}}
+                    {{/if}}
+                </coral-accordion-item-content>
+            </coral-accordion-item>
+        </coral-accordion>
+    {{/if}}
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:contentType">
+            <coral-accordion-item-label>{{i18n "Content type"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                {{#each resourceTypeFilters.names}}
+                    <div class="coral-Form-fieldwrapper">
+                        <coral-checkbox value="{{this}}">{{i18n this}}</coral-checkbox>
+                    </div>
+                {{/each}}
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:status">
+            <coral-accordion-item-label>{{i18n "Status"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="pending" data-attribute="pending">{{i18n "Pending"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="approved" data-attribute="approved">{{i18n "Approved"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="denied" data-attribute="denied">{{i18n "Denied"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="closed" data-attribute="closed">{{i18n "Closed"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="isDraft" data-attribute="isDraft">{{i18n "Draft"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="scheduled" data-attribute="scheduled">{{i18n "Scheduled"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="answered" data-attribute="answered">{{i18n "Answered"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="notAnswered" data-attribute="notAnswered">{{i18n "Not Answered"}}</coral-checkbox>
+                </div>
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:flagging">
+            <coral-accordion-item-label>{{i18n "Flagging"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-radio name="flagging" value="all" checked>{{i18n "All"}}</coral-radio>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-radio name="flagging" value="flagged">{{i18n "Flagged"}}</coral-radio>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-radio name="flagging" value="hidden">{{i18n "Hidden"}}</coral-radio>
+                </div>
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:userSearch">
+            <coral-accordion-item-label>{{i18n "Members"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                {{include resourceType="social/console/components/hbs/userlistui3"}}
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:daterange">
+            <coral-accordion-item-label>{{i18n "Posted in the last"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <coral-rangedslider startvalue="0" endvalue="6" min="0" max="6" step="1" labelledby="label-items-10" tooltips class="scf-dashboard-filter-daterange">
+                    <coral-slider-item value="0">{{i18n "Recent"}}</coral-slider-item>
+                    <coral-slider-item value="1">{{i18n "Hour"}}</coral-slider-item>
+                    <coral-slider-item value="2">{{i18n "Day"}}</coral-slider-item>
+                    <coral-slider-item value="3">{{i18n "Week"}}</coral-slider-item>
+                    <coral-slider-item value="4">{{i18n "Month"}}</coral-slider-item>
+                    <coral-slider-item value="5">{{i18n "Year"}}</coral-slider-item>
+                    <coral-slider-item value="6">{{i18n "All"}}</coral-slider-item>
+                </coral-rangedslider>
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+
+    <coral-accordion variant="large">
+        <coral-accordion-item data-id="social:sentiment">
+            <coral-accordion-item-label>{{i18n "Sentiment"}}</coral-accordion-item-label>
+            <coral-accordion-item-content>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="negative">{{i18n "Negative"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="neutral">{{i18n "Neutral"}}</coral-checkbox>
+                </div>
+                <div class="coral-Form-fieldwrapper">
+                    <coral-checkbox value="positive">{{i18n "Positive"}}</coral-checkbox>
+                </div>
+            </coral-accordion-item-content>
+        </coral-accordion-item>
+    </coral-accordion>
+</div>
+
+<div class="coral-Form-fieldwrapper scf-filter-controls">
+    <button id="filter-apply" is="coral-button" variant="primary">{{i18n "Apply"}}</button>
+    <button id="filter-clear" is="coral-button">{{i18n "Clear"}}</button>
+</div>

@@ -1,0 +1,29 @@
+﻿subject=[Forum Post] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    Uma nova resposta de publicação do fórum foi publicada “{{{target.displayName}}}” por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    Uma nova resposta de publicação do fórum foi adicionada a “{{{target.displayName}}}” por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    Uma resposta de publicação do fórum foi atualizada em “{{{target.displayName}}}” por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Uma resposta de publicação do fórum em “{{{target.displayName}}}” foi excluída por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    Uma resposta de publicação do fórum em “{{{target.displayName}}}” foi aprovada por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Clique neste link</a> para visualizar todas as publicações feitas neste tópico ou para modificar suas preferências de notificação.\n \
+</div>\n \
+</body>\n \
+</html>\n \

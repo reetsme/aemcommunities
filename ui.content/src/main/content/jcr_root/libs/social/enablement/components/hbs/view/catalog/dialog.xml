@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        title="Enablement Catalog properties"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <props
+                jcr:primaryType="cq:Panel"
+                title="Enablement Catalog properties">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <allowToolbar
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Allow toolbar"
+                        fieldLabel_commentI18n="Allow toolbar for catalog"
+                        name="./allowToolbar"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <allowToolbarTypeHint
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./allowToolbar@TypeHint"
+                        value="Boolean"
+                        xtype="hidden"/>
+                </items>
+            </props>
+        </items>
+    </items>
+</jcr:root>

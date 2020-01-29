@@ -1,0 +1,41 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-forgotuserid scf-forgotuserid-container" data-component-id="{{id}}" data-scf-component="social/console/components/hbs/forgotuserid">
+    <div class="scf-js-forgotuserid-form">
+        <h3>{{i18n "Forgot User Name"}}</h3>
+        <p>{{i18n "If you have forgotten your user name please submit your email address below. You will then receive an e-mail with your user name"}}</p>
+        <form role="form" method="POST" class="scf-js-forgotuserid" evt="submit=requestUserId" action="{{id}}.social.json">
+            <input type="hidden" name="_charset_" value="UTF-8" />
+            <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control" data-attrib="userEmail" name="userEmail" />
+                <input type="hidden" data-attrib="emailTemplatePath" name="emailTemplatePath" value="{{this.properties.emailTemplatePath}}" />
+                <input type="hidden" data-attrib="redirectPath" name="redirectPath" value="{{this.properties.redirectPath}}" />
+                <input type="hidden" name=":operation" value="social:forgotUserId" />
+            </div>
+            <div class="form-group">
+                <button type="submit" evt="submit=requestUserId" class="btn btn-default">{{i18n "Submit"}}</button>
+            </div>
+        </form>
+    </div>
+    <div class="scf-js-forgotuserid-text scf-is-hidden">
+        <h3>{{i18n "Please check your email"}}</h3>
+        <p>{{i18n "We sent an email with your user ID. Sometimes the email might take a few minutes to arrive"}}</p>
+        <p>{{i18n "Did not receive an email? "}}<a href="#" evt="click=hideForm">{{i18n "Try Again"}}</a></p>
+    </div>
+</div>

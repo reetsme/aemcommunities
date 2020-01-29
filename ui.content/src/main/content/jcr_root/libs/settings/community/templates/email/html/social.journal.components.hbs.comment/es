@@ -1,0 +1,30 @@
+﻿subject=[Respuesta de evento de ideación] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    {{{user.name}}} ha publicado una nueva respuesta en el evento de ideación "{{{target.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    {{{user.name}}} ha añadido una nueva respuesta en el evento de ideación "{{{target.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{{user.name}}} ha actualizado una nueva respuesta en el evento de ideación "{{{target.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}} ha eliminado una nueva respuesta en el evento de ideación "{{{target.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    {{{user.name}}} ha aprobado una nueva respuesta en el evento de ideación "{{{target.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}<br>El estado del evento de ideación se ha cambiado a: "{{{this.object.properties.toState}}}".{{/if}} \n \
+<br><a href="{{targetUrl}}">Haga clic en este vínculo</a> para ver todas las respuestas a este evento de ideación o modificar las preferencias de notificación.\n \
+</div>\n \
+</body>\n \
+</html>\n \

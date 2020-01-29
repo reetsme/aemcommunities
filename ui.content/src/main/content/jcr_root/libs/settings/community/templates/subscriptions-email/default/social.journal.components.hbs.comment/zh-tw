@@ -1,0 +1,21 @@
+subject={{#if this.target.properties.[jcr:title]}}[部落格評論] {{{target.displayName}}}{{else}}[部落格評論]{{/if}} \
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已新增對文章「{{{target.displayName}}}」的新部落格評論 {{#if this.target.properties.[jcr:title]}}{{/if}}。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已更新對文章「{{{target.displayName}}}」的部落格評論 {{#if this.target.properties.[jcr:title]}}{{/if}}。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已刪除對文章「{{{target.displayName}}}」的部落格評論 {{#if this.target.properties.[jcr:title]}}{{/if}}。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已核准對文章「{{{target.displayName}}}」的部落格評論 {{#if this.target.properties.[jcr:title]}}{{/if}}。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+請透過此連結檢視對此部落格文章的所有評論，或修改您的訂閱。\n \
+{{objectReferrer}}\n \

@@ -1,0 +1,55 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Site Title"}}</label>
+                <input is="coral-textfield" class="coral-Form-field" type="text" name="name" value="{{name}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Site Description"}}</label>
+                <textarea is="coral-textarea" class="coral-Form-field resizable-none coral-Textfield--multiline" name="jcr:description" rows="5">{{description}}</textarea>
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Cloud Configurations"}}</label>
+                {{#include this.id resourceType="granite/ui/components/foundation/form/pathbrowser" }}
+                    { "class":"site-cloud-config", "name" : "siteCloudConfig","placeHolder": "{{i18n 'Select Configuration Path'}}","pickerSrc":"/libs/wcm/core/content/common/pathbrowser/column.html/conf?predicate=configfolder" }
+                {{/include}}
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Site Base Language"}}</label>
+                <div id="console-base-language">
+                    <span id="social-console-baseLanguageSelect" class="coral-Select coral-Form-field" data-init="select">
+                    <input is="coral-textfield" class="coral-Form-field" type="text" disabled="disabled" value={{configuration.translationManagementConfiguration.baseLanguage}}></input>
+                    </span>
+                </div>
+            </div>
+
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Community Site Name"}}</label>
+                <input is="coral-textfield" class="coral-Form-field scf-js-social-console-siteurl" data-validation="foundation.jcr.name" type="text" disabled="disabled" name="urlName" value="{{siteUrlName}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" class="coral-Form-field scf-js-social-console-siteurlclone" type="text" name="siteurlclone" disabled="disabled" value="{{siteUrlName}}" aria-required="true">
+            </div>
+        </div>
+    </div>
+</div>

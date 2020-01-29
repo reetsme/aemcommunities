@@ -1,0 +1,32 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{i18n this.verb}}
+    {{#equals this.verb "Enrolled"}}
+        {{i18n "in"}}
+    {{/equals}}
+    {{#equals this.verb "Unenrolled"}}
+        {{i18n "from"}}
+    {{/equals}}
+    <b>
+{{#if this.object.component.friendlyUrl}}
+    <a href=" {{this.object.component.friendlyUrl}}">{{i18n this.object.displayName}}</a> {{i18n "by"}} {{i18n this.target.displayName}}
+{{else}}
+    {{this.object.displayName}}
+{{/if}}
+</b>

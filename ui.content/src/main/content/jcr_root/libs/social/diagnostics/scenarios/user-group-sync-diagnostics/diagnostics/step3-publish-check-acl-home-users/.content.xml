@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Authorized User ACL Check of /home/users"
+    diagnosticsType="UserAccessConfigurationStep"
+    docsSectionName="Create Authorized User"
+    docsURL="http://www.adobe.com/go/aem6_4_docs_usersync_enable2_en"
+    doneAfterFirstFailure="{Boolean}true"
+    enabled="{Boolean}true"
+    haltOnError="{Boolean}false"
+    jsObjectName="step3cPublish"
+    principal="@@stepdata.step3Publish.principal"
+    repositoryPath="/home/users"
+    runGroups="[all,initial]"
+    runModes="[publish]"
+    silentSuccess="{Boolean}true">
+    <check-jcr-rep-write
+        jcr:primaryType="nt:unstructured"
+        assertionStatement="(stepdata.step3cPublish.acls[&quot;jcr:all&quot;]!==undefined)"
+        description="@@&quot;Principal &quot; + stepdata.step3Publish.principal + &quot; must have jcr:all privileges to /home/users on Publisher&quot;"
+        diagnosticsType="assertion"
+        enabled="{Boolean}true"
+        haltOnError="{Boolean}false"/>
+</jcr:root>

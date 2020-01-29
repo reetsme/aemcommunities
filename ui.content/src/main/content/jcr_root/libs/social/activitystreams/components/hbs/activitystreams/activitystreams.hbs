@@ -1,0 +1,53 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="social-activitystream" data-component-id="{{id}}" data-scf-component="social/activitystreams/components/hbs/activitystreams">
+    <div id="scf-activities-navwrapper">
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            {{#if this.isAllowAllView}}
+                <li class="scf-activities-tab active"><a class="scf-allactivities" href="#social-activities" evt="click=allActivity">{{i18n "All Activities"}}</a>
+                </li>
+            {{/if}}
+            {{#if this.isAllowUserView}}
+                <li class="scf-activities-tab"><a class="scf-useractivities" href="#social-activities" evt="click=userActivity">{{i18n "My Activities"}}</a>
+                </li>
+            {{/if}}
+
+            {{#if this.isAllowFollowingView}}
+                <li class="scf-activities-tab"><a class="scf-followingactivities" href="#social-activities" evt="click=followingActivity">{{i18n "Following"}}</a>
+                </li>
+            {{/if}}
+        </ul>
+        <div class="scf-scrollTableInner {{#equals this.selector "USER"}}scf-is-my-activites{{/equals}}">
+            <table id="scf-activitiestable" class="table table-striped header-fixed">
+                <thead>
+                    <tr>
+                        <th class="scf-activity-member col-xs-3 col-md-1 text-center">{{i18n "Member"}}</th>
+                        <th class="scf-activity-info col-xs-8 col-md-6 text-left">{{i18n "Action"}}</th>
+                        <th class="scf-activity-time col-xs-2 col-md-1 text-left">{{i18n "Date"}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each items}} {{include this resourceType="social/activitystreams/components/hbs/activitystreams/activity" authoringDisabled="true"}} {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

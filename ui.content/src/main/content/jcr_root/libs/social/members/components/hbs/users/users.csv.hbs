@@ -1,0 +1,20 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}{{i18n "Screen Name"}},{{i18n "Last Name"}},{{i18n "First Name"}},{{i18n "Status"}},{{i18n "Views"}},{{i18n "Posts"}},{{i18n "Follows"}},{{i18n "Likes"}}
+{{#each items}}{{this.name}},{{this.lastName}},{{this.firstName}},{{#if this.disabled}}{{i18n "Inactive" }}{{else}}{{i18n "Active" }}{{/if}},{{this.viewsCount}},{{this.postsCount}},{{this.followsCount}},{{this.likesCount}}
+{{/each}}

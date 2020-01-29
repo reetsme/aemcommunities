@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs
+            jcr:primaryType="cq:TabPanel"
+            title="Leaderboard properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <settings
+                    jcr:primaryType="cq:Panel"
+                    title="Settings">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <displayName
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Display Name"
+                            fieldLabel_commentI18n="Title that will be displayed at the top of the component."
+                            name="./displayName"
+                            xtype="textfield"/>
+                        <displayBadge
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldLabel="Badge"
+                            fieldLabel_commentI18n="Should display badges in the leaderboard"
+                            name="./displayBadge"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <displayBadgeName
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldLabel="Badge Name"
+                            fieldLabel_commentI18n="Should display badge name in the leaderboard"
+                            name="./displayBadgeName"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <displayAvatar
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="false"
+                            fieldLabel="User Avatar"
+                            fieldLabel_commentI18n="Should display user avatar in the leaderboard"
+                            name="./displayAvatar"
+                            type="checkbox"
+                            xtype="selection"/>
+                    </items>
+                </settings>
+                <rules
+                    jcr:primaryType="nt:unstructured"
+                    title="Rules"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <ruleLocation
+                            jcr:primaryType="cq:Widget"
+                            defaultValue=""
+                            fieldLabel="Rule Location"
+                            fieldLabel_commentI18n="The rule path."
+                            name="./ruleLocation"
+                            predicate=""
+                            rootPath="/content"
+                            showTitlesInTree="false"
+                            xtype="pathfield"/>
+                        <scoringRule
+                            jcr:primaryType="cq:Widget"
+                            defaultValue=""
+                            fieldLabel="Scoring Rule"
+                            fieldLabel_commentI18n="The path of the scoring rule."
+                            name="./scoringRule"
+                            predicate=""
+                            rootPath="/libs/settings/community/scoring/rules"
+                            showTitlesInTree="false"
+                            xtype="pathfield"/>
+                        <badgingRule
+                            jcr:primaryType="cq:Widget"
+                            defaultValue=""
+                            fieldLabel="Badging Rule"
+                            fieldLabel_commentI18n="The path of the badging rule."
+                            name="./badgingRule"
+                            predicate=""
+                            rootPath="/libs/settings/community/badging/rules"
+                            showTitlesInTree="false"
+                            xtype="pathfield"/>
+                        <displayLimit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}10"
+                            fieldLabel="Display Limit"
+                            fieldLabel_commentI18n="Number of items to display. Default is 10."
+                            name="./displayLimit"
+                            xtype="numberfield"/>
+                    </items>
+                </rules>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

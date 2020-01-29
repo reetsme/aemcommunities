@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="User State Toggle Button"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <text
+            jcr:primaryType="cq:Widget"
+            title="Texts &amp; Labels"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <startId
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="false"
+                    name="./userId"
+                    value=""
+                    xtype="hidden"/>
+                <endId
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="false"
+                    name="./followedId"
+                    value=""
+                    xtype="hidden"/>
+            </items>
+        </text>
+    </items>
+</jcr:root>

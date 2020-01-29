@@ -1,0 +1,90 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-composer-block scf-js-composer-block">
+    <input class="scf-composer-msg" type="text" data-attrib="editSubject" name="editSubject" placeholder="{{i18n "Add a blog title"}}" value="{{subject}}" />
+    <textarea class="scf-composer-msg" type="text" data-attrib="editMessage" name="editMessage" placeholder="{{i18n "Message"}}" class="comment-composer-input" {{#if configuration.isRTEEnabled}} data-field-type="rte" data-editorheight="400" data-editorresize="true" {{/if}}>{{{message}}}</textarea>
+    {{#if configuration.isTaggingAllowed}}
+        <div class="scf-composer-container-tags">
+            <ul data-attrib="editTags" name="editTags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}"></ul>
+        </div>
+    {{/if}}
+    {{#if configuration.usingPrivilegedUsers}}
+        <div class="ui-widget">
+            <input class="scf-composer-msg" type="text" class="scf-js-userfilter" data-field-type="userdropdown" name="composedFor" placeholder="{{#if properties.composedFor}}{{i18n "Composed for "}}{{author.name}}{{else}}{{i18n "Compose On Behalf of a User"}}{{/if}}" data-attrib="composedFor" />
+        </div>
+    {{/if}}
+    {{#if this.configuration.isAttachmentAllowed}}
+        {{#if attachments}}
+            <ul class="well scf-cards scf-js-edit-attachments scf-comment-attachments">
+                {{#each attachments}}
+                    {{#if this.image}}
+                        <li class="scf-card scf-comment-img-att scf-js-comment-att" evt="mouseenter=toggleAttachmentOverlay,mouseleave=toggleAttachmentOverlay" data-attachment-path="{{@key}}">
+                                                <span class="scf-card-overlay">
+                                                        <span class="glyphicon glyphicon-trash scf-comment-att-delete" evt="click=confirmDeleteAttachment"></span>
+                                                <span class="glyphicon glyphicon-trash scf-comment-att-delete-ok" evt="click=deleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Delete"}}</span></span>
+                                                <span class="glyphicon glyphicon-remove scf-comment-att-delete-cancel" evt="click=cancelDeleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Cancel"}}</span>
+                                                </span>
+                                                </span>
+                            <img src="{{getContextPath ''}}{{this.path}}" class="scf-card-img scf-comment-attachment-img" />
+                            <span class="scf-card-footer"><a href="{{getContextPath ''}}{{this.path}}" target="_blank">{{name}}</a></span>
+                        </li>
+                    {{else}}
+                        <li class="scf-card scf-comment-file-att scf-js-comment-att" evt="mouseenter=toggleAttachmentOverlay,mouseleave=toggleAttachmentOverlay" data-attachment-path="{{@key}}">
+                                                <span class="scf-card-overlay">
+                                                        <span class="glyphicon glyphicon-trash scf-comment-att-delete" evt="click=confirmDeleteAttachment"></span>
+                                                <span class="glyphicon glyphicon-trash scf-comment-att-delete-ok" evt="click=deleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Delete"}}</span></span>
+                                                <span class="glyphicon glyphicon-remove scf-comment-att-delete-cancel" evt="click=cancelDeleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Cancel"}}</span>
+                                                </span>
+                                                </span>
+                            <span class="scf-card-icon scf-comment-file-icon glyphicon-file glyphicon"></span>
+                            <span class="scf-card-footer"><a class="scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></span>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        {{/if}}
+    {{/if}}
+    <div class="scf-clear-both"></div>
+    <div class='scf-composer-toolbar'>
+        {{#if configuration.isAttachmentAllowed}}
+            <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+            <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+        {{/if}}
+        <div class="scf-composer-actions">
+            <button class="btn btn-primary scf-draft-delete-btn scf-composer-delete" evt="click=deleteArticle">{{i18n "Delete"}}</button>
+            <button class="btn btn-default" evt="click=navigateCancel">{{i18n "Cancel"}}</button>{{!-- Draft deletes should be allowed without config--}}
+            {{#if draft}}
+                <button class="btn btn-primary scf-js-save-draft-btn" evt="click=saveDraft">{{i18n "Save draft"}}</button>
+                <button class="btn btn-primary scf-js-publish-btn" evt="click=publishDraft">{{i18n "Submit"}}</button>
+            {{/if}}
+            {{#unless draft}}
+                <button class="btn btn-primary scf-js-save-draft-btn" evt="click=save">{{i18n "Save"}}</button>
+            {{/unless}}
+        </div>
+        {{#if configuration.isAttachmentAllowed}}
+            <div class="scf-composer-attachments">
+                <ul class="scf-attachment-list scf-js-composer-att"></ul>
+            </div>
+        {{/if}}
+    </div>
+</div>

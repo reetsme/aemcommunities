@@ -1,0 +1,104 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+{{include this template="includes" }}
+
+    <div class="scf-diagnostics" data-component-id="{{id}}" data-scf-component="social/diagnostics/base/components/diagnostics">
+        <div id="diagnosticsResults" class="coral--light">
+            <!-- Metrics Bar containing Failure and Success counts -->
+            <div class="diagnostics-message-counts">
+                <span class="diagnostics-count diagnostics-fail">{{xss-html results.diagnostics.failedCount}} {{i18n "FAILED"}}</span>
+                <span class="diagnostics-count diagnostics-success">{{xss-html results.diagnostics.passedCount}} {{i18n "PASSED"}}</span>
+            </div>
+
+            <div id="diagnostics-rows">
+                {{#each results.diagnostics.stepdata}}
+                    {{#unless this.hideFromUI}}
+                        {{#if this.log.succeeded}}
+                            <div class="diagnostics-alert diagnostics-alert-success">
+                                <div class="diagnostics-type-indicator">[{{i18n "PASSED"}}]</div>
+                                <div class="diagnostics-message-area">
+                                    <div class="diagnostics-header-line">{{xss-html this.log.stepName}}</div>
+                                    <div class="diagnostics-message-line">For your reference, the documentation is location at:</div>
+                                    <div class="diagnostics-message-line"><a target="_blank" href="{{xss-validHref this.log.docsURL}}" class="coral-Link">{{xss-html this.log.docsSectionName}}</a></div>
+                                    {{#equals this.stepType "OSGIConfigurationStep"}}
+                                        {{#if this.configurations}}
+                                            <div class="diagnostics-message-line">Existing OSGi configuration(s):</div>
+                                        {{/if}}
+                                        <ul class="coral-List">
+                                            {{#each this.configurations}}
+                                                {{#if this.pid}}
+                                                    <li>
+                                                        <a x-cq-linkchecker="skip" target="_blank" href="{{xss-validHref ../../this.hostBaseURL}}/system/console/configMgr/{{xss-htmlAttr this.pid}}" class="coral-Link">{{xss-html this.pid}}</a>
+                                                    </li>
+                                                {{/if}}
+                                            {{/each}}
+                                        </ul>
+                                    {{/equals}}
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="diagnostics-alert diagnostics-alert-fail">
+                                <div class="diagnostics-type-indicator">[{{i18n "FAILED"}}]</div>
+                                <div class="diagnostics-message-area">
+                                    <div class="diagnostics-header-line">{{xss-html this.log.stepName}}</div>
+                                    {{#each this.log.assertionReasons}}
+                                        <div class="diagnostics-message-line">{{xss-html this}}</div>
+                                    {{/each}}
+                                    <div class="diagnostics-message-line">Please follow the documentation at:</div>
+                                    <div class="diagnostics-message-line"><a target="_blank" href="{{xss-validHref this.log.docsURL}}" class="coral-Link">{{xss-html this.log.docsSectionName}}</a></div>
+                                    {{#equals this.stepType "OSGIConfigurationStep"}}
+                                        {{#if this.configurations}}
+                                            <div class="diagnostics-message-line">Existing OSGi configuration(s):</div>
+                                        {{/if}}
+                                        <ul>
+                                            {{#each this.configurations}}
+                                                {{#if this.pid}}
+                                                    <li>
+                                                        <a x-cq-linkchecker="skip" target="_blank" href="{{xss-validHref ../../this.hostBaseURL}}/system/console/configMgr/{{this.pid}}" class="coral-Link">{{xss-html this.pid}}</a>
+                                                    </li>
+                                                {{/if}}
+                                            {{/each}}
+                                        </ul>
+                                    {{/equals}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/unless}}
+                {{/each}}
+
+                {{#if results.diagnostics.failedOnException }}
+                    <tr class="coral-Table-row">
+                        <td class="coral-Table-cell">
+                            <div class="diagnostics-info-line died">
+                                <div class="diagnostics-status">
+                                    <coral-icon icon="sentimentNegative" size="M"></coral-icon>
+                                </div>
+                                <div class="diagnostics-info">
+                                    <div>Sorry... The diagnostics encountered an exception, and the results are not reliable. The exception message is:</div>
+                                    <br/>
+                                    <div>{{xss-html results.diagnostics.failedOnException.message}}</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {{/if}}
+            </div>
+        </div>
+    </div>

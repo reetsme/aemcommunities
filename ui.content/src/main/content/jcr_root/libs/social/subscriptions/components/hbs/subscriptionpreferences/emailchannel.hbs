@@ -1,0 +1,112 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-emailchannel scf-channel-settings" id="scf-email">
+    <div>
+        <b>{{i18n "Activity that involves content you created"}}:</b>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Votes"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.usercontents.votes-true" data-id="notificationCategorySettings.email.usercontents.votes" type="radio"  name="email-votes" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.usercontents.votes}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.usercontents.votes-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.usercontents.votes-false" data-id="notificationCategorySettings.email.usercontents.votes" type="radio"  name="email-votes" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.usercontents.votes}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.usercontents.votes-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Replies/Comments"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.usercontents.comments-true" data-id="notificationCategorySettings.email.usercontents.comments" type="radio" name="email-comments" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.usercontents.comments}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.usercontents.comments-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.usercontents.comments-false" data-id="notificationCategorySettings.email.usercontents.comments" type="radio" name="email-comments" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.usercontents.comments}} checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.usercontents.comments-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Activity that involves content you're following"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.followcontents.enable-true" data-id="notificationCategorySettings.email.followcontents.enable" type="radio" name="email-followcontents" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.followcontents.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.followcontents.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.followcontents.enable-false" data-id="notificationCategorySettings.email.followcontents.enable" type="radio" name="email-followcontents" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.followcontents.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.followcontents.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Activity that involves people you're following"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.followusers.enable-true" data-id="notificationCategorySettings.email.followusers.enable" type="radio" name="email-followusers" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.followusers.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.followusers.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.followusers.enable-false" data-id="notificationCategorySettings.email.followusers.enable" type="radio" name="email-followusers" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.followusers.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.followusers.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <b>{{i18n "Community Resource assigned to you"}}:</b>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.resourceassignments.enable-true" data-id="notificationCategorySettings.email.resourceassignments.enable" type="radio" name="email-resourceassignments" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.resourceassignments.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.resourceassignments.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.resourceassignments.enable-false" data-id="notificationCategorySettings.email.resourceassignments.enable" type="radio" name="email-resourceassignments" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.resourceassignments.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.resourceassignments.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <b>{{i18n "Activity from the community that involves you"}}:</b>
+    </div>
+    <div class="row">
+        <div class="col-md-8 scf-notification-settings-padding">
+            <text>{{i18n "Private Messages"}}</text>
+        </div>
+        <div class="col-md-4"><span class="pull-right">
+            <input id="scf-notificationCategorySettings.email.privatemessaging.enable-true" data-id="notificationCategorySettings.email.privatemessaging.enable" type="radio"  name="email-privatemessaging" value="true" evt="click=handlePreferenceSelection" {{#if notificationCategorySettings.email.privatemessaging.enable}}checked{{/if}}>
+            <label for="scf-notificationCategorySettings.email.privatemessaging.enable-true">{{i18n "Yes"}}</label>
+            <input id="scf-notificationCategorySettings.email.privatemessaging.enable-false" data-id="notificationCategorySettings.email.privatemessaging.enable" type="radio"  name="email-privatemessaging" value="false" evt="click=handlePreferenceSelection" {{#unless notificationCategorySettings.email.privatemessaging.enable}}checked{{/unless}}>
+            <label for="scf-notificationCategorySettings.email.privatemessaging.enable-false">{{i18n "No"}}</label>
+            </span>
+        </div>
+    </div>
+    <div class="scf-line-break"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-right">
+                <button type="button" class="btn btn-primary" evt="click=updatePrefs" role="button">{{i18n "Save"}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>

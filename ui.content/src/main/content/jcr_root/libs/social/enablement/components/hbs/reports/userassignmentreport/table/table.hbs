@@ -1,0 +1,73 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-userassignment-table" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/userassignmentreport/table">
+    {{#if items}}
+        <table class="scf-table coral-Table" id="user-assignment-table" width="100%">
+            <thead>
+                <tr class="coral-Table-row">
+                    <th class="coral-Table-headerCell">{{i18n "Assignment"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Start Date"}}</th>
+                    <th class="dt-hide coral-Table-headerCell">{{i18n "Completion Date"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Completion Status"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Success Status"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Score"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Comments"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Rating"}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                    <tr class="coral-Table-row">
+                        {{#if learningPath}}
+                            <td class="coral-Table-cell"><b>{{title}} ({{learningPathResourceCount}})</b></td>
+                        {{else}}
+                            <td class="coral-Table-cell">{{title}}</td>
+                        {{/if}}
+                        <td class="coral-Table-cell">{{dateUtil startDate format=../localeDateFormat}}</td>
+                        <td class="coral-Table-cell">{{dateUtil completeDate format=../localeDateFormat}}</td>
+                        <td class="coral-Table-cell">
+                            {{#if percentageStatus}}
+                                <div class="coral-Progress">
+                                    <div class="coral-Progress-bar" title="{{i18n completionStatus}}">
+                                        <div class="coral-Progress-status" style="width: {{completionStatus}};"></div>
+                                    </div>
+                                    <label class="coral-Progress-label">
+                                        {{i18n completionStatus}}
+                                    </label>
+                                </div>
+                            {{else}}
+                                {{i18n completionStatus}}
+                            {{/if}}
+                        </td>
+                        <td class="coral-Table-cell">{{i18n successStatus}}</td>
+                        <td class="coral-Table-cell">{{score}}</td>
+                        <td class="coral-Table-cell">{{commentCount}}</td>
+                        <td class="coral-Table-cell" data-order="{{rating}}">
+                            <div class="emptyStar" title="{{rating}}">
+                                <div class="ratingStar" style="width: {{ratingWidth}}%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <h3 class="coral-Heading coral-Heading--3">{{i18n "No assignments."}}</h3>
+    {{/if}}
+</div>

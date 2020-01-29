@@ -1,0 +1,41 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="content scf-js-cq-social-themes social-themes scf-js-social-console-cssupload" data-component-id="{{this.id}}/cssupload" data-scf-component="social/console/components/hbs/sitethemes/cssupload">
+    <article class="card-asset scf-social-console-cssarticle">
+        <div class="card scf-social-console-card">
+            <div class="label">
+                <h4 class="scf-js-social-css-title">{{i18n "Upload CSS"}}</h4>
+                <h4 class="scf-js-social-css-title-custom scf-is-hidden">{{i18n "Custom CSS Loaded"}}</h4>
+            </div>
+        </div>
+        <div class="image scf-social-console-card-image">
+            <div class="scf-js-social-console-divCSSUpload scf-social-console-divCSSUpload">
+                <span class="coral-FileUpload" data-init="fileupload">
+                        <span class="coral-FileUpload-trigger coral-Button coral-Button--secondary coral-Button--quiet" style="height:auto;">
+                            <i class="coral-Icon coral-Icon--sizeL coral-Icon--code">
+                                <input class="scf-js-social-console-cssUploadCSS coral-FileUpload-input" name="pagecss" type="file" accept=".css" data-upload-url="dummy" data-file-name-parameter="{{#if this.path}}{{this.name}}{{else}}dummy{{/if}}">
+                            </i>
+                        </span>
+                <input type="hidden" name="dummy" value="">
+                </span>
+                <p class="scf-js-addcsslabel">{{i18n "Tap to add CSS"}}</p>
+            </div>
+        </div>
+    </article>
+</div>

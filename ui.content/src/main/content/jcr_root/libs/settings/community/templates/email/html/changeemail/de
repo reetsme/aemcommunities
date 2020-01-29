@@ -1,0 +1,18 @@
+﻿subject=E-Mail-Änderungsanfrage
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>E-Mail-Änderungsanfrage</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hallo {{{givenName}}},</p>\n \
+<p>Sie möchten die E-Mail-Adresse ändern, die mit Ihrem Konto verknüpft ist.</p>\n \
+<p>Um diese E-Mail-Adresse zu bestätigen, klicken Sie auf diesen Link <a href="{{{actionURL}}}"">{{{actionURL}}}</a> oder kopieren Sie ihn in Ihren Browser.</p>\n \
+<p>Sie müssen diesen Link bis {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} anklicken, da er andernfalls ungültig wird.</p>\n \
+<p>Wenn Sie diese E-Mail-Adresse nicht ändern möchten, tun Sie einfach nichts, sodass Ihre aktuelle E-Mail-Adresse weiterhin verwendet wird.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

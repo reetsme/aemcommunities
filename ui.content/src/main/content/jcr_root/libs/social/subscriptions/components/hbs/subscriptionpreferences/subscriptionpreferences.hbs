@@ -1,0 +1,60 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="container scf-notification-preference" data-component-id="{{id}}" data-scf-component="social/subscriptions/components/hbs/subscriptionpreferences">
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="scf-sidebar-tabs">
+                <ul class="nav nav-pills nav-stacked tabs scf-preference-tabs">
+                    <li class="active"><a class="btn" href="#scf-tab-web" data-toggle="tab">Web</a></li>
+                    <li class=""><a class="btn" href="#scf-tab-email" data-toggle="tab">Email</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-md-10">
+            <div class="scf-alert alert alert-success alert-dismissable scf-is-hidden" role="alert">
+                <button type="button" class="close" aria-label="Close" evt="click=closePopup"><span aria-hidden="true">&times;</span></button> {{i18n "Notification preferences saved successfully"}}
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active text-style" id="scf-tab-web">
+                    <h4>{{i18n "What you will get notified about on the web"}}</h4>
+                    <hr/> {{include this resourceType="social/subscriptions/components/hbs/subscriptionpreferences" template="webchannel"}}
+                </div>
+
+                <div class="tab-pane text-style" id="scf-tab-email">
+                    <h4>{{i18n "What you will get notified about through email"}}</h4>
+                    <hr/>
+
+                    <div class="scf-toggle">
+                        <label>
+                            {{i18n "Same as web "}}
+
+                            <input type="checkbox" name="scftoggle" class="scf-togglecheckbox" data-width="100" id="scf-toggleswitch" data-toggle="toggle" evt="change=sameAsWeb"
+                                data-size="small" data-on="{{i18n "On"}}" data-off="{{i18n "Off"}}" />
+                        </label>
+                    </div>
+
+                    <div class="scf-line-break"></div>
+
+                    {{include this resourceType="social/subscriptions/components/hbs/subscriptionpreferences" template="emailchannel"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

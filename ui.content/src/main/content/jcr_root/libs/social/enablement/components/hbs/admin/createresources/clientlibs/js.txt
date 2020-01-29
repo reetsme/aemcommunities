@@ -1,0 +1,8 @@
+fileupload.js
+addassetwizard.js
+AssetModel.js
+AssetView.js
+AddAssetWizardModel.js
+createresources.js
+AddAssetActions.js
+AddAssetWizardView.js

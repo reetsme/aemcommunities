@@ -1,0 +1,18 @@
+﻿subject=電子メール更新リクエスト
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>電子メール更新リクエスト</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}} 様</p>\n \
+<p>アカウントに関連付けられている電子メールアドレスの変更がリクエストされました。</p>\n \
+<p>{{{newEmail}}} のアドレスに電子メールが届いているはずです。電子メール内のリンクをクリックすることでアドレスが確認されると、この新しい電子メールがアカウントに関連付けられます。</p>\n \
+<p>リンクを {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} までにクリックしない場合、リンクは期限切れになり、引き続き現在の電子メールアドレスにすべての通知が送信されます。</p>\n \
+<p>このリクエストに心当たりがない場合、このアカウントは別のユーザーによってコントロールされています。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,267 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+table.messages {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.messageSelector {
+    padding-left: 15px;
+    padding-right: 10px;
+    float: left;
+}
+
+.selectionLinkHolder {
+    text-align: left;
+}
+
+.paginateMessageBox {
+    display: block;
+    text-align: right;
+    float: right;
+}
+
+.pageNumberDiv {
+    color: #9C9C9C;
+}
+
+.pageNumberDiv a {
+    color: #9C9C9C;
+}
+
+.paginateAndDisplayUsage {
+    width: 100%;
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    border-top: thin solid #EFEFEF;
+}
+
+.displaymessage {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+.messagecontainingrow {
+    border-top: thin solid #E7E7E7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a.selectLink {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.selectAndPaginateDiv {
+    border-top: thick solid #aaaaaa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.arrowLeft {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+    border-right: 5px solid #BBBBBB;
+}
+
+.arrowRight {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+    border-left: 5px solid #BBBBBB;
+}
+
+.currentPageNumberDiv {
+    color: #ffffff;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background: #c24920;
+    background-image: -moz-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: -o-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c24920), color-stop(1, #f75e1a));
+    background-image: -webkit-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: linear-gradient(to bottom, #c24920 0%, #f75e1a 100%);
+    display: inline-block;
+}
+
+.inlineDiv {
+    display: inline-block;
+}
+
+.emptyMessageBoxSection {
+    margin-top: 5px;
+}
+
+.unreadCircle {
+    max-width: 10px;
+    min-width: 10px;
+    max-height: 10px;
+    min-height: 10px !important;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.circleBackgroundImage {
+    background: #c24920;
+    background-image: -moz-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: -o-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c24920), color-stop(1, #f75e1a));
+    background-image: -webkit-linear-gradient(top, #c24920 0%, #f75e1a 100%);
+    background-image: linear-gradient(to bottom, #c24920 0%, #f75e1a 100%);
+}
+
+.alertText {
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    width: 90%;
+}
+
+.hideAlert {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.successNotification {
+    background-color: #B3C975;
+    padding: 5px;
+    max-width: 230px;
+    margin: 0 auto;
+}
+
+.alertNotification {
+    background-color: #FCC734;
+    padding: 5px;
+}
+
+.errorNotification {
+    background-color: #FD6667;
+    padding: 5px;
+    max-width: 230px;
+    margin: 0 auto;
+}
+
+.successNotification .hideAlert {
+    color: #59653B !important;
+}
+
+.alertNotification .hideAlert {
+    color: #7E641A !important;
+}
+
+.errorNotification .hideAlert {
+    color: #7F3333 !important;
+}
+
+td.hideAlertColumn {
+    padding-top: 2px;
+    width: 5%;
+}
+
+.notificationImage {
+    width: 16px;
+    height: 16px;
+}
+
+#alertDiv.alertNotification .notificationImage,
+#alertDiv.alertNotification td.hideAlertColumn {
+    padding: 10px;
+}
+
+div.usageStatistics {
+    font-family: arial;
+    font-size: 11px;
+    color: #A6A6A6;
+    text-align: left
+}
+
+.paginateAndDisplayUsage .usageStatistics {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.paginateAndDisplayUsage .pages .page:hover {
+    cursor: pointer;
+}
+
+.paginateAndDisplayUsage .pages {
+    margin-top: 0;
+}
+
+.disabled-messaging-user-link:hover {
+    cursor: text;
+    text-decoration: none;
+}
+
+.messagecontainingrow .message-action-button-holder .button-holder {
+    margin-top: 1em;
+}
+
+.no-left-margin {
+    margin-left: 0 !important;
+}
+
+.messagebox .comment-image {
+    margin-bottom: 1em;
+}
+
+.quickActionButtons {
+    margin-bottom: 20px;
+}
+
+.col-sm-6.message-action-button-holder,
+.col-sm-12.message-hr {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn.quickActionButton:disabled {
+    display: inline-block;
+}
+
+.parentmessagediv {
+    margin-top: 20px;
+}
+
+.parentmessagediv .scf-component-pages-container > div {
+    text-align: center;
+}
+
+.parentmessagediv .pager li {
+    margin-left: 2px;
+}
+
+.scf-messaging-nav-bar {
+    padding-top: 20px;
+    padding-right: 30px;
+}

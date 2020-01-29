@@ -1,0 +1,51 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf scf-subscriptions" data-component-id="{{id}}" data-scf-component="social/subscriptions/components/hbs/subscriptions">
+    <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle scf-subscriptions-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span id="button_label">
+                {{#if subscribed}}
+                    {{i18n "Following"}}
+                {{else}}
+                    {{i18n "Follow"}}
+                {{/if}}
+            </span>
+            <span class="caret"></span>
+        </button>
+        {{#if userLoggedIn}}
+            <ul class="scf-subscriptions-list dropdown-menu" role="menu" aria-labelledby="followDropdownMenu">
+                {{#each states}}
+                    <li data_type="{{@key}}" class="scf-subscription-item" evt="click=handleClick">
+                        <span class="scf-subscription-type {{#if selected}}scf-subscription-type-selected{{/if}}">{{i18n this.displayName}}</span>
+                        {{#if this.selected}}
+                            <span class="glyphicon glyphicon-ok scf-checkbox"></span>
+                        {{/if}}
+
+                    </li>
+                {{/each}}
+                {{#if subscribed}}
+                    <li role="separator" class="divider"></li>
+                    <li data_type="unfollow-all" class="scf-subscription-item" evt="click=handleClick">
+                        <span class="scf-subscription-type">{{i18n "Unfollow All"}}</span></li>
+                {{/if}}
+            </ul>
+        {{/if}}
+    </div>
+</div>

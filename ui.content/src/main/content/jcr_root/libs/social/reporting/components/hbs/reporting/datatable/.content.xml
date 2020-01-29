@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <bootstrap jcr:primaryType="nt:unstructured">
+        <pagination jcr:primaryType="nt:unstructured">
+            <clientlibs/>
+            <pagination.hbs/>
+        </pagination>
+    </bootstrap>
+    <clientlibs/>
+    <coral jcr:primaryType="nt:unstructured">
+        <clientlibs/>
+        <pagination jcr:primaryType="nt:unstructured">
+            <clientlibs/>
+            <pagination.hbs/>
+        </pagination>
+    </coral>
+    <pagination jcr:primaryType="nt:unstructured">
+        <clientlibs/>
+    </pagination>
+</jcr:root>

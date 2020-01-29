@@ -1,0 +1,1013 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+
+/* Bootstrap has a very broad rule setting font-size of html element to 0.652%.
+Then every relative rem size is a percentage of that reduced font-size.
+In modx author version we need to reset it back to 100% in order not to affect
+rails and bars that are not part of modx.
+
+To preserve default bootstrap (i.e. publish) version of modx we'll have to reduce
+most sizes via multiplying them by ~0.625 */
+
+
+/* This reset can be done in several places. But it's a good idea to inculde
+this entire stylesheet based on that flag instead of context of .endor-Panel-content*/
+
+html {
+    font-size: 1rem;
+}
+
+
+/* extends default to make it 100% height */
+
+.container-fluid,
+.scf-dashboard,
+.scf-mod-content,
+.scf-mod-content > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.dashboard {
+    height: 100%;
+    position: relative;
+}
+
+.row {
+    height: 100%;
+}
+
+#col1 {
+    padding: 0;
+}
+
+.scf-dashboard {
+    height: 100%;
+}
+
+.scf-mod-content {
+    height: 100%;
+}
+
+.filters {
+    height: 100%;
+    position: relative;
+}
+
+#filter-container {
+    bottom: 4rem;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+
+/* end 100% height css */
+
+div.scf-search-form {
+    display: block;
+}
+
+div.scf-search-form .scf-search-checkbox {
+    display: inline;
+    margin-left: 10px;
+    margin-top: 0;
+}
+
+div.scf-search-form .scf-search-label {
+    display: inline;
+}
+
+div.scf-search-form .scf-search-query-label,
+.content-header h5,
+.card,
+.card_details img,
+div.checkbox label {
+    float: left;
+}
+
+div.social-dashboard-filter span:hover {
+    color: red;
+}
+
+.content-header {
+    overflow: hidden;
+}
+
+
+/* card */
+
+.card_container {
+    overflow: hidden;
+}
+
+.card {
+    width: 14rem;
+    height: 14rem;
+    margin-left: 0.6rem;
+    margin-bottom: 0.6rem;
+    box-shadow: 0 0.12rem 0.12rem rgba(0, 0, 0, 0.25);
+    font-size: 1rem;
+    line-height: 1.125rem;
+    position: relative;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+}
+
+.card div {
+    overflow: hidden;
+}
+
+.card_top {
+    height: 1.5rem;
+    height: 20px;
+    text-align: center;
+    padding: 2px;
+    background-color: #DBE8AF;
+    position: absolute;
+    width: 20px;
+    right: -6px;
+    top: 10px;
+    box-shadow: 0.00em 0.06rem 0.075rem rgba(0, 0, 0, 0.25);
+    border-radius: 3px 0px 0px 3px;
+}
+
+.card div.card_top {
+    overflow: visible;
+}
+
+.card_details {
+    min-height: 60px;
+    margin-right: 20px;
+    padding: 1em;
+    color: #097EDD;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.card_details .card-author a {
+    color: #097EDD;
+}
+
+.card_details img {
+    margin-right: 15px;
+    width: 3.75em;
+    height: 3.75em;
+    border-radius: 3.75em;
+}
+
+.card_details div {
+    padding: 3px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card_content {
+    max-height: 9.4rem;
+    padding: 15px 10px;
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: lighter;
+    color: #333;
+    border-top: 1px solid #EBEBEB;
+    font-family: adobe-clean, Helvetica, Arial, sans-serif;
+}
+
+.card-bottom {
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    line-height: 15px;
+    font-weight: lighter;
+    color: #AFAFAF;
+    font-size: 12px;
+}
+
+.card_status {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+}
+
+.card_status span {
+    margin-right: 8px;
+}
+
+.card_status span.scf-card-reply-count {
+    margin-right: 3px;
+}
+
+.card_date {
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+.sentiment_0 {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.scf-sentiment_1,
+.scf-sentiment_2,
+.scf-sentiment_3,
+.scf-sentiment_4 {
+    border: 1px solid #FA695F;
+    background-color: #FA8C82;
+    color: #643834;
+    line-height: 12px;
+    font-size: 8px;
+}
+
+.sentiment_5 {
+    border: 1px solid #BEBEBE;
+    background-color: #D2D2D2;
+}
+
+.scf-sentiment_6,
+.scf-sentiment_7,
+.scf-sentiment_8,
+.scf-sentiment_9,
+.scf-sentiment_10 {
+    border: 1px solid #50BEAA;
+    background-color: #78CBBE;
+    color: #30504C;
+    line-height: 12px;
+    font-size: 8px;
+}
+
+.scf-icon-sentiment_1:before,
+.scf-icon-sentiment_2:before,
+.scf-icon-sentiment_3:before,
+.scf-icon-sentiment_4:before {
+    content: "\f20e";
+    line-height: 12px;
+    font-size: 8px;
+}
+
+.scf-icon-sentiment_6:before,
+.scf-icon-sentiment_7:before,
+.scf-icon-sentiment_8:before,
+.scf-icon-sentiment_9:before,
+.scf-icon-sentiment_10:before {
+    content: "\f106";
+    line-height: 12px;
+    font-size: 8px;
+}
+
+.card_top:after {
+    content: " ";
+    position: absolute;
+    bottom: -7px;
+    right: -1px;
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+}
+
+.scf-icon-sentiment_6:after,
+.scf-icon-sentiment_7:after,
+.scf-icon-sentiment_8:after,
+.scf-icon-sentiment_9:after,
+.scf-icon-sentiment_10:after {
+    border-left-color: #78CBBE;
+    border-top-color: #78CBBE;
+}
+
+.scf-icon-sentiment_1:after,
+.scf-icon-sentiment_2:after,
+.scf-icon-sentiment_3:after,
+.scf-icon-sentiment_4:after {
+    border-left-color: #FA8C82;
+    border-top-color: #FA8C82;
+}
+
+.sentiment_5:after {
+    border-left-color: #D2D2D2;
+    border-top-color: #D2D2D2;
+}
+
+[class^="scf-icon-"].small {
+    font-size: 8px;
+    line-height: 12px;
+}
+
+
+/* end card */
+
+
+/* end of bulk moderation */
+
+
+/* scf overrides */
+
+.scf-dashboard {
+    overflow: hidden;
+}
+
+.scf-modal-dialog {
+    color: inherit;
+}
+
+
+/* end scf overrides */
+
+
+/* bootstrap overrides and extensions */
+
+div.checkbox {
+    overflow: hidden;
+}
+
+div.checkbox div.btn-group {
+    float: right;
+}
+
+.btn:active,
+.btn.active {
+    background-color: #006DCC;
+    color: #ffffff;
+}
+
+label {
+    font-weight: normal;
+}
+
+
+/* end bootstrap overrides */
+
+
+/* adding this so that btn-group btn-toggle collapses seccessfully */
+
+.btn-toggle {
+    overflow: hidden;
+}
+
+.btn-toggle.collapse {
+    height: 0;
+}
+
+.row {
+    padding-top: 1.8rem;
+}
+
+.selection-layer {
+    position: absolute;
+    background-color: #428BCA;
+    /* width height same as .card */
+    width: 22rem;
+    height: 22rem;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    display: none;
+    z-index: 10;
+}
+
+.selection-layer span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    font-size: 5rem;
+    margin: -2.6rem;
+    padding: 0.2rem;
+    height: 5rem;
+    line-height: 5rem;
+    overflow: visible;
+}
+
+.event-layer {
+    height: 18rem;
+}
+
+.event-layer:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    bottom: 0;
+    left: 0;
+}
+
+#counter {
+    float: right;
+    display: none;
+    margin: 8px 8px 0 0;
+}
+
+.scf-link {
+    cursor: pointer;
+}
+
+
+/* icons */
+
+[class^="scf-icon-"] {
+    font-family: SCFIcons;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.scf-icon-delete:before {
+    content: "";
+}
+
+.scf-icon-reply:before {
+    content: "";
+}
+
+
+/* same as exclude icon */
+
+.scf-icon-deny:before {
+    content: "";
+}
+
+.scf-icon-check-circle:before {
+    content: "";
+}
+
+.scf-icon-check:before {
+    content: "";
+}
+
+.scf-icon-lockon:before {
+    content: "";
+}
+
+.scf-icon-lockoff:before {
+    content: "";
+}
+
+.scf-icon-replies:before {
+    content: "";
+}
+
+.scf-icon-pending:before {
+    content: "";
+}
+
+.scf-icon-flag:before {
+    content: "";
+}
+
+.scf-icon-exclude:before {
+    content: "";
+}
+
+.scf-icon-chevronRight:before {
+    content: "";
+}
+
+.scf-icon-chevronDown:before {
+    content: "";
+}
+
+.scf-icon-filter:before {
+    content: "";
+}
+
+.scf-icon-search:before {
+    content: "";
+}
+
+.scf-icon-attach:before {
+    content: "";
+}
+
+.scf-icon-spam:before {
+    content: "\f185";
+}
+
+.scf-icon-history:before {
+    content: "\f1eb";
+}
+
+.scf-icon-viewDetail:before {
+    content: "\f2a3";
+}
+
+.scf-icon-tableHistogram:before {
+    content: "\f26d";
+}
+
+.card_status span[class^="scf-icon-"] {
+    font-size: 1.2rem;
+}
+
+
+/* modifying chevrons without referencing scf-icon- */
+
+.panel-title span {
+    font-size: 1.1rem;
+    float: left;
+    margin: 3px 10px 0 0;
+}
+
+
+/* making slider panels taller to fit positioned slider labels */
+
+#collapseFour .panel-body,
+#collapseFive .panel-body {
+    min-height: 5rem;
+    min-width: 15rem;
+}
+
+.ui-slider .tick {
+    position: absolute;
+    width: 20px;
+    margin-top: 10px;
+}
+
+.ui-slider .tick label {
+    text-align: center;
+    font-size: 10px;
+    font-weight: normal;
+    margin-left: -3px;
+}
+
+#slider-date-range .tick1 label {
+    margin-left: -15px;
+}
+
+#slider-date-range .tick2 label {
+    margin-left: -9px;
+}
+
+#slider-date-range .tick3 label {
+    margin-left: -13px;
+}
+
+#slider-date-range .tick4 label {
+    margin-left: -16px;
+}
+
+#slider-date-range .tick5 label {
+    margin-left: -13px;
+}
+
+#filter-toggle {
+    display: none;
+}
+
+
+/* filters */
+
+.panel-title > a {
+    font-size: 0.8125rem;
+}
+
+.panel-title span {
+    margin-top: 5px;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+}
+
+.panel-group-heading {
+    height: 3.3rem;
+}
+
+.collapse.in {
+    min-height: 3.5rem;
+}
+
+
+/* end filters */
+
+.card-quick-actions {
+    padding: 0.13rem;
+}
+
+span.quickaction {
+    height: 1.75rem;
+    margin: 0 0.1rem;
+    padding-top: 0.39rem;
+    width: 1.75rem;
+}
+
+.card-quick-actions span[class^="scf-icon-"] {
+    font-size: 0.94rem;
+    line-height: 0.94rem;
+}
+
+.card_status span[class^="scf-icon-"] {
+    font-size: 0.75rem;
+    line-height: 0.8rem;
+}
+
+.event-layer {
+    height: 12rem;
+}
+
+.selection-layer {
+    width: 14rem;
+    height: 14rem;
+}
+
+.selection-layer span {
+    font-size: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    margin: -1.625rem;
+    padding: 0.125rem;
+}
+
+.loading_new:after {
+    background: transparent url(wait_32.gif) no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
+    content: ' ';
+}
+
+.loading_more:after {
+    background: transparent url(wait_32.gif) no-repeat;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
+    content: ' ';
+}
+
+
+/* detail box stuff */
+
+.ugc-quick-detail-box {
+    color: #333;
+    background-color: #ffffff;
+    position: relative;
+    max-height: 30rem;
+    min-height: 20rem;
+    padding-top: 0.5rem;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.ugc-quick-detail-box > div:first-child {
+    overflow: auto;
+}
+
+.detail_entry_info,
+.detail_entry_avatar {
+    float: left;
+}
+
+.detail_entry_avatar {
+    cursor: pointer;
+    margin: 0 0.25rem 0 0.25rem;
+}
+
+.detail_entry_author {
+    line-height: 1rem;
+}
+
+.detail_entry_subject {
+    font-weight: bold;
+    line-height: 1rem;
+}
+
+.detail_entry_resource {
+    font-size: 0.6rem;
+}
+
+.detail_entry_message {
+    padding: 0.8rem 1rem 0 1rem;
+    line-height: 1rem;
+    font-size: 0.6rem;
+}
+
+.detail_entry_subitem .detail_entry_message {
+    padding: 0.2rem 0.5rem 0 0;
+}
+
+.detail_entry_subitem img {
+    max-width: 250px;
+}
+
+.detail_entry_status {
+    padding: 0 1rem;
+}
+
+.detail_entry_status_small {
+    padding: 0 1rem 0 0;
+}
+
+.detail_entry_status_item,
+.detail_entry_status_item_small,
+.detail_entry_status_time {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    color: #999999;
+}
+
+.detail_entry_status_time {
+    float: right;
+}
+
+.detail_entry_subitem {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.entry_sentiment_container_vert {
+    float: left;
+    height: 32px;
+    width: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-left: 16px;
+}
+
+.entry_sentiment_container_vert_,
+.entry_sentiment_container_vert_0 {
+    background-color: #FFF;
+    color: #000;
+}
+
+.entry_sentiment_container_vert_1,
+.entry_sentiment_container_vert_2 {
+    background-color: #FCBEC7;
+    color: #E81F1F;
+}
+
+.entry_sentiment_container_vert_3 {
+    background-color: #B7B7B7;
+    color: #6D6D6D;
+}
+
+.entry_sentiment_container_vert_4,
+.entry_sentiment_container_vert_5 {
+    background-color: #DBE8AF;
+    color: #7BA913;
+}
+
+.entry_sentiment_container_vert-internal {
+    margin-top: 9px;
+}
+
+
+/* moderation history stuff */
+
+.ugc-quick-history-box {
+    color: #333;
+    background-color: #ffffff;
+    position: relative;
+    max-height: 50em;
+    min-height: 10em;
+    text-align: left;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+}
+
+.ugc-quick-history-box .ugc-quick-history-item {
+    padding: 0.4rem 1rem;
+    font-size: 0.6rem;
+}
+
+
+/* moderation user details */
+
+
+/* change bulk mode switch icon */
+
+#mod-switch span[class="scf-icon-"]:before {
+    content: "";
+    /* check-circle */
+}
+
+#mod-switch.active span[class="scf-icon-"]:before {
+    content: "";
+    /* close-circle */
+}
+
+ul.ui-autocomplete.ui-menu {
+    max-height: 190px;
+    min-width: 200px;
+    overflow: auto;
+}
+
+.modcontainer {
+    position: relative;
+    height: 100%;
+}
+
+
+/* to accomodate typeahead inside a panel */
+
+.panel-group .panel {
+    overflow: initial;
+}
+
+.selected-item-label {
+    display: inline-block;
+    background-color: rgba(180, 180, 180, 0.8);
+    color: #3c3c3c;
+    margin: .1875rem .1875rem 0 0;
+    padding: 0.4rem 0.3rem 0.4rem 0.3rem;
+    line-height: 0.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.remove-selection {
+    font-size: 12px;
+    padding: 0 4px 3px 0;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* end typeahead styling */
+
+
+/* style scf modal dialog per cloud UI */
+
+.scf-modal-dialog {
+    padding: 8px;
+    background: none;
+}
+
+.scf-modal-dialog:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.25;
+    border: 8px solid #000000;
+}
+
+.scf-modal-dialog h2 {
+    background-color: #e1e1e1;
+    color: #4b4b4b;
+    border-bottom: 1px solid #bfbfbf;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.scf-modal-dialog .ugc-quick-detail-box {
+    background-color: #ffffff;
+}
+
+.scf-modal-dialog h3,
+.scf-modal-dialog h4 {
+    margin-bottom: 8px;
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+.scf-modal-dialog h3 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.scf-modal-dialog h4 {
+    font-size: 11px;
+}
+
+.scf-modal-close {
+    color: #4b4b4b;
+    font-weight: 500;
+    font-size: 15px;
+    right: 18px;
+    top: 21px;
+}
+
+
+/* end scf modal dialog cloud UI */
+
+#filter-controls-container {
+    position: absolute;
+    bottom: 0;
+    height: 4rem;
+    padding: 0.5rem;
+}
+
+#filter-controls-container button {
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.1875rem;
+    min-width: 5rem;
+}
+
+#filter-clear {
+    display: none;
+}
+
+div[data-foundation-layout-masonry-autodefaultmode] {
+    height: 100%;
+}
+
+.foundation-layout-panel-content > div {
+    height: 100%;
+}
+
+#fragmentCreated .coral3-Dialog-wrapper{
+    min-width: 480px;
+}
+.scf-content-fragment-confirmation-success,
+.scf-content-fragment-confirmation-timeout,
+.scf-content-fragment-confirmation-error,
+span.scf-quickaction-createfragment {
+    display: none;
+}
+
+
+/* Coral 3 migration */
+
+.scf-ugc-container coral-card-asset {
+    display: none;
+}
+
+
+/* without this info layer doesn't allow to click on the link */
+
+.scf-ugc-container .coral-Card-info {
+    bottom: auto;
+}
+
+.scf-ugc-container .coral-Card-content {
+    border-top: none;
+}
+
+.scf-ugc-author-avatar img {
+    border-radius: 50%;
+}
+
+.scf-ugc-message {
+    min-height: 6rem;
+    max-height: 50rem;
+    overflow: hidden;
+}
+
+.scf-ugc-container .coral-Card-title a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.scf-dashboard-actionbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    background-color: #fafafa;
+    border-bottom: 0.0625rem solid #e6e6e6;
+}
+
+.scf-filter-controls {
+    position: fixed;
+    bottom: 0;
+    padding: 0.6rem;
+    width: 14.425rem;
+    background-color: #dfdfdf;
+    z-index: 1000;
+}
+
+.scf-filter-container {
+    margin-bottom: 3.6rem;
+}
+
+.scf-author-id {
+    overflow: hidden;
+}
+
+.scf-author-info {
+    overflow: auto;
+}

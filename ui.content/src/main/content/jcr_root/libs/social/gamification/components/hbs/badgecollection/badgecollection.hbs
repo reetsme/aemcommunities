@@ -1,0 +1,28 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div data-component-id="{{id}}" data-scf-component="social/gamification/components/hbs/badgecollection">
+    <coral-masonry class="scf-js-masonry-container se-badge-list foundation-collection" layout="fixed-spread" columnwidth="242" spacing="10" data-foundation-mode-group="scf-create" data-foundation-layout="{{{xss-htmlAttr "{\"name\":\"foundation-layout-masonry\"}"}}}">
+        {{#each items}}
+            {{#equals this.resourceType "social/gamification/components/hbs/badgecollection/badge"}}
+                {{include this resourceType="social/gamification/components/hbs/badgecollection/badge"}}
+            {{/equals}}
+        {{/each}}
+    </coral-masonry>
+</div>

@@ -1,0 +1,220 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div id="scf-filelibrary-list" class="scf scf-filelibrary" data-component-id="{{id}}" data-scf-component="social/filelibrary/components/hbs/document">
+
+    <!-- content container -->
+    <div class="scf-fl-page-conatiner">
+        <p class="scf-breadcrumb scf-quiet text-center">
+            <a href="{{pageInfo.basePageURL}}.html">{{i18n "File Library"}}</a>
+            {{#each breadcrumbs}}
+                {{#if current}}
+                    / {{i18n title}}
+                {{else}}
+                    / <a href="{{../../pageInfo.basePageURL}}.asset.html{{path}}">{{i18n title}}</a>
+                {{/if}}
+            {{/each}}
+        </p>
+        <div id="scf-filelibrary-actions-toolbars-container">
+
+            {{#if canEdit}}
+                <button class="btn btn-default" evt="click=onDocumentRename">{{i18n "Edit"}}</button>
+            {{/if}}
+            {{#if configuration.isDeleteAllowed}}
+                {{#if canDelete}}
+                    <button class="btn btn-default" evt="click=onDocumentDelete">{{i18n "Delete"}}</button>
+                {{/if}}
+            {{/if}}
+            {{#if canEdit}}
+                <button class="btn btn-default" evt="click=openModalUpdateFile">{{i18n "Update"}}</button>
+            {{/if}}
+            {{#if moderatorActions.canAllow}}
+                <!-- Allow -->
+                <button class="btn btn-default" evt='click=allow'>{{i18n "Allow"}}</button>
+            {{/if}}
+
+            {{#if moderatorActions.canDeny}}
+                <!-- Deny -->
+                <button class="btn btn-default" evt='click=deny'>{{i18n "Deny"}}</button>
+            {{/if}}
+            {{#if moderatorActions.canMove}}
+                <!-- Move -->
+                {{#unless hasBeenCut}}
+                    <button class="btn btn-default" evt='click=cut'>{{i18n "Cut"}}</button>
+            {{else}}
+                <button class="btn btn-default" evt='click=putBack'>{{i18n "Put Back"}}</button>
+                {{/unless}}
+            {{/if}}
+            <button class="btn btn-default" evt="click=onDocumentView">{{i18n "View"}}</button>
+            <button class="btn btn-default" evt="click=onDocumentDownload">{{i18n "Download"}}</button>
+
+            {{#if loggedInUser.loggedIn}}
+                {{#if configuration.followingAllowed}}
+                    <div class="btn">
+                        {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                    </div>
+                {{/if}}
+            {{/if}}
+
+        </div>
+
+        <div class="scf-filelibrary-document-summary">
+            <div style="overflow:auto;">
+                <div style="float:left; width:60px;height:80px;vertical-align:top;"><span style="font-size:42px;" class="scf-icon-attachment"></span></div>
+                <div style="float:left; margin-top:9px;">
+                    <div>
+                        <h2 id="scf-filelibrary-document-new-name-label">{{ this.name }}</h2></div>
+                    <div>{{i18n "Created"}} <span id="scf-filelibrary-document-new-time-label">{{pretty-time this.created}}</span> by <a style="font-size:16px;" href="{{ this.author.profileUrl }}">{{ this.author.name }}</a>
+                        {{#each author.badges}}
+                            {{#if this.isAssigned}}
+                                <div class="scf-badge-text">
+                                    {{this.title}}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                        {{#each author.badges}}
+                            {{#unless this.isAssigned}}
+                                <img class="scf-badge-image" alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" />
+                            {{/unless}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div style="float:right;">
+                    {{include this.rating}}
+                </div>
+            </div>
+            <div class="scf-filelibrary-document-summary-description" style="min-height:36px;">{{{ this.message }}}</div>
+
+
+            {{#if configuration.isTaggingAllowed}}
+                <ul class="scf-horizontal-tag-list">
+                    {{#each tags}}
+                        <li class="scf-selected-tag">{{title}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+
+        </div>
+
+        <!-- Comments -->
+        <div style="border-top:1px solid #eaeaea;margin-top:40px;">
+            <h3>{{i18n "Add comment"}}</h3>
+            <h4>
+
+            <span style='display:none;' class='generic-translation-all-button scf-link' data-translation-parent-box-class="translation-commentsystem" data-translation-parent-id-attr="data-component-id" data-translation-parent-box-id="{{id}}" href='#' data-translation-show-original-text="{{i18n "Show Original Translations"}}">{{i18n "Translate All"}}</span>
+        </h4>
+            {{#if canReply}}
+                <div class="scf-composer-block scf-is-collapsed scf-js-composer-block">
+                    <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}"></img>
+
+                    <form evt="submit=addReply" class="scf-composer">
+                        {{#if configuration.isRTEEnabled}}
+                            <textarea class="scf-composer-msg scf-rte-placeholder" placeholder="{{i18n "Write a comment"}}" evt="click=expandComposer"></textarea>
+                            <div class="scf-rte-composer">
+                                <textarea class="scf-composer-msg" data-attrib="replyMessage" data-field-type="rte" name="replyMessage" placeholder="{{i18n "Write a comment"}}"></textarea>
+                            </div>
+                        {{else}}
+                            <textarea class="scf-composer-msg" data-attrib="replyMessage" name="replyMessage" placeholder="{{i18n "Write a comment"}}" evt="click=expandComposer"></textarea>
+                        {{/if}}
+                        <div class='scf-composer-toolbar'>
+                            {{#if configuration.isAttachmentAllowed}}
+                                <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                                <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                            {{/if}}
+                            <div class="scf-composer-actions">
+                                <button type="reset" class="btn btn-default scf-composer-action" evt="click=cancelComposer">{{i18n "Cancel"}}</button>
+                                <input type="submit" class="btn btn-primary" value="{{i18n "Post"}}" evt="submit=addReply" />
+                            </div>
+                            {{#if configuration.isAttachmentAllowed}}
+                                <div class="scf-composer-attachments">
+                                    <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </form>
+                </div>
+        </div>
+        {{/if}}
+
+
+        <ul class="scf-comments-list">
+            {{#each items}}
+                {{#if isVisible}}
+                    {{include this resourceType='social/commons/components/hbs/comments/comment'}}
+                {{/if}}
+            {{/each}}
+        </ul>
+
+        <!-- NEW pagination -->
+        {{include this resourceType="social/commons/components/hbs/pages"}}
+        <!-- eo NEW pagination -->
+
+    </div>
+    <!-- content container -->
+
+    <!-- scf modal edit document -->
+    <div class="scf-filelibrary-modal-container" id="scf-filelibrary-modal-edit-document">
+        <div>
+            <p>{{i18n "New Document Description"}}</p>
+            <textarea id="scf-filelibrary-document-new-message" class="scf-filelibrary-item-description"></textarea>
+
+        </div>
+        <span class="scf-filelibrary-spacer"></span>
+
+
+        {{#if configuration.isTaggingAllowed}}
+            <div>
+                <p>{{i18n "Tags"}}</p>
+                <ul id="filelibrary-smart-tags-edit" data-attrib="tags_edit" name="tags_edit" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+            </div>
+        {{/if}}
+        <span class="scf-filelibrary-spacer"></span>
+        <div>
+            <button type="button" class="btn btn-default" evt="click=doEditDocumentCancel">{{i18n "Close"}}</button>
+            <button type="button" class="btn btn-primary" evt="click=doEditDocument">{{i18n "OK"}}</button>
+        </div>
+
+    </div>
+    <!-- eo scf modal edit document -->
+
+    <!-- scf modal update document file -->
+    <div class="scf-filelibrary-modal-container" id="scf-filelibrary-modal-update-document">
+        <div>
+            <input class="btn btn-default scf-filelibrary-item-name" type="file" id="scf-file-upload-form-fileupload">
+            <span class="scf-filelibrary-spacer"></span>
+            <p>{{i18n "Document Description"}}</p>
+            <textarea id="scf-document-update-message" class="scf-filelibrary-item-description"></textarea>
+        </div>
+        <span class="scf-filelibrary-spacer"></span>
+        {{#if configuration.isTaggingAllowed}}
+            <div>
+                <p>{{i18n "Tags"}}</p>
+                <ul id="filelibrary-smart-tags-update" data-attrib="tags_update" name="tags_update" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+            </div>
+        {{/if}}
+        <span class="scf-filelibrary-spacer"></span>
+        <div>
+            <button type="button" class="btn btn-default" evt="click=doUpdateDocumentCancel">{{i18n "Close"}}</button>
+            <button type="button" class="btn btn-primary" evt="click=doUpdateDocument">{{i18n "OK"}}</button>
+        </div>
+    </div>
+    <!-- eo scf modal update document file -->
+
+
+</div>

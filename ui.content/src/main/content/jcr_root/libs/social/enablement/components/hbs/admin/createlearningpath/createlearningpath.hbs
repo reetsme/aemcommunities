@@ -1,0 +1,161 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/admin/createlearningpath">
+    <coral-dialog id="scf-js-lp-catalog-dialog-warn" variant="warning">
+        <coral-dialog-header>{{i18n "Warning"}}</coral-dialog-header>
+        <coral-dialog-content>
+            <p>{{i18n "Showing this Learning Path in the catalog will indirectly grant READ access to all its contained resources."}}</p>
+        </coral-dialog-content>
+        <coral-dialog-footer>
+            <button is="coral-button" variant="primary" coral-close>{{i18n "OK"}}</button>
+        </coral-dialog-footer>
+    </coral-dialog>
+    <form method="post" id="form-wizard-dataform" class="coral-Wizard coral-Form coral-Form--vertical">
+
+        <input id="published" type="hidden" name="published" value="false">
+        <input type="hidden" name=":operation" value="{{#if title}}social:updateEnablementLearningPathModel{{else}}social:createEnablementLearningPathModel{{/if}}">
+        <input type="hidden" name="sling:resourceType" value="social/enablement/components/hbs/model/learningpath">
+        <input type="hidden" name="enablement-type" value="learningpath">
+        <input type="hidden" name="_charset_" value="utf-8">
+
+        <coral-wizardview>
+            <div class="scf-wizardview-header">
+                <div class="scf-wizard-title coral-Heading coral-Heading--2">
+                    {{i18n "Create Learning Path"}}
+                </div>
+                <coral-steplist class="scf-wizard-steplist" coral-wizardview-steplist="">
+                    <coral-step selected>
+                        <coral-step-label class="coral-Step-label">{{i18n "Basic Info"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Add Prerequisites"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Add Resources"}}</coral-step-label>
+                    </coral-step>
+                    <coral-step>
+                        <coral-step-label class="coral-Step-label">{{i18n "Settings"}}</coral-step-label>
+                    </coral-step>
+                </coral-steplist>
+                <div class="scf-enablement-erroralert scf-is-hidden">
+                    <coral-alert size="L" variant="error" style="position: absolute;">
+                        <coral-alert-header class="coral-Alert-title">{{i18n "Error"}}</coral-alert-header>
+                        <coral-alert-content class="coral-Alert-message">{{i18n "Server Error, Please try again"}}</coral-alert-content>
+
+                        <div style="text-align:right">
+                            <button is="coral-button" variant="minimal" coral-close>{{i18n "Close"}}</button>
+                        </div>
+                    </coral-alert>
+                </div>
+                <coral-panelstack coral-wizardview-panelstack="" class="scf-wizard-controls">
+                    <coral-panel selected="" role="tabpanel">
+                        <coral-panel-content>
+                            <a is="coral-anchorbutton" class="scf-js-cancelbtn" href="{{#if title}} /communities/learningpath-info.html {{else}} /communities/site-resources.html {{/if}}">{{i18n "Cancel"}}</a>
+                            <button coral-wizardview-next="" is="coral-button" type="button" disabled="disabled" class="scj-js-detailstab-next" title="{{i18n 'Please fill all mandatory fields marked with * ' }}">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" coral-wizardview-next="" type="button" class="scj-js-detailstab-next">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" coral-wizardview-next="" type="button" class="scj-js-detailstab-next">{{i18n "Next"}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                    <coral-panel role="tabpanel">
+                        <coral-panel-content>
+                            <button is="coral-button" coral-wizardview-previous="" type="button">{{i18n "Back"}}</button>
+                            <button is="coral-button" variant="primary" disabled="disabled" class="scj-js-settingstab-next" id="cq-social-create-resource-submit">{{#if isModify}} {{i18n "Save"}} {{else}} {{i18n "Create"}} {{/if}}</button>
+                        </coral-panel-content>
+                    </coral-panel>
+                </coral-panelstack>
+            </div>
+            <coral-panelstack coral-wizardview-panelstack="" class="coral-PanelStack" role="presentation">
+                <coral-panel class="coral-Well coral-Panel is-selected" selected="" role="tabpanel" aria-selected="true" aria-hidden="false">
+                    <coral-panel-content>
+                        {{include this resourceType="social/enablement/components/hbs/admin/createlearningpath" template="learningpathdetails"}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/enablement/components/hbs/admin/createlearningpath" template="learningpathprerequisites"}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/enablement/components/hbs/admin/createlearningpath" template="learningpathresources"}}
+                    </coral-panel-content>
+                </coral-panel>
+                <coral-panel class="coral-Well coral-Panel" role="tabpanel" aria-selected="false" aria-hidden="true">
+                    <coral-panel-content>
+                        {{include this resourceType="social/enablement/components/hbs/admin/createlearningpath" template="learningpathsettings"}}
+                    </coral-panel-content>
+                </coral-panel>
+            </coral-panelstack>
+        </coral-wizardview>
+    </form>
+
+    <form id='resource-contacts-count-modal' class='foundation-toggleable coral-Modal coral-Form coral-Form--vertical' data-type='error'>
+        <div class="coral-Modal-header">
+            <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS"></i>
+            <h2 class="coral-Modal-title coral-Heading coral-Heading--2">{{i18n "Error"}}</h2>
+            <button class="coral-MinimalButton coral-Modal-closeButton" type="button" title="Close" data-dismiss="modal">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon "></i>
+            </button>
+        </div>
+        <div class="coral-Modal-body"><span>{{i18n "You can only add maximum of 3 contacts under this."}}</span></div>
+        <div class="coral-Modal-footer">
+            <button data-dismiss='modal' type='button' autocomplete='off' class='coral-Button'><span>{{i18n "Close"}}</span></button>
+        </div>
+    </form>
+
+    <form id='saveresource-warn-dialog' class='foundation-toggleable coral-Modal coral-Form coral-Form--vertical' data-type='notice'>
+        <div class="coral-Modal-header">
+            <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS"></i>
+            <h2 class="coral-Modal-title coral-Heading coral-Heading--2">{{i18n "Save Resource Alert"}}</h2>
+            <button class="coral-MinimalButton coral-Modal-closeButton" type="button" title="Close" data-dismiss="modal">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon "></i>
+            </button>
+        </div>
+        <div class="coral-Modal-body"><span>{{i18n "Changes to the enrollee list will be published on Save. To publish any additional Resource changes made, choose Publish."}}</span></div>
+        <div class="coral-Modal-footer">
+            <button data-dismiss='modal' type='button' autocomplete='off' class='coral-Button coral-Button--primary'><span>{{i18n "Continue"}}</span></button>
+        </div>
+    </form>
+
+    <!-- Modal for displaying Error -->
+    <form id="create-resource-failure-modal" class="foundation-toggleable coral-Modal coral-Form coral-Form--vertical" data-type="error">
+        <div class="coral-Modal-header">
+            <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS"></i>
+            <h2 class="coral-Modal-title coral-Heading coral-Heading--2">{{i18n "Error"}}</h2>
+            <button class="coral-MinimalButton coral-Modal-closeButton" type="button" title="Close" data-dismiss="modal">
+                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon "></i>
+            </button>
+        </div>
+        <div class="coral-Modal-body"><span>{{i18n "Error"}}</span></div>
+        <div class="coral-Modal-footer">
+            <button data-dismiss="modal" type="button" autocomplete="off" class="coral-Button"><span>{{i18n "Close"}}</span></button>
+        </div>
+    </form>
+
+</div>

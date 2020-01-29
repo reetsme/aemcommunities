@@ -1,0 +1,96 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div id="livefyre-chat-{{id}}" data-component-id="{{id}}" data-scf-component="livefyre-chat"></div>
+
+{{!
+Hide "Edit Profile" link, as it's hard to make work out of the box.
+LF-19101
+}}
+<style>
+*[data-component-id*="{{id}}"] .fyre-edit-profile-link {
+    display: none;
+}
+</style>
+
+<script type="text/javascript">
+{{!
+The first time this component is added to an empty AEM page, it's evaluated
+twice for reasons I don't understand. This leads to `new Conv(...)` being
+invoked twice, and thus two Livefyre Apps rendering in the element.
+In order to work around this, each invocation generates a random element id,
+and tells the widget to boot there. One of them (the first invocation) will have
+been ripped out by then, so only one renders. This is the best I could come up with.
+}}
+(function () {
+var originalElId = "livefyre-chat-{{id}}";
+var nonce = String(Math.floor(Math.random() * 1000000000));
+var elId = [originalElId, nonce].join('-');
+var el = document.getElementById(originalElId);
+el.id = elId;
+
+useOrFetchLivefyre(function (Livefyre) {
+    var networkConfig = {
+        network: '{{networkname}}'
+    };
+    var convConfig = {
+        siteId: '{{siteid}}',
+        articleId: '{{articleId}}',
+        el: elId,
+        type: 'livechat'
+        {{#if collectionMeta}}
+            ,collectionMeta: '{{collectionMeta}}'
+            ,checksum: '{{checksum}}'
+        {{/if}}
+        {{#with properties}}
+            {{#if initialNumVisible}},"initialNumVisible": {{initialNumVisible}}{{/if}}
+            {{#if disableAvatars}},"disableAvatars": true{{/if}}
+            {{#if datetimeFormat}},"datetimeFormat": '{{datetimeFormat}}'{{/if}}
+            {{#if readOnly}},"readOnly": true{{/if}}
+        {{/with}}
+        {{#if-wcm-mode mode="EDIT"}}
+        , __aem: {
+          wcmmode: 'EDIT'
+        }
+        {{/if-wcm-mode}}
+    };
+
+    Livefyre.require(['fyre.conv#3'], function(Conv) {
+        if ( ! document.getElementById(elId)) {
+            // el is gone now because double-invocation.
+            return;
+        }
+        new Conv(networkConfig, [convConfig], function(widget) {
+        });
+    });
+});
+  
+function useOrFetchLivefyre(withLivefyre) {
+    if (typeof Livefyre !== 'undefined') {
+        return withLivefyre(Livefyre);
+    }
+    var livefyreJsScript = document.createElement('script');
+    livefyreJsScript.setAttribute(
+        'src', 'https://cdn.livefyre.com/Livefyre.js');
+    livefyreJsScript.onload = function () {
+        withLivefyre(Livefyre);
+    };
+    document.head.appendChild(livefyreJsScript);
+}
+}());
+</script>

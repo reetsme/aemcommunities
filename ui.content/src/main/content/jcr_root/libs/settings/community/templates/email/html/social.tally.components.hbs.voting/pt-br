@@ -1,0 +1,15 @@
+﻿subject=[Voting] {{target.properties.eventTopic}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{target.properties.eventTopic}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+Um novo voto foi adicionada a “{{target.properties.eventTopic}}” por {{{user.name}}} em {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<br><a href="{{targetUrl}}">Clique neste link</a> para visualizar todos os votos ou para modificar suas preferências de notificação.\n \
+</div>\n \
+</body>\n \
+</html>\n \

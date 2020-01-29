@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OrderedFolder"
+    jcr:title="Social-Sync Group and User Sync Diagnostics"
+    clientCSSLibs="clientlibs.social-sync.diagnostics"
+    defaultStepGroup="all"
+    diagnosticsType="SocialComponentInvokedDiagnosticsCheck">
+    <step1-sling-agent-author/>
+    <step1b-author-verify-configured-publishers/>
+    <step2-author-check-communities-user-admin/>
+    <step3-author-encrypted-password/>
+    <step3-publish-check-authorized-user/>
+    <step3-publish-check-acl-home/>
+    <step3-publish-check-acl-home-users/>
+    <step3-publish-check-acl-home-groups/>
+    <step3-publish-check-acl-sling-packages/>
+    <step3-publish-check-acl-sling-distribution/>
+    <step3-publish-check-acl-var-eventing/>
+    <step3-publish-check-acl-var-sling-dist/>
+    <step4-publish-check-sling-agent/>
+    <step5-publish-granite-diff-observer/>
+</jcr:root>

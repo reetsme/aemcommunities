@@ -1,0 +1,47 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="panel-body scf-searchresult-item">
+    <h5>
+        <span class="glyphicon scf-icon-{{dom-id resourceType}}" aria-hidden="true"></span>
+        {{#if subject}}
+            <a class="scf-searchresult-subject" href={{#if friendlyUrl}}"{{friendlyUrl}}">{{else}}"{{parentId}}.html#{{id}}">{{/if}}{{abbreviate subject maxWords=8}}</a>
+        {{else if name}}
+            <a class="scf-searchresult-subject" href={{#if friendlyUrl}}"{{friendlyUrl}}">{{else}}"{{parentId}}.html#{{id}}">{{/if}}{{abbreviate name maxWords=8}}</a>
+        {{else}}
+            <a class="scf-searchresult-subject" href={{#if friendlyUrl}}"{{friendlyUrl}}">{{else}}"{{parentId}}.html#{{id}}">{{/if}}{{lastPath resourceType}}</a>
+        {{/if}}
+    </h5>
+    <div>
+        <span class="text-primary small scf-searchresult-author">
+            {{author.name}}
+        </span>
+        <span class="text-muted small scf-searchresult-created">
+            &#8212; {{i18n "Created"}} {{pretty-time created}}
+        </span>
+    </div>
+    <div class="small scf-searchresult-message">
+        {{{message}}}
+    </div>
+    <div class="scf-searchresult-tags">
+        {{#each tags}}
+            <span class="label label-default">{{title}}</span>
+        {{/each}}
+    </div>
+</div>

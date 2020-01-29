@@ -1,0 +1,50 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/grouptemplates">
+    <coral-masonry layout="fixed-spread" columnwidth="242" spacing="15">
+
+        {{#each items}}
+            <coral-masonry-item>
+                <coral-card colorhint="#ffffff" assetwidth="242" assetheight="242">
+                    <coral-card-asset>
+                        <img src="{{image}}" />
+                    </coral-card-asset>
+                    <coral-card-info>
+                        {{#if new}}
+                            <coral-tag class="grid-alert-tag" color="blue" size="m">{{i18n "New"}}</coral-tag>
+                        {{/if}}
+                    </coral-card-info>
+                    <coral-card-content>
+                        <div>
+                            <h4>{{this.title}}</h4>
+                        </div>
+                        <div>
+                            <p>{{this.description}}</p>
+                        </div>
+                    </coral-card-content>
+                </coral-card>
+                <coral-quickactions target="_prev" alignMy="left top" alignAt="left top">
+                    <coral-quickactions-item icon="edit" class="foundation-anchor" data-foundation-anchor-href="{{getContextPath ''}}/communities/editgrouptemplate.html{{this.id}}">{{i18n " Edit Group Template "}}</coral-quickactions-item>
+                </coral-quickactions>
+
+            </coral-masonry-item>
+
+        {{/each}}
+    </coral-masonry>
+</div>

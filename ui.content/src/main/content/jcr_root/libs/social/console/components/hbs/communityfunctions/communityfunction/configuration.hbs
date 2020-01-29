@@ -1,0 +1,37 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-template="configuration" class="scf-js-custom-config" data-scf-component="social/console/components/hbs/communityfunctions/communityfunction">
+    <div class="coral-Form-fieldwrapper">
+        <label class="coral-Form-fieldlabel scf-js-community-function-title-label">{{i18n "Title"}}</label>
+        <br/>
+        <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-community-function-field scf-js-community-function-title" type="text">
+    </div>
+    <div class="coral-Form-fieldwrapper scf-community-function-url">
+        <label class="coral-Form-fieldlabel scf-js-community-function-url-label">{{i18n "URL"}}</label>
+        <br/>
+        <input is="coral-textfield" class="coral-Form-field coral-Textfield scf-community-function-field scf-js-community-function-url" type="text" data-validation="foundation.jcr.name">
+    </div>
+    <br/>
+    {{#each configOptions}}
+        <div class="coral-Form-fieldwrapper">
+            <span data-config-id="{{this.id}}" class="scf-js-function-config-def" data-label="{{i18n this.label}}" data-type="{{this.inputType}}" data-default="{{this.defaultValue}}" data-allow-users="{{this.allowUsers}}"></span>
+            <br/>
+        </div>
+    {{/each}}
+</div>

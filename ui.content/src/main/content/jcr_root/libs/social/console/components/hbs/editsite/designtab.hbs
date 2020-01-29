@@ -1,0 +1,46 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div id="social-console-edit-sitetheme" data-theme-value='{{this.themeId}}' data-sitebannerurl-value='{{this.siteBannerUrl}}'>
+    <div>
+        <coral-tabview>
+            <coral-tablist class="social-console-design-tab" target="design-tabs">
+                <coral-tab>{{i18n "Community Site Theme"}}</coral-tab>
+                <coral-tab>{{i18n "Community Site Branding"}}</coral-tab>
+            </coral-tablist>
+            <coral-panelstack id="cdesign-tabs">
+                <coral-panel class="coral-Well">
+                    {{include this.id resourceType='social/console/components/hbs/sitethemes'}}
+                </coral-panel>
+                <coral-panel class="coral-Well">
+                    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+                        <div class="coral-FixedColumn-column">
+                            {{#if this.siteBanner}}
+                                {{modifycontext this.siteBanner key="inputname" value="pagebanner"}} {{include this.siteBanner resourceType='social/console/components/hbs/imageupload' authoringDisabled='true'}}
+                            {{else}}
+                                {{#include this.id resourceType='social/console/components/hbs/imageupload' authoringDisabled='true' }}
+                                    { "inputname" : "pagebanner" }
+                                {{/include}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </coral-panel>
+            </coral-panelstack>
+        </coral-tabview>
+    </div>
+</div>

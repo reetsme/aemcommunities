@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Community - Group"
+        sling:resourceType="granite/ui/components/foundation/page"
+        sling:vanityOrder="{Long}301"
+        sling:vanityPath="/communities/groupprofile">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                css="[coralui2,coralui3,granite.ui.foundation,cq.social.members.hbs.groupprofile,cq.social.members.hbs.shell2]"
+                js="[coralui3,granite.ui.foundation,granite.ui.coral.foundation,cq.social.author.coral3.shim,cq.social.members.hbs.groupprofile]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/layouts/page"/>
+            <rail
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/navcolumns"
+                currentId="cq-communities-groups"
+                srcPath="cq/core/content/nav"/>
+            <breadcrumbs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/siteadmin/admin/endor/breadcrumbs"
+                baseUrl="/communities/groups.html"
+                contentPath="${requestPathInfo.suffix}"
+                depthAdjustment="{Long}-2"
+                rootPath=""
+                rootTitle="Communities - Groups"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/siteadmin/admin/endor/title"
+                contentPath="/content"
+                rootTitle="Communities - Groups"/>
+            <header
+                jcr:primaryType="nt:unstructured"
+                srcPath="cq/core/content/header"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/endor/layouts/content"/>
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <preview
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Preview"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            class="u-coral-hidden">
+                            <items jcr:primaryType="nt:unstructured">
+                                <groupprofile
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="social/members/components/hbs/groupprofile"
+                                    fromPublisher="true"/>
+                            </items>
+                        </preview>
+                    </items>
+                </content>
+            </content>
+        </body>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,30 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{includeClientLib categories="cq.foundation-main,jquery-ui,cq.social.hbs.moderation" }}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="col1" class="col-md-2">
+                {{include this.id path="filters" resourceType="social/moderation/filters"}}
+            </div>
+            <div id="col2" class="col-md-10">
+                {{include this.id path="ugc" resourceType="social/moderation/dashboard"}}
+            </div>
+        </div>
+    </div>

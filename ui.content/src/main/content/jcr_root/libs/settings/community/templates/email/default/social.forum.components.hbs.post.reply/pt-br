@@ -1,0 +1,22 @@
+﻿subject=[Forum Post]
+
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   Uma nova publicação do fórum foi publicada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   Uma nova publicação do fórum foi adicionada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   Uma nova publicação do fórum foi atualizada por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    Uma nova publicação do fórum foi excluída por {{{user.name}}}.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+    Uma nova publicação do fórum foi aprovada por {{{user.name}}}.\n\n \
+{{/equals}}\
+Acesse este link para visualizar todas as publicações feitas a este tópico do fórum ou para modificar suas preferências de notificação.\n \
+{{objectUrl}}\n \

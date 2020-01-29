@@ -1,0 +1,33 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="wizard-step">
+    <div id="collectionaddresources" class="collectionaddresources coral-FixedColumn-column">
+
+        <!-- Enforce Order -->
+        <div class="coral-Form-fieldwrapper">
+            <span class="block block-text">{{i18n "Enforce Order in Learning Path"}}</span>
+            <coral-switch class="coral-Form-field scf-js-enforce-order" {{#if enforceOrder}} checked {{/if}}>
+                <input name="enforce-order" type="hidden" value="{{#if enforceOrder}}true{{else}}false{{/if}}">
+            </coral-switch>
+        </div>
+
+        {{include this resourceType="social/enablement/components/hbs/admin/createlearningpath" template="addresourceswizard"}}
+
+    </div>
+</div>

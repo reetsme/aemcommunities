@@ -1,0 +1,37 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+<div class="scf scf-social-network-sharing" data-component-id="{{id}}" data-scf-component="social/commons/components/hbs/socialshare">
+    <a href="http://www.facebook.com/sharer.php?u=" class="scf-share-item" evt="click=share" target="_blank">
+        <span class="scf-icon-facebook" data-href="http://www.facebook.com/sharer.php?u="></span>
+    </a>
+
+    <a href="https://twitter.com/share?status={{this.friendlyUrl}};text={{xss-validHref this.subject}};{{#if this.tags}}hashtags={{#each this.tags}}{{xss-validHref this.title}},{{/each}}{{/if}}" class="scf-share-item" target="_blank">
+        <span class="scf-icon-twitter"></span>
+    </a>
+
+    <a href="https://plus.google.com/share?url=" class="scf-share-item" evt="click=share" target="_blank">
+        <span class="scf-icon-googleplus" data-href="http://plus.google.com/share?url="></span>
+    </a>
+
+    <a class="scf-js-email-share">
+        <span class="scf-icon-email"></span>
+    </a>
+</div>

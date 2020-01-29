@@ -1,0 +1,92 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if-wcm-mode mode="EDIT" }}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-forum" data-component-id="{{id}}" data-scf-component="social/forum/components/hbs/forum">
+
+    <header>
+        <h2 class="scf-forum-heading">{{i18n "Topics" }}</h2>
+        <div class="scf-clear-both"></div>
+    </header>
+    <div class="scf-action-container">
+        {{#if loggedInUser.loggedIn}}
+            {{#unless isClosed}}
+                {{#if mayPost}}
+                    <button class="btn btn-primary scf-action-item scf-forum-newtopic scf-js-newtopic" evt="click=toggleComposer">{{i18n "New Post"}}</button>
+                {{/if}}
+            {{/unless}}
+            {{#if canPaste}}
+                <div class="btn-group scf-action-item scf-forum-paste-grp">
+                    <button class="btn btn-default scf-paste-btn" evt="click=paste">{{i18n "Paste"}}({{pasteCount}})</button>
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">{{i18n "Toggle clipboard options"}}</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" evt="click=clearClipboard">{{i18n "Clear Clipboard"}}</a></li>
+                    </ul>
+                </div>
+            {{/if}}
+            {{#if configuration.followingAllowed}}
+                <div class="scf-action-item scf-forum-following-block">
+                    {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                </div>
+            {{/if}}
+        {{/if}}
+        {{include this template="sort"}}
+        <div class="scf-clear-both"></div>
+    </div>
+
+    {{#if mayPost}}
+        <div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+            <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}" />
+            <form evt="submit=addComment" class="scf-composer">
+                <input class="scf-composer-msg" type="text" data-attrib="subject" name="subject" placeholder="{{i18n "Subject"}}" />
+                <textarea class="scf-composer-msg" type="text" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" class="comment-composer-input" {{#if configuration.isRTEEnabled}} data-field-type="rte" {{/if}}></textarea>
+                {{#if configuration.isTaggingAllowed}}
+                    <ul id="forum-smart-tags" data-attrib="tags" name="tags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+                {{/if}}
+                <div class='scf-composer-toolbar'>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                        <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                    {{/if}}
+                    <div class="scf-composer-actions">
+                        <button type="reset" class="btn btn-default scf-composer-action" evt="click=toggleComposer">{{i18n "Cancel"}}</button>
+                        <input type="submit" class="btn btn-primary" value="{{i18n "Post"}}" evt="submit=addComment" />
+                    </div>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <div class="scf-composer-attachments">
+                            <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    {{/if}}
+    <ul class="scf-topic-list">
+        {{#each items}}
+            {{#if isVisible}}
+                <li {{#if configuration.isPinAllowed}} {{#if this.isPinned}} class="bg-info" {{/if}} {{/if}}>
+                    {{include this resourceType="social/forum/components/hbs/topic" template="list-item" bind=false}}</li>
+            {{/if}}
+        {{/each}}
+    </ul>
+    <!-- NEW pagination -->
+    {{include this resourceType="social/commons/components/hbs/pages"}}
+    <!-- eo NEW pagination -->
+</div>

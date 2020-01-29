@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Views"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/reports/views"
+        consoleId="cq-communities-reports"
+        targetCollection=".foundation-layout-panel-content">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[cq.common.wcm,cq.social.author.reporting.analytics.configpanel]"/>
+        </head>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/breadcrumbs"
+            path="/libs/social/reporting/content-shell3/reports/views"
+            rootPath="/libs/social/reporting/content-shell3/reports"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <content
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <configpanel
+                                granite:class="scf-communities-report-well"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <row1
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <siteFilter
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/reporting/analytics/components/hbs/analyticssitelist"/>
+                                            <contentTypeFilter
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/reporting/analytics/components/hbs/analyticscomponentlist"/>
+                                            <rightColumn
+                                                granite:class="scf-reporting-right-content"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <dateFilter
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="social/reporting/analytics/components/hbs/analyticsdateinterval"/>
+                                                </items>
+                                            </rightColumn>
+                                        </items>
+                                    </row1>
+                                    <row2
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <generateButton
+                                                granite:id="scf-js-btn-analytics-report-generate"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                                autocomplete="off"
+                                                disabled="{Boolean}true"
+                                                text="Generate"
+                                                variant="primary"/>
+                                        </items>
+                                    </row2>
+                                </items>
+                            </configpanel>
+                            <reportcontent
+                                granite:class="scf-reporting-pageContent scf-js-reporting-pageContent"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <row1
+                                        granite:class="scf-reporting-hCenter scf-reporting-reportPageRow"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <sitetrendreport
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="social/reporting/analytics/components/hbs/sitetrendreport"
+                                                cqEvar="type"
+                                                cqEvent="SCFView"
+                                                title="Views"/>
+                                        </items>
+                                    </row1>
+                                </items>
+                            </reportcontent>
+                        </items>
+                    </content>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

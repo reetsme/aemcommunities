@@ -1,0 +1,38 @@
+﻿subject=[アイディエーションイベント] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を承認しました。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を閉じました。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんがこのアイディエーションイベント「{{{object.displayName}}}」を再度開きました。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{targetUrl}}">このリンクをクリック</a>すると、すべてのアイディエーションイベントを表示したり、購読を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

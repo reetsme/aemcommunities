@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="User State Toggle Button"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <first
+            jcr:primaryType="cq:Widget"
+            title="Allowed Ratings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <allowed
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription=""
+                    fieldLabel="Allowed Ratings"
+                    name="./allowedRatings"
+                    xtype="multifield"/>
+            </items>
+        </first>
+        <second
+            jcr:primaryType="cq:Widget"
+            title="Required Ratings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <required
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Of the ratings listed as Allowed Ratings, re-enter at least one which is required by the user to rate.    If more than one of the Allowed Ratings is required, the first Required Rating listed is used to calculate the average rating displayed by the Review Summary component."
+                    fieldLabel="Required Ratings"
+                    name="./requiredRatings"
+                    xtype="multifield"/>
+            </items>
+        </second>
+        <props
+            jcr:primaryType="cq:Panel"
+            title="Reviews">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <allowReplies
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Allow replies"
+                    fieldLabel_commentI18n="Allow replies to reviews"
+                    name="./allowRepliesToComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowRepliesHint
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./allowRepliesToComments@TypeHint"
+                    value="Boolean"
+                    xtype="hidden"/>
+                <closed
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldLabel="Closed"
+                    fieldLabel_commentI18n="No more reviews accepted"
+                    name="./closed"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowFileUploads
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldLabel="Allow File Uploads"
+                    fieldLabel_commentI18n="Allow file uploads to reviews"
+                    name="./allowFileUploads"
+                    type="checkbox"
+                    xtype="selection"/>
+                <maxFileSize
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Long}104857600"
+                    fieldDescription="Maximum number of bytes a file may have. Default: 104857600 (10 Mb)."
+                    fieldLabel="Max File Size"
+                    name="./maxFileSize"
+                    xtype="numberfield"/>
+                <maxMessageLength
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Long}4096"
+                    fieldDescription="Maximum number of characters a comment message text may have. Default: 4096."
+                    fieldLabel="Max Message Length"
+                    name="./maxMessageLength"
+                    xtype="numberfield"/>
+                <acceptFileTypes
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Comma seperated file extensions with dots, ex .jpg, .jpeg, .png, .doc, .docx, .ppt, .zip, .rar&#xa;Default: allow all file types."
+                    fieldLabel="Allowed File Types"
+                    name="./acceptFileTypes"
+                    xtype="textfield"/>
+                <richTextEditor
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldLabel="Rich Text Editor"
+                    name="./rteEnabled"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowVoting
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldLabel="Allow Voting"
+                    name="./allowVoting"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </props>
+        <userMod
+            jcr:primaryType="cq:Panel"
+            title="User Moderation">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <moderate
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="If checked, reviews must be approved before they are posted"
+                    fieldLabel="Pre-Moderation"
+                    fieldLabel_commentI18n="Pre-Moderation"
+                    name="./moderateComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowDeleteComments
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow users to delete their own reviews"
+                    fieldLabel="Delete Reviews"
+                    name="./allowDeleteComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowDenyComments
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow publish-side moderators to deny reviews"
+                    fieldLabel="Deny Reviews"
+                    name="./allowDenyComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowCloseComments
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow publish-side moderators to close and reopen reviews"
+                    fieldLabel="Close / Reopen Reviews"
+                    name="./allowCloseComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowUserFlagging
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow users to flag reviews as inappropriate"
+                    fieldLabel="Flag Reviews"
+                    name="./allowFlagComments"
+                    type="checkbox"
+                    xtype="selection"/>
+                <useFlagReasonList
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow users to choose a flagging reason from a list"
+                    fieldLabel="Flag Reason List"
+                    name="./useFlagReasonList"
+                    type="checkbox"
+                    xtype="selection"/>
+                <useFlagReasonFreeformText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="false"
+                    fieldDescription="Allow users to enter a custom flag reason"
+                    fieldLabel="Custom Flag Reason"
+                    name="./allowCustomFlagReason"
+                    type="checkbox"
+                    xtype="selection"/>
+                <flagModerateThreshold
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Long}1"
+                    fieldDescription="Number of times a comment is flagged by users before moderators are notified.  Default: 1."
+                    fieldLabel="Moderation Threshold"
+                    name="./flagModerateThreshold"
+                    xtype="numberfield"/>
+                <flagViewThreshold
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Long}5"
+                    fieldDescription="Number of times a comment is flagged but before it is hidden from public view (value must be at least as large as the Moderation Threshold).  Default: 5."
+                    fieldLabel="Flagging Limit"
+                    name="./flagViewThreshold"
+                    xtype="numberfield"/>
+            </items>
+        </userMod>
+    </items>
+</jcr:root>

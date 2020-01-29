@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Message Box"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items
+            jcr:primaryType="nt:unstructured"
+            sling:hideChildren="[props,userMod,sort]">
+            <common
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Basic"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <serviceSelector
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Identifier to be used to select an instance of messaging operation service."
+                                fieldLabel="Service selector"
+                                name="./serviceSelector"
+                                required="false"/>
+                            <replyurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="This should point to page which has compose message form."
+                                fieldLabel="Compose Page"
+                                name="./replyURL"
+                                required="{Boolean}false"/>
+                            <replyURLType
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="If checked, Reply URL and View URL will be built upon resource. Otherwise data will be sent as Query String."
+                                name="./replyType"
+                                text="Reply/View as Resource"
+                                value="{Boolean}true"/>
+                            <replyurltype-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./replyType@Delete"
+                                value="{Boolean}true"/>
+                            <profilePath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Profile Display Form"
+                                name="./profileFormPath"/>
+                            <foldertype
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Is this a trash folder?"
+                                name="./isTrash"
+                                text="Trash Folder"
+                                value="{Boolean}true"/>
+                            <foldertype-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./isTrash@Delete"
+                                value="{Boolean}true"/>
+                            <folderpaths
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                fieldDescription="These paths are relative to user's home directory."
+                                fieldLabel="Folder Paths">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                    name="./folderPaths"/>
+                            </folderpaths>
+                        </items>
+                    </columns>
+                </items>
+            </common>
+            <buttons
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Display"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <markread
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}true"
+                                name="./showMarkRead"
+                                text="Mark Read Button"
+                                value="{Boolean}true"/>
+                            <markread-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showMarkRead@Delete"
+                                value="{Boolean}true"/>
+                            <markunread
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}true"
+                                name="./showMarkUnread"
+                                text="Mark Unread Button"
+                                value="{Boolean}true"/>
+                            <markunread-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showMarkUnread@Delete"
+                                value="{Boolean}true"/>
+                            <delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}true"
+                                name="./showDelete"
+                                text="Delete Button"
+                                value="{Boolean}true"/>
+                            <delete-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showDelete@Delete"
+                                value="{Boolean}true"/>
+                            <messageoptions
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="{Boolean}true"
+                                name="./showMessageOptions"
+                                text="Message Options"
+                                value="{Boolean}true"/>
+                            <messageoptions-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./showMessageOptions@Delete"
+                                value="{Boolean}true"/>
+                            <pagesize
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="10"
+                                fieldDescription="Number of messages to be shown per page"
+                                fieldLabel="Messages Per Page"
+                                min="1"
+                                name="./pageSize"/>
+                            <dateformatpatterns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                fieldDescription="Specify date format to be displayed on messages in the format locale=timestamp Eg. en=MM-DD-YYYY HH:mm:ss"
+                                fieldLabel="Timestamp patterns">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                    name="./dateFormatPatterns"/>
+                            </dateformatpatterns>
+                            <displayUserType
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldDescription="Whether to show Sender or Recipients in Message-List"
+                                fieldLabel="Display User"
+                                name="./displayUserType"
+                                value="Sender">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <sender
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Sender"
+                                        value="Sender"/>
+                                    <recipients
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Recipients"
+                                        value="Recipients"/>
+                                </items>
+                            </displayUserType>
+                        </items>
+                    </columns>
+                </items>
+            </buttons>
+        </items>
+    </content>
+</jcr:root>

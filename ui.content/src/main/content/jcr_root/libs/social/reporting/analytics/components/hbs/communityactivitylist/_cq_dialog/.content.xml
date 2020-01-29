@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Community Activity List Component"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <props
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Community Activity List properties"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <type
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Type"
+                                name="./type"
+                                value="members">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <members
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Members"
+                                        value="members"/>
+                                    <content
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Content"
+                                        value="content"/>
+                                </items>
+                            </type>
+                            <displayTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="Display title"
+                                name="./displayTitle"/>
+                            <displayCount
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}10"
+                                fieldLabel="Display count"
+                                name="./displayCount"/>
+                            <activityType
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Activity type"
+                                name="./activityType"
+                                value="views">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <views
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Views"
+                                        value="views"/>
+                                    <posts
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Posts"
+                                        value="posts"/>
+                                    <follows
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Follows"
+                                        value="follows"/>
+                                    <likes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Likes"
+                                        value="likes"/>
+                                </items>
+                            </activityType>
+                            <timePeriod
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Time period"
+                                name="./timePeriod"
+                                value="total">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <last24Hours
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Last 24 hours"
+                                        value="last24Hours"/>
+                                    <last7Days
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Last 7 days"
+                                        value="last7Days"/>
+                                    <last30Days
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Last 30 days"
+                                        value="last30Days"/>
+                                    <last90Days
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Last 90 days"
+                                        value="last90Days"/>
+                                    <thisYear
+                                        jcr:primaryType="nt:unstructured"
+                                        text="This year"
+                                        value="thisYear"/>
+                                    <total
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Total"
+                                        value="total"/>
+                                </items>
+                            </timePeriod>
+                            <contextPath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldLabel="Context path"
+                                name="./contextPath"
+                                rootPath="/content"/>
+                            <isAggregate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./isAggregate"
+                                text="Member count aggregation"
+                                value="{Boolean}true"/>
+                            <isaggregate-delete
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                name="./isAggregate@Delete"
+                                value="{Boolean}true"/>
+                        </items>
+                    </columns>
+                </items>
+            </props>
+        </items>
+    </content>
+</jcr:root>

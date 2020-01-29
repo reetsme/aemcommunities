@@ -1,0 +1,17 @@
+subject=[订阅投票] {{{target.properties.eventTopic}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.properties.eventTopic}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<hr>\n \
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 向“{{{target.properties.eventTopic}}}”添加了此投票。\n \
+<hr>\n \
+请<a href="{{targetUrl}}">单击此链接</a>查看所有投票或修改您的订阅。\n \
+</div>\n \
+</body>\n \
+</html>\n \

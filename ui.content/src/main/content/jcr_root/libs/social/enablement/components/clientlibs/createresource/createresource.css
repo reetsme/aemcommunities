@@ -1,0 +1,235 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.foundation-wizard-step {
+    display: none;
+}
+
+.foundation-wizard-step-active {
+    display: block;
+}
+
+.create-resource-content {
+    overflow: hidden;
+}
+
+.endor-Page {
+    height: 100%;
+}
+
+.create-resource-content-wrapper .endor-Page-content {
+    overflow-y: auto;
+}
+
+.create-resource-content-wrapper .content-create-heading {
+    font-weight: 200;
+    font-size: 1.3rem;
+}
+
+.collectionresourcesettings {
+    width: auto;
+}
+
+.collectionresourcesettings .filters .dropdown-container {
+    width: 100%;
+}
+
+
+/*.collectionresourcesettings .filters, .collectionresourcesettings input, .collectionresourcesettings .select .dropdown-container, .collectionresourcesettings textarea */
+
+.create-resource-content .foundation-wizard-step .coral-Form-field {
+    width: 35rem;
+}
+
+.coral-DatePicker .coral-Textfield {
+    width: 32.7rem;
+}
+
+.collectionresourcesettings .coral-Form-fieldwrapper {
+    margin-bottom: 2rem;
+    min-height: 2.375rem;
+}
+
+.collectionresourcesettings .collectionsettings-left {
+    padding: 0;
+    background: url(/libs/granite/ui/components/foundation/clientlibs/foundation/css/resources/selmode_bg.png);
+    width: 15rem;
+}
+
+.collectionresourcesettings input {
+    font-size: 12px;
+}
+
+.collectionresourcesettings textarea {
+    height: 110px;
+    margin-bottom: 15px;
+}
+
+.collectionresourcesettings .block-text {
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.collectionresourcesettings .members {
+    display: none;
+}
+
+.grid-margin {
+    margin-left: 30px;
+}
+
+.collectionresourcesettings td {
+    vertical-align: top;
+}
+
+.actionbar-left-button {
+    margin-left: 8px;
+}
+
+textarea {
+    resize: none;
+}
+
+.collectionresourcesettings {
+    height: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
+.content-container .form-wizard-wrapper,
+.content-container .form-wizard {
+    height: 100%;
+}
+
+h1:not(:first-child) {
+    margin-top: 2.25rem;
+}
+
+.page .content .content-container {
+    overflow-y: hidden;
+}
+
+.page .content footer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 2rem);
+}
+
+.page .content {
+    overflow-x: hidden;
+}
+
+.coral-InputGroup-button:nth-of-type(1) > .coral-Button,
+.coral-InputGroup-button:nth-of-type(1) > .coral-ButtonGroup {
+    margin-right: 0;
+}
+
+.create-resource-content .add-user-add-groups .list {
+    border: 0;
+}
+
+.create-resource-content .add-user-add-groups .view-group span,
+.create-resource-content .add-user-add-groups .view-user span {
+    font-style: normal;
+    font-weight: 400;
+    color: #4B4B4B;
+}
+
+.create-resource-content .add-user-add-groups .view-group span:hover,
+.create-resource-content .add-user-add-groups .view-user span:hover {
+    cursor: text;
+}
+
+.coral-Modal-body {
+    width: auto;
+}
+
+.coral-Modal-header {
+    width: auto;
+}
+
+.create-resource-content .foundation-wizard-step {
+    padding: 1.43rem 0 0 0.9375rem;
+    text-align: center;
+    margin: 0;
+}
+
+.create-resource-content .zero-padding {
+    padding: 0;
+}
+
+.create-resource-content .grid {
+    padding: 0.9375rem;
+}
+
+.create-resource-cancel-btn {
+    display: none;
+}
+
+.coral-Form--vertical .coral-Form-fieldwrapper .coral-Form-fieldinfo,
+.coral-Form--vertical .coral-Form-fieldwrapper .coral-Form-fielderror {
+    right: 5px;
+}
+
+.coral-Modal {
+    max-width: 42rem;
+}
+
+.endor-Panel-content--actionBarHeight {
+    top: 0;
+}
+
+.searchable-list,
+.searchable-list > .searchable-list-popover,
+.searchable-list > .removable-item-list-container {
+    width: 24.6rem;
+}
+
+.removable-item-list-container {
+    max-height: 240px;
+    margin-top: 1.1rem;
+    border: 0;
+}
+
+.removable-item-list-container article {
+    border-top: 0;
+    border-bottom: 0.0625rem solid #BBBBBB;
+    border-left: 0.0625rem solid #BBBBBB;
+    border-right: 0.0625rem solid #BBBBBB;
+}
+
+.removable-item-list-container article:first-child {
+    border-top: 0.0625rem solid #BBBBBB;
+}
+
+.scf-enablement-site-selector .coral-Select {
+    width: 25rem;
+}
+
+.scf-enablement-site-selector .coral-Button--primary {
+    text-align: right;
+    margin-left: 1.25rem;
+}
+
+.collectionresourcesettings .u-italic {
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 2.5rem;
+}

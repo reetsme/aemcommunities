@@ -1,0 +1,18 @@
+subject=[私人留言] {{object.displayName}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{user.name}} 向您发送了一条私人留言</title>\n \
+</head>\n \
+<body>\n \
+<div>{{objectContent}}</div>\n \
+<div>\n \
+<hr>\n \
+此消息由 {{user.name}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 发送。\n \
+<hr>\n \
+请<a href="{{targetUrl}}">单击此链接</a>查看所有消息或修改您的订阅。\n \
+</div>\n \
+</body>\n \
+</html>\n \

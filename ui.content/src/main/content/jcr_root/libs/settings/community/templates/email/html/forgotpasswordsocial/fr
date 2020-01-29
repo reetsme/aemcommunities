@@ -1,0 +1,15 @@
+﻿subject=Demande de mise à jour du mot de passe
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Demande de mise à jour du mot de passe</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Bonjour {{{givenName}}},</p>\n \
+<p>Vous avez configuré votre compte via {{{social}}}. Lors de la connexion, utilisez vos informations d’identification {{{social}}} pour accéder au site.</p>
+</div>\n \
+</body>\n \
+</html>\n \

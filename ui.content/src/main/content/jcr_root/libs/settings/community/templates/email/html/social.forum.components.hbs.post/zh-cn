@@ -1,0 +1,34 @@
+subject=[论坛帖子] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 发布了新论坛主题“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 添加了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的新论坛帖子。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的论坛帖子。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 删除了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的论坛帖子。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 批准了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的论坛帖子。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 关闭了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的论坛帖子。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 重新打开了针对主题 {{#if this.target.properties.[jcr:title]}}"{{{target.displayName}}}"{{else}}"{{{target.properties.eventTopic}}}"{{/if}} 的论坛帖子。\n \
+{{/equals}}\
+<br>请<a href="{{objectUrl}}">单击此链接</a>查看针对此主题的所有论坛帖子或修改您的通知首选项。\n \
+</div>\n \
+</body>\n \
+</html>\n \

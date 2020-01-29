@@ -1,0 +1,17 @@
+﻿subject=[プライベートメッセージ] {{object.component.subject}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{user.name}}さんがあなたにプライベートメッセージを送信しました。</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<hr>\n \
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{user.name}}さんがこのメッセージを送信しました。\n \
+<hr>\n \
+<a href="{{targetUrl}}">このリンクをクリック</a>すると、すべてのメッセージを表示したり、通知の基本設定を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

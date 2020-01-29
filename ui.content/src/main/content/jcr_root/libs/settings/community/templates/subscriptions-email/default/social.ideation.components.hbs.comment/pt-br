@@ -1,0 +1,25 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Ideation Event Reply] {{{target.displayName}}}{{else}}[Ideation Event Reply]{{/if}}
+message=\n \
+Data: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+Uma nova resposta de evento de ideação {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi publicada por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Uma nova resposta de evento de ideação {{#if this.target.properties.[jcr:title]}}foi adicionada ao evento “{{{target.displayName}}}” {{/if}}por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Uma nova resposta de evento de ideação {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi atualizada por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Uma nova resposta de evento de ideação {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi excluída por {{{user.name}}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Uma nova resposta de evento de ideação {{#if this.target.properties.[jcr:title]}}ao evento “{{{target.displayName}}}” {{/if}}foi aprovada por {{{user.name}}}.\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}O estado do evento de ideação foi alterado para: “{{{this.object.properties.toState}}}”.\n{{/if}}\n \
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Acesse este link para visualizar todas as respostas a este evento de ideação ou para modificar sua assinatura.\n \
+{{objectReferrer}}\n \

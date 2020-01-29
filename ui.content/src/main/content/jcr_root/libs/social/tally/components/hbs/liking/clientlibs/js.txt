@@ -1,0 +1,1 @@
+likingcomponent.js

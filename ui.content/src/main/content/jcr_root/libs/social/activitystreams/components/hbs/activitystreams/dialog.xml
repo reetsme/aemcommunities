@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        xtype="tabpanel">
+        <items
+            jcr:primaryType="nt:unstructured"
+            title="User Activities"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <max
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Max number of activities"
+                    name="./maxNumberActivities"
+                    regex="/^[0-9]*$/"
+                    regexText="Please enter a positive integer number.  Leave blank for infinite scroll."
+                    xtype="numberfield"/>
+                <streamResourcePath
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    fieldLabel="Stream Resource Path"
+                    name="./streamContextPath"
+                    predicate="isNotUGCPredicate"
+                    rootPath="/content"
+                    showTitlesInTree="false"
+                    xtype="pathfield"/>
+                <allowUserView
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="true"
+                    fieldLabel="Display User Activities View"
+                    fieldLabel_commentI18n="Display User Activities View"
+                    name="./allowUserView"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowAllView
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="true"
+                    fieldLabel="Display All Activities View"
+                    fieldLabel_commentI18n="Display All Activities View"
+                    name="./allowAllView"
+                    type="checkbox"
+                    xtype="selection"/>
+                <allowFollowingView
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="true"
+                    fieldLabel="Display Following View"
+                    fieldLabel_commentI18n="Display Following View"
+                    name="./allowFollowingView"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </items>
+    </items>
+</jcr:root>

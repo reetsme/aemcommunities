@@ -1,0 +1,37 @@
+﻿subject=[Forenpost] {{#if this.target.properties.[jcr:title]}}{{{target.displayName}}}{{else}}{{{object.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+Ein neues Forenthema „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gepostet.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+Ein neuer Forenpost zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} hinzugefügt.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+Der Forenpost zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+Der Forenpost wurde zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+Der Forenpost zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+Der Forenpost zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} geschlossen.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+Der Forenpost zum Thema {{#if this.target.properties.[jcr:title]}}„{{{target.displayName}}}“{{else}}„{{{target.properties.eventTopic}}}“{{/if}} wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} erneut geöffnet.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectUrl}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Forenposts zu diesem Thema oder zum Ändern Ihres Abonnements.\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,63 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-report-groupassignment-table" data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/reports/groupassignmentreport/table">
+    {{#if items}}
+        <table class="scf-table coral-Table" id="group-assignment-table" width="100%">
+            <thead>
+                <tr class="coral-Table-row">
+                    <th class="coral-Table-headerCell">{{i18n "Last Name"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "First Name"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Status"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Score"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Comments"}}</th>
+                    <th class="coral-Table-headerCell">{{i18n "Rating"}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                    <tr class="coral-Table-row">
+                        <td class="coral-Table-cell">{{lastName}}</td>
+                        <td class="coral-Table-cell">{{firstName}}</td>
+                        <td class="coral-Table-cell">
+                            {{#if percentageStatus}}
+                                <div class="coral-Progress">
+                                    <div class="coral-Progress-bar" title="{{completionStatus}}">
+                                        <div class="coral-Progress-status" style="width: {{completionStatus}};"></div>
+                                    </div>
+                                    <label class="coral-Progress-label">
+                                        {{i18n completionStatus}}
+                                    </label>
+                                </div>
+                            {{else}}
+                                {{i18n completionStatus}}
+                            {{/if}}
+                        </td>
+                        <td class="coral-Table-cell">{{score}}</td>
+                        <td class="coral-Table-cell">{{commentCount}}</td>
+                        <td class="coral-Table-cell" data-order="{{rating}}">
+                            <div class="emptyStar" title="{{rating}}">
+                                <div class="ratingStar" style="width: {{ratingWidth}}%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{/if}}
+</div>

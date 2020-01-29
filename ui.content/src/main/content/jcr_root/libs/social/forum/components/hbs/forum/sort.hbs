@@ -1,0 +1,81 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if configuration.sortByItemsList}}
+    <div class="btn-group scf-sort-btngrp">
+        <button class="btn btn-primary dropdown-toggle scf-sort-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="button_label" class="scf-sort-btngrp-btnlabel" data-sort-field="{{pageInfo.sortIndex}}">
+                {{i18n "Sort By"}}
+            </span>
+        <span class="caret"></span>
+    </button>
+        <ul class="scf-sort-list dropdown-menu" role="menu" aria-labelledby="sortDropdownMenu">
+            {{#each configuration.sortByItemsList}}
+                {{#equals this "newest"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="newest" data-sort-order="DESC">
+                        {{i18n "Newest"}}
+                    </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "added"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="added" data-sort-order="ASC">
+                    {{i18n "Oldest"}}
+                </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "latestActivityDate_dt"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="latestActivityDate_dt" data-sort-order="DESC">
+                    {{i18n "Last Updated"}}
+                </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "views"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="views" data-sort-order="DESC">
+                        {{i18n "Most Viewed"}}
+                    </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "posts"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="posts" data-sort-order="DESC">
+                        {{i18n "Most Active"}}
+                    </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "follows"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="follows" data-sort-order="DESC">
+                        {{i18n "Most Followed"}}
+                    </span>
+                    </li>
+                {{/equals}}
+                {{#equals this "likes"}}
+                    <li class="scf-sort-item" evt="click=refetchBasedOnSort">
+                        <span class="scf-sort-type" data-sort-field="likes" data-sort-order="DESC">
+                        {{i18n "Most Liked"}}
+                    </span>
+                    </li>
+                {{/equals}}
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

@@ -1,0 +1,1 @@
+resourcestable.js

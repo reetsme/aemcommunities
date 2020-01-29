@@ -1,0 +1,43 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="coral-FixedColumn foundation-layout-util-vmargin">
+    <div class='coral-FixedColumn-column'>
+        <div class="coral-Form-fieldwrapper">
+            <label class="coral-Form-fieldlabel">{{i18n "Community Group Membership"}}</label>
+            <div class="scf-js-social-console-group-creation coral-RadioGroup coral-Form-field" title="Group Creation" data-name="type" data-fieldlabel="Group Creation">
+                <label class="coral-Radio coral-Form-field">
+                    <input type="radio" name="type" value="PUBLIC" class="coral-Radio-input" disabled="disabled" {{#equals type "Public"}} checked="" {{/equals}}>
+                    <span class="coral-Radio-checkmark"></span>
+                    <span class="coral-Radio-description">{{i18n "Optional Membership"}}</span>
+                </label>
+                <label class="coral-Radio coral-Form-field">
+                    <input class="scf-js-social-console-group-members coral-Radio-input" type="radio" name="type"
+                    disabled="disabled" value="OPEN" {{#equals type "Open"}} checked="" {{/equals}}>
+                    <span class="coral-Radio-checkmark"></span>
+                    <span class="coral-Radio-description">{{i18n "Required Membership"}}</span>
+                </label>
+                <label class="coral-Radio coral-Form-field">
+                    <input type="radio" name="type" value="SECRET" disabled="disabled" class="coral-Radio-input" {{#equals type "Secret"}} checked="" {{/equals}}>
+                    <span class="coral-Radio-checkmark"></span>
+                    <span class="coral-Radio-description">{{i18n "Restricted Membership"}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

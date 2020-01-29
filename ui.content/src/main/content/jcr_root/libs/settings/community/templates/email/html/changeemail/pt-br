@@ -1,0 +1,18 @@
+﻿subject=Solicitação de alteração de email
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitação de alteração de email</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Olá {{{givenName}}}</p>\n \
+<p>Você solicitou a alteração do endereço de email associado à sua conta.</p>\n \
+<p>Para verificar este endereço de email, clique neste link <a href="{{{actionURL}}}"">{{{actionURL}}}</a> ou cole-o em seu navegador.</p>\n \
+<p>O link deve ser acessado até {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} ou ficará inválido.</p>\n \
+<p>Se você não quiser usar o novo endereço de email, ignore esta mensagem e seu endereço de email atual continuará a ser usado.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

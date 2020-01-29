@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:mixinTypes="[mix:lockable]"
+    jcr:primaryType="cq:ClientLibraryFolder"
+    categories="[cq.social.author.hbs.calendar]"
+    dependencies="[cq.social.scf,cq.social.calendar.eventbasics,cq.social.author.hbs.comments,cq.social.author.hbs.subscriptions,cq.social.tagging,cq.social.hbs.voting,cq.social.author.hbs.forum,cq.social.author.hbs.pages,moment,moment.timezone,granite.utils,cq.ckeditor]"
+    embed="[cq.social.scf,cq.social.calendar.eventbasics,cq.social.author.hbs.comments,cq.social.author.hbs.subscriptions,cq.social.tagging,cq.social.hbs.voting,cq.social.author.hbs.forum]"/>

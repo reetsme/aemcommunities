@@ -1,0 +1,25 @@
+subject=[블로그 항목] {{{object.displayName}}}
+
+message=\n \
+날짜: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   새 블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 게시했습니다.\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 업데이트했습니다.\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 삭제했습니다.\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 승인했습니다.\n\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 닫았습니다.\n\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   블로그 항목 "{{{object.displayName}}}"을(를) {{{user.name}}} 님이 다시 열었습니다.\n\n \
+{{/equals}}\
+모든 블로그 항목을 보거나 알림 환경 설정을 수정하려면 이 링크로 이동하십시오.\n \
+{{targetUrl}}\n \

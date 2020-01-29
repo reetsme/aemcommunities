@@ -1,0 +1,594 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-user-profile-textbox-tooltip {
+    webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 2300;
+    min-height: 2rem;
+    max-width: 15.625rem;
+    max-height: 15.625rem;
+    margin: 0 auto;
+    padding: .5rem .625rem;
+    background-position: .5rem .5rem;
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+    color: #323232;
+    vertical-align: middle;
+    border: .0625rem solid;
+    display: none;
+    position: absolute;
+    left: 47%;
+    top: 50%
+}
+
+.scf-user-profile button {
+    min-width: 15px;
+    min-height: 15px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    text-shadow: none;
+}
+
+.scf button[type='reset'] {
+    min-width: 100px;
+    min-height: 35px;
+}
+
+.scf-user-profile button:hover {
+    color: #eee;
+    text-shadow: none;
+}
+
+.scf-password-box .coral-Button:not(:disabled):not(.is-disabled):hover {
+    background-color: #c8c8c8;
+    text-decoration: none;
+}
+
+.scf-member-user-profile .coral-Button:not(:disabled):not(.is-disabled):hover {
+    background-color: #c8c8c8;
+    text-decoration: none;
+}
+
+.coral-Form-fieldwrapper .scf-password-box-label {
+    text-align: left;
+    min-width: 9.5rem;
+}
+
+.scf-user-profile button:active {
+    color: #fff;
+    text-shadow: none;
+}
+
+.scf-profile-heading {
+    float: left;
+    font-weight: bold;
+}
+
+.scf-profile-header button {
+    color: #428bca;
+    background: #ffffff;
+    text-shadow: none;
+    border: none;
+}
+
+.scf-user-profile .scf-is-collapsed {
+    display: none;
+}
+
+.scf-profile-form {
+    font-size: 14px;
+}
+
+.scf-profile-form-label {
+    color: #aaa;
+    font-weight: normal;
+    text-align: left;
+    margin: 5px 0 5px 0;
+}
+
+.scf-profile-form span {
+    color: #428bca;
+}
+
+.scf-profile-form .row {
+    padding-bottom: 10px;
+}
+
+.scf-profile-form .row-small-padding {
+    padding-bottom: 2px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.scf-profile-form .row-right-padding {
+    padding-bottom: 2px;
+    margin-right: -15px;
+}
+
+.scf-profile-form .row-left-padding {
+    padding-bottom: 2px;
+    margin-left: -15px;
+}
+
+.scf-profile-form-textarea {
+    resize: vertical;
+    max-height: 200px;
+    min-height: 100px;
+}
+
+.scf-profile-edit {
+    float: right;
+    margin-right: 20px;
+}
+
+.scf-tool-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.scf-container-fluid {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.scf-large-lable {
+    font-size: 16px;
+}
+
+.scf-user-info-card {
+    height: 100px;
+}
+
+.scf-user-avatar-left {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 80px;
+    margin-right: 10px;
+}
+
+.scf-overlay-top-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 1px 5px 1px 5px;
+    color: #428BCA;
+    background-color: #fff;
+}
+
+.scf-user-info-middle {
+    display: inline-block;
+    float: left;
+    width: 32%;
+}
+
+.scf-user-info-right {
+    display: inline-block;
+    float: left;
+    width: 49%;
+}
+
+.scf-badge-right {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 10px;
+    float: right;
+}
+
+.scf-profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    padding: 2px;
+    float: left;
+}
+
+
+/** tab */
+
+.scf-tab-content {
+    overflow: auto;
+}
+
+.scf-tab-content > .scf-tab-pane {
+    display: none;
+}
+
+.scf-tab-content > .active {
+    display: block;
+}
+
+.scf-tab-content {
+    margin-top: 10px;
+}
+
+.scf-upload-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.scf-form-row {
+    margin: 0 15px 20px 15px;
+}
+
+.scf-avatar-upload {
+    position: relative;
+    overflow: hidden;
+    color: #428bca;
+    width: 25%;
+    padding-bottom: 36px;
+}
+
+.scf-avatar-upload input.scf-avatar-upload-input {
+    position: absolute;
+    margin: 10px;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.scf-password-form {
+    min-width: 500px;
+    text-align: left;
+}
+
+.scf-following-content {
+    display: inline-block;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    min-width: 154px;
+}
+
+.scf-user-profile-avatar-box .col-sm {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.scf-user-profile-avatar-box .scf-composer-actions {
+    width: 75%;
+}
+
+.scf-user-profile-add-user {
+    margin: 0 auto 0 auto;
+    width: 45.625rem;
+}
+
+.scf-user-profile-add-user textarea {
+    width: 34.4rem;
+}
+
+.scf-user-profile-user-details-column-left {
+    width: 50%;
+    float: left;
+}
+
+.scf-user-profile-user-details-column-right {
+    float: right;
+}
+
+.coral-Form--aligned .coral-Form-fieldwrapper .coral-Form-fieldlabel:empty + .scf-member-profile-filter {
+    width: 100%;
+    margin: 0;
+}
+
+.scf-user-profile-user-editor-container > .coral-Form-fieldwrapper {
+    width: 50%;
+    float: left;
+    clear: none;
+}
+
+.scf-user-profile-user-photo {
+    margin-right: 0.8rem;
+}
+
+.scf-user-profile-user-photo-upload-instructions {
+    font-size: 0.80rem;
+    font-style: italic;
+    display: block;
+    white-space: normal;
+    clear: left;
+}
+
+.scf-user-profile-user-photo-container {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%
+}
+
+.scf-user-profile-user-photo-detailed {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../clientlib/themes/default/resources/sample-user-thumbnail.36.png);
+    border-radius: 100%;
+}
+
+.scf-user-profile-form label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.scf-user-profile-account-settings-link {
+    margin-right: 0.7rem;
+}
+
+.scf-user-profile-photo-accout-settings {
+    max-width: 20.2rem;
+    height: 7.5rem;
+    white-space: nowrap;
+}
+
+.scf-user-profile-photo-upload-info {
+    max-width: 14.4rem;
+}
+
+.scf-user-profile-left {
+    float: left;
+}
+
+.scf-user-profile-right {
+    float: right;
+}
+
+.scf-user-profile-clear {
+    clear: both;
+}
+
+.scf-user-profile-about-container {
+    margin-top: 1.25rem;
+}
+
+.scf-memberlist-group-column {
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.scf-memberlist-delete-item {
+    cursor: pointer;
+    text-align: right;
+}
+
+.scf-memberlist-deleted-item {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.scf-member-profile-add-to coral-taglist {
+    display: block;
+}
+
+.scf-member-profile-add-to coral-tag {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #326ec8;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.scf-member-profile-add-to .coral-Tag-removeButton {
+    float: right;
+}
+
+.scf-member-profile-add-to .coral-Icon--close:before {
+    content: "\f1a0";
+}
+
+.scf-member-profile-add-to .coral-Icon--close {
+    font-size: 1.125rem;
+}
+
+.scf-member-profile-add-to .coral-InputGroup-button {
+    display: none;
+}
+
+.scf-modal-header {
+    font-size: 24px;
+    color: #4B4B4B;
+    margin: 0;
+    font-weight: 100;
+}
+
+.scf-memberlist-role-icon {
+    height: 20px;
+}
+
+.scf-memberlist-site-name {
+    padding-right: 10px;
+}
+
+.scf-memberlist-site-roles {
+    font-style: italic;
+    font-size: 11px;
+    color: #999999;
+    padding-left: 5px;
+}
+
+.scf-user-profile-form .coral-Form-fieldlabel {
+    white-space: normal;
+    text-align: right;
+    line-height: normal;
+}
+
+.scf-user-profile-form.coral-Form--aligned .coral-Form-fieldlabel,
+.scf-user-profile-form.coral-Form--aligned .coral-Form-field,
+.scf-user-profile-form.coral-Form--aligned .coral3-Select {
+    width: 45%;
+}
+
+.scf-user-profile-form.coral-Form--aligned .scf-user-profile-about-container .coral-Form-fieldlabel {
+    width: 16%;
+}
+
+.scf-user-profile-form.coral-Form--aligned .coral-Form-field.coral-Textfield--multiline {
+    width: 34.4rem;
+}
+
+.scf-user-profile-form.coral-Form--aligned .coral-Form-fieldlabel,
+.scf-user-profile-form.coral-Form--aligned .coral-Form-field,
+.scf-user-profile-form.coral-Form--aligned .coral3-Select,
+.scf-user-profile-form.coral-Form--aligned .coral-Form-field.coral-Textfield--multiline {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.scf-user-profile-form.coral-Form--aligned .coral-Form-fieldlabel:empty + .coral-Form-field,
+.scf-user-profile-form.coral-Form--aligned .coral-Form-fieldlabel:empty + .coral3-Select {
+    margin-left: 0;
+}
+
+.scf-user-profile-form.coral-Form--aligned .coral-Form-fieldwrapper .coral-Form-fielderror {
+    float: right;
+    margin-left: 0;
+}
+
+.scf-member-user-profile .coral-Textfield:invalid {
+    border-color: #d0d0d0;
+    color: #323232;
+}
+
+.scf-member-user-profile .coral-Textfield:focus,
+.scf-member-user-profile .coral-Textfield.is-focused {
+    outline: none;
+    box-shadow: 0 0 .1875rem #326ec8;
+    border: .0625rem solid #326ec8;
+}
+
+.scf-member-user-profile .coral--dark .coral-Textfield:invalid:focus,
+.scf-member-user-profile .coral--dark .coral-Textfield:invalid.is-focused {
+    outline: none;
+    box-shadow: 0 0 .1875rem #87beff;
+    border: .0625rem solid #87beff;
+}
+
+.scf-member-user-ugclimited {
+    display: block;
+}
+
+.scf-member-user-ugclimited .coral-Checkbox-checkmark {
+    margin-left: .1875rem;
+}
+
+.scf-member-user-profile .coral-TabPanel-navigation {
+    margin: 0 auto 0 auto;
+    width: 15%;
+}
+
+.scf-js-userprofile-badge-tag,
+.scf-js-userprofile-earned-badge {
+    height: 100%;
+    overflow: inherit;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #326ec8;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.scf-js-userprofile-earned-badge > .coral-TagList {
+    margin-left: 0.975rem;
+    margin-top: .7375rem;
+}
+
+.scf-js-userprofile-earned-badge-tag .coral-Tag-label {
+    margin-left: 0;
+}
+
+.scf-js-member-profile-bagges coral-taglist {
+    display: block;
+}
+
+.scf-js-userprofile-badge-icon {
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
+    position: relative;
+    top: 8px;
+}
+
+.scf-user-profile-form.coral-Form--aligned .scf-js-userprofile-badge-tag .scf-js-userprofile-badge-select-site {
+    width: 115px;
+    float: right;
+}
+
+.scf-user-profile-form.coral-Form--aligned .scf-js-userprofile-badge-tag .scf-js-userprofile-badge-select-site .coral3-Select-label {
+    margin-right: 0.4375rem;
+}
+
+.scf-user-profile-form.coral-Form--aligned .scf-js-userprofile-badge-tag .scf-js-userprofile-badge-select-site coral-taglist {
+    display: inline-block;
+    position: relative;
+    width: 650px;
+    right: 480%;
+}
+
+.scf-js-member-profile-bagges .coral-InputGroup-button {
+    display: none;
+}
+
+.scf-js-userprofile-badge-tag > .coral-Tag-removeButton {
+    float: right;
+    position: relative;
+    top: 10px;
+}
+
+.scf-js-userprofile-badge-tag .scf-js-userprofile-badge-select-site {
+    font-size: 13px;
+}
+
+.scf-js-userprofile-badge-tag > .coral-Tag-removeButton .coral-Icon--close:before {
+    content: "\f1a0";
+}
+
+.scf-js-userprofile-badge-tag > .coral-Tag-removeButton .coral-Icon--close {
+    font-size: 1.125rem;
+}

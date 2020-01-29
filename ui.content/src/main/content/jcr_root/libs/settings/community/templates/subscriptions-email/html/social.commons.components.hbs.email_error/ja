@@ -1,0 +1,18 @@
+﻿subject=[電子メールの失敗の配信] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>電子メールの配信の失敗</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+こんにちは、{{{email-author}}}さん{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に正常に追加されなかったものを以下に示します。\n \
+<hr>\n \
+もう一度やり直すか、システム管理者にお問い合わせください。\n \
+</div>\n \
+</body>\n \
+</html>\n \

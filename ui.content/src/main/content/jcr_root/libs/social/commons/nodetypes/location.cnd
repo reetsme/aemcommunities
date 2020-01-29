@@ -1,0 +1,30 @@
+/*************************************************************************
+*
+* ADOBE CONFIDENTIAL
+* ___________________
+*
+*  Copyright 2012 Adobe Systems Incorporated
+*  All Rights Reserved.
+*
+* NOTICE:  All information contained herein is, and remains
+* the property of Adobe Systems Incorporated and its suppliers,
+* if any.  The intellectual and technical concepts contained
+* herein are proprietary to Adobe Systems Incorporated and its
+* suppliers and are protected by trade secret or copyright law.
+* Dissemination of this information or reproduction of this material
+* is strictly forbidden unless prior written permission is obtained
+* from Adobe Systems Incorporated.
+**************************************************************************/
+<cq  = 'http://www.day.com/jcr/cq/1.0'>
+
+/**
+ * A mixin that defines a geographic location in decimal degrees (DD)
+ *
+ * @prop latitude  latitude encoded as double using decimal degrees
+ * @prop longitude longitude encoded as double using decimal degrees
+ */
+[cq:GeoLocation]
+  mixin
+  - latitude (double)
+  - longitude (double)
+

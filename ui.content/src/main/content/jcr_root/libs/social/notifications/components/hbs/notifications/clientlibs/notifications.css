@@ -1,0 +1,136 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.scf-js-notifications-table {}
+
+.scf-js-notifications-table tr {
+    border: 1 px solid #e2e2e2;
+    font-size: 12px;
+}
+
+.scf-notification-circle {
+    width: 31px;
+    height: 31px;
+    color: #ffffff;
+    border-radius: 15px;
+    padding: 6px 8px 9px 8px;
+    opacity: 0.7;
+}
+
+.scf-notification-circle.scf-icon-rectangle {
+    padding: 6px 6px 9px 10px;
+}
+
+.scf-notification-heading {
+    float: left;
+    padding-bottom: 10px;
+}
+
+.scf-notification-tool {
+    font-family: helveticaNeue;
+    float: right;
+    padding-left: 30px;
+    color: #3e8acc;
+    font-size: 12px;
+    letter-spacing: 0em;
+    text-align: right;
+}
+
+.scf-notification-tool-icon {
+    font-size: 16px;
+    vertical-align: text-bottom;
+    padding-left: 10px;
+}
+
+.scf-notification-tool-disable {
+    font-family: helveticaNeue;
+    float: right;
+    padding-left: 30px;
+    color: black;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.scf-notification-tool:hover {
+    cursor: pointer;
+}
+
+.scf-js-notifications-table tr:hover {
+    cursor: pointer;
+}
+
+.table > tbody > tr > td.scf-js-notifications-table-cell-td-post {
+    padding: 8px 16px;
+    width: 32px;
+}
+
+.scf-js-notifications-table-cell-type-post {
+    font-size: 2em;
+}
+
+.scf-js-notifications-table-cell-type-add {
+    width: 48px;
+}
+
+.scf-js-notifications-table-cell-type-add {
+    font-size: 2em;
+}
+
+.scf-js-notifications-table-cell-type-update {}
+
+.scf-js-notifications-table-cell-type-delete {}
+
+.scf-js-notifications-table-row {}
+
+.scf-js-notifications-table-cell {}
+
+.scf-js-notifications-table-cell-controls {
+    width: 20px;
+}
+
+.table > tbody > tr > td.scf-notifications-mark-read-column {
+    vertical-align: middle;
+    padding: 0 20px;
+}
+
+.scf-js-notification-user {
+    font-style: bold;
+}
+
+.scf-js-notification-name {
+    font-style: bold;
+}
+
+.scf-activity-time {
+    text-align: left;
+    opacity: 0.7;
+}
+
+
+/* - expand classes - */
+
+.scf-js-expandText {
+    cursor: pointer;
+    display: none;
+    position: relative;
+}
+
+.scf-js-expand {
+    max-height: 3em;
+    overflow: hidden;
+}

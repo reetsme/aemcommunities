@@ -1,0 +1,25 @@
+﻿subject=[Publicación del foro]
+
+message=\n \
+Fecha: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+   {{{user.name}}} ha realizado una nueva publicación en el foro.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+   {{{user.name}}} ha añadido una nueva publicación en el foro.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   {{{user.name}}} ha actualizado una nueva publicación en el foro.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   {{{user.name}}} ha eliminado una nueva publicación en el foro.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   {{{user.name}}} ha aprobado una nueva publicación en el foro.\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Siga este vínculo para ver todas las respuestas a este tema o modificar su suscripción.\n \
+{{objectReferrer}}\n \

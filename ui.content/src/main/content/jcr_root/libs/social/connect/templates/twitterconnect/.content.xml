@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Account settings for Twitter Connect access"
+    jcr:primaryType="cq:Template"
+    jcr:title="Twitter Connect Configuration"
+    sling:resourceSuperType="cq/cloudserviceconfigs/templates/configpage"
+    allowedChildren=""
+    allowedPaths="[/etc/cloudservices/twitterconnect(/.*)?]"
+    ranking="{Long}90">
+    <jcr:content
+        cq:cloudservicename="twitterconnect"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="social/connect/components/twitterconnectpage"
+        thumbnailPath="/libs/social/connect/templates/twitterconnect/thumbnail.png"/>
+</jcr:root>

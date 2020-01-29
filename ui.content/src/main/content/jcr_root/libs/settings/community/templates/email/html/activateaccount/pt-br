@@ -1,0 +1,4 @@
+﻿subject=Agradecemos por registrar-se.
+
+message=\n \
+<a href="{{actionURL}}">Clique neste link para ativar sua conta</a>\n \

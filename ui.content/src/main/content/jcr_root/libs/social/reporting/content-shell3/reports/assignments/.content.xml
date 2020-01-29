@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Assignments"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/reports/assignments"
+        consoleId="cq-communities-reports"
+        targetCollection=".foundation-layout-panel-content">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[cq.common.wcm,cq.social.author.reporting.hbs.reporting,cq.social.author.enablement.hbs.resourcelist,cq.social.author.enablement.hbs.reports.groupassignment,cq.social.author.enablement.hbs.reports.userassignment]"/>
+        </head>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/breadcrumbs"
+            path="/libs/social/reporting/content-shell3/reports/assignments"
+            rootPath="/libs/social/reporting/content-shell3/reports"/>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <configpanel
+                        granite:class="scf-communities-report-well"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                        <items jcr:primaryType="nt:unstructured">
+                            <filters
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <sitefilter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/reporting/components/hbs/reporting/filters/reportsitefilter"/>
+                                    <usergroupswitch
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/reporting/components/hbs/reporting/filters/usergroupswitch"/>
+                                    <userfilter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/reporting/components/hbs/reporting/filters/userfilter"
+                                        type="users"/>
+                                    <groupfilter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/reporting/components/hbs/reporting/filters/groupfilter"
+                                        type="groups"/>
+                                    <assignmentfilter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/enablement/components/hbs/admin/resourcelist"/>
+                                </items>
+                            </filters>
+                            <controls
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <controls
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="social/reporting/components/hbs/reporting/controls"/>
+                                </items>
+                            </controls>
+                        </items>
+                    </configpanel>
+                    <groupassignmentreport
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/groupassignmentreport"
+                        foundation-mode-group="cq-social-console-preview"
+                        foundation-validation-ui="none"
+                        rel="cq-live-copy-from"/>
+                    <userassignmentreport
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/userassignmentreport"
+                        foundation-mode-group="cq-social-console-preview"
+                        foundation-validation-ui="none"
+                        rel="cq-live-copy-from"/>
+                    <groupassignmentreportcsv
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/groupassignmentreportcsv"
+                        foundation-mode-group="cq-social-console-preview"
+                        foundation-validation-ui="none"
+                        rel="cq-live-copy-from"/>
+                    <userassignmentreportcsv
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/enablement/components/hbs/reports/userassignmentreportcsv"
+                        foundation-mode-group="cq-social-console-preview"
+                        foundation-validation-ui="none"
+                        rel="cq-live-copy-from"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,15 @@
+subject=更新密码请求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>更新密码请求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好！</p>\n \
+<a href="{{forgotPasswordUrl}}">请单击此链接以重置您的密码</a>\n \
+</div>\n \
+</body>\n \
+</html>\n \

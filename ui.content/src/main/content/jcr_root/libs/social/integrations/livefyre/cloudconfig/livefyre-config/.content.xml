@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:cloudservicename="livefyre"
+    cq:defaultView="html"
+    jcr:description="Livefyre Network Settings"
+    jcr:primaryType="cq:Component"
+    jcr:title="Livefyre Settings"
+    sling:resourceSuperType="cq/cloudserviceconfigs/components/configpage"
+    allowedChildren=""
+    allowedPaths="[/libs/social/integrations/livefyre/cloudconfig/conf(/.*)?]"
+    componentGroup=".hidden"
+    ranking="{Long}90"
+    thumbnailPath="/libs/social/integrations/livefyre/cloudconfig/pagetemplate/thumbnail.png"/>

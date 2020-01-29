@@ -1,0 +1,99 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-topic-listitem" data-component-id="{{id}}" data-scf-template="list-item">
+    <aside class="scf-topic-userinfo">
+        {{#unless draft}}
+            <img class="scf-topic-avatar" src="{{author.avatarUrl}}" alt="{{author.name}}" title="{{author.name}}" />
+            <br/>
+            {{#each author.badges}}
+                {{#if this.isAssigned}}
+                    <div class="scf-badge-text">
+                        {{this.title}}
+                    </div>
+                {{/if}}
+            {{/each}}
+            {{#each author.badges}}
+                {{#unless this.isAssigned}}
+                    <img class="scf-badge-image" alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" />
+                {{/unless}}
+            {{/each}}
+        {{/unless}}
+    </aside>
+    <div class="scf-ideation-topic-col2">
+        {{#if this.state}}
+            <div class="scf-ideation-topic-col-state"><span class="label label-default">{{i18n this.state}}</span></div>
+        {{/if}}
+        <span class="scf-ideation-topic-col-like glyphicon glyphicon-heart" style="font-size: 1.0em; top: 3px;"></span><span>{{this.votes.totalNumberOfResponses}}</span>
+        <span class="scf-ideation-topic-col-comment scf-icon-comment"></span><span>{{totalSize}}</span>
+    </div>
+    <div class="scf-ideation-topic-col1">
+        {{#if configuration.isPinAllowed}}
+            {{#if this.isPinned}}<span class="glyphicon glyphicon-pushpin scf-topic-glyphicon" aria-hidden="true"></span>{{/if}}
+        {{/if}}
+        <a href="{{friendlyUrl}}"><h3 class="scf-topic-title">{{subject}}</h3></a>
+
+        <div>
+            {{#if configuration.isTaggingAllowed}}
+                <div>
+                    {{#each tags}}
+                        <span class="label label-info">{{title}}</span>
+                    {{/each}}
+
+                </div>
+            {{/if}}
+        </div>
+
+        <div>
+            {{#unless draft}}
+                <span class="scf-quiet"><a href="{{author.profileUrl}}">{{author.name}}</a>  {{i18n "Published "}} {{pretty-time publishDate}}
+            {{else}}
+                    <span class="scf-quiet"><a href="{{author.profileUrl}}">{{author.name}}</a>  {{i18n "Created "}} {{pretty-time created}}
+            {{/unless}}
+        {{#if viewCounts}}
+            <span class="scf-analytics-view-metrics scf-js-analytics-view-metrics">,
+                        {{i18n "Viewed"}}
+                        {{#equals configuration.analyticsTimeSelector "total_tl"}}
+                            {{viewCounts.total}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last7Days_tl"}}
+                            {{viewCounts.last7Days}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last24Hours_tl"}}
+                            {{viewCounts.last24Hours}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last30Days_tl"}}
+                            {{viewCounts.last30Days}}
+                        {{/equals}}
+                        {{i18n "time(s)"}}
+                    </span>
+                {{/if}}
+                </span>
+        </div>
+    </div>
+
+    <div class="scf-ideation-topic-col3">
+        <div class="scf-comment-msg">
+            {{{message}}}
+        </div>
+        <a href="{{friendlyUrl}}">{{i18n "Read More"}}</a>
+    </div>
+
+    <div class="scf-clear-both"></div>
+</div>

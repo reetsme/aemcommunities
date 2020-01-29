@@ -1,0 +1,11 @@
+﻿subject=[Likes]
+
+message=\n \
+Datum: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{targetUrl}}\n\n \
+Eine neue Like-Bewertung für „{{{target.properties.eventTopic}}}“ wurde von {{{user.name}}} abgegeben.\n \
+-------------------------------------------------------------------------------------\n \
+{{{target.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Folgen Sie diesem Link, um alle Antworten auf diese Frage anzuzeigen oder Ihr Abonnement zu ändern.\n \
+{{targetUrl}}\n \

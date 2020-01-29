@@ -1,0 +1,61 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="content scf-js-cq-social-themes social-themes scf-js-social-console-imageupload" data-component-id="{{#if this.path}}{{this.path}}{{else}}{{this.id}}/imageupload{{/if}}" data-scf-component="social/console/components/hbs/imageupload">
+    <div style="padding-left:20px;">
+        <article>
+            <table class="coral-Table--bordered" style="width:220px;">
+                <thead>
+                    <tr class="coral-Table-row">
+                        <th class="coral-Table-headerCell">
+                            <h4>{{i18n "Upload Image"}}</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="coral-Table-row">
+                        <td class="coral-Table-cell" style="text-align:center;padding:0px;">
+                            <div class="scf-js-social-console-divImageUpload" style="height:140px;padding-top:40px;">
+                                <span class="coral-FileUpload" data-init="fileupload">
+                            <span class="coral-FileUpload-trigger coral-Button coral-Button--secondary coral-Button--quiet" style="height:auto;">
+                        <i class="coral-Icon coral-Icon--sizeL coral-Icon--image">
+                            <input class="scf-js-social-console-imgUploadImage coral-FileUpload-input" name="{{#if this.inputname}}{{this.inputname}}{{else}}{{#if this.properties.inputname}}{{this.properties.inputname}}{{else}}name{{/if}}{{/if}}" type="file" accept="image/*" data-upload-url="dummy" data-file-name-parameter="{{#if this.path}}{{this.name}}{{else}}dummy{{/if}}">
+                        </i>
+                        </span>
+                                </span>
+                                <p class="type">{{i18n "Add an image"}}</p>
+                            </div>
+                            <div class="scf-js-social-console-divInfoOverlay scf-social-console-divInfoOverlay">
+                                <p class="truncFname scf-js-social-console-pImgUploadPreviewFname scf-social-console-pImgUploadPreviewFname">{{this.name}}</p>
+                                <p class="scf-js-social-console-pImgUploadPreviewFdim"></p>
+                            </div>
+                            <div class="scf-js-social-console-divImagePreview scf-social-console-divImagePreview">
+                                <img class="scf-js-social-console-imgUploadPreview" style="width: 220px; height: auto;" src="{{this.path}}" />
+
+                            </div>
+                            <div class="scf-js-social-console-divChangeBranding scf-social-console-divChangeBranding">
+                                <i class="coral-Icon coral-Icon--sizeS coral-Icon--add"></i>
+                                <span style="margin-left:4px;display:block-inline;">{{i18n "Change Image"}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </div>
+</div>

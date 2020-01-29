@@ -1,0 +1,88 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="coral-Form coral-Form--horizontal scf-dashboard-user-details">
+
+    <div class="coral-Well scf-author-id">
+        <div class=" scf-dashboard-user-details-item">
+            <div class="scf-dashboard-user-details-avatar-container">
+                <img src="{{this.largeAvatarUrl}}" />
+            </div>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Status"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info scf-dashboard-user-details-status">
+                {{#if this.disabled}}
+                    {{i18n "Banned"}}
+                {{else}}
+                    {{i18n "Not Banned"}}
+                {{/if}}
+            </span>
+        </div>
+        <div class="scf-clear-both"></div>
+    </div>
+
+    <div class="coral-Well scf-author-info">
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "ID"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.authorizableID}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Email"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info"><a href="mailto:{{this.email}}">{{this.email}}</a></span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "First Name"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.givenName}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Last Name"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.familyName}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Birthday"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{dateUtil this.birthday format=localeDateFormat}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Member Since"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{dateUtil this.memberSince format=localeDateFormat}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Gender"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.gender}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Address"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.streetAddress}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "City"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.city}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "State/Region"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.region}}</span>
+        </div>
+        <div class="coral-Form-fieldwrapper scf-dashboard-user-details-item">
+            <label class="coral-Form-fieldlabel scf-dashboard-user-details-label">{{i18n "Postal Code"}}</label>
+            <span class="coral-Form-field scf-dashboard-user-details-info">{{this.postalCode}}</span>
+        </div>
+        <div class="scf-clear-both"></div>
+    </div>
+</div>

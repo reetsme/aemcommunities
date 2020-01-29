@@ -1,0 +1,18 @@
+﻿subject=Solicitação de atualização de email
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitação de atualização de email</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Olá {{{givenName}}}</p>\n \
+<p>Recebemos a solicitação de alteração do endereço de email associado à sua conta.</p>\n \
+<p>Enviamos um email para o endereço {{{newEmail}}}. Depois que o endereço for verificado (ao clicar no link do email), ele se tornará o novo email associado à sua conta.</p>\n \
+<p>Se o link não for acessado até {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}}, ele ficará inválido e seu endereço de email atual continuará a receber todas as correspondências.</p>\n \
+<p>Caso você não tenha feito essa solicitação, outra pessoa assumiu o controle da sua conta.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

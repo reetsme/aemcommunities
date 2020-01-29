@@ -1,0 +1,15 @@
+﻿subject=Solicitação de atualização de senha
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitação de atualização de senha</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Olá {{{givenName}}}</p>\n \
+<p>Você configurou sua conta por meio do {{{social}}}. No momento do logon, use suas credenciais do {{{social}}} para acessar o site.</p>
+</div>\n \
+</body>\n \
+</html>\n \

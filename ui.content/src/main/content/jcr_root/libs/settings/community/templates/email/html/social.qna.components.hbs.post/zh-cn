@@ -1,0 +1,25 @@
+subject=[回答]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 添加了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的新回答。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 删除了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 批准了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+<br>请<a href="{{objectUrl}}">单击此链接</a>查看针对此问题的所有回答或修改您的通知首选项。\n \
+</div>\n \
+</body>\n \
+</html>\n \

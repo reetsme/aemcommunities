@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Configuration settings for Facebook Social Login access"
+    jcr:primaryType="cq:Template"
+    jcr:title="Facebook Social Login Configuration"
+    sling:resourceSuperType="cq:Page"
+    allowedChildren=""
+    allowedPaths="[/conf(/.*)?]"
+    ranking="{Long}90">
+    <jcr:content
+        cq:cloudservicename="facebookconnect"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="social/connect/facebook/components/admin/hbs/facebookconfig"
+        thumbnailPath="/libs/social/connect/templates/facebookconfig/thumbnail.png"/>
+</jcr:root>

@@ -1,0 +1,28 @@
+subject=[回答]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 新增對問題「{{{target.displayName}}}」{{/if}}的新回答 {{#if this.target.properties.[jcr:title]}}。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新對問題「{{{target.displayName}}}」{{/if}}的回答 {{#if this.target.properties.[jcr:title]}}。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 刪除對問題「{{{target.displayName}}}」{{/if}}的回答 {{#if this.target.properties.[jcr:title]}}。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已於 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 核准對問題「{{{target.displayName}}}」{{/if}}的回答 {{#if this.target.properties.[jcr:title]}}。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">按一下此連結</a>檢視對此問題的所有回答，或修改您的訂閱。\n \
+</div>\n \
+</body>\n \
+</html>\n \

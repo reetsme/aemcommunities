@@ -1,0 +1,81 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-topic-listitem" data-component-id="{{id}}" data-scf-template="list-item">
+    <aside class="scf-topic-userinfo">
+        <img class="scf-topic-avatar" src="{{author.largeAvatarUrl}}" alt="{{author.name}}" title="{{author.name}}" />
+        <br/>
+        {{#each author.badges}}
+            {{#if this.isAssigned}}
+                <div class="scf-badge-text">
+                    {{this.title}}
+                </div>
+            {{/if}}
+        {{/each}}
+        {{#each author.badges}}
+            {{#unless this.isAssigned}}
+                <img class="scf-badge-image" alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" />
+            {{/unless}}
+        {{/each}}
+    </aside>
+    <div class="scf-topic-col1">
+        {{#if configuration.isPinAllowed}}
+            {{#if this.isPinned}}<span class="glyphicon glyphicon-pushpin scf-topic-glyphicon" aria-hidden="true"></span>{{/if}}
+        {{/if}}
+        <a href="{{friendlyUrl}}"><h3 class="scf-topic-title">{{subject}}</h3></a>
+        <div>
+            <a href="{{author.profileUrl}}">{{author.name}}</a>
+            <span class="scf-quiet">{{i18n "Posted"}}
+                {{pretty-time created}}
+                {{#if viewCounts}}
+                    <span class="scf-analytics-view-metrics scf-js-analytics-view-metrics">,
+                        {{i18n "Viewed"}}
+                        {{#equals configuration.analyticsTimeSelector "total_tl"}}
+                            {{viewCounts.total}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last7Days_tl"}}
+                            {{viewCounts.last7Days}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last24Hours_tl"}}
+                            {{viewCounts.last24Hours}}
+                        {{/equals}}
+                        {{#equals configuration.analyticsTimeSelector "last30Days_tl"}}
+                            {{viewCounts.last30Days}}
+                        {{/equals}}
+                        {{i18n "time(s)"}}
+                    </span>
+            {{/if}}
+            </span>
+            {{#if configuration.isTaggingAllowed}}
+                <ul class="scf-horizontal-tag-list">
+                    {{#each tags}}
+                        <li class="scf-selected-tag">{{title}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+        <div class="scf-comment-msg">
+            {{{message}}}
+        </div>
+        <a href="{{friendlyUrl}}">{{i18n "Read More"}}</a>
+    </div>
+    <div class="scf-topic-col2">
+        <h3>{{totalSize}} <span class="scf-icon-comment"></span></h3>
+    </div>
+    <div class="scf-clear-both"></div>
+</div>

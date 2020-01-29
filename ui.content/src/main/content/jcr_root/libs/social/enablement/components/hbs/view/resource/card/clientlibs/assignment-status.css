@@ -1,0 +1,46 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.scf-assignment-status {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 5px 10px;
+    font-family: "Helvetica Neue", Helvetica;
+}
+
+.scf-content-card .scf-assignment-status {
+    float: right;
+}
+
+.scf-table-cell .scf-assignment-status {
+    float: left;
+}
+
+.scf-assignment-status-completed {
+    background-color: #3E8ACC;
+}
+
+.scf-assignment-status-inprogress {
+    background-color: #777777;
+}
+
+.scf-assignment-status-new {
+    background-color: #58B957;
+}

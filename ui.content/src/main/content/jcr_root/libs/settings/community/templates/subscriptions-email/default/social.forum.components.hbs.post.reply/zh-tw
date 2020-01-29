@@ -1,0 +1,24 @@
+subject=[論壇貼文]
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL: {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 已張貼新的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 已新增新的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 已更新新的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 已刪除新的論壇貼文。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 已核准新的論壇貼文。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+請透過此連結檢視對此論壇主題的所有貼文，或修改您的訂閱。\n \
+{{objectReferrer}}\n \

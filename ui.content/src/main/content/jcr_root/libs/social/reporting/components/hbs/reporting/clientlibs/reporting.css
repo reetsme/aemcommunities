@@ -1,0 +1,107 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+
+/*  Some of this css will go away when we move
+    report config panel into a side rail
+*/
+
+.scf-communities-report-well {
+    margin-top: 0;
+}
+
+.scf-communities-report-well > div {
+    margin-bottom: 1rem;
+}
+
+.scf-communities-report-form-wrapper {
+    float: left;
+    margin-right: 1rem;
+    width: 13rem;
+}
+
+
+/* clear floats for container layout */
+
+.scf-communities-report-well > div:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.scf-communities-report-well > div:before {
+    content: " ";
+    display: table;
+}
+
+.scf-communities-report-form-wrapper .coral-Radio {
+    display: block;
+}
+
+.scf-userfilter-container {
+    display: none;
+}
+
+.scf-reporting-pageContent {
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.scf-reporting-hCenter {
+    display: inline-block;
+}
+
+.scf-reporting-pageTitle {
+    font-family: adobe-clean, Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #4b4b4b;
+    margin: .67em;
+    width: 100%;
+}
+
+.scf-reporting-reportPageRow {
+    margin: 10px;
+    width: 90%;
+    height: 400px;
+}
+
+.scf-reporting-reportPageColumnLeft {
+    width: 48%;
+    height: 100%;
+    float: left;
+}
+
+.scf-reporting-reportPageColumnRight {
+    width: 48%;
+    height: 100%;
+    float: right;
+}
+
+.scf-js-reporting-analytics {
+    display: none;
+}
+
+.scf-js-reporting-video-analytics {
+    display: none;
+}
+
+.scf-reporting-right-content {
+    float: right;
+}

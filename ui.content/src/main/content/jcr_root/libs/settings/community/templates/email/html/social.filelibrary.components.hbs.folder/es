@@ -1,0 +1,26 @@
+﻿subject=[Carpeta de biblioteca de archivos] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+    {{{user.name}}} ha publicado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+    {{{user.name}}} ha añadido la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+    {{{user.name}}} ha actualizado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+    {{{user.name}}} ha eliminado la nueva carpeta de biblioteca de archivos "{{{object.displayName}}}" el {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+{{/equals}}\
+<br><a href="{{objectUrl}}">Haga clic en este vínculo</a> para ver todos los eventos de biblioteca de archivos o modificar las preferencias de notificación.\n \
+</div>\n \
+</body>\n \
+</html>\n \

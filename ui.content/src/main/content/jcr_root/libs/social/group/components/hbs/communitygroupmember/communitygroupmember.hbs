@@ -1,0 +1,37 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<tr>
+    <td>
+        <a href="{{profileUrl}}"><img src= {{avatarUrl}} class="img-circle scf-group-member-avatar"> {{name}} {{loggedInUser.userId}}</a>
+    </td>
+    {{#if description}}
+        <td>{{description}}</td>
+    {{else}}
+        <td class="lightened" style="opacity: 0.5;font-style: oblique;">{{i18n "No Description"}}</td>
+    {{/if}}
+    <td>
+        {{#if canInvite}} <a evt='click=uninvite' style="cursor: pointer;">- {{i18n "Uninvite"}} </a>
+            {{#if canPromote}}
+                {{#if admin}} | <a evt='click=demote' style="cursor: pointer;">- {{i18n "Demote"}} </a>
+                {{else}}| <a evt='click=promote' style="cursor: pointer;">- {{i18n "Promote"}} </a>
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    </td>
+</tr>

@@ -1,0 +1,32 @@
+﻿subject=[コメント] {{{target.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>コメント</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが「{{{target.displayName}}}」に対する新しいコメントを投稿しました。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが「{{{target.displayName}}}」に対する新しいコメントを追加しました。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが「{{{target.displayName}}}」に対するコメントを更新しました。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが「{{{target.displayName}}}」に対するコメントを削除しました。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} に{{{user.name}}}さんが「{{{target.displayName}}}」に対するこのコメントを承認しました。\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{objectReferrer}}">このリンクをクリック</a>すると、すべてのコメントを表示したり、購読を変更したりすることができます。\n \
+</div>\n \
+</body>\n \
+</html>\n \

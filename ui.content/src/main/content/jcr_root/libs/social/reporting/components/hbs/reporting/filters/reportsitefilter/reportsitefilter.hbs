@@ -1,0 +1,26 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-communities-report-form-wrapper coral-Form-fieldwrapper">
+    <label class="coral-Form-fieldlabel">{{i18n "Site"}}</label>
+    <coral-autocomplete id="scf-js-sitefilter" class="coral-Form-field" placeholder="{{i18n "Search"}}" icon="search" labelledby="label-vertical-0">
+        {{#each items}}
+            <coral-autocomplete-item value="{{this.sitePagePath}}" data-id="{{this.siteId}}" data-display="{{this.name}}">{{this.name}} ({{this.properties.baseLanguage}})</coral-autocomplete-item>
+        {{/each}}
+    </coral-autocomplete>
+</div>

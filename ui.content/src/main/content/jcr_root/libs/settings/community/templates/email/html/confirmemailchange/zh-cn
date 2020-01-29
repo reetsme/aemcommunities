@@ -1,0 +1,18 @@
+subject=更新电子邮件请求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>更新电子邮件请求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好！</p>\n \
+<p>您已请求更改与您的帐户关联的电子邮件地址。</p>\n \
+<p>您应该可以在 {{{newEmail}}} 找到发送给您的电子邮件。一旦该电子邮件地址经过确认（通过单击电子邮件中的链接），它将成为与您的帐户关联的新电子邮件地址。</p>\n \
+<p>如果没有在 {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} 之前单击链接，链接将会过期，您当前的电子邮件地址将会继续接收所有通信邮件。</p>\n \
+<p>如果您没有提出此请求，则表示您的帐户已被他人控制。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

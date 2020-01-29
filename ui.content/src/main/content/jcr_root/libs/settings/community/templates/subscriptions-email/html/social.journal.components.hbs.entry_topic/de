@@ -1,0 +1,35 @@
+﻿subject=[Blog-Artikel] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{objectContent}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{#equals this.verb "post"}}\
+   Ein neuer Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gepostet.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+   Der Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} aktualisiert.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+   Der Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} gelöscht.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+   Der Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} genehmigt.\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+   Der Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} geschlossen.\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+   Der Blog-Artikel „{{{object.displayName}}}“ wurde von {{{user.name}}} am {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} erneut geöffnet.\n \
+{{/equals}}\
+<hr>\n \
+<a href="{{targetUrl}}">Klicken Sie auf diesen Link</a> zum Anzeigen aller Blog-Artikel oder zum Ändern Ihres Abonnements.\n \
+</div>\n \
+</body>\n \
+</html>\n \

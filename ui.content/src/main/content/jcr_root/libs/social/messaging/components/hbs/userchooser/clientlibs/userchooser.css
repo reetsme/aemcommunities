@@ -1,0 +1,113 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.disabled-messaging-user-link:hover {
+    cursor: text;
+    text-decoration: none;
+}
+
+div input.userchooser {
+    background-image: url(/etc.clientlibs/clientlibs/social/hbs/messaging/resources/magnifier.png);
+    background-position: left center;
+    background-repeat: no-repeat no-repeat;
+    background-size: 2rem;
+    padding: 8px;
+    width: 95%;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    box-shadow: 0 1px 1px #eaeaea;
+    color: #777777;
+}
+
+div input.makeReadOnly {
+    max-height: 0;
+    visibility: hidden;
+}
+
+div label.makeReadOnly {
+    border: 0px solid;
+    font-size: 14px;
+    font-weight: bold;
+    color: 9a9a9a;
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+
+.userchooser.parbase {
+    margin-left: 0;
+}
+
+.newMessageUserChooser {
+    padding: 20px;
+    margin: 5px;
+    display: table;
+    width: 95%;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    box-shadow: 0 1px 1px #eaeaea;
+    color: #777777;
+}
+
+.userchooserContainer {
+    display: table-cell;
+    border: none;
+}
+
+.newMessageUserChooser .userchooser {
+    padding-left: 40px;
+}
+
+.newMessageUserChooser .selectedUserContainer {
+    display: inline-block;
+    margin-left: 0.8em;
+}
+
+.newMessageUserChooser .selectedUserContainer > div {
+    background-color: #F0F0F0;
+    margin: 0 0.5em 0.5em 0;
+    padding: 0.2em 0 0.2em 0.2em;
+    display: inline-block;
+}
+
+.newMessageUserChooser .selectedUserContainer > div > img {
+    border-radius: 50%;
+}
+
+.newMessageUserChooser .mailform {
+    display: table-cell;
+    width: 10%;
+    text-align: left;
+    color: #808080;
+}
+
+.to-userchooser {
+    margin-left: 50px;
+}
+
+.newMessageUserChooserAvatar {
+    border-radius: 50%;
+}

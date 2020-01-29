@@ -1,0 +1,16 @@
+subject=[지원 {{#if this.object.properties.[enablementType]}}{{{this.object.properties.enablementType}}}{{/if}}] {{{this.target.properties.se_resource-name}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "Enrolled"}}\
+{{{this.object.content}}}({{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}).\n \
+{{/equals}}\
+<br>귀하에게 지정되어 있는 모든 커뮤니티 리소스를 보거나 알림 환경 설정을 수정하려면 <a href="{{targetUrl}}">이 링크를 클릭하십시오</a>.\n \
+</div>\n \
+</body>\n \
+</html>\n \

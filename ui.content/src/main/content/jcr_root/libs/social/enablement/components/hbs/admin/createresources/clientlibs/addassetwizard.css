@@ -1,0 +1,292 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.add-asset-wizard-wrapper > iframe,
+.collectionresourcesettings > iframe {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+.add-items-header {
+    position: relative;
+    height: 30px;
+    margin-bottom: 0.5rem;
+}
+
+.add-items-header .endor-List-item {
+    font-size: 0.9rem;
+    margin: 0;
+    overflow: hidden;
+}
+
+.add-items-header-text {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 5px;
+    margin: 0;
+}
+
+.add-items-actions {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    position: absolute;
+    right: 0;
+}
+
+.add-items-actions span {
+    margin-right: 0.8rem;
+    cursor: hand;
+    cursor: pointer;
+}
+
+.add-items-actions > span:last-child {
+    margin-right: 0;
+}
+
+.add-items-actions a {
+    margin-left: 0.3rem;
+}
+
+.add-items-actions > .pulldown {
+    display: inline-block;
+}
+
+.add-items-actions > .pulldown > .popover {
+    margin-left: 0.8rem;
+}
+
+.add-items-actions > .pulldown li {
+    padding: 0.65rem;
+    font-size: 0.9rem;
+    background-color: #F5F5F5;
+    color: #4B4B4B;
+}
+
+.add-items-actions > nav.pulldown li:hover {
+    background-color: #4191D2;
+    color: #F5F5F5;
+}
+
+.add-items-actions > nav.pulldown > a {
+    font-size: 1.375rem;
+    min-width: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.add-items-tbl-enc-div {
+    border: 1px solid #BBBBBB;
+}
+
+.add-items-tbl {
+    min-height: 17.23rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: 1px solid #BBBBBB;
+    max-height: 17.23rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl {
+    width: 59.9rem;
+    border: 0;
+    margin: 0;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl .select {
+    width: 9rem;
+}
+
+.addContent-tbl tr > .uploaded-asset-name {
+    color: rgb(64, 144, 209);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl th:first-child,
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl td:first-child {
+    max-width: 2rem;
+    width: 2rem;
+    min-width: 2rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl th:first-child+th,
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl td:first-child+td {
+    max-width: 29.8rem;
+    width: 29.8rem;
+    min-width: 29.8rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl th:first-child+th+th,
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl td:first-child+td+td {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl th:first-child+th+th+th,
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl td:first-child+td+td+td {
+    max-width: 6rem;
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl th:first-child+th+th+th+th,
+.add-items-wrapper-div > .add-items-tbl-enc-div .addContent-tbl td:first-child+td+td+td+td {
+    max-width: 11rem;
+    width: 11rem;
+    min-width: 11rem;
+}
+
+.addContent-tbl {
+    background-color: #ffffff;
+}
+
+.add-items-wrapper-div {
+    width: 60rem;
+    display: inline-block;
+}
+
+.add-items-wrapper-div > .add-items-previews {
+    margin-top: 3rem;
+}
+
+.add-items-wrapper-div > .add-items-previews > p {
+    color: #AAAAAA;
+    font-size: 0.8rem;
+    margin: 20px 0 40px 0;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol {
+    padding: 0;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li {
+    margin: 0 4.7rem 2.5rem 0;
+    text-align: center;
+    position: relative;
+    float: left;
+    /*list-style-position: inside;*/
+    list-style: none;
+    width: 182px;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li > div {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-asset-name {
+    font-weight: 600;
+    text-align: left;
+    padding-left: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 240px;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-items-add-actions-btn span.coral-FileUpload-trigger {
+    padding: 0;
+    width: 100%;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-asset-cover-img {
+    max-height: 102px;
+    min-height: 102px;
+    border: 1px solid #CCCCCC;
+    background-size: cover;
+    background-position: center;
+    margin: 0.25rem 0 0 0;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-custom-cover-actions {
+    margin-top: 108px;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-upload-custom-cover {
+    color: rgb(64, 144, 209);
+    font-weight: 600;
+    overflow: hidden;
+    float: left;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-remove-custom-cover-btn {
+    float: right;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .add-item-upload-custom-cover:hover {
+    cursor: pointer;
+}
+
+.add-items-wrapper-div > .add-items-previews > ol > li .uploaded-asset-cover-img-select {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    /*color: #52a5e3;*/
+    display: none;
+    font-size: 2rem;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div > .waiting-div {
+    position: absolute;
+    top: 60%;
+    left: 42%;
+    color: #4B4B4B;
+    font-size: 13px;
+    display: none;
+}
+
+.add-items-wrapper-div > .add-items-tbl-enc-div > .waiting-div,
+.add-items-wrapper-div > .add-items-tbl-enc-div > .waiting-div > .coral-Progress-bar,
+.add-items-wrapper-div > .add-items-tbl-enc-div > .waiting-div > .coral-Progress-bar .coral-Progress-status,
+.add-items-wrapper-div > .add-items-tbl-enc-div > .waiting-div > .coral-Progress-label {
+    height: 10px;
+    line-height: 10px;
+    vertical-align: top;
+}
+
+.add-items-actions > .hidden {
+    display: none;
+}
+
+.add-items-add-actions-btn {
+    padding: 0;
+}
+
+.add-items-add-actions-btn span.coral-FileUpload-trigger {
+    display: inline-block;
+    width: calc(100% - 1.25rem);
+    padding: 0.625rem;
+}
+
+.show-off {
+    display: none;
+}
+
+.show-on {
+    display: block;
+}

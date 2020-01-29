@@ -1,0 +1,6 @@
+subject=[貼文遞送失敗] {{{email-subject}}}
+message=\n \
+日期: {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n\n \
+{{{email-author}}} 您好，下列項目未成功張貼:\n \
+{{{email-message}}}\n\n \
+請重試或連絡您的系統管理員以取得進一步協助。\n \

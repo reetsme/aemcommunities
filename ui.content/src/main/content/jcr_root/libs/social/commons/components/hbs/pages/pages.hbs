@@ -1,0 +1,48 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if this.pageInfo.hasMultiplePages}}
+    <div class="scf-component-pages-container">
+        <div>
+            <nav>
+                <ul class="pagination {{suffix}}">
+                    <li>
+                        <a class="scf-page {{#unless this.pageInfo.hasPreviousPage}}disabled{{/unless}}" data-page-suffix="0.{{#if this.pageInfo.orderReversed}}-{{/if}}{{this.pageInfo.pageSize}}" data-base-url="{{pageInfo.basePageURL}}" evt="click=navigate"><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a>
+                    </li>
+                    <li>
+                        <a class="scf-page {{#unless this.pageInfo.hasPreviousPage}}disabled{{/unless}}" data-page-suffix="{{this.pageInfo.previousSuffix}}" data-base-url="{{pageInfo.basePageURL}}" evt="click=navigate"><span class="glyphicon glyphicon-menu-left"></span></a>
+                    </li>
+                    {{#pages this.pageInfo}}
+                        <li class="scf-pages-page-link-container{{#if currentPage}} active{{/if}}">
+                            <a class="scf-page{{#if currentPage}} scf-currentPage{{/if}}" data-page-suffix="{{suffix}}" data-base-url="{{pageInfo.basePageURL}}" evt="click=navigate">{{pageNumber}}</a>
+                        </li>
+                    {{/pages}}
+                    <li>
+                        <a class="scf-page {{#unless this.pageInfo.hasNextPage}}disabled{{/unless}}" data-page-suffix="{{this.pageInfo.nextSuffix}}" data-base-url="{{pageInfo.basePageURL}}" evt="click=navigate"><span class="glyphicon glyphicon-menu-right"></span></a>
+                    </li>
+                    <li>
+                        <a class="scf-page {{#unless this.pageInfo.hasNextPage}}disabled{{/unless}}" data-page-suffix="{{this.pageInfo.lastPage}}.{{#if this.pageInfo.orderReversed}}-{{/if}}{{this.pageInfo.pageSize}}" data-base-url="{{pageInfo.basePageURL}}" evt="click=navigate"><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="scf-component-pages-container-total">
+            <span>{{this.pageInfo.totalPages}} {{i18n "pages"}}</span>
+        </div>
+    </div>
+{{/if}}

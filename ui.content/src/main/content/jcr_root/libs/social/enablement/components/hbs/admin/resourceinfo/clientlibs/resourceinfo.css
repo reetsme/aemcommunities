@@ -1,0 +1,162 @@
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2015 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ *************************************************************************/
+
+.newresourcecard article .image {
+    display: block;
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+}
+
+.se-resource-enrolles {
+    display: table;
+    width: 100%;
+    text-align: left;
+}
+
+.asset-name {
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.se-resource-enrolles .enrolle-row {
+    margin-bottom: 0.2rem;
+}
+
+.se-resource-enrolles .enrolle-row > div {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 2.5rem 0 0;
+}
+
+.se-resource-enrolles .enrolle-row .enrolle-thumb,
+.se-resource-enrolles .enrolle-row .enrolle-thumb img {
+    width: 36px;
+    height: 36px;
+}
+
+.se-resource-enrolles .enrolle-row .enrolle-name {
+    width: 8rem;
+    font-weight: 600;
+    color: #444444;
+    font-size: 0.75rem;
+}
+
+.se-resource-enrolles .enrolle-row .enrolle-email {
+    color: #969696;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+.enrolled-users-list {
+    margin: 1rem;
+}
+
+.scf-resource-contacts {
+    display: table;
+    width: 100%;
+    text-align: left;
+}
+
+.scf-resource-contacts .contact-row {
+    margin-bottom: 0.2rem;
+}
+
+.scf-resource-contacts .contact-row > div {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 2.5rem 0 0;
+}
+
+.scf-resource-contacts .contact-row .contact-thumb,
+.scf-resource-contacts .contact-row .contact-thumb img {
+    width: 36px;
+    height: 36px;
+}
+
+.scf-resource-contacts .contact-row .contact-name {
+    width: 8rem;
+    font-weight: 600;
+    color: #444444;
+    font-size: 0.75rem;
+}
+
+.scf-resource-contacts .contact-row .contact-email {
+    color: #969696;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+.enrolled-users-list {
+    margin: 1rem;
+}
+
+.asset-list {
+    display: table;
+    width: 100%;
+}
+
+.asset-list .asset-row {
+    display: table-row;
+}
+
+.asset-list .asset-row .asset-location {
+    width: 11rem;
+}
+
+.asset-list .asset-row .asset-path {
+    color: #969696;
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.asset-list .asset-row .asset-details-container > div {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 0.6rem;
+}
+
+.asset-list .asset-row .asset-details-container > .asset-thumb,
+.asset-list .asset-row .asset-details-container > .asset-thumb img {
+    width: 4rem;
+    margin-right: 1rem;
+}
+
+.asset-list .asset-row .asset-path {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.asset-details-container {
+    padding: 1rem 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.asset-row:first-child .asset-details-container {
+    padding-top: 0.5rem;
+}
+
+.asset-row:last-child .asset-details-container {
+    border-bottom: 0;
+}

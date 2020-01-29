@@ -1,0 +1,42 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <div style="text-align: center;">
+                    <div class="scf-console-createsite-erroralert scf-is-hidden">
+                        <div class="coral-Alert coral-Alert--error">
+                            <button type="button" class="coral-MinimalButton coral-Alert-closeButton" title="Close" data-dismiss="alert">
+                                <i class="coral-Icon coral-Icon--sizeXS coral-Icon--close coral-MinimalButton-icon"></i>
+                            </button>
+                            <i class="coral-Alert-typeIcon coral-Icon coral-Icon--sizeS coral-Icon--alert"></i>
+                            <strong class="coral-Alert-title">{{i18n "Error"}}</strong>
+                            <div class="coral-Alert-message">{{i18n "Server Error, Please try again"}}</div>
+                        </div>
+                    </div>
+                    <p>{{i18n "You are now ready to create your Community Group by pushing the create button"}}</p>
+                    <p>{{i18n "- this operation cannot be interrupted once started"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<coral-wait class="scf-create-group-wait" size="L" centered>
+</coral-wait>

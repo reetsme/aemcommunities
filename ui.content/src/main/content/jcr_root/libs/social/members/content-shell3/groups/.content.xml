@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Groups"
+        sling:resourceType="granite/ui/components/shell/collectionpage"
+        sling:vanityOrder="{Long}1301"
+        sling:vanityPath="/communities/groups"
+        consoleId="cq-communities-groups"
+        contentPath="${requestPathInfo.suffix}"
+        modeGroup="cq-community-groups"
+        targetCollection=".cq-community-groups">
+        <redirector
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/admin/contentchecker"
+            allowed="(.*)"
+            path="${requestPathInfo.suffix}"
+            redirectWhenEmpty="/communities/groups.html/content"/>
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui3,granite.ui.coral.foundation,cq.common.wcm,cq.social.scf,cq.social.author.graniteui.scf.modelrefresh,cq.social.console.hbs.metrics,cq.social.members.hbs.groups,cq.social.members.hbs.group]]"/>
+        </head>
+        <breadcrumbs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/social/console/components/datasources/breadcrumbs"
+            path="/libs/social/members/content-shell3/groups"
+            rootPath="/libs/social/members/content-shell3/groups"/>
+        <actions
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/actionbar">
+            <secondary jcr:primaryType="nt:unstructured">
+                <create_visible
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/anchorbutton"
+                    href="/communities/groupprofile.html?groupId="
+                    text="Create"
+                    variant="primary"/>
+            </secondary>
+        </actions>
+        <rails jcr:primaryType="nt:unstructured">
+            <searchWell
+                granite:class="cq-rail-searchWell"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Search"
+                sling:resourceType="granite/ui/components/coral/foundation/panel/railpanel"
+                icon="search">
+                <items jcr:primaryType="nt:unstructured">
+                    <searchform
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                        action="/libs/social/members/content-shell3/groups/jcr:content/views/content/items/groups.social.json?_charset_=utf-8"
+                        async="{Boolean}true"
+                        autosubmitForm="{Boolean}true"
+                        foundationForm="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <accordion
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/accordion"
+                                multiple="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <keywordinput
+                                        granite:class="scf-js-groups-keyword-textbox"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Keyword"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        emptyText="Search"
+                                        name="keyword"/>
+                                    <siteinput
+                                        granite:class="scf-js-groups-site-select"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Site"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        emptyOption="{Boolean}true"
+                                        multiple="{Boolean}false"
+                                        name="siteId">
+                                        <datasource
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="social/console/components/datasources/tenantsitesdatasource"/>
+                                    </siteinput>
+                                </items>
+                            </accordion>
+                            <submitbutton
+                                granite:class="cq-rail-groups-searchWell-apply"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Apply"
+                                type="submit"/>
+                            <clearbutton
+                                granite:class="cq-rail-groups-searchWell-clear"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                text="Clear"
+                                type="reset"/>
+                        </items>
+                        <successresponse
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="social/console/components/scfmodelrefresh"
+                            scfcomponentid="/libs/social/members/content-shell3/groups/jcr:content/views/content/items/groups"/>
+                    </searchform>
+                </items>
+            </searchWell>
+        </rails>
+        <views jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <groups
+                        granite:rel="cq-community-groups"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/members/components/hbs/groups"
+                        fromPublisher="true"
+                        modeGroup="cq-community-groups"
+                        pageSize="40"
+                        path="${requestPathInfo.suffix}"/>
+                </items>
+            </content>
+        </views>
+    </jcr:content>
+</jcr:root>

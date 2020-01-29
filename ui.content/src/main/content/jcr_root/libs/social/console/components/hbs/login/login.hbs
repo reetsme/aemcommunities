@@ -1,0 +1,55 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-signup scf-js-login-container">
+    {{#if loginErrorMessage}}
+        {{#equals loginErrorMessage "invalid_login"}}
+            <div class="alert alert-danger" role="alert">
+                {{i18n "User name and password do not match"}}
+            </div>
+        {{/equals}}
+    {{/if}}
+    {{#if allowSocialLogins}}
+        {{includeClientLib categories="cq.social.connect"}}
+        <div class="scf-social-login scf" data-redirecturl="{{redirectUrl}}">
+            {{#if facebookLoginEnabled}}
+                <div class="scf-fb-login" data-loginsuffix="{{facebookOAuth.loginSuffix}}" data-pathid="{{encodeForJSString id}}" data-oauth="{{facebookOAuth.oauth}}" data-oauthpath="{{facebookOAuth.cloudConfigPath}}" data-contextpath="{{facebookOAuth.contextPath}}"><span class="scf-icon-fb"></span><span class="scf-fb-text">Login with Facebook</span></div>
+            {{/if}}
+            {{#if twitterLoginEnabled}}
+                <div class="scf-tw-login" data-loginsuffix="{{twitterOAuth.loginSuffix}}" data-pathid="{{encodeForJSString id}}" data-oauth="{{twitterOAuth.oauth}}" data-oauthpath="{{twitterOAuth.cloudConfigPath}}" data-contextpath="{{twitterOAuth.contextPath}}"><span class="scf-icon-tw"></span><span class="scf-tw-text">Login with Twitter</span></div>
+            {{/if}}
+        </div>
+        <div class="scf-divider-wrapper">
+            <div class="scf-signup-divider">or</div>
+        </div>
+    {{/if}}
+    <form role="form" method="POST" action="{{loginUrl}}">
+        <input type="hidden" name="resource" value="{{redirectUrl}}">
+        <input type="hidden" name="_charset_" value="UTF-8" />
+        <div class="form-group">
+            <input type="text" placeholder="{{i18n "Email"}}" class="form-control" data-attrib="email" name="j_username" />
+            <input type="password" placeholder="{{i18n "Password"}}" autocomplete="off" class="form-control" data-attrib="password" name="j_password" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default scf-login">{{i18n "Login"}}</button>
+            <br/>
+            {{#if registrationAllowed}}<span class="scf-signup-text">{{i18n "Not a member? Sign up for a"}}&nbsp;<a href="{{signUpUrl}}">{{i18n "new account"}}</a></span>{{/if}}<br/>
+            <span class="scf-signup-text">{{i18n "Forgot "}}&nbsp;<a href="./useraccount/forgotuserid.html">{{i18n "User Name"}}</a>/<a href="./useraccount/forgotpassword.html">{{i18n "Password"}}</a></span>
+        </div>
+    </form>
+</div>

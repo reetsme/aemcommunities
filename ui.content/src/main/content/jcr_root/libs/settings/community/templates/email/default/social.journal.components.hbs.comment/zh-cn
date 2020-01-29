@@ -1,0 +1,19 @@
+subject={{#if this.target.properties.[jcr:title]}}[Blog Comment] {{{target.displayName}}}{{else}}[博客评论]{{/if}} \
+
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 添加了{{#if this.target.properties.[jcr:title]}}针对文章“{{{target.displayName}}}”{{/if}}的新博客评论。\n\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 更新了{{#if this.target.properties.[jcr:title]}}针对文章“{{{target.displayName}}}”{{/if}}的博客评论。\n\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 删除了{{#if this.target.properties.[jcr:title]}}针对文章“{{{target.displayName}}}”{{/if}}的博客评论。\n\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 批准了{{#if this.target.properties.[jcr:title]}}针对文章“{{{target.displayName}}}”{{/if}}的博客评论。\n\n \
+{{/equals}}\
+请单击此链接查看针对此博客文章的所有评论或修改您的通知首选项。\n \
+{{objectUrl}}\n \

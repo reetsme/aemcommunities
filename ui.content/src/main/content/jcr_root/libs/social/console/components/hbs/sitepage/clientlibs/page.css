@@ -1,0 +1,57 @@
+/*
+ *
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2014 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.scf-site-header {
+    margin-bottom: 0;
+}
+
+.scf-site-brand-img {
+    height: 120px;
+    background-repeat: no-repeat;
+}
+
+.scf-breadcrumbs-box {
+    margin-top: 10px;
+}
+
+.scf-site-content {
+    padding: 20px 10px;
+}
+
+.scf-site-content .new.section {
+    min-height: 45px;
+    margin-bottom: 3px;
+}
+
+.scf-site-content .colctrl.section {
+    min-height: 45px;
+    margin-bottom: 10px;
+}
+
+.scf-site-content .aem-GridColumn.parbase {
+    min-height: 45px;
+    margin-bottom: 10px;
+}
+
+#scf-language-picker {
+    background-color: transparent;
+}

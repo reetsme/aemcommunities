@@ -1,0 +1,56 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2017 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div>
+    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+        <div class="coral-FixedColumn-column">
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Configuration Title *"}}</label>
+                <input class="coral-Form-field coral-Textfield" type="text" name="jcr:title" value="{{title}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Consumer Key *"}}</label>
+                <input class="coral-Form-field coral-Textfield" type="text" name="oauth.client.id" value="{{oauthClientId}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <label class="coral-Form-fieldlabel">{{i18n "Consumer Secret *"}}</label>
+                <input class="coral-Form-field coral-Textfield" type="text" name="oauth.client.secret" value="{{oauthClientSecret}}" aria-required="true">
+            </div>
+            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                <label class='coral-Checkbox'>
+                    <input type='hidden' name='oauth.create.users' value="{{oauthCreateUsers}}" />
+                    <input type='checkbox' data-param='oauth.create.users' value='true' class='coral-Checkbox-input scf-js-fix-checks scf-fix-checks' {{#if oauthCreateUsers}} checked="" {{/if}} />
+                    <span class="coral-Checkbox-checkmark"></span>
+                    <span class="coral-Checkbox-description">{{i18n "Create Users"}}</span>
+                </label>
+            </div>
+            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                <label class='coral-Checkbox'>
+                    <input type='hidden' name='oauth.encode.userids' value="{{oauthEncodeUserIds}}" />
+                    <input type='checkbox' data-param='oauth.encode.userids' value='false' class='coral-Checkbox-input scf-js-fix-checks scf-fix-checks' {{#if oauthEncodeUserIds}} checked="" {{/if}} />
+                    <span class="coral-Checkbox-checkmark"></span>
+                    <span class="coral-Checkbox-description">{{i18n "Mask User IDs"}}</span>
+                </label>
+            </div>
+            <div class="coral-Form-fieldwrapper coral-Form-fieldwrapper--singleline">
+                {{include this resourceType="/libs/social/connect/components/authorizablegroups"}}
+            </div>
+        </div>
+    </div>
+</div>

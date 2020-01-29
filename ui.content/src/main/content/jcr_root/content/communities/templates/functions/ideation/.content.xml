@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/social/console"
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:template="/libs/social/console/templates/base_page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Ideation"
+        jcr:uuid="b20e5e55-5a00-4643-ae06-c8f1a8bba8e0"
+        sling:resourceType="social/console/components/basepage"
+        etcpath="/libs/settings/community/templates/functions/ideation"
+        navTitle="Ideation">
+        <clientlibslist
+            jcr:primaryType="nt:unstructured"
+            scg:requiredClientLibs="[cq.ckeditor,cq.social.hbs.voting,cq.social.hbs.liking,cq.social.hbs.ideation,cq.social.hbs.signup,cq.social.hbs.breadcrumbs,personalization.core.kernel,personalization.clientcontext.kernel,personalization.stores.kernel,personalization.kernel,cq.social.hbs.ideation_sidebar]"
+            sling:resourceType="social/console/components/clientlibslist"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/hbs/singlecolumncontent">
+            <breadcrumbs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="social/console/components/hbs/breadcrumbs"/>
+            <primary
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <ideation
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/ideation/components/hbs/ideation"
+                    acceptFileTypes="[.jpeg\, .jpg\, .gif\, .png\, .pdf\, .ppt\, .pptx\, .doc\, .docx]"
+                    allowCloseComments="true"
+                    allowDeleteComments="true"
+                    allowDenyComments="true"
+                    allowFeaturedContent="true"
+                    allowFileUploads="true"
+                    allowFlagComments="true"
+                    allowFollowing="true"
+                    allowRepliesToComments="true"
+                    allowSubscriptions="true"
+                    allowTagging="true"
+                    allowVoting="true"
+                    feedEnabled="true"
+                    flagModerateThreshold="1"
+                    flagViewThreshold="5"
+                    maxFileSize="104857600"
+                    maxImageFileSize="2097152"
+                    maxMessageLength="104857600"
+                    maxSubjectLength="104857600"
+                    richTextEditor="true"
+                    rteEnabled="true"
+                    useFlagReasonFreeformText="false"
+                    useFlagReasonList="false">
+                    <userlist
+                        cq:lastRolledout="{Date}2015-09-09T01:30:19.652-07:00"
+                        cq:lastRolledoutBy="admin"
+                        jcr:created="{Date}2015-03-04T16:10:55.434-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-09-09T01:30:19.650-07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="social/messaging/components/hbs/userchooser"
+                        searchDisplayName="true"
+                        searchEmail="true"
+                        searchGivenName="true"
+                        searchLastName="true"
+                        searchMiddleName="true"
+                        showUsers="true"/>
+                </ideation>
+            </primary>
+        </content>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Decimal}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Decimal}992"/>
+                <mediumscreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Medium Screen"
+                    width="{Decimal}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

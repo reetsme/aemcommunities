@@ -1,0 +1,16 @@
+﻿subject=パスワードが更新されました
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>パスワード更新リクエスト</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}} 様</p>\n \
+<p>パスワードが {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} に変更されました</p>\n \
+<p>この変更をおこなった場合、この電子メールは安全に無視できます。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

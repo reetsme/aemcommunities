@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[granite:InternalArea]"
+    jcr:primaryType="cq:Dialog"
+    title="Social Tag Cloud (Design)"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <showTitlePath
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Show full title paths"
+            name="./showTitlePath"
+            type="checkbox"
+            xtype="selection"/>
+        <showOnlyLeafTags
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Show only leaf tags"
+            name="./showOnlyLeafTags"
+            type="checkbox"
+            xtype="selection"/>
+        <linkTemplate
+            jcr:primaryType="cq:Widget"
+            fieldDescription="For example: /apps/myapp/tagsearch?tag=${tagid_link}&lt;br>Placeholders are in the form of ${...}. Available values are tagid, tagid_link (escaped), localtagid, localtagid_link (escaped), name, path, title, titlepath, pagepath and searchpath"
+            fieldLabel="Link Template"
+            name="./linkTemplate"
+            xtype="textfield"/>
+        <allTagsSameSize
+            jcr:primaryType="cq:Widget"
+            fieldDescription="No different size based on tag count."
+            fieldLabel="Same size for all tags"
+            name="./allTagsSameSize"
+            type="checkbox"
+            xtype="selection"/>
+    </items>
+</jcr:root>

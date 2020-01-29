@@ -1,0 +1,18 @@
+﻿subject=Richiesta di aggiornamento dell'indirizzo e-mail
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Richiesta di aggiornamento dell'indirizzo e-mail</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Salve {{{givenName}}},</p>\n \
+<p>è stata richiesta la modifica dell'indirizzo e-mail associato al tuo account.</p>\n \
+<p>Dovresti aver ricevuto un messaggio e-mail all'indirizzo {{{newEmail}}}. Fai clic sul collegamento nel messaggio e-mail per verificare l'indirizzo, che diventerà quindi il nuovo indirizzo e-mail associato al tuo account.</p>\n \
+<p>Se non fai clic sul collegamento entro il giorno {{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}}, il collegamento scadrà e continuerai a ricevere tutta la corrispondenza all'indirizzo e-mail corrente.</p>\n \
+<p>Se non hai inviato questa richiesta, un altro utente ha assunto il controllo del tuo account.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

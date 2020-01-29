@@ -1,0 +1,297 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<div class="scf-comment-toolbar comment-toolbar scf-event-toolbar">
+    {{#if canEdit}}
+        <div class='scf-js-comment-edit-box' style='display:none;'>
+            <div class="scf-composer-block scf-js-composer-block">
+                <form evt="submit=save" class="scf-composer scf-edit-composer scf-eventbasics scf-section">
+                    <div class="scf-form_row">
+                        <input class="scf-composer-subj form-control" type="text" data-attrib="editSubject" placeholder="{{i18n "Add an event title"}}" />
+                    </div>
+                    <div class="scf-form_row scf-form-padding">
+                        <textarea class="scf-composer-msg form-control" type="text" data-attrib="editMessage" placeholder="{{i18n "Message"}}" {{#if configuration.isRTEEnabled}} data-field-type="rte" {{/if}}></textarea>
+                    </div>
+                    <div class="scf-form_row">
+                        {{#if configuration.isTaggingAllowed}}
+                            <ul class="scf-calendar-smart-tags" data-attrib="editTags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+                        {{/if}}
+                    </div>
+                    <div class="scf-form_row scf-form-padding">
+                        <input type="text" class="form-control scf-form_field scf-form_field_text" data-attrib="editLocation" size="58" placeholder="{{i18n "Add a location name" }}">
+                    </div>
+                    <div class="scf-form_row scf-form-padding">
+                        <input type="text" class="form-control scf-form_field scf-form_field_text" data-attrib="editAddress" size="58" onkeydown="" placeholder="{{i18n "Add an address" }}">
+                    </div>
+                    <div class="scf-form_row scf-form-padding">
+                        <div>
+                            <label class='scf-label' for="./start">{{i18n "From"}}</label>
+                        </div>
+                        <div>
+                            <div class="scf-form_datepicker_left" id="scf-event-basics-start">
+                                <input name="scf-event-basics-start-input" class="scf-form_field scf-form_field_text scf-event-basics-start-input scf-js-event-basics-start-input form-control" placeholder="{{localeDateFormat}}" value="{{dateUtil start format=localeDateFormat timezone=timezone}}" size="15">&nbsp;</div>
+                            <div class="scf-form_datepicker_middle">&nbsp;</div>
+                            <div class="scf-form_datepicker_right" id="scf-form_rightcol_right_event-basics-start">
+                                <input type="text" id="scf-event-basics-start-time" name="scf-event-basics-start-time" class="scf-form_field scf-form_field_text ui-autocomplete-input scf-event-basics-start-time scf-js-event-basics-start-time form-control" data-timepicker-type="select" data-timepicker-timezone="true" placeholder="{{localeTimeFormat}}" autocomplete="off" value="{{dateUtil start format=localeTimeFormat timezone=timezone}}">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                            </div>
+                        </div>
+                        <div class="scf-clear-both"></div>
+                    </div>
+                    <div class="scf-form_row">
+                        <div>
+                            <label class='scf-label' for="./end">{{i18n "To"}}</label>
+                        </div>
+                        <div>
+                            <div class="scf-form_datepicker_left" id="scf-event-basics-end">
+                                <input name="scf-event-basics-end-input" class="scf-form_field scf-form_field_text scf-event-basics-end-input scf-js-event-basics-end-input form-control" placeholder="{{localeDateFormat}}" value="{{dateUtil start format=localeDateFormat timezone=timezone}}" size="15">&nbsp;</div>
+                            <div class="scf-form_datepicker_middle">&nbsp;</div>
+                            <div class="scf-form_datepicker_right">
+                                <input type="text" id="scf-event-basics-end-time" class="scf-form_field scf-form_field_text ui-autocomplete-input scf-event-basics-end-time scf-js-event-basics-end-time form-control" data-timepicker-type="select" placeholder="{{localeTimeFormat}}" autocomplete="off" value="{{dateUtil end format=localeTimeFormat timezone=timezone}}">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                            </div>
+                        </div>
+                        <div class="scf-clear-both"></div>
+                    </div>
+                    <div class="scf-form_row">
+                        <div>
+                            <label class='scf-label' for="isdate">{{i18n "Full Day"}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="scf-form_field scf-form_field_text scf-event-basics-isdate scf-js-event-basics-isdate" id="scf-event-basics-isdate" name="scf-event-basics-isdate" {{#if isDate}} checked {{/if}} />
+                        </div>
+                        <div class="scf-clear-both"></div>
+                    </div>
+                    {{#if this.configuration.isAttachmentAllowed}}
+                        {{#if attachments}}
+                            <ul class="well scf-cards scf-js-edit-attachments scf-comment-attachments">
+                                {{#each attachments}}
+                                    {{#if this.image}}
+                                        <li class="scf-card scf-comment-img-att scf-js-comment-att" evt="mouseenter=toggleAttachmentOverlay,mouseleave=toggleAttachmentOverlay" data-attachment-path="{{@key}}">
+                                                <span class="scf-card-overlay">
+                                                        <span class="glyphicon glyphicon-trash scf-comment-att-delete" evt="click=confirmDeleteAttachment"></span>
+                                                <span class="glyphicon glyphicon-trash scf-comment-att-delete-ok" evt="click=deleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Delete"}}</span></span>
+                                                <span class="glyphicon glyphicon-remove scf-comment-att-delete-cancel" evt="click=cancelDeleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Cancel"}}</span>
+                                                </span>
+                                                </span>
+                                            <img src="{{getContextPath ''}}{{this.path}}" class="scf-card-img scf-comment-attachment-img" />
+                                            <span class="scf-card-footer"><a href="{{getContextPath ''}}{{this.path}}" target="_blank">{{name}}</a></span>
+                                        </li>
+                                    {{else}}
+                                        <li class="scf-card scf-comment-file-att scf-js-comment-att" evt="mouseenter=toggleAttachmentOverlay,mouseleave=toggleAttachmentOverlay" data-attachment-path="{{@key}}">
+                                                <span class="scf-card-overlay">
+                                                        <span class="glyphicon glyphicon-trash scf-comment-att-delete" evt="click=confirmDeleteAttachment"></span>
+                                                <span class="glyphicon glyphicon-trash scf-comment-att-delete-ok" evt="click=deleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Delete"}}</span></span>
+                                                <span class="glyphicon glyphicon-remove scf-comment-att-delete-cancel" evt="click=cancelDeleteAttachment">
+                                                            <span class="scf-att-confirm-text">{{i18n "Cancel"}}</span>
+                                                </span>
+                                                </span>
+                                            <span class="scf-card-icon scf-comment-file-icon glyphicon-file glyphicon"></span>
+                                            <span class="scf-card-footer"><a class="scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></span>
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        {{/if}}
+                    {{/if}}
+                    <div class='scf-composer-toolbar'>
+                        {{#if configuration.isAttachmentAllowed}}
+                            <button type="button" class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                            <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                        {{/if}}
+                        <button type="button" class="btn btn-primary scf-composer-action scf-composer-attach-cover" evt="click=openCoverDialog">{{i18n "Cover"}}</button>
+                        <input class="scf-calendar-cover-input scf-js-calendar-cover-input" type="file" data-attrib="coverimage" name="coverimage" evt="change=renderCover" />
+                        <div class="scf-composer-actions">
+                            <button type="reset" class="btn btn-default scf-composer-action" evt="click=cancel">{{i18n "Cancel"}}</button>
+                            <button type="submit" class="btn btn-primary " evt="submit=save">{{i18n "Save"}}</button>
+                        </div>
+                        {{#if configuration.isAttachmentAllowed}}
+                            <div class="scf-composer-attachments">
+                                <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                            </div>
+                        {{/if}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="scf-js-comment-action-toolbar">
+        {{#if canReply}}
+            <!--a class='scf-comment-reply scf-comment-action scf-link' href='#' evt='click=reply'>{{i18n "Reply"}}</a-->
+        {{/if}}
+
+        {{#if canEdit}}
+            <!-- Edit -->
+            <a class='comment-edit scf-comment-action scf-link' href='#' evt='click=edit'>{{i18n "Edit"}}</a>
+        {{/if}}
+
+        {{#if moderatorActions.canFlag}}
+            <!-- Flag -->
+            <a class='comment-flag scf-comment-action scf-link' href='#' evt='click=editFlagReason'>{{i18n "Flag"}}</a>
+        {{/if}}
+
+        {{#if moderatorActions.canAllow}}
+            <!-- Allow -->
+            <a class='comment-allow scf-comment-action scf-link' href='#' evt='click=allow'>{{i18n "Allow"}}</a>
+        {{/if}}
+        {{#if configuration.isDeleteAllowed}}
+            {{#if canDelete}}
+                <!-- Delete -->
+                <a class='comment-delete scf-comment-action scf-link' href='#' evt='click=remove'>{{i18n "Delete"}}</a>
+                <span class='comment-delete-box' style='display: none'>
+                    {{i18n "Are you sure you want to delete this comment?"}}
+                    <br/>
+                    <br/>
+                    <button class="btn btn-primary" evt='click=reallyDelete'>{{i18n "Yes"}}</button>
+                    <button class="btn btn-default" evt='click=noDelete'>{{i18n "No"}}</button>
+                </span>
+            {{/if}}
+        {{/if}}
+        {{#if moderatorActions.canDeny}}
+            <!-- Deny -->
+            <a class='comment-deny scf-comment-action scf-link' href='#' evt='click=deny'>{{i18n "Deny"}}</a>
+        {{/if}}
+
+        {{#if moderatorActions.canClose}}
+            <!-- Close topic -->
+            {{#if isClosed}}
+                <a class='scf-comment-reopen scf-comment-action scf-link' href='#' evt='click=open'>
+                    {{i18n "Reopen"}}
+                </a>
+            {{else}}
+                <a class='scf-comment-close scf-comment-action scf-link' href='#' evt='click=close'>
+                    {{i18n "Close"}}
+                </a>
+            {{/if}}
+        {{/if}}
+        {{#if moderatorActions.canPin}}
+            {{#if isPinned}}
+                <span class='scf-comment-pin scf-comment-action scf-link' href='#' evt='click=unpin'>
+                    {{i18n "Unpin"}}
+                </span>
+            {{else}}
+                <span class='scf-comment-unpin scf-comment-action scf-link' href='#' evt='click=pin'>
+                    {{i18n "Pin"}}
+                </span>
+            {{/if}}
+        {{/if}}
+        {{#if moderatorActions.canFlag}}
+            <!-- Flag Reason selection -->
+            <div class='scf-js-flagreason-box' style="display: none;">
+                <div class='scf-flag-block'>
+                    {{#if moderatorActions.useFlagReasonList}}
+                        <span>{{i18n "Please indicate why this content is being flagged"}}</span>
+                        <br/>
+                        <br/>
+                        <select name='social:flagformtext-{{lastPath id}}' data-attrib='flagReason'>
+                            {{include this template="flagreasonlist"}}
+                            {{#if configuration.isCustomFlagReasonAllowed}}
+                                <option value='custom'>
+                                    {{i18n "Custom Reason..."}}
+                                </option>
+                            {{/if}}
+                        </select>
+                    {{else}}
+                        {{#if configuration.isCustomFlagReasonAllowed}}
+                            <span>{{i18n "Please indicate why this content is being flagged"}}</span>
+                            <br/>
+                            <br/>
+                        {{else}}
+                            <span>{{i18n "Are you sure you want to flag this content?"}}</span>
+                        {{/if}}
+                    {{/if}}
+                    {{#if configuration.isCustomFlagReasonAllowed}}
+                        <br/>
+                        <input type='text' name='social:flagformtext-{{lastPath id}}' placeholder='{{i18n "Custom"}}' data-attrib='customFlagReason' />
+                    {{/if}}
+                    <div class='scf-composer-toolbar'>
+                        <button class="btn btn-default" evt='click=cancelFlagging'>{{i18n "Cancel"}}</button> &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary" evt='click=addFlagReason'>{{i18n "Flag"}}</button>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+
+        <!-- Moderator action to mark a event as Featured -->
+        {{#if moderatorActions.canMarkFeatured}}
+            {{#if isFeatured}}
+                <span class='scf-comment-feature scf-comment-action scf-link' href='#' evt='click=unmarkFeatured'>
+                    {{i18n "Unfeature"}}
+                </span>
+            {{else}}
+                <span class='scf-comment-unfeature scf-comment-action scf-link' href='#' evt='click=markFeatured'>
+                    {{i18n "Feature"}}
+                </span>
+            {{/if}}
+        {{/if}}
+
+
+        {{#if canReply}}
+            <div class='scf-js-comment-reply-box' style='display:none;'>
+                <div class="scf-composer-block scf-js-composer-block">
+                    <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}" />
+                    <form evt="submit=addReply" class="scf-composer">
+                        <textarea class="scf-composer-msg" type="text" data-attrib="replyMessage" {{#if configuration.isRTEEnabled}} data-field-type="rte" data-rte-type="comment" {{/if}} placeholder="{{i18n "Write a comment"}}"></textarea>
+                        <div class='scf-composer-toolbar'>
+                            {{#if configuration.isAttachmentAllowed}}
+                                <button class="btn btn-primary scf-composer-action scf-composer-attach">{{i18n "Attach"}}</button>
+                                <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                            {{/if}}
+                            <div class="scf-composer-actions">
+                                <button type="reset" class="btn btn-default scf-composer-action" evt="click=reply">{{i18n "Cancel"}}</button>
+                                <input type="submit" class="btn btn-primary" value="{{i18n "Reply"}}" evt="submit=addReply" />
+                            </div>
+                            {{#if configuration.isAttachmentAllowed}}
+                                <div class="scf-composer-attachments">
+                                    <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {{/if}}
+        {{#if canTranslate}}
+            <span evt='click=translate' class='scf-comment-translation translation-button-children scf-comment-action scf-link' href='#' data-translate-button-id='{{id}}'>
+            {{#if showingTranslation}}
+                {{#if displaySideBySide}}
+                    {{i18n "Hide Translation"}}
+                {{else}}
+                    {{i18n "Show Original"}}
+                {{/if}}
+            {{else}}
+                {{#if translationAjaxInProgress}}
+                    {{i18n "Translating"}}
+                {{else}}
+                    {{i18n "Translate"}}
+                {{/if}}
+            {{/if}}
+            </span>
+        {{/if}}
+        {{#if showingTranslation}}
+            {{#if canEdit}}
+                <span evt='click=edittranslation' class='scf-comment-translation translation-button-children scf-comment-action scf-link' href='#' data-translate-button-id='{{id}}'>{{i18n "Edit Translation"}}</span>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

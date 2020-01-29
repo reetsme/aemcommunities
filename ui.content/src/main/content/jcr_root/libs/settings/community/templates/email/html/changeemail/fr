@@ -1,0 +1,18 @@
+﻿subject=Demande de modification d’adresse électronique
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Demande de modification d’adresse électronique</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Bonjour {{{givenName}}},</p>\n \
+<p>Vous avez demandé la modification de l’adresse électronique associée à votre compte.</p>\n \
+<p>Pour vérifier cette adresse électronique, cliquez sur ce lien <a href="{{{actionURL}}}"">{{{actionURL}}}</a> ou collez-le dans votre navigateur.</p>\n \
+<p>Vous avez jusqu’au {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} pour cliquer sur le lien. Après cette date, il arrivera à expiration.</p>\n \
+<p>Si vous ne souhaitez pas utiliser cette adresse électronique, ne faites rien. Nous continuerons d’utiliser votre adresse électronique actuelle.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

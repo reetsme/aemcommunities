@@ -1,0 +1,54 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+
+
+<div class="coral-FixedColumn-column foundation-layout-thumbnail">
+
+    <div class="foundation-layout-thumbnail-image grid">
+
+        <div class="newresourcecard ">
+
+            <article data-enable-add-thumb="true" data-upload-path="/tmp/social-enablement" data-upload-url="/tmp/social-enablement.uploadfile.html" class="ec-card card-page">
+
+
+                <div class="card">
+                    {{#if cardImagePath}}
+                        <span class="image" style="background-image:url('{{getContextPath ''}}{{cardImagePath}}');">
+                    {{else}}
+                        <span class="image" style="background-image:url('{{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/default_learningPath_card_image.png');">
+                    {{/if}}
+                        </span>
+
+                        <div class="label">
+                            <div class="main">
+                                <h4 class="rsc-label" id="rsc-label" data-replace-ns="">{{title}}</h4>
+                            </div>
+                        </div>
+                </div>
+
+
+            </article>
+
+        </div>
+
+    </div>
+
+
+</div>

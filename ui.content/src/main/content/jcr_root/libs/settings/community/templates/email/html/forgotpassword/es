@@ -1,0 +1,15 @@
+﻿subject=Solicitud de actualización de contraseña
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitud de actualización de contraseña</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Hola, {{{givenName}}}:</p>\n \
+<a href="{{forgotPasswordUrl}}">Haga clic en este vínculo para restablecer su contraseña</a>\n \
+</div>\n \
+</body>\n \
+</html>\n \

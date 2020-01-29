@@ -1,0 +1,35 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+
+<tr is="coral-table-row" class="foundation-collection-item foundation-selections-item" data-foundation-collection-item-id="{{id}}" data-component-id="{{id}}" data-scf-component="social/members/components/hbs/users/user">
+    <td is="coral-table-cell" class="scf-members-avatar" coral-table-rowselect>
+        <img src="{{this.largeAvatarUrl}}" class="foundation-collection-item-thumbnail" />
+    </td>
+    <td is="coral-table-cell" class="scf-members-screen-name">
+        <a class="coral-Link foundation-collection-item-title foundation-collection-navigator" href="{{getContextPath ''}}/communities/memberprofile.html?_charset_=utf-8&userId={{this.authorizableId}}">{{this.name}}</a></td>
+    <td is="coral-table-cell" class="scf-members-lastname">{{this.lastName}}</td>
+    <td is="coral-table-cell" class="scf-members-firstname">{{this.firstName}}</td>
+    <td is="coral-table-cell" class="scf-members-status">
+        {{#if this.disabled}}{{i18n "Inactive" }}{{else}}{{i18n "Active" }}{{/if}}
+    </td>
+    <td is="coral-table-cell" class="scf-members-views-count">{{this.viewsCount}}</td>
+    <td is="coral-table-cell" class="scf-members-posts-count">{{this.postsCount}}</td>
+    <td is="coral-table-cell" class="scf-members-follows-count">{{this.followsCount}}</td>
+    <td is="coral-table-cell" class="scf-members-likes-count">{{this.likesCount}}</td>
+</tr>

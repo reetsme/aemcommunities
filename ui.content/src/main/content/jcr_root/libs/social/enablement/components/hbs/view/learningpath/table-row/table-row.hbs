@@ -1,0 +1,49 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2013 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<tr data-component-id="{{id}}" data-scf-component="social/enablement/components/hbs/view/learningpath/table-row">
+    <td class="scf-table-cell">
+        {{#if allPrerequisitesCompleted}}
+            <a href="{{friendlyUrl}}">
+                {{title}}
+            </a>
+        {{else}}
+            <a class="scf-unclickable-link" evt="click=sendPreReqMessage">
+                {{title}}
+            </a>
+        {{/if}}
+    </td>
+    <td class="scf-table-cell">
+        {{i18n "Learning Path"}}
+    </td>
+    <td class="scf-table-cell">
+        {{include this resourceType="social/enablement/components/hbs/view/resource/table-row" template="due-status"}}
+    </td>
+    <td class="scf-table-cell">
+        {{include this resourceType="social/enablement/components/hbs/view/resource/card" template="assignment-status"}}
+    </td>
+    <td class="scf-table-cell">{{userReport.percentComplete}}</td>
+    <td class="scf-table-cell">{{userReport.successStatus}}</td>
+    <td class="scf-table-cell">{{userReport.score}}</td>
+    <td class="scf-table-cell">{{userReport.commentCount}}</td>
+    <td class="scf-table-cell" data-order="{{userReport.rating}}">
+        <div class="emptyStar" title="{{userReport.rating}}">
+            <div class="ratingStar" style="width: {{userReport.ratingWidth}}%;"></div>
+        </div>
+    </td>
+</tr>

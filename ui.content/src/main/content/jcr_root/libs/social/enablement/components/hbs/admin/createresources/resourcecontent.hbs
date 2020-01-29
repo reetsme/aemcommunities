@@ -1,0 +1,142 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2015 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="wizard-content-step">
+    <div id="collectionsettings" class="collectionresourcesettings">
+        <div class="coral-FixedColumn foundation-layout-util-vmargin">
+            <div class="coral-FixedColumn-column">
+                <div id="uploaded-asset-cover-img-template" class="show-off">
+                    <div>
+                        <div class="add-item-asset-name">
+                            {{primaryAsset.name}}
+                        </div>
+                        <div id="uploaded-asset-cover-img">
+                            <div class="add-item-asset-cover-img" style="background-image: url({{getContextPath ''}}/etc.clientlibs/settings/wcm/designs/default/resources/social/enablement/default_asset_cover_img.png)">
+                                <div class="add-item-custom-cover-actions">
+                                    <span class="add-item-upload-custom-cover">
+                                        <coral-fileupload id="add-items-upload-custom-cover-btn" action="{{getContextPath ''}}/tmp/social-enablement.uploadfile.html" method="post" name="file" sizeLimit="10000000" accept="*" async="true" autostart="true" class="add-items-add-actions-btn">
+                                            <span coral-fileupload-select>
+                                                <label>{{i18n "Upload Custom Image"}}</label>
+                                            </span>
+                                    </coral-fileupload>
+                                    </span>
+                                    <span class="endor-ActionButton-icon coral-Icon coral-Icon--delete add-item-remove-custom-cover-btn" id="add-item-remove-custom-cover-btn"></span>
+                                </div>
+                            </div>
+                            <div class="add-item-upload-cover-status-div"></div>
+                        </div>
+                    </div>
+                    <i class="uploaded-asset-cover-img-select endor-ActionButton-icon coral-Icon coral-Icon--checkCircle"> </i>
+                </div>
+                <div class="add-asset-wizard-wrapper">
+                    <iframe id="assetpicker" src=""></iframe>
+                    <div class="add-items-wrapper-div">
+                        <div class="add-items-header">
+                            <h1 class="content-create-heading add-items-header-text">{{i18n "Add Content"}}</h1>
+                            <div class="add-items-actions">
+                                <span class="endor-ActionButton-icon coral-Icon coral-Icon--arrowDown noshow add-items-actions-btn" data-step="1" id="add-items-down-actions-btn"></span>
+                                <span class="endor-ActionButton-icon coral-Icon coral-Icon--arrowUp noshow add-items-actions-btn" data-step="-1" id="add-items-up-actions-btn"></span>
+                                <span class="endor-ActionButton-icon coral-Icon coral-Icon--delete noshow add-items-actions-btn" id="add-items-del-actions-btn"></span>
+                                <nav class="pulldown" data-init="pulldown">
+                                    <a href="#" class="coral-Button coral-Button--secondary coral-Button--quiet" data-align-from="left" data-point-from="bottom">
+                                        <i class="endor-ActionButton-icon coral-Icon coral-Icon--add" id="addAssetButton"></i>
+                                    </a>
+                                    <coral-popover placement="bottom" id="add-asset-wizard-popover-link" target="#addAssetButton">
+                                        <coral-popover-content>
+                                            <div class="endor-List">
+                                                <coral-anchorlist>
+                                                    <coral-fileupload id="add-items-add-actions-btn" action="{{getContextPath ''}}{{resourceAssetsPath}}.createasset.html" method="post" name="file" sizeLimit="1000000000" accept="*" async="true" autostart="true">
+                                                        <a is="coral-anchorlist-item" coral-fileupload-select id="add-items-add-actions-btn" href="#" class="endor-List-item endor-List-item--interactive cq-damadmin-admin-actions-createfolder-activator">
+                                                        {{i18n "Upload from Local Filesystem"}}
+                                                    </a>
+                                                    </coral-fileupload>
+                                                    <a is="coral-anchorlist-item" id="add-from-my-assets" href="#" class="endor-List-item endor-List-item--interactive cq-damadmin-admin-actions-createfolder-activator">
+                                                    {{i18n "Browse Asset Library"}}</span>
+                                                </a>
+                                                    <a is="coral-anchorlist-item" href="#external-url-resource-creation-form" data-toggle="modal" class="endor-List-item endor-List-item--interactive cq-damadmin-admin-actions-createfolder-activator">
+                                                    {{i18n "Add an external URL"}}
+                                                </a>
+                                                    <a is="coral-anchorlist-item" href="#external-url-connect-resource-creation-form" data-toggle="modal" class="endor-List-item endor-List-item--interactive cq-damadmin-admin-actions-createfolder-activator">
+                                                    {{i18n "Add an Adobe Connect URL"}}
+                                                </a>
+                                                    <a is="coral-anchorlist-item" href="#external-resource-creation-form" data-toggle="modal" class="endor-List-item endor-List-item--interactive cq-damadmin-admin-actions-createfolder-activator">
+                                                    {{i18n "Define an External Resource"}}
+                                                </a>
+                                                </coral-anchorlist>
+                                            </div>
+                                        </coral-popover-content>
+                                    </coral-popover>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="add-items-tbl-enc-div" style="position: relative">
+                            <table class="addContent-tbl data coral-Table">
+                                <thead>
+                                    <tr class="coral-Table-row">
+
+                                        <th class="coral-Table-headerCell add-items-tbl-check-all-th" class="check">
+                                            <label>
+                                                <input id="add-items-tbl-check-all" type="checkbox"><span></span></label>
+                                        </th>
+                                        <th class="coral-Table-headerCell add-items-tbl-item-name">{{i18n "Items"}}</th>
+                                        <th class="coral-Table-headerCell add-items-tbl-type">{{i18n "Type"}}</th>
+                                        <th class="coral-Table-headerCell add-items-tbl-size">{{i18n "Size"}}</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="add-items-tbl" style="min-height: 3rem;">
+                                <table id="course-contents-tbl" class="addContent-tbl data coral-Table">
+                                    <tbody>
+                                        <!--{{#if primaryAsset}}
+                                           <tr class="coral-Table-row">
+                                               <td class='coral-Table-cell'><label><input class='choose-this-row-chkbox' type='checkbox'><span></span></label></td>
+                                               <td class="coral-Table-cell uploaded-asset-name">{{primaryAsset.assetName}}</td>
+                                               <td class="coral-Table-cell">{{primaryAsset.type}}</td>
+                                               <td class="coral-Table-cell">{{primaryAsset.friendlySize}}</td>
+                                           </tr>
+                                        {{/if}}-->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="waiting-div">
+                                <coral-progress value="0">
+                                </coral-progress>
+                            </div>
+                        </div>
+                        <div class="asset-upload-status-div coral-Modal">
+                            <div class="coral-Modal-header">
+                                <i class="coral-Modal-typeIcon coral-Icon coral-Icon--sizeS coral-Icon--alert"></i>
+                                <h2 class="coral-Modal-title coral-Heading coral-Heading--2"></h2>
+                            </div>
+                            <div class="coral-Modal-body"></div>
+                            <div class="coral-Modal-footer"></div>
+                        </div>
+                        <div class="add-items-previews hidden">
+                            <h1 class="content-create-heading">{{i18n "Resource Cover Image"}}</h1>
+                            <p>{{i18n "The Cover Image of a Resource identifies the Resource to Community Members in Assignments and Catalogs. The Cover Image may be used to add appeal and information. The recommended size for the Cover Images is 640 x 360 px. "}}</p>
+                            <ol>
+                            </ol>
+                        </div>
+                        <input type="hidden" name="assets" value="[]" />
+                        <div class="dataAssetProperties"></div>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

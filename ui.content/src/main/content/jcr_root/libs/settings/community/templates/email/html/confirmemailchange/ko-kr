@@ -1,0 +1,18 @@
+subject=이메일 업데이트 요청
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>이메일 업데이트 요청</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}님 안녕하세요!</p>\n \
+<p>계정과 연결된 이메일 주소 변경을 요청하셨습니다.</p>\n \
+<p>{{{newEmail}}} 주소로 이메일이 수신되었을 것입니다. 이메일의 링크를 클릭하여 주소가 확인되면 새 이메일 주소가 계정과 연결됩니다.</p>\n \
+<p>{{dateUtil emailVericationTTL format="EEE, d MMM yyyy HH:mm:ss z"}}까지 링크를 누르지 않으면 링크가 만료되며 현재 이메일 주소로 모든 메일을 계속 받게 됩니다.</p>\n \
+<p>이 요청을 수행한 적이 없다면 다른 사람이 고객님의 계정으로 접속한 것입니다.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

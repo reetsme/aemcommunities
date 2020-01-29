@@ -1,0 +1,116 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2016 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if-wcm-mode mode="EDIT" }}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-ideation" data-component-id="{{id}}" data-scf-component="social/ideation/components/hbs/ideation">
+    <header>
+        {{#if properties.title}}
+            <h2 class="scf-forum-heading">{{properties.title}}</h2>
+            <br/>
+            <div class="description">{{properties.description}}</div>
+        {{else}}
+            <h2 class="scf-blog-heading">{{i18n "Ideation" }}</h2>
+        {{/if}}
+        <div class="scf-clear-both"></div>
+    </header>
+    <div class="scf-action-container">
+        {{#if loggedInUser.loggedIn}}
+            {{#unless isClosed}}
+                {{#if mayPost}}
+                    <button class="btn btn-primary scf-action-item" evt="click=toggleComposer">{{i18n "New Idea"}}</button>
+                {{/if}}
+            {{/unless}}
+            {{#if configuration.followingAllowed}}
+                <div class="scf-action-item scf-blog-following-block">
+                    {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                </div>
+            {{/if}}
+        {{/if}}
+        {{include this template="sort"}}
+        <div class="scf-clear-both"></div>
+    </div>
+
+    {{#if mayPost}}
+        <div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+            <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}" />
+            <form class="scf-composer" data-form="new-comment">
+                <input class="scf-composer-msg" type="text" data-attrib="subject" name="subject" placeholder="{{i18n "Subject"}}" data-scf-validator='{"validation":"noempty"}' />
+                <textarea class="scf-composer-msg" type="text" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" class="comment-composer-input" {{#if configuration.isRTEEnabled}} data-field-type="rte" {{/if}}></textarea>
+                {{#if configuration.isTaggingAllowed}}
+                    <ul id="forum-smart-tags" data-attrib="tags" name="tags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}" size="1"></ul>
+                {{/if}}
+                {{#if configuration.usingPrivilegedUsers}}
+                    <div class="ui-widget">
+                        <input class="scf-composer-msg" type="text" class="scf-js-userfilter" data-field-type="userdropdown" name="composedFor" placeholder="{{i18n "Compose On Behalf of a User"}}" data-attrib="composedFor" />
+                    </div>
+                    <h5 class="scf-is-hidden scf-js-invalid-user">{{i18n "Specified user is not valid"}}</h5>
+                {{/if}}
+                <div class='scf-composer-toolbar'>
+                    <div class="scf-composer-actions">
+                        <button type="reset" class="btn btn-default scf-composer-action" evt="click=toggleComposer">{{i18n "Cancel"}}</button>
+                        <input type="button" class="btn btn-primary" value="{{i18n "Save as Draft"}}" evt="click=addCommentDraft" />
+                        <input type="button" class="btn btn-primary" value="{{i18n "Submit"}}" evt="click=addComment" />
+                        {{#if configuration.isAttachmentAllowed}}
+                            <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                            <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                        {{/if}}
+                    </div>
+                    <div class="scf-clear-both"></div>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <div class="scf-composer-attachments">
+                            <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    {{/if}}
+
+    <div class="scf-js-ideation-ideas-list">
+        {{#if mayPost}}
+            <ul class="nav nav-tabs scf-nav-tab-padding scf-js-ideation-tab" role="tablist">
+                <li role="presentation" class="scf-ideation-tab active"><a class="scf-js-allPosts" href="#scf-js-allPosts" aria-controls="scf-js-allPosts" role="tab" data-toggle="tab" evt="click=fetchAllPosts">{{i18n "All Ideas"}}</a></li>
+                <li role="presentation" class="scf-ideation-tab"><a class="scf-js-draftPosts" href="#scf-js-allDrafts" aria-controls="scf-js-allDrafts" role="tab" data-toggle="tab" evt="click=fetchDrafts">{{i18n "My Drafts"}}</a></li>
+            </ul>
+        {{/if}}
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="scf-js-allPosts">
+                <ul class="scf-topic-list scf-js-topic-list">
+                    {{#each items}}
+                        {{#if isVisible}}
+                            <li>{{include this resourceType="social/ideation/components/hbs/idea" template="list-item" bind=false}}</li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+                <div class="scf-component-pages-container">
+                    <!-- NEW pagination -->
+                    {{include this resourceType="social/commons/components/hbs/pages"}}
+                    <!-- eo NEW pagination -->
+                </div>
+
+            </div>
+            {{#if mayPost}}
+                <div role="tabpanel" class="tab-pane scf-css-idea-draftPosts" id="scf-js-draftPosts"></div>
+            {{/if}}
+
+        </div>
+    </div>
+</div>

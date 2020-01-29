@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    jcr:title="Twitter Connect Configuration"
+    height="{Long}425"
+    warnIfModified="{Boolean}false"
+    width="{Long}455"
+    xtype="dialog">
+    <items jcr:primaryType="cq:TabPanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="nt:unstructured"
+                title="Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <oauthprovider
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        defaultValue="soco-twitter"
+                        fieldLabel="Provider"
+                        name="./oauth.config.provider.id"
+                        type="select"
+                        xtype="hidden"/>
+                    <appid
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="&lt;a href='https://dev.twitter.com/apps' target='_blank' style='color:#15428B; text-decoration:underline;'>Consumer Key&lt;/a>"
+                        name="./oauth.client.id"
+                        xtype="textfield"/>
+                    <appsecret
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Consumer Secret"
+                        name="./oauth.client.secret"
+                        xtype="textfield"/>
+                    <callbackurl
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="/libs/social/content/oauth.callback.html"
+                        fieldLabel="Callback URL"
+                        name="./oauth.callBackUrl"
+                        xtype="hidden"/>
+                    <createusers
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        defaultValue="{Boolean}true"
+                        fieldLabel="Create Users"
+                        name="./oauth.create.users"
+                        xtype="checkbox"/>
+                    <encodeuserids
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Mask User Ids"
+                        name="./oauth.encode.userids"
+                        xtype="checkbox"/>
+                    <createusersgroups
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Add User Group"
+                        allowBlank="{Boolean}true"
+                        fieldLabel="Add to User Groups"
+                        name="./oauth.create.users.groups"
+                        orderable="{Boolean}false"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="false"
+                            fieldDescription="Examples: contributors, moderators"
+                            name="./name"
+                            optionsProvider="function(path,record){ return $CQ.SocialAuth.userGroupOptions(); } "
+                            type="select"
+                            xtype="selection"/>
+                    </createusersgroups>
+                </items>
+            </general>
+            <params
+                jcr:primaryType="nt:unstructured"
+                title="URL Parameters"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <keyvalue
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Add Key Value Pair"
+                        allowBlank="{Boolean}true"
+                        fieldDescription="e.g. key=value"
+                        fieldLabel="Add Key Value Pair"
+                        name="./urlParams"
+                        orderable="{Boolean}false"
+                        xtype="multifield"/>
+                </items>
+            </params>
+        </items>
+    </items>
+</jcr:root>

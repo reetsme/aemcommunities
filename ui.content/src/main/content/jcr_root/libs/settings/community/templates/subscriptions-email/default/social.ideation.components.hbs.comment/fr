@@ -1,0 +1,25 @@
+﻿subject={{#if this.target.properties.[jcr:title]}}[Réponse à un événement de conceptualisation] {{{target.displayName}}}{{else}}[Réponse à un événement de conceptualisation]{{/if}}
+message=\n \
+Date : {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL : {{objectUrl}}\n\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} a publié une nouvelle réponse {{#if this.target.properties.[jcr:title]}}à l’événement de conceptualisation « {{{target.displayName}}} »{{/if}}.\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} a ajouté une nouvelle réponse {{#if this.target.properties.[jcr:title]}}à l’événement de conceptualisation « {{{target.displayName}}} »{{/if}}.\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} a mis à jour la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de conceptualisation « {{{target.displayName}}} »{{/if}}.\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} a supprimé la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de conceptualisation « {{{target.displayName}}} »{{/if}}.\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} a approuvé la réponse {{#if this.target.properties.[jcr:title]}}à l’événement de conceptualisation « {{{target.displayName}}} »{{/if}}.\n \
+{{/equals}}\
+{{#if this.object.properties.[toState]}}Le statut de l’événement de conceptualisation a été modifié pour devenir : « {{{this.object.properties.toState}}} ».\n{{/if}}\n \
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+Suivez ce lien pour afficher toutes les publications de cet événement de conceptualisation ou modifier votre abonnement.\n \
+{{objectReferrer}}\n \

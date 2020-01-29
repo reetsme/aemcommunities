@@ -1,0 +1,35 @@
+subject=[日历事件] {{{object.displayName}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{object.displayName}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+{{#equals this.verb "post"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 发布了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "add"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 添加了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 更新了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 删除了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 批准了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "close"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 关闭了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+{{#equals this.verb "reopen"}}\
+{{{user.name}}} 于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 重新打开了新日历事件“{{{object.displayName}}}”。\n \
+{{/equals}}\
+<br>请<a href="{{targetUrl}}">单击此链接</a>查看所有日历事件或修改您的通知首选项。\n \
+</div>\n \
+</body>\n \
+</html>\n \

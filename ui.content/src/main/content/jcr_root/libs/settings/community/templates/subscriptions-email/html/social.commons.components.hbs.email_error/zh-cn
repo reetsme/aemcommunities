@@ -1,0 +1,18 @@
+subject=[电子邮件提交失败] {{{email-subject}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>电子邮件提交失败</title>\n \
+</head>\n \
+<body>\n \
+<div>{{{email-message}}}</div>\n \
+<div>\n \
+<hr>\n \
+{{{email-author}}}，您好！以下电子邮件未能于 {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}} 成功提交。\n \
+<hr>\n \
+请重试或联系您的系统管理员获取进一步帮助。\n \
+</div>\n \
+</body>\n \
+</html>\n \

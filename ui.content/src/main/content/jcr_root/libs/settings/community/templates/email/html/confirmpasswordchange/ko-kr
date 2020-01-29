@@ -1,0 +1,16 @@
+subject=암호가 업데이트됨
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>암호 업데이트 요청</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}님 안녕하세요!</p>\n \
+<p>암호가 {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}}에 변경되었습니다. </p>\n \
+<p>이 작업을 고객님이 수행한 경우 이 이메일을 무시하셔도 됩니다.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

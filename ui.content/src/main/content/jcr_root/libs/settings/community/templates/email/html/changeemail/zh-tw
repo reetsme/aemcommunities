@@ -1,0 +1,18 @@
+subject=電子郵件變更請求
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>電子郵件變更請求</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>{{{givenName}}}，您好</p>\n \
+<p>您已請求變更與您帳戶相關的電子郵件地址。</p>\n \
+<p>若要確認此電子郵件地址，請按一下此連結 <a href="{{{actionURL}}}"">{{{actionURL}}}</a> 或將其貼入瀏覽器網址列。</p>\n \
+<p>您必須在 {{dateUtil emailVerificationTTL format="EEE, d MMM yyyy HH:mm:ss z"}} 之前按下此連結，否則就會到期。</p>\n \
+<p>若您不希望使用此電子郵件地址，請勿進行任何動作；系統將繼續使用您目前的電子郵件。</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \

@@ -1,0 +1,17 @@
+﻿subject=[Votazione per sottoscrizione] {{{target.properties.eventTopic}}}
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>{{{target.properties.eventTopic}}}</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<hr>\n \
+Questo voto è stato aggiunto a "{{{target.properties.eventTopic}}}" da {{{user.name}}} in data {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}.\n \
+<hr>\n \
+<a href="{{targetUrl}}">Fai clic su questo collegamento</a> per visualizzare tutti i voti o modificare la sottoscrizione.\n \
+</div>\n \
+</body>\n \
+</html>\n \

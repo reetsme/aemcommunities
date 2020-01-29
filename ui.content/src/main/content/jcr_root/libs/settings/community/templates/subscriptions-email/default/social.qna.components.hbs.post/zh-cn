@@ -1,0 +1,21 @@
+subject=[回答]{{#if this.target.properties.[jcr:title]}} {{{target.displayName}}}{{/if}}
+message=\n \
+日期： {{dateUtil this.published format="EEE, d MMM yyyy HH:mm:ss z"}}\n \
+URL： {{objectUrl}}\n\n \
+{{#equals this.verb "add"}}\
+{{{user.name}}} 添加了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的新回答。\n \
+{{/equals}}\
+{{#equals this.verb "update"}}\
+{{{user.name}}} 更新了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+{{#equals this.verb "delete"}}\
+{{{user.name}}} 删除了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+{{#equals this.verb "allow"}}\
+{{{user.name}}} 批准了{{#if this.target.properties.[jcr:title]}}针对问题“{{{target.displayName}}}”{{/if}}的回答。\n \
+{{/equals}}\
+-------------------------------------------------------------------------------------\n \
+{{{object.content}}}\n \
+-------------------------------------------------------------------------------------\n\n \
+请单击此链接查看针对此问题的所有回答或修改您的订阅。\n \
+{{objectReferrer}}\n \

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Widget"
+    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+    fieldDescription="When there are attachments for a piece of content, Media Walls will display a clickable thumbnail. When this is enabled and the thumbnail is clicked, the App will open a modal displaying the photo/video attachment in its entirety."
+    fieldLabel="Modal"
+    name="./modal"
+    text="Modal"
+    type="checkbox"
+    value="{Boolean}true"
+    xtype="checkbox"/>

@@ -1,0 +1,43 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div>
+    <div class="social-console-settings-tab social-console-edit-settings-tab">
+        <div class="coral-TabPanel coral-TabPanel--large" data-init="tabs">
+            <nav class="coral-TabPanel-navigation">
+                <a class="coral-TabPanel-tab is-active" data-toggle="tab">{{i18n "Community Group Theme"}}</a>
+                <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Community Group Branding"}}</a>
+            </nav>
+            <div class="coral-TabPanel-content">
+                <section class="coral-TabPanel-pane is-active">
+                    {{include this.id path="sitethemes" resourceType='social/console/components/hbs/sitethemes'}}
+                </section>
+                <section class="coral-TabPanel-pane is-active">
+                    <div class="coral-FixedColumn foundation-layout-util-vmargin">
+                        <div class="coral-FixedColumn-column">
+                            <p>{{i18n "Image will display at max width of browser x 120"}}</p>
+                            {{#include this.id resourceType='social/console/components/hbs/imageupload' authoringDisabled='true' }}
+                                { "inputname" : "pagebanner" }
+                            {{/include}}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

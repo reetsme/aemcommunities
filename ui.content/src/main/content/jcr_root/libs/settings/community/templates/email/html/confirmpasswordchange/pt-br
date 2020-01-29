@@ -1,0 +1,16 @@
+﻿subject=A senha foi atualizada
+message=<!doctype html>\n \
+<html>\n \
+<head>\n \
+<meta name="viewport" content="width=device-width">\n \
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n \
+<title>Solicitação de atualização de senha</title>\n \
+</head>\n \
+<body>\n \
+<div>\n \
+<p>Olá {{{givenName}}}</p>\n \
+<p>Sua senha foi alterada em {{dateUtil passwordChangeDate format="EEE, d MMM yyyy HH:mm:ss z"}} </p>\n \
+<p>Se você realizou essa alteração, ignore este email.</p>\n \
+</div>\n \
+</body>\n \
+</html>\n \
